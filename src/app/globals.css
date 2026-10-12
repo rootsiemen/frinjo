@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+/* Frinjo theme: deep emerald + amber gold */
+:root {
+  --brand-dark: #0a2e20;
+  --brand-darker: #071f16;
+  --brand-gold: #f5b942;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #ffffff;
+  color: #1c1917;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+.font-display {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+/* Subtle dotted texture for tinted sections */
+.dot-grid {
+  background-image: radial-gradient(rgba(180, 120, 20, 0.10) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* Gradient text for gold accents (tuned for light backgrounds) */
+.text-gold-gradient {
+  background: linear-gradient(120deg, #b45309, #d97706 60%, #92400e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
