@@ -65,7 +65,7 @@ const wrap = (title: string, body: string) => `
     <h2 style="color:#1c1917;margin:0 0 12px">${title}</h2>
     ${body}
   </div>
-  <div style="padding:16px;text-align:center;color:#78716c;font-size:12px">Websites that sell — WebStore Pro</div>
+  <div style="padding:16px;text-align:center;color:#78716c;font-size:12px">WebStore Pro</div>
 </div>`;
 
 export const verifyEmailHtml = (name: string, link: string) =>

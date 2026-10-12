@@ -23,7 +23,7 @@ export default function AboutPage() {
       <section className="bg-emerald-50 dot-grid py-16 sm:py-20">
         <div className="max-w-4xl mx-auto px-4">
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-700 mb-3">About</p>
-          <h1 className="font-display text-4xl sm:text-5xl font-bold text-stone-900">Websites that sell.</h1>
+          <h1 className="font-display text-4xl sm:text-5xl font-bold text-stone-900">About WebStore Pro.</h1>
           <p className="mt-6 text-lg text-stone-600 leading-relaxed max-w-3xl">
             I'm Raza, a web developer behind {BRAND.name}. I build complete, mobile-friendly
             ecommerce websites and business sites for clients around the world — with product

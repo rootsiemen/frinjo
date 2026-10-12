@@ -11,7 +11,7 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: `${BRAND.name} — ${BRAND.tagline}`,
   description:
-    "I build complete ecommerce websites with admin panel, online ordering, Cash on Delivery and payment integration. Websites that sell.",
+    "I build complete ecommerce websites with admin panel, online ordering, Cash on Delivery and payment integration.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -30,12 +30,8 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-stone-200">
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2.5">
-          <span className="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-300 to-amber-600 grid place-items-center font-display font-bold text-emerald-950 text-lg">W</span>
-          <span className="leading-tight">
-            <span className="block font-display font-bold text-stone-900">{BRAND.name}</span>
-            <span className="block text-[10px] uppercase tracking-widest text-amber-600">Websites that sell</span>
-          </span>
+        <Link href="/" className="flex items-center">
+          <span className="font-display font-bold text-stone-900 text-lg">{BRAND.name}</span>
         </Link>
         <nav className="hidden md:flex items-center gap-1">
           {LINKS.map(([label, href]) => (
