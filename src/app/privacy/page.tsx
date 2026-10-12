@@ -76,9 +76,9 @@ const SECTIONS: { h: string; body: string[] }[] = [
 export default function PrivacyPage() {
   return (
     <>
-      <section className="bg-emerald-50 dot-grid py-16 sm:py-20">
+      <section className="bg-orange-50 dot-grid py-16 sm:py-20">
         <div className="max-w-4xl mx-auto px-4">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-700 mb-3">Legal</p>
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-orange-700 mb-3">Legal</p>
           <h1 className="font-display text-4xl sm:text-5xl font-bold text-stone-900">Privacy Policy</h1>
           <p className="mt-4 text-stone-600">Effective date: October 1, 2026</p>
         </div>
@@ -98,7 +98,7 @@ export default function PrivacyPage() {
                   {s.body.map((p, i) =>
                     p.startsWith("- ") ? (
                       <p key={i} className="text-stone-600 leading-relaxed pl-5 relative">
-                        <span className="absolute left-0 text-amber-500 font-bold">•</span>
+                        <span className="absolute left-0 text-orange-500 font-bold">•</span>
                         {p.slice(2)}
                       </p>
                     ) : (
@@ -110,7 +110,7 @@ export default function PrivacyPage() {
             ))}
           </div>
 
-          <div className="mt-14 rounded-3xl bg-emerald-50 border border-emerald-200 p-8 text-center">
+          <div className="mt-14 rounded-3xl bg-orange-50 border border-orange-200 p-8 text-center">
             <SectionHead eyebrow="Questions?" title="We're happy to help" />
             <Link href="/contact" className={btnPrimary}>
               Contact Us <Icon name="arrow" className="w-5 h-5" />

@@ -67,7 +67,7 @@ function VerifyContent() {
             <div className="text-5xl">✅</div>
             <h1 className="font-display text-2xl font-bold text-stone-900 mt-4">Email verified!</h1>
             <p className="text-stone-500 text-sm mt-2">{message} Taking you to your account…</p>
-            <Link href="/account" className="inline-block mt-6 rounded-xl bg-emerald-700 text-white font-bold px-8 py-3 hover:bg-emerald-800">Go to My Account</Link>
+            <Link href="/account" className="inline-block mt-6 rounded-xl bg-orange-700 text-white font-bold px-8 py-3 hover:bg-orange-800">Go to My Account</Link>
           </>
         )}
         {state === "error" && (
@@ -77,16 +77,16 @@ function VerifyContent() {
             <p className="text-stone-500 text-sm mt-2">{message}</p>
             {expired || /invalid/i.test(message) ? (
               resent ? (
-                <p className="mt-6 text-sm text-emerald-700 font-medium">If that email is registered, a fresh link is on its way. Check your inbox (and spam).</p>
+                <p className="mt-6 text-sm text-orange-700 font-medium">If that email is registered, a fresh link is on its way. Check your inbox (and spam).</p>
               ) : (
                 <form onSubmit={resend} className="mt-6 space-y-3">
                   <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@example.com"
-                    className="w-full rounded-xl border border-stone-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-600" />
-                  <button className="w-full rounded-xl bg-emerald-700 text-white font-bold py-3 hover:bg-emerald-800">Send a new link</button>
+                    className="w-full rounded-xl border border-stone-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-600" />
+                  <button className="w-full rounded-xl bg-orange-700 text-white font-bold py-3 hover:bg-orange-800">Send a new link</button>
                 </form>
               )
             ) : (
-              <Link href="/login" className="inline-block mt-6 rounded-xl bg-emerald-700 text-white font-bold px-8 py-3 hover:bg-emerald-800">Back to Sign in</Link>
+              <Link href="/login" className="inline-block mt-6 rounded-xl bg-orange-700 text-white font-bold px-8 py-3 hover:bg-orange-800">Back to Sign in</Link>
             )}
           </>
         )}

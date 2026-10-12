@@ -10,7 +10,7 @@ export default function BlogContent({ blocks }: { blocks: string[] }) {
         <ul key={key} className="my-5 space-y-2.5">
           {list.map((item, i) => (
             <li key={i} className="flex gap-3 text-stone-700 leading-relaxed">
-              <span className="text-amber-500 font-bold shrink-0">•</span>
+              <span className="text-orange-500 font-bold shrink-0">•</span>
               <span>{item}</span>
             </li>
           ))}
@@ -33,7 +33,7 @@ export default function BlogContent({ blocks }: { blocks: string[] }) {
     } else if (b.startsWith("> ")) {
       flushList(`ul-${i}`);
       out.push(
-        <div key={i} className="my-6 rounded-2xl border-l-4 border-amber-400 bg-amber-50 p-5 text-stone-800 leading-relaxed">
+        <div key={i} className="my-6 rounded-2xl border-l-4 border-orange-400 bg-orange-50 p-5 text-stone-800 leading-relaxed">
           💡 {b.slice(2)}
         </div>
       );

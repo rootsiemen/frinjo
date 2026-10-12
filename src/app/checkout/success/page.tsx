@@ -17,12 +17,12 @@ export default async function CheckoutSuccessPage({
   return (
     <section className="bg-stone-50 py-24 min-h-[70vh]">
       <div className="max-w-xl mx-auto px-4 text-center">
-        <span className="mx-auto w-20 h-20 rounded-full bg-emerald-100 grid place-items-center mb-8">
-          <Icon name="check" className="w-10 h-10 text-emerald-700" />
+        <span className="mx-auto w-20 h-20 rounded-full bg-orange-100 grid place-items-center mb-8">
+          <Icon name="check" className="w-10 h-10 text-orange-700" />
         </span>
         <h1 className="font-display text-4xl font-bold text-stone-900">Order received!</h1>
         {id && (
-          <p className="mt-3 inline-block rounded-full bg-emerald-100 text-emerald-900 font-bold px-5 py-2 text-sm">
+          <p className="mt-3 inline-block rounded-full bg-orange-100 text-orange-900 font-bold px-5 py-2 text-sm">
             Order #{id}
           </p>
         )}
@@ -41,7 +41,7 @@ export default async function CheckoutSuccessPage({
           </a>
           <Link
             href="/"
-            className="inline-flex items-center gap-2 rounded-full border-2 border-stone-300 text-stone-700 font-semibold px-7 py-3 hover:border-emerald-700 hover:text-emerald-800 transition"
+            className="inline-flex items-center gap-2 rounded-full border-2 border-stone-300 text-stone-700 font-semibold px-7 py-3 hover:border-orange-700 hover:text-orange-800 transition"
           >
             Back to Home
           </Link>

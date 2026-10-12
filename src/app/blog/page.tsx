@@ -33,9 +33,9 @@ export default async function BlogPage() {
 
   return (
     <>
-      <section className="bg-emerald-50 dot-grid py-16 sm:py-20">
+      <section className="bg-orange-50 dot-grid py-16 sm:py-20">
         <div className="max-w-6xl mx-auto px-4">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-700 mb-3">Blog</p>
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-orange-700 mb-3">Blog</p>
           <h1 className="font-display text-4xl sm:text-5xl font-bold text-stone-900">Guides & Insights</h1>
           <p className="mt-4 text-lg text-stone-600 max-w-2xl">
             Practical advice on websites, ecommerce, SEO and selling online — written for business owners, not developers.
@@ -55,17 +55,17 @@ export default async function BlogPage() {
                 <Link
                   key={p.id}
                   href={`/blog/${p.slug}`}
-                  className="rounded-3xl border border-stone-200 p-7 hover:shadow-xl hover:border-emerald-200 transition group flex flex-col"
+                  className="rounded-3xl border border-stone-200 p-7 hover:shadow-xl hover:border-orange-200 transition group flex flex-col"
                 >
                   <div className="flex items-center gap-3 text-xs mb-4">
-                    <span className="font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 rounded-full px-3 py-1">{p.category}</span>
+                    <span className="font-bold uppercase tracking-wider text-orange-700 bg-orange-50 rounded-full px-3 py-1">{p.category}</span>
                     <span className="text-stone-400">{formatDate(p.createdAt.slice(0, 10))}</span>
                   </div>
-                  <h2 className="font-display text-xl font-bold text-stone-900 mb-3 group-hover:text-emerald-800 transition leading-snug">
+                  <h2 className="font-display text-xl font-bold text-stone-900 mb-3 group-hover:text-orange-800 transition leading-snug">
                     {p.title}
                   </h2>
                   <p className="text-sm text-stone-600 leading-relaxed flex-1">{p.excerpt}</p>
-                  <span className="inline-flex items-center gap-1 mt-5 text-sm font-bold text-emerald-800">
+                  <span className="inline-flex items-center gap-1 mt-5 text-sm font-bold text-orange-800">
                     Read article <Icon name="arrow" className="w-4 h-4" />
                   </span>
                 </Link>

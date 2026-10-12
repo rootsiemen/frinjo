@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
@@ -25,13 +26,13 @@ export default function AdminSidebar({ adminName }: { adminName: string }) {
   const nav = (
     <div className="flex flex-col h-full">
       <div className="p-5">
-        <div className="flex items-center gap-2.5">
-          <span className="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-300 to-amber-600 grid place-items-center font-display font-bold text-emerald-950">W</span>
-          <div>
-            <div className="font-display font-bold text-stone-900 leading-tight">WebStore Pro</div>
-            <div className="text-xs text-stone-500 truncate">{adminName}</div>
-          </div>
+        <div className="flex items-center">
+          <span className="flex items-center text-[22px] leading-none">
+            <Image src="/logo-w.png" alt="" width={44} height={44} className="h-[1em] w-[1em] shrink-0" />
+            <span className="font-display font-bold text-stone-700 tracking-[0.06em]">ebstore pro</span>
+          </span>
         </div>
+        <div className="text-xs text-stone-500 truncate mt-1 px-1">{adminName}</div>
       </div>
       <nav className="flex-1 px-3 space-y-1">
         {LINKS.map(([label, href]) => (
@@ -40,7 +41,7 @@ export default function AdminSidebar({ adminName }: { adminName: string }) {
             href={href}
             onClick={() => setOpen(false)}
             className={`block rounded-lg px-3 py-2.5 text-sm font-medium ${
-              pathname === href ? "bg-emerald-700 text-white" : "text-stone-600 hover:bg-stone-100"
+              pathname === href ? "bg-orange-700 text-white" : "text-stone-600 hover:bg-stone-100"
             }`}
           >
             {label}

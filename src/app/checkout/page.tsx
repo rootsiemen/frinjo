@@ -12,7 +12,7 @@ const pkgSlug = (name: string) => name.toLowerCase().split(" ")[0]; // starter/b
 const STEPS = ["Package", "Your Details", "Payment", "Confirm"];
 
 const input =
-  "w-full rounded-xl border border-stone-300 px-4 py-3 text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:border-emerald-600";
+  "w-full rounded-xl border border-stone-300 px-4 py-3 text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-orange-600 focus:border-orange-600";
 
 function CheckoutForm() {
   const params = useSearchParams();
@@ -118,16 +118,16 @@ function CheckoutForm() {
               <div className="flex flex-col items-center">
                 <span
                   className={`w-9 h-9 rounded-full grid place-items-center font-bold text-sm transition ${
-                    done ? "bg-emerald-600 text-white" : active ? "bg-amber-400 text-emerald-950" : "bg-stone-200 text-stone-500"
+                    done ? "bg-orange-600 text-white" : active ? "bg-orange-400 text-orange-950" : "bg-stone-200 text-stone-500"
                   }`}
                 >
                   {done ? <Icon name="check" className="w-4 h-4" /> : n}
                 </span>
-                <span className={`mt-1.5 text-[11px] sm:text-xs font-semibold ${active ? "text-emerald-900" : "text-stone-400"}`}>
+                <span className={`mt-1.5 text-[11px] sm:text-xs font-semibold ${active ? "text-orange-900" : "text-stone-400"}`}>
                   {label}
                 </span>
               </div>
-              {n < STEPS.length && <div className={`w-6 sm:w-12 h-0.5 mb-6 ${done ? "bg-emerald-600" : "bg-stone-200"}`} />}
+              {n < STEPS.length && <div className={`w-6 sm:w-12 h-0.5 mb-6 ${done ? "bg-orange-600" : "bg-stone-200"}`} />}
             </div>
           );
         })}
@@ -152,14 +152,14 @@ function CheckoutForm() {
                   type="button"
                   onClick={() => setPkg(p)}
                   className={`rounded-2xl border-2 p-6 text-left transition ${
-                    selected ? "border-emerald-700 bg-emerald-50 shadow-lg" : "border-stone-200 bg-white hover:border-emerald-300"
+                    selected ? "border-orange-700 bg-orange-50 shadow-lg" : "border-stone-200 bg-white hover:border-orange-300"
                   }`}
                 >
                   <p className="font-display font-bold text-stone-900">{p.name}</p>
-                  <p className="font-display text-3xl font-bold text-emerald-800 mt-2">${p.price}</p>
+                  <p className="font-display text-3xl font-bold text-orange-800 mt-2">${p.price}</p>
                   <p className="text-xs text-stone-500 mt-1">{p.pages} · {p.delivery}</p>
                   {p.popular && (
-                    <span className="inline-block mt-3 rounded-full bg-amber-400 text-emerald-950 text-[11px] font-bold px-3 py-1">
+                    <span className="inline-block mt-3 rounded-full bg-orange-400 text-orange-950 text-[11px] font-bold px-3 py-1">
                       ★ MOST POPULAR
                     </span>
                   )}
@@ -204,7 +204,7 @@ function CheckoutForm() {
                 type="button"
                 onClick={() => setPayMethod(p.id)}
                 className={`rounded-2xl border-2 p-5 text-left transition ${
-                  payMethod === p.id ? "border-emerald-700 bg-emerald-50 shadow" : "border-stone-200 bg-white hover:border-emerald-300"
+                  payMethod === p.id ? "border-orange-700 bg-orange-50 shadow" : "border-stone-200 bg-white hover:border-orange-300"
                 }`}
               >
                 <p className="font-bold text-stone-900">{p.name}</p>
@@ -212,8 +212,8 @@ function CheckoutForm() {
               </button>
             ))}
           </div>
-          <div className="rounded-3xl bg-emerald-50 border border-emerald-200 p-6 sm:p-8">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-700 mb-4">Send {pay.name} payment to</p>
+          <div className="rounded-3xl bg-orange-50 border border-orange-200 p-6 sm:p-8">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-orange-700 mb-4">Send {pay.name} payment to</p>
             <div className="flex items-center justify-between gap-4 rounded-2xl bg-white border border-stone-200 px-5 py-4">
               <div className="min-w-0">
                 <p className="font-mono font-bold text-lg break-all text-stone-900">{pay.account}</p>
@@ -222,14 +222,14 @@ function CheckoutForm() {
               <button
                 type="button"
                 onClick={copyAccount}
-                className="shrink-0 rounded-full bg-amber-400 text-emerald-950 text-sm font-bold px-5 py-2.5 hover:bg-amber-300 transition"
+                className="shrink-0 rounded-full bg-orange-400 text-orange-950 text-sm font-bold px-5 py-2.5 hover:bg-orange-300 transition"
               >
                 {copied ? "Copied ✓" : "Copy"}
               </button>
             </div>
             <p className="text-sm text-stone-600 mt-4 leading-relaxed">{pay.note}</p>
             <p className="mt-4 rounded-xl bg-white border border-stone-200 px-4 py-3 text-sm">
-              <span className="font-bold text-amber-700">Amount: ${pkg.price}</span>
+              <span className="font-bold text-orange-700">Amount: ${pkg.price}</span>
               <span className="text-stone-600"> — {pkg.name}</span>
             </p>
           </div>
@@ -246,7 +246,7 @@ function CheckoutForm() {
                 <p className="font-bold text-stone-900">{pkg.name}</p>
                 <p className="text-xs text-stone-500">{pkg.pages} · {pkg.delivery}</p>
               </div>
-              <p className="font-display text-2xl font-bold text-emerald-800">${pkg.price}</p>
+              <p className="font-display text-2xl font-bold text-orange-800">${pkg.price}</p>
             </div>
             <div className="text-sm text-stone-600 space-y-1.5">
               <p><span className="font-semibold text-stone-900">Name:</span> {name}</p>
@@ -286,7 +286,7 @@ function CheckoutForm() {
           <button
             type="button"
             onClick={() => { setStep((s) => s - 1); setError(""); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-            className="rounded-full border-2 border-stone-300 text-stone-700 font-semibold px-7 py-3 hover:border-emerald-700 hover:text-emerald-800 transition"
+            className="rounded-full border-2 border-stone-300 text-stone-700 font-semibold px-7 py-3 hover:border-orange-700 hover:text-orange-800 transition"
           >
             ← Back
           </button>
@@ -303,7 +303,7 @@ function CheckoutForm() {
       </div>
 
       <p className="text-center text-xs text-stone-400 mt-8">
-        Having trouble? <a href={`https://wa.me/${BRAND.whatsapp}`} target="_blank" rel="noopener noreferrer" className="text-emerald-700 font-semibold hover:underline">Message me on WhatsApp</a>
+        Having trouble? <a href={`https://wa.me/${BRAND.whatsapp}`} target="_blank" rel="noopener noreferrer" className="text-orange-700 font-semibold hover:underline">Message me on WhatsApp</a>
       </p>
     </div>
   );

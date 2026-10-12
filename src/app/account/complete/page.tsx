@@ -9,7 +9,7 @@ export default function CompleteProfilePage() {
   const [busy, setBusy] = useState(false);
   const [loading, setLoading] = useState(true);
   const set = (k: string, v: string) => setForm((f) => ({ ...f, [k]: v }));
-  const input = "mt-1.5 w-full rounded-xl border border-stone-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:border-emerald-600";
+  const input = "mt-1.5 w-full rounded-xl border border-stone-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-600 focus:border-orange-600";
 
   useEffect(() => {
     (async () => {
@@ -55,7 +55,7 @@ export default function CompleteProfilePage() {
           <input value={form.business} onChange={(e) => set("business", e.target.value)} placeholder="e.g. Clothing store, Restaurant (optional)" className={input} />
         </label>
         {error && <p className="text-sm text-red-600 bg-red-50 rounded-xl px-4 py-3">{error}</p>}
-        <button disabled={busy} className="w-full rounded-xl bg-emerald-700 text-white font-bold py-3.5 hover:bg-emerald-800 transition disabled:opacity-60">
+        <button disabled={busy} className="w-full rounded-xl bg-orange-700 text-white font-bold py-3.5 hover:bg-orange-800 transition disabled:opacity-60">
           {busy ? "Saving..." : "Complete profile →"}
         </button>
       </form>

@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function AdminForgotPasswordPage() {
@@ -88,12 +89,15 @@ export default function AdminForgotPasswordPage() {
   }
 
   const inputCls =
-    "mt-1.5 w-full rounded-xl border border-stone-300 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-600";
+    "mt-1.5 w-full rounded-xl border border-stone-300 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-600";
 
   return (
-    <div className="min-h-screen grid place-items-center bg-emerald-50 dot-grid px-4">
+    <div className="min-h-screen grid place-items-center bg-orange-50 dot-grid px-4">
       <div className="w-full max-w-sm rounded-3xl bg-white p-8 shadow-2xl">
-        <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-300 to-amber-600 grid place-items-center font-display font-bold text-emerald-950 text-xl mb-5">W</div>
+        <span className="flex items-center text-[26px] leading-none mb-5">
+          <Image src="/logo-w.png" alt="" width={52} height={52} className="h-[1em] w-[1em] shrink-0" />
+          <span className="font-display font-bold text-stone-700 tracking-[0.06em]">ebstore pro</span>
+        </span>
         <h1 className="font-display text-2xl font-bold text-stone-900">Reset Admin Password</h1>
         <p className="text-sm text-stone-500 mt-1">
           {step === 1 && "Enter the reset key from your server settings."}
@@ -111,7 +115,7 @@ export default function AdminForgotPasswordPage() {
             </label>
             <p className="mt-2 text-xs text-stone-500">Found in your hosting .env file (set it there first if missing).</p>
             {error && <p className="mt-3 text-sm text-red-600">{error}</p>}
-            <button disabled={busy} className="mt-5 w-full rounded-full bg-emerald-950 text-white font-bold py-3 hover:bg-emerald-900 disabled:opacity-40">
+            <button disabled={busy} className="mt-5 w-full rounded-full bg-orange-950 text-white font-bold py-3 hover:bg-orange-900 disabled:opacity-40">
               {busy ? "Checking…" : "Continue"}
             </button>
           </form>
@@ -127,7 +131,7 @@ export default function AdminForgotPasswordPage() {
               </select>
             </label>
             {error && <p className="mt-3 text-sm text-red-600">{error}</p>}
-            <button disabled={busy} className="mt-5 w-full rounded-full bg-emerald-950 text-white font-bold py-3 hover:bg-emerald-900 disabled:opacity-40">
+            <button disabled={busy} className="mt-5 w-full rounded-full bg-orange-950 text-white font-bold py-3 hover:bg-orange-900 disabled:opacity-40">
               {busy ? "Checking…" : "Continue"}
             </button>
           </form>
@@ -142,7 +146,7 @@ export default function AdminForgotPasswordPage() {
               <input type="password" required value={pw2} onChange={(e) => setPw2(e.target.value)} className={inputCls} />
             </label>
             {error && <p className="mt-3 text-sm text-red-600">{error}</p>}
-            <button disabled={busy} className="mt-5 w-full rounded-full bg-emerald-950 text-white font-bold py-3 hover:bg-emerald-900 disabled:opacity-40">
+            <button disabled={busy} className="mt-5 w-full rounded-full bg-orange-950 text-white font-bold py-3 hover:bg-orange-900 disabled:opacity-40">
               {busy ? "Saving…" : "Set New Password"}
             </button>
           </form>
@@ -150,8 +154,8 @@ export default function AdminForgotPasswordPage() {
 
         {step === 4 && (
           <div className="mt-6">
-            <p className="text-sm text-emerald-700 font-medium">Password updated! All other sessions were signed out.</p>
-            <Link href="/admin/login" className="mt-5 block text-center w-full rounded-full bg-emerald-950 text-white font-bold py-3 hover:bg-emerald-900">
+            <p className="text-sm text-orange-700 font-medium">Password updated! All other sessions were signed out.</p>
+            <Link href="/admin/login" className="mt-5 block text-center w-full rounded-full bg-orange-950 text-white font-bold py-3 hover:bg-orange-900">
               Back to Login
             </Link>
           </div>
@@ -159,7 +163,7 @@ export default function AdminForgotPasswordPage() {
 
         {step !== 4 && (
           <p className="mt-4 text-center text-sm">
-            <Link href="/admin/login" className="text-emerald-700 font-medium hover:underline">← Back to login</Link>
+            <Link href="/admin/login" className="text-orange-700 font-medium hover:underline">← Back to login</Link>
           </p>
         )}
       </div>

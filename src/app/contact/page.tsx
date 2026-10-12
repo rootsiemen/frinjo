@@ -40,7 +40,7 @@ function ContactForm() {
   }
 
   const input =
-    "mt-1.5 w-full rounded-xl border border-stone-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:border-emerald-600";
+    "mt-1.5 w-full rounded-xl border border-stone-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-600 focus:border-orange-600";
 
   return (
     <form onSubmit={submit} className="rounded-3xl bg-white border border-stone-200 shadow-sm p-7 sm:p-9">
@@ -70,7 +70,7 @@ function ContactForm() {
           className={input} />
       </label>
       {error && <p className="mt-4 text-sm text-red-600">{error}</p>}
-      <button disabled={busy} className="mt-6 w-full rounded-full bg-emerald-950 text-white font-bold py-4 hover:bg-emerald-900 disabled:opacity-40 transition inline-flex justify-center items-center gap-2">
+      <button disabled={busy} className="mt-6 w-full rounded-full bg-orange-950 text-white font-bold py-4 hover:bg-orange-900 disabled:opacity-40 transition inline-flex justify-center items-center gap-2">
         {busy ? "Sending…" : (<>Send Inquiry <Icon name="arrow" className="w-5 h-5" /></>)}
       </button>
       <p className="mt-4 text-xs text-center text-stone-500">I usually reply within a few hours. No spam, ever.</p>
@@ -82,9 +82,9 @@ export default function ContactPage() {
   const waHref = `https://wa.me/${BRAND.whatsapp}?text=${encodeURIComponent("Hi! I want a website for my business.")}`;
   return (
     <>
-      <section className="bg-emerald-50 dot-grid py-16 sm:py-20">
+      <section className="bg-orange-50 dot-grid py-16 sm:py-20">
         <div className="max-w-6xl mx-auto px-4">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-700 mb-3">Contact</p>
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-orange-700 mb-3">Contact</p>
           <h1 className="font-display text-4xl sm:text-5xl font-bold text-stone-900">Let's build your website</h1>
           <p className="mt-4 text-stone-600 max-w-2xl">Fill in the form — or just message me directly on WhatsApp. Either way, I reply fast.</p>
         </div>
@@ -97,7 +97,7 @@ export default function ContactPage() {
             </Suspense>
           </div>
           <aside className="lg:col-span-2 space-y-5">
-            <div className="rounded-3xl bg-emerald-50 border border-emerald-200 p-8">
+            <div className="rounded-3xl bg-orange-50 border border-orange-200 p-8">
               <h2 className="font-display text-xl font-bold mb-4 text-stone-900">Prefer to chat?</h2>
               <p className="text-stone-600 text-sm mb-6">Message me on WhatsApp with your business name and what you want to sell — I'll take it from there.</p>
               <a href={waHref} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-[#25D366] text-white font-bold px-6 py-3 hover:brightness-110 transition">
@@ -108,9 +108,9 @@ export default function ContactPage() {
             <div className="rounded-3xl bg-white border border-stone-200 p-8">
               <h2 className="font-bold text-stone-900 mb-4">What happens next?</h2>
               <ol className="space-y-3 text-sm text-stone-600">
-                <li className="flex gap-3"><span className="font-bold text-emerald-700">1.</span> I read your inquiry and reply with questions or a quote.</li>
-                <li className="flex gap-3"><span className="font-bold text-emerald-700">2.</span> We agree on the package, timeline and design direction.</li>
-                <li className="flex gap-3"><span className="font-bold text-emerald-700">3.</span> I build your website and launch it with you.</li>
+                <li className="flex gap-3"><span className="font-bold text-orange-700">1.</span> I read your inquiry and reply with questions or a quote.</li>
+                <li className="flex gap-3"><span className="font-bold text-orange-700">2.</span> We agree on the package, timeline and design direction.</li>
+                <li className="flex gap-3"><span className="font-bold text-orange-700">3.</span> I build your website and launch it with you.</li>
               </ol>
             </div>
           </aside>

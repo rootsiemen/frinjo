@@ -29,7 +29,7 @@ export default function PortfolioListPage() {
           <h1 className="font-display text-3xl font-bold text-stone-900">Portfolio</h1>
           <p className="text-stone-500 mt-1 text-sm">{items.length} items</p>
         </div>
-        <Link href="/admin/portfolio/new" className="rounded-full bg-emerald-950 text-white text-sm font-bold px-5 py-2.5 hover:bg-emerald-900">
+        <Link href="/admin/portfolio/new" className="rounded-full bg-orange-950 text-white text-sm font-bold px-5 py-2.5 hover:bg-orange-900">
           + Add Item
         </Link>
       </div>
@@ -40,10 +40,10 @@ export default function PortfolioListPage() {
               <div className="min-w-0">
                 <p className="font-bold text-stone-900">{p.title}</p>
                 <p className="text-sm text-stone-500 mt-1 line-clamp-2 max-w-xl">{p.description}</p>
-                {p.link && <a href={p.link} target="_blank" rel="noopener noreferrer" className="text-xs text-emerald-700 underline">{p.link}</a>}
+                {p.link && <a href={p.link} target="_blank" rel="noopener noreferrer" className="text-xs text-orange-700 underline">{p.link}</a>}
               </div>
               <div className="flex gap-2 items-start">
-                <Link href={`/admin/portfolio/${p.id}`} className="text-xs font-semibold rounded-full border border-stone-300 px-4 py-1.5 hover:border-emerald-600 hover:text-emerald-700">Edit</Link>
+                <Link href={`/admin/portfolio/${p.id}`} className="text-xs font-semibold rounded-full border border-stone-300 px-4 py-1.5 hover:border-orange-600 hover:text-orange-700">Edit</Link>
                 <button onClick={() => remove(p.id)} className="text-xs font-semibold rounded-full border border-red-200 text-red-600 px-4 py-1.5 hover:bg-red-50">Delete</button>
               </div>
             </div>

@@ -7,9 +7,9 @@ interface Inquiry {
 }
 
 const STATUS_STYLE: Record<string, string> = {
-  new: "bg-amber-100 text-amber-800",
+  new: "bg-orange-100 text-orange-800",
   contacted: "bg-blue-100 text-blue-800",
-  done: "bg-emerald-100 text-emerald-800",
+  done: "bg-orange-100 text-orange-800",
 };
 
 export default function InquiriesPage() {
@@ -61,13 +61,13 @@ export default function InquiriesPage() {
                   {q.status}
                 </span>
               </div>
-              {q.package && <p className="mt-2 text-sm"><span className="font-semibold text-emerald-800">Interested in:</span> {q.package}</p>}
+              {q.package && <p className="mt-2 text-sm"><span className="font-semibold text-orange-800">Interested in:</span> {q.package}</p>}
               <p className="mt-3 text-sm text-stone-600 whitespace-pre-wrap bg-stone-50 rounded-xl p-4">{q.message}</p>
               <p className="mt-2 text-xs text-stone-400">{new Date(q.createdAt).toLocaleString()}</p>
               <div className="mt-4 flex flex-wrap gap-2">
                 {["new", "contacted", "done"].filter((s) => s !== q.status).map((s) => (
                   <button key={s} onClick={() => setStatus(q.id, s)}
-                    className="text-xs font-semibold rounded-full border border-stone-300 px-4 py-1.5 hover:border-emerald-600 hover:text-emerald-700">
+                    className="text-xs font-semibold rounded-full border border-stone-300 px-4 py-1.5 hover:border-orange-600 hover:text-orange-700">
                     Mark {s}
                   </button>
                 ))}

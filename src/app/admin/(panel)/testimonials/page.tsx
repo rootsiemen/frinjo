@@ -39,21 +39,21 @@ export default function TestimonialsListPage() {
       <div key={t.id} className="rounded-2xl bg-white border border-stone-200 p-6 flex flex-wrap justify-between gap-4">
         <div className="min-w-0">
           <p className="font-bold text-stone-900">
-            {t.name} <span className="text-amber-500">{"★".repeat(t.rating)}</span>{" "}
+            {t.name} <span className="text-orange-500">{"★".repeat(t.rating)}</span>{" "}
             {t.status === "pending" && (
-              <span className="text-xs font-semibold rounded-full px-2.5 py-0.5 bg-amber-100 text-amber-700">new feedback</span>
+              <span className="text-xs font-semibold rounded-full px-2.5 py-0.5 bg-orange-100 text-orange-700">new feedback</span>
             )}
           </p>
           <p className="text-sm text-stone-500 mt-1 line-clamp-2 max-w-xl">“{t.text}”</p>
         </div>
         <div className="flex gap-2 items-start flex-wrap">
           {t.status === "pending" && (
-            <button onClick={() => setStatus(t.id, "approved")} className="text-xs font-semibold rounded-full bg-emerald-950 text-white px-4 py-1.5 hover:bg-emerald-800">Approve</button>
+            <button onClick={() => setStatus(t.id, "approved")} className="text-xs font-semibold rounded-full bg-orange-950 text-white px-4 py-1.5 hover:bg-orange-800">Approve</button>
           )}
           {t.status === "approved" && (
-            <button onClick={() => setStatus(t.id, "pending")} className="text-xs font-semibold rounded-full border border-stone-300 px-4 py-1.5 hover:border-amber-500 hover:text-amber-600">Hide</button>
+            <button onClick={() => setStatus(t.id, "pending")} className="text-xs font-semibold rounded-full border border-stone-300 px-4 py-1.5 hover:border-orange-500 hover:text-orange-600">Hide</button>
           )}
-          <Link href={`/admin/testimonials/${t.id}`} className="text-xs font-semibold rounded-full border border-stone-300 px-4 py-1.5 hover:border-emerald-600 hover:text-emerald-700">Edit</Link>
+          <Link href={`/admin/testimonials/${t.id}`} className="text-xs font-semibold rounded-full border border-stone-300 px-4 py-1.5 hover:border-orange-600 hover:text-orange-700">Edit</Link>
           <button onClick={() => remove(t.id)} className="text-xs font-semibold rounded-full border border-red-200 text-red-600 px-4 py-1.5 hover:bg-red-50">Delete</button>
         </div>
       </div>
@@ -67,7 +67,7 @@ export default function TestimonialsListPage() {
           <h1 className="font-display text-3xl font-bold text-stone-900">Testimonials</h1>
           <p className="text-stone-500 mt-1 text-sm">{approved.length} approved · {pending.length} pending feedback</p>
         </div>
-        <Link href="/admin/testimonials/new" className="rounded-full bg-emerald-950 text-white text-sm font-bold px-5 py-2.5 hover:bg-emerald-900">
+        <Link href="/admin/testimonials/new" className="rounded-full bg-orange-950 text-white text-sm font-bold px-5 py-2.5 hover:bg-orange-900">
           + Add Testimonial
         </Link>
       </div>

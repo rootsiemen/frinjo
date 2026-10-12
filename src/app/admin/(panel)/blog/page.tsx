@@ -29,7 +29,7 @@ export default function BlogListPage() {
           <h1 className="font-display text-3xl font-bold text-stone-900">Blog Posts</h1>
           <p className="text-stone-500 mt-1 text-sm">{items.length} posts</p>
         </div>
-        <Link href="/admin/blog/new" className="rounded-full bg-emerald-950 text-white text-sm font-bold px-5 py-2.5 hover:bg-emerald-900">
+        <Link href="/admin/blog/new" className="rounded-full bg-orange-950 text-white text-sm font-bold px-5 py-2.5 hover:bg-orange-900">
           + New Post
         </Link>
       </div>
@@ -40,7 +40,7 @@ export default function BlogListPage() {
               <div className="min-w-0">
                 <p className="font-bold text-stone-900">
                   {p.title}{" "}
-                  <span className={`text-xs font-semibold rounded-full px-2.5 py-0.5 ${p.status === "published" ? "bg-emerald-100 text-emerald-700" : "bg-amber-100 text-amber-700"}`}>
+                  <span className={`text-xs font-semibold rounded-full px-2.5 py-0.5 ${p.status === "published" ? "bg-orange-100 text-orange-700" : "bg-orange-100 text-orange-700"}`}>
                     {p.status}
                   </span>
                 </p>
@@ -48,9 +48,9 @@ export default function BlogListPage() {
               </div>
               <div className="flex gap-2 items-start">
                 {p.status === "published" && (
-                  <a href={`/blog/${p.slug}`} target="_blank" rel="noopener noreferrer" className="text-xs font-semibold rounded-full border border-stone-300 px-4 py-1.5 hover:border-emerald-600 hover:text-emerald-700">View</a>
+                  <a href={`/blog/${p.slug}`} target="_blank" rel="noopener noreferrer" className="text-xs font-semibold rounded-full border border-stone-300 px-4 py-1.5 hover:border-orange-600 hover:text-orange-700">View</a>
                 )}
-                <Link href={`/admin/blog/${p.id}`} className="text-xs font-semibold rounded-full border border-stone-300 px-4 py-1.5 hover:border-emerald-600 hover:text-emerald-700">Edit</Link>
+                <Link href={`/admin/blog/${p.id}`} className="text-xs font-semibold rounded-full border border-stone-300 px-4 py-1.5 hover:border-orange-600 hover:text-orange-700">Edit</Link>
                 <button onClick={() => remove(p.id)} className="text-xs font-semibold rounded-full border border-red-200 text-red-600 px-4 py-1.5 hover:bg-red-50">Delete</button>
               </div>
             </div>

@@ -5,9 +5,9 @@ import { Icon, btnPrimary } from "@/components/ui";
 export const dynamic = "force-dynamic";
 
 const HUES = [
-  "from-emerald-500 to-emerald-700",
-  "from-amber-500 to-orange-700",
-  "from-teal-500 to-emerald-700",
+  "from-orange-500 to-orange-700",
+  "from-orange-500 to-orange-700",
+  "from-teal-500 to-orange-700",
   "from-stone-400 to-stone-600",
 ];
 
@@ -17,9 +17,9 @@ export default async function PortfolioPage() {
 
   return (
     <>
-      <section className="bg-emerald-50 dot-grid py-16 sm:py-20">
+      <section className="bg-orange-50 dot-grid py-16 sm:py-20">
         <div className="max-w-6xl mx-auto px-4">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-700 mb-3">Portfolio</p>
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-orange-700 mb-3">Portfolio</p>
           <h1 className="font-display text-4xl sm:text-5xl font-bold text-stone-900">Websites I've built</h1>
           <p className="mt-4 text-stone-600 max-w-2xl">Real projects for real clients — each one designed, built and launched end to end.</p>
         </div>
@@ -43,7 +43,7 @@ export default async function PortfolioPage() {
                     <h2 className="font-display text-2xl font-bold text-stone-900 mb-3">{p.title}</h2>
                     <p className="text-stone-600 leading-relaxed mb-6">{p.description}</p>
                     {p.link && (
-                      <a href={p.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-emerald-700 font-semibold hover:text-emerald-900">
+                      <a href={p.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-orange-700 font-semibold hover:text-orange-900">
                         Visit live site <Icon name="arrow" className="w-4 h-4" />
                       </a>
                     )}
@@ -52,7 +52,7 @@ export default async function PortfolioPage() {
               ))}
             </div>
           )}
-          <div className="mt-14 rounded-3xl bg-emerald-50 border border-emerald-200 p-10 text-center">
+          <div className="mt-14 rounded-3xl bg-orange-50 border border-orange-200 p-10 text-center">
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-stone-900">Your project could be next.</h2>
             <p className="mt-3 text-stone-600">Tell me what you want to sell — I'll handle the rest.</p>
             <Link href="/contact" className={`${btnPrimary} mt-6`}>Get a Free Quote <Icon name="arrow" className="w-5 h-5" /></Link>

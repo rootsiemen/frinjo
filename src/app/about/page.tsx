@@ -20,9 +20,9 @@ export default function AboutPage() {
   const waHref = `https://wa.me/${BRAND.whatsapp}?text=${encodeURIComponent("Hi! I'd like to discuss a website project.")}`;
   return (
     <>
-      <section className="bg-emerald-50 dot-grid py-16 sm:py-20">
+      <section className="bg-orange-50 dot-grid py-16 sm:py-20">
         <div className="max-w-4xl mx-auto px-4">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-700 mb-3">About</p>
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-orange-700 mb-3">About</p>
           <h1 className="font-display text-4xl sm:text-5xl font-bold text-stone-900">About WebStore Pro.</h1>
           <p className="mt-6 text-lg text-stone-600 leading-relaxed max-w-3xl">
             I'm Raza, a web developer behind {BRAND.name}. I build complete, mobile-friendly
@@ -46,8 +46,8 @@ export default function AboutPage() {
           <SectionHead eyebrow="How I work" title="Simple, honest, fast" />
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {VALUES.map((v) => (
-              <div key={v.title} className="rounded-3xl border border-stone-200 p-7 hover:shadow-xl hover:border-emerald-200 transition">
-                <span className="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-800 grid place-items-center mb-4">
+              <div key={v.title} className="rounded-3xl border border-stone-200 p-7 hover:shadow-xl hover:border-orange-200 transition">
+                <span className="w-12 h-12 rounded-2xl bg-orange-100 text-orange-800 grid place-items-center mb-4">
                   <Icon name={v.icon} className="w-6 h-6" />
                 </span>
                 <h3 className="font-display text-lg font-bold text-stone-900 mb-2">{v.title}</h3>
@@ -71,7 +71,7 @@ export default function AboutPage() {
               "Launch support & walkthrough",
             ].map((f) => (
               <div key={f} className="flex items-center gap-3 rounded-2xl bg-white border border-stone-200 p-5">
-                <span className="w-8 h-8 rounded-full bg-emerald-100 text-emerald-800 grid place-items-center shrink-0">
+                <span className="w-8 h-8 rounded-full bg-orange-100 text-orange-800 grid place-items-center shrink-0">
                   <Icon name="check" className="w-4 h-4" />
                 </span>
                 <p className="font-semibold text-stone-800 text-sm">{f}</p>
@@ -79,7 +79,7 @@ export default function AboutPage() {
             ))}
           </div>
           <div className="text-center mt-10">
-            <Link href="/contact" className="inline-flex items-center gap-2 rounded-full bg-emerald-950 text-white font-bold px-8 py-3.5 hover:bg-emerald-900 transition">
+            <Link href="/contact" className="inline-flex items-center gap-2 rounded-full bg-orange-950 text-white font-bold px-8 py-3.5 hover:bg-orange-900 transition">
               Start Your Project <Icon name="arrow" className="w-5 h-5" />
             </Link>
           </div>

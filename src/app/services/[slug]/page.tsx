@@ -30,20 +30,20 @@ export default async function ServiceDetailPage({
   return (
     <>
       {/* Hero */}
-      <section className="bg-emerald-50 dot-grid py-16 sm:py-20">
+      <section className="bg-orange-50 dot-grid py-16 sm:py-20">
         <div className="max-w-6xl mx-auto px-4">
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 text-sm text-stone-500 hover:text-amber-600 transition mb-6"
+            className="inline-flex items-center gap-2 text-sm text-stone-500 hover:text-orange-600 transition mb-6"
           >
             ← All services
           </Link>
           <div className="flex items-start gap-5">
-            <span className="w-16 h-16 rounded-2xl bg-amber-400 text-emerald-950 grid place-items-center shrink-0">
+            <span className="w-16 h-16 rounded-2xl bg-orange-400 text-orange-950 grid place-items-center shrink-0">
               <Icon name={service.icon} className="w-8 h-8" />
             </span>
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-700 mb-2">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-orange-700 mb-2">
                 Service {String(idx + 1).padStart(2, "0")} of {String(SERVICES.length).padStart(2, "0")}
               </p>
               <h1 className="font-display text-4xl sm:text-5xl font-bold text-stone-900">
@@ -82,9 +82,9 @@ export default async function ServiceDetailPage({
             {service.features.map((f, i) => (
               <div
                 key={f}
-                className="rounded-2xl border border-stone-200 p-6 hover:shadow-lg hover:border-emerald-200 transition"
+                className="rounded-2xl border border-stone-200 p-6 hover:shadow-lg hover:border-orange-200 transition"
               >
-                <span className="w-9 h-9 rounded-full bg-emerald-100 text-emerald-800 font-display font-bold grid place-items-center mb-3 text-sm">
+                <span className="w-9 h-9 rounded-full bg-orange-100 text-orange-800 font-display font-bold grid place-items-center mb-3 text-sm">
                   {i + 1}
                 </span>
                 <p className="font-semibold text-stone-900 leading-relaxed">{f}</p>
@@ -105,7 +105,7 @@ export default async function ServiceDetailPage({
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 rounded-full bg-emerald-950 text-white font-bold px-7 py-3.5 hover:bg-emerald-900 transition"
+              className="inline-flex items-center gap-2 rounded-full bg-orange-950 text-white font-bold px-7 py-3.5 hover:bg-orange-900 transition"
             >
               Contact Me
             </Link>
@@ -122,26 +122,26 @@ export default async function ServiceDetailPage({
               <Link
                 key={s.slug}
                 href={`/services/${s.slug}`}
-                className="rounded-3xl border border-stone-200 p-7 hover:shadow-xl hover:border-emerald-200 transition group"
+                className="rounded-3xl border border-stone-200 p-7 hover:shadow-xl hover:border-orange-200 transition group"
               >
-                <span className="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-800 grid place-items-center mb-4">
+                <span className="w-12 h-12 rounded-2xl bg-orange-100 text-orange-800 grid place-items-center mb-4">
                   <Icon name={s.icon} className="w-6 h-6" />
                 </span>
-                <h3 className="font-display text-xl font-bold text-stone-900 mb-2 group-hover:text-emerald-800 transition">
+                <h3 className="font-display text-xl font-bold text-stone-900 mb-2 group-hover:text-orange-800 transition">
                   {s.title}
                 </h3>
                 <p className="text-sm text-stone-600 leading-relaxed">{s.desc}</p>
-                <span className="inline-flex items-center gap-1 mt-4 text-sm font-bold text-emerald-800">
+                <span className="inline-flex items-center gap-1 mt-4 text-sm font-bold text-orange-800">
                   Learn more <Icon name="arrow" className="w-4 h-4" />
                 </span>
               </Link>
             ))}
           </div>
           <div className="flex justify-between mt-10 text-sm font-semibold">
-            <Link href={`/services/${prev.slug}`} className="text-stone-500 hover:text-emerald-800 transition">
+            <Link href={`/services/${prev.slug}`} className="text-stone-500 hover:text-orange-800 transition">
               ← {prev.title}
             </Link>
-            <Link href={`/services/${next.slug}`} className="text-stone-500 hover:text-emerald-800 transition">
+            <Link href={`/services/${next.slug}`} className="text-stone-500 hover:text-orange-800 transition">
               {next.title} →
             </Link>
           </div>

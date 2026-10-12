@@ -10,7 +10,7 @@ export default function SignupPage() {
   const [busy, setBusy] = useState(false);
   const [checkEmail, setCheckEmail] = useState(false);
   const set = (k: string, v: string) => setForm((f) => ({ ...f, [k]: v }));
-  const input = "mt-1.5 w-full rounded-xl border border-stone-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:border-emerald-600";
+  const input = "mt-1.5 w-full rounded-xl border border-stone-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-600 focus:border-orange-600";
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -39,7 +39,7 @@ export default function SignupPage() {
             Click it to activate your account, then sign in.
           </p>
           <p className="text-stone-400 text-xs mt-3">Didn't get it? Check spam, or try signing in to resend.</p>
-          <Link href="/login" className="inline-block mt-6 rounded-xl bg-emerald-700 text-white font-bold px-8 py-3 hover:bg-emerald-800">Go to Sign in</Link>
+          <Link href="/login" className="inline-block mt-6 rounded-xl bg-orange-700 text-white font-bold px-8 py-3 hover:bg-orange-800">Go to Sign in</Link>
         </div>
       </div>
     );
@@ -60,7 +60,7 @@ export default function SignupPage() {
           <input required type="password" minLength={6} value={form.password} onChange={(e) => set("password", e.target.value)} placeholder="At least 6 characters" className={input} />
         </label>
         {error && <p className="text-sm text-red-600 bg-red-50 rounded-xl px-4 py-3">{error}</p>}
-        <button disabled={busy} className="w-full rounded-xl bg-emerald-700 text-white font-bold py-3.5 hover:bg-emerald-800 transition disabled:opacity-60">
+        <button disabled={busy} className="w-full rounded-xl bg-orange-700 text-white font-bold py-3.5 hover:bg-orange-800 transition disabled:opacity-60">
           {busy ? "Creating account..." : "Create account"}
         </button>
         <div className="flex items-center gap-3 text-xs text-stone-400">
@@ -72,7 +72,7 @@ export default function SignupPage() {
           <svg className="w-5 h-5" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.5 12.3c0-.9-.1-1.5-.3-2.3H12v4.5h6.5c-.1 1.1-.8 2.7-2.4 3.8l-.1.1 3.5 2.7.2.1c2.2-2 3.8-5 3.8-8.9z"/><path fill="#34A853" d="M12 24c3.2 0 6-1.1 7.9-2.9l-3.8-2.9c-1 .7-2.4 1.2-4.1 1.2-3.1 0-5.8-2.1-6.8-5l-.1.1-3.7 2.9v.1C3.3 21.3 7.3 24 12 24z"/><path fill="#FBBC05" d="M5.2 14.4c-.2-.7-.4-1.5-.4-2.4s.1-1.7.4-2.4l-.1-.1-3.7-2.9-.1.1C.5 8.2 0 10 0 12s.5 3.8 1.3 5.4l3.9-3z"/><path fill="#EA4335" d="M12 4.7c1.8 0 3 .8 3.7 1.4l3.3-3.2C17.9 1.1 15.2 0 12 0 7.3 0 3.3 2.7 1.3 6.6l3.9 3c1-2.9 3.7-4.9 6.8-4.9z"/></svg>
           Continue with Google
         </a>
-        <p className="text-sm text-stone-500 text-center">Already have an account? <Link href="/login" className="text-emerald-700 font-semibold underline">Sign in</Link></p>
+        <p className="text-sm text-stone-500 text-center">Already have an account? <Link href="/login" className="text-orange-700 font-semibold underline">Sign in</Link></p>
       </form>
     </div>
   );

@@ -47,7 +47,7 @@ export default function AccountPage() {
       {orders.length === 0 ? (
         <div className="rounded-3xl bg-white border border-stone-200 p-8 text-center">
           <p className="text-stone-500 text-sm">No orders yet. Ready to get your website built?</p>
-          <Link href="/pricing" className="inline-block mt-4 rounded-xl bg-emerald-700 text-white font-bold px-6 py-3 hover:bg-emerald-800 transition">See packages</Link>
+          <Link href="/pricing" className="inline-block mt-4 rounded-xl bg-orange-700 text-white font-bold px-6 py-3 hover:bg-orange-800 transition">See packages</Link>
         </div>
       ) : (
         <div className="space-y-4">
@@ -59,7 +59,7 @@ export default function AccountPage() {
               </div>
               <div className="text-right">
                 <p className="font-display font-bold text-lg text-stone-900">${o.amount}</p>
-                <span className={`text-xs font-bold px-3 py-1 rounded-full ${o.status === "paid" ? "bg-emerald-100 text-emerald-700" : "bg-amber-100 text-amber-700"}`}>{o.status}</span>
+                <span className={`text-xs font-bold px-3 py-1 rounded-full ${o.status === "paid" ? "bg-orange-100 text-orange-700" : "bg-orange-100 text-orange-700"}`}>{o.status}</span>
               </div>
             </div>
           ))}

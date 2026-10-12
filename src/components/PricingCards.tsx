@@ -14,12 +14,12 @@ export default function PricingCards() {
             key={p.name}
             className={`relative rounded-3xl p-8 flex flex-col transition hover:-translate-y-1 ${
               p.popular
-                ? "bg-emerald-50 border border-emerald-200 text-stone-900 shadow-xl shadow-emerald-900/10 ring-2 ring-amber-400"
+                ? "bg-orange-50 border border-orange-200 text-stone-900 shadow-xl shadow-orange-900/10 ring-2 ring-orange-400"
                 : "bg-white border border-stone-200 shadow-sm"
             }`}
           >
             {p.popular && (
-              <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-amber-400 text-emerald-950 text-xs font-bold px-4 py-1.5 uppercase tracking-wider">
+              <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-orange-400 text-orange-950 text-xs font-bold px-4 py-1.5 uppercase tracking-wider">
                 ★ Most Popular
               </span>
             )}
@@ -30,7 +30,7 @@ export default function PricingCards() {
             <ul className="mt-6 space-y-3 flex-1">
               {p.features.map((f) => (
                 <li key={f} className="flex gap-2.5 text-sm text-stone-700">
-                  <Icon name="check" className="w-5 h-5 shrink-0 text-emerald-600" />
+                  <Icon name="check" className="w-5 h-5 shrink-0 text-orange-600" />
                   {f}
                 </li>
               ))}

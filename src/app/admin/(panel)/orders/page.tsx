@@ -8,8 +8,8 @@ interface Order {
 }
 
 const STATUS_STYLE: Record<string, string> = {
-  pending: "bg-amber-100 text-amber-800",
-  paid: "bg-emerald-100 text-emerald-800",
+  pending: "bg-orange-100 text-orange-800",
+  paid: "bg-orange-100 text-orange-800",
   cancelled: "bg-stone-200 text-stone-600",
 };
 
@@ -56,7 +56,7 @@ export default function OrdersPage() {
     <div>
       <h1 className="font-display text-3xl font-bold text-stone-900">Orders</h1>
       <p className="text-stone-500 mt-1 text-sm">
-        {items.length} total · <span className="font-semibold text-amber-700">{pending} awaiting payment verification</span>
+        {items.length} total · <span className="font-semibold text-orange-700">{pending} awaiting payment verification</span>
       </p>
       {loading ? (
         <p className="mt-8 text-stone-500">Loading…</p>
@@ -90,7 +90,7 @@ export default function OrdersPage() {
                 {o.status === "pending" && (
                   <button
                     onClick={() => setStatus(o.id, "paid")}
-                    className="rounded-full bg-emerald-600 text-white text-xs font-bold px-4 py-2 hover:bg-emerald-700 transition"
+                    className="rounded-full bg-orange-600 text-white text-xs font-bold px-4 py-2 hover:bg-orange-700 transition"
                   >
                     ✓ Mark as Paid
                   </button>
@@ -106,7 +106,7 @@ export default function OrdersPage() {
                 {o.status !== "pending" && (
                   <button
                     onClick={() => setStatus(o.id, "pending")}
-                    className="rounded-full bg-amber-100 text-amber-800 text-xs font-bold px-4 py-2 hover:bg-amber-200 transition"
+                    className="rounded-full bg-orange-100 text-orange-800 text-xs font-bold px-4 py-2 hover:bg-orange-200 transition"
                   >
                     Back to Pending
                   </button>

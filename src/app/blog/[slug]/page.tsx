@@ -80,13 +80,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <section className="bg-emerald-50 dot-grid py-14 sm:py-16">
+      <section className="bg-orange-50 dot-grid py-14 sm:py-16">
         <div className="max-w-3xl mx-auto px-4">
-          <Link href="/blog" className="inline-flex items-center gap-2 text-sm text-stone-500 hover:text-amber-600 transition mb-6">
+          <Link href="/blog" className="inline-flex items-center gap-2 text-sm text-stone-500 hover:text-orange-600 transition mb-6">
             ← All articles
           </Link>
           <div className="flex items-center gap-3 text-xs mb-4">
-            <span className="font-bold uppercase tracking-wider text-emerald-950 bg-amber-400 rounded-full px-3 py-1">{post.category}</span>
+            <span className="font-bold uppercase tracking-wider text-orange-950 bg-orange-400 rounded-full px-3 py-1">{post.category}</span>
             <span className="text-stone-500">{formatDate(post.createdAt.slice(0, 10))} · {estimateReadTime(post.content)}</span>
           </div>
           <h1 className="font-display text-3xl sm:text-4xl font-bold text-stone-900 leading-tight">{post.title}</h1>
@@ -98,8 +98,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         <div className="max-w-3xl mx-auto px-4">
           <BlogContent blocks={blocks} />
 
-          <div className="mt-14 rounded-3xl bg-emerald-50 border border-emerald-200 p-8 text-center">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-700 mb-3">Need a website?</p>
+          <div className="mt-14 rounded-3xl bg-orange-50 border border-orange-200 p-8 text-center">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-orange-700 mb-3">Need a website?</p>
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-stone-900 mb-4">Let's build yours — in days, not months.</h2>
             <div className="flex flex-wrap justify-center gap-4 mt-6">
               <Link href="/pricing" className={btnPrimary}>
@@ -119,10 +119,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <h2 className="font-display text-2xl font-bold text-stone-900 mb-8">Keep reading</h2>
             <div className="grid gap-5 md:grid-cols-3">
               {others.map((o) => (
-                <Link key={o.id} href={`/blog/${o.slug}`} className="rounded-3xl border border-stone-200 bg-white p-6 hover:shadow-xl hover:border-emerald-200 transition group">
-                  <span className="text-xs font-bold uppercase tracking-wider text-emerald-700">{o.category}</span>
-                  <h3 className="font-display text-lg font-bold text-stone-900 mt-2 group-hover:text-emerald-800 transition leading-snug">{o.title}</h3>
-                  <span className="inline-flex items-center gap-1 mt-3 text-sm font-bold text-emerald-800">
+                <Link key={o.id} href={`/blog/${o.slug}`} className="rounded-3xl border border-stone-200 bg-white p-6 hover:shadow-xl hover:border-orange-200 transition group">
+                  <span className="text-xs font-bold uppercase tracking-wider text-orange-700">{o.category}</span>
+                  <h3 className="font-display text-lg font-bold text-stone-900 mt-2 group-hover:text-orange-800 transition leading-snug">{o.title}</h3>
+                  <span className="inline-flex items-center gap-1 mt-3 text-sm font-bold text-orange-800">
                     Read <Icon name="arrow" className="w-4 h-4" />
                   </span>
                 </Link>

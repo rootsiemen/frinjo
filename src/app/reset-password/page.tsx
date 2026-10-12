@@ -36,7 +36,7 @@ function ResetContent() {
     }
   }
 
-  const input = "mt-1.5 w-full rounded-xl border border-stone-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-600";
+  const input = "mt-1.5 w-full rounded-xl border border-stone-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-600";
 
   return (
     <div className="max-w-md mx-auto px-4 py-16">
@@ -45,13 +45,13 @@ function ResetContent() {
         {!token ? (
           <div className="text-center">
             <p className="text-stone-600">This link is missing its token.</p>
-            <Link href="/forgot-password" className="inline-block mt-4 rounded-xl bg-emerald-700 text-white font-bold px-8 py-3 hover:bg-emerald-800">Request a new link</Link>
+            <Link href="/forgot-password" className="inline-block mt-4 rounded-xl bg-orange-700 text-white font-bold px-8 py-3 hover:bg-orange-800">Request a new link</Link>
           </div>
         ) : done ? (
           <div className="text-center">
             <div className="text-5xl">✅</div>
             <p className="mt-4 text-stone-700 font-medium">Password updated! Taking you to sign in…</p>
-            <Link href="/login" className="inline-block mt-4 rounded-xl bg-emerald-700 text-white font-bold px-8 py-3 hover:bg-emerald-800">Sign in now</Link>
+            <Link href="/login" className="inline-block mt-4 rounded-xl bg-orange-700 text-white font-bold px-8 py-3 hover:bg-orange-800">Sign in now</Link>
           </div>
         ) : (
           <form onSubmit={submit} className="space-y-5">
@@ -62,7 +62,7 @@ function ResetContent() {
               <input required type="password" value={pw2} onChange={(e) => setPw2(e.target.value)} placeholder="Repeat password" className={input} />
             </label>
             {error && <p className="text-sm text-red-600 bg-red-50 rounded-xl px-4 py-3">{error}</p>}
-            <button disabled={busy} className="w-full rounded-xl bg-emerald-700 text-white font-bold py-3.5 hover:bg-emerald-800 transition disabled:opacity-60">
+            <button disabled={busy} className="w-full rounded-xl bg-orange-700 text-white font-bold py-3.5 hover:bg-orange-800 transition disabled:opacity-60">
               {busy ? "Saving…" : "Set new password"}
             </button>
           </form>

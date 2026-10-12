@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
-/* WebStore Pro theme: deep emerald + amber gold */
+/* WebStore Pro theme: warm orange + stone neutrals */
 :root {
-  --brand-dark: #0a2e20;
-  --brand-darker: #071f16;
-  --brand-gold: #f5b942;
+  --brand-dark: #431407;
+  --brand-darker: #2a0d04;
+  --brand-gold: #ea580c;
 }
 
 html {

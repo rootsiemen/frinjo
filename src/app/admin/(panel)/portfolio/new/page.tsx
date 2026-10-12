@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
-const input = "mt-1.5 w-full rounded-xl border border-stone-300 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-600";
+const input = "mt-1.5 w-full rounded-xl border border-stone-300 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-600";
 
 export default function NewPortfolioPage() {
   const router = useRouter();
@@ -43,7 +43,7 @@ export default function NewPortfolioPage() {
         </label>
         {error && <p className="text-sm text-red-600">{error}</p>}
         <div className="flex gap-3">
-          <button disabled={busy} className="rounded-full bg-emerald-950 text-white font-bold px-6 py-2.5 text-sm hover:bg-emerald-900 disabled:opacity-40">
+          <button disabled={busy} className="rounded-full bg-orange-950 text-white font-bold px-6 py-2.5 text-sm hover:bg-orange-900 disabled:opacity-40">
             {busy ? "Saving…" : "Save Item"}
           </button>
           <Link href="/admin/portfolio" className="rounded-full border border-stone-300 px-6 py-2.5 text-sm font-semibold">Cancel</Link>

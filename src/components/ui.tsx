@@ -72,7 +72,7 @@ export function SectionHead({
   return (
     <div className={`${center ? "text-center mx-auto" : ""} max-w-2xl mb-12`}>
       {eyebrow && (
-        <p className="text-xs font-bold uppercase tracking-[0.2em] mb-3 text-emerald-700">
+        <p className="text-xs font-bold uppercase tracking-[0.2em] mb-3 text-orange-700">
           {eyebrow}
         </p>
       )}
@@ -85,7 +85,7 @@ export function SectionHead({
 /** Gold star rating row. */
 export function Stars({ rating, className = "w-4 h-4" }: { rating: number; className?: string }) {
   return (
-    <div className="flex gap-0.5 text-amber-400" aria-label={`${rating} out of 5 stars`}>
+    <div className="flex gap-0.5 text-orange-400" aria-label={`${rating} out of 5 stars`}>
       {[1, 2, 3, 4, 5].map((i) => (
         <span key={i} className={i <= rating ? "" : "opacity-25"}>
           <Icon name="star" className={className} />
@@ -97,8 +97,8 @@ export function Stars({ rating, className = "w-4 h-4" }: { rating: number; class
 
 /** CTA button styles shared across pages. */
 export const btnPrimary =
-  "inline-flex items-center gap-2 rounded-full bg-amber-400 text-emerald-950 font-bold px-7 py-3.5 hover:bg-amber-300 transition shadow-lg shadow-amber-400/20";
+  "inline-flex items-center gap-2 rounded-full bg-orange-400 text-orange-950 font-bold px-7 py-3.5 hover:bg-orange-300 transition shadow-lg shadow-orange-400/20";
 export const btnOutline =
-  "inline-flex items-center gap-2 rounded-full border-2 border-emerald-700 text-emerald-800 font-semibold px-7 py-3 hover:border-emerald-800 hover:bg-emerald-50 transition";
+  "inline-flex items-center gap-2 rounded-full border-2 border-orange-700 text-orange-800 font-semibold px-7 py-3 hover:border-orange-800 hover:bg-orange-50 transition";
 export const btnDark =
-  "inline-flex items-center gap-2 rounded-full bg-emerald-950 text-white font-bold px-7 py-3.5 hover:bg-emerald-900 transition";
+  "inline-flex items-center gap-2 rounded-full bg-orange-950 text-white font-bold px-7 py-3.5 hover:bg-orange-900 transition";
