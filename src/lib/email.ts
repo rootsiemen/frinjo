@@ -55,7 +55,7 @@ export function siteUrl(req?: { headers: { get: (k: string) => string | null } }
   return "https://frinjo.me";
 }
 
-const wrap = (title: string, body: string) => `
+export const wrap = (title: string, body: string) => `
 <div style="font-family:Arial,sans-serif;max-width:560px;margin:0 auto;background:#f8fafc;border-radius:16px;overflow:hidden">
   <div style="background:#052e1f;padding:28px;text-align:center">
     <div style="display:inline-block;background:linear-gradient(135deg,#fcd34d,#d97706);color:#052e1f;font-weight:bold;font-size:22px;width:48px;height:48px;line-height:48px;border-radius:14px">W</div>
