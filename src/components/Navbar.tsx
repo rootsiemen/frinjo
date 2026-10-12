@@ -31,9 +31,9 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-stone-200">
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2.5" aria-label="WebStore Pro home">
-          <Image src="/logo-w.png" alt="WebStore Pro" width={32} height={32} className="h-8 w-8 shrink-0" priority />
-          <span className="font-display font-semibold text-stone-700 text-lg tracking-[0.08em] lowercase">webstore pro</span>
+        <Link href="/" className="flex items-center gap-1" aria-label="WebStore Pro home">
+          <Image src="/logo-w.png" alt="" width={26} height={26} className="h-[26px] w-[26px] shrink-0" priority />
+          <span className="font-display font-semibold text-stone-700 text-lg tracking-[0.08em]">ebstore pro</span>
         </Link>
         <nav className="hidden md:flex items-center gap-1">
           {LINKS.map(([label, href]) => (
