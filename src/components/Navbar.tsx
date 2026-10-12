@@ -39,16 +39,16 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between gap-4">
         {/* Wordmark: [W logo]ebstore pro — one row, logo height = text size */}
         <Link href="/" className="flex items-center whitespace-nowrap shrink-0" aria-label="WebStore Pro home">
-          <span className="flex items-center text-lg leading-none">
+          <span className="flex items-center text-[26px] leading-none">
             <Image
               src="/logo-w.png"
               alt=""
-              width={36}
-              height={36}
+              width={52}
+              height={52}
               className="h-[1em] w-[1em] shrink-0"
               priority
             />
-            <span className="font-display font-semibold text-stone-700 tracking-[0.08em]">
+            <span className="font-display font-bold text-stone-700 tracking-[0.06em]">
               ebstore pro
             </span>
           </span>
