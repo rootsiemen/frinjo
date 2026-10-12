@@ -25,7 +25,7 @@ export async function POST(req: NextRequest) {
     await db.prepare("UPDATE customers SET verify_token_hash = ?, verify_expires_at = ? WHERE id = ?").run(tokenHash, expiresAt, row.id);
 
     const link = `${siteUrl(req)}/verify-email?token=${token}`;
-    const sent = await sendEmail(cleanEmail, "Verify your Frinjo email", verifyEmailHtml(row.name || "there", link));
+    const sent = await sendEmail(cleanEmail, "Verify your WebStore Pro email", verifyEmailHtml(row.name || "there", link));
     return NextResponse.json({ ok: true, emailSent: sent });
   } catch (e) {
     console.error("resend-verification failed", e);

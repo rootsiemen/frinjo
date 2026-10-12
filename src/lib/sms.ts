@@ -108,12 +108,12 @@ export async function sendSms(to: string, message: string): Promise<boolean> {
 // ---- Message templates (kept short for SMS) ----
 
 export const orderConfirmationSms = (name: string, orderId: number | string, pkg: string, amount: number) =>
-  `Frinjo: Hi ${name}, your order #${orderId} (${pkg}, $${amount}) is received. We'll contact you on WhatsApp shortly to confirm payment. Thank you!`;
+  `WebStore Pro: Hi ${name}, your order #${orderId} (${pkg}, $${amount}) is received. We'll contact you on WhatsApp shortly to confirm payment. Thank you!`;
 
 export const orderStatusSms = (name: string, orderId: number | string, status: string) =>
-  `Frinjo: Hi ${name}, your order #${orderId} status is now: ${String(status).toUpperCase()}. Questions? Message us on WhatsApp.`;
+  `WebStore Pro: Hi ${name}, your order #${orderId} status is now: ${String(status).toUpperCase()}. Questions? Message us on WhatsApp.`;
 
 export const inquiryAlertSms = (name: string, whatsapp: string, message: string) => {
   const snippet = String(message || "").replace(/\s+/g, " ").trim().slice(0, 110);
-  return `Frinjo: New inquiry from ${name} (${normalizePhone(whatsapp)}): ${snippet}`;
+  return `WebStore Pro: New inquiry from ${name} (${normalizePhone(whatsapp)}): ${snippet}`;
 };

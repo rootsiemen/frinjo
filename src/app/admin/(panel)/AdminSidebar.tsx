@@ -28,7 +28,7 @@ export default function AdminSidebar({ adminName }: { adminName: string }) {
         <div className="flex items-center gap-2.5">
           <span className="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-300 to-amber-600 grid place-items-center font-display font-bold text-emerald-950">W</span>
           <div>
-            <div className="font-display font-bold text-stone-900 leading-tight">Frinjo</div>
+            <div className="font-display font-bold text-stone-900 leading-tight">WebStore Pro</div>
             <div className="text-xs text-stone-500 truncate">{adminName}</div>
           </div>
         </div>

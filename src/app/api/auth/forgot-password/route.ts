@@ -24,7 +24,7 @@ export async function POST(req: NextRequest) {
         "INSERT INTO customer_password_resets (token_hash, customer_id, expires_at, created_at) VALUES (?, ?, ?, ?)"
       ).run(tokenHash, row.id, expiresAt, nowIso());
       const link = `${siteUrl(req)}/reset-password?token=${token}`;
-      const sent = await sendEmail(cleanEmail, "Reset your Frinjo password", resetPasswordHtml(row.name || "there", link));
+      const sent = await sendEmail(cleanEmail, "Reset your WebStore Pro password", resetPasswordHtml(row.name || "there", link));
       return NextResponse.json({ ok: true, emailSent: sent });
     }
     return NextResponse.json({ ok: true });

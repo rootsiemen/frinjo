@@ -8,11 +8,11 @@ export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: `Blog — ${BRAND.name}`,
-  description: "Practical guides on websites, ecommerce, SEO and online selling — from the Frinjo team.",
+  description: "Practical guides on websites, ecommerce, SEO and online selling — from the WebStore Pro team.",
   alternates: { canonical: "https://frinjo.me/blog" },
   openGraph: {
     title: `Blog — ${BRAND.name}`,
-    description: "Practical guides on websites, ecommerce, SEO and online selling — from the Frinjo team.",
+    description: "Practical guides on websites, ecommerce, SEO and online selling — from the WebStore Pro team.",
     url: "https://frinjo.me/blog",
     type: "website",
     siteName: BRAND.name,
@@ -20,7 +20,7 @@ export const metadata = {
   twitter: {
     card: "summary",
     title: `Blog — ${BRAND.name}`,
-    description: "Practical guides on websites, ecommerce, SEO and online selling — from the Frinjo team.",
+    description: "Practical guides on websites, ecommerce, SEO and online selling — from the WebStore Pro team.",
   },
 };
 

@@ -1,6 +1,6 @@
 // Shared site content: packages, services, FAQs. Single source of truth.
 export const BRAND = {
-  name: "Frinjo",
+  name: "WebStore Pro",
   tagline: "Ecommerce Website Developer | Online Stores That Sell",
   whatsapp: "9647710737529",
   email: "muhammadraza512512@gmail.com",

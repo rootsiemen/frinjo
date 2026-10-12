@@ -34,7 +34,7 @@ export async function POST(req: NextRequest) {
     const mailLink = async (customerId: number, displayName: string) => {
       const token = await issueToken(customerId, displayName);
       const link = `${siteUrl(req)}/verify-email?token=${token}`;
-      const sent = await sendEmail(cleanEmail, "Verify your Frinjo email", verifyEmailHtml(displayName || "there", link));
+      const sent = await sendEmail(cleanEmail, "Verify your WebStore Pro email", verifyEmailHtml(displayName || "there", link));
       return { sent, link };
     };
 
@@ -73,7 +73,7 @@ export async function POST(req: NextRequest) {
     void result;
 
     const link = `${siteUrl(req)}/verify-email?token=${token}`;
-    const sent = await sendEmail(cleanEmail, "Verify your Frinjo email", verifyEmailHtml(cleanName, link));
+    const sent = await sendEmail(cleanEmail, "Verify your WebStore Pro email", verifyEmailHtml(cleanName, link));
 
     // NOTE: no session cookie — the customer must verify email first.
     return NextResponse.json({ ok: true, needsVerification: true, emailSent: sent });

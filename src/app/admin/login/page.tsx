@@ -34,7 +34,7 @@ export default function AdminLoginPage() {
       <form onSubmit={submit} className="w-full max-w-sm rounded-3xl bg-white p-8 shadow-2xl">
         <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-300 to-amber-600 grid place-items-center font-display font-bold text-emerald-950 text-xl mb-5">W</div>
         <h1 className="font-display text-2xl font-bold text-stone-900">Admin Login</h1>
-        <p className="text-sm text-stone-500 mt-1">Frinjo owner area.</p>
+        <p className="text-sm text-stone-500 mt-1">WebStore Pro owner area.</p>
         <label className="block mt-6 text-sm font-medium text-stone-700">Email
           <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)}
             className="mt-1.5 w-full rounded-xl border border-stone-300 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-600" />
