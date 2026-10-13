@@ -33,8 +33,19 @@ export default async function PortfolioPage() {
             <div className="grid gap-8 md:grid-cols-2">
               {items.map((p, i) => (
                 <article key={p.id} className="rounded-3xl overflow-hidden bg-white border border-stone-200 shadow-sm hover:shadow-xl transition">
-                  <div className={`h-56 bg-gradient-to-br ${HUES[i % HUES.length]} relative grid place-items-center`}>
-                    <span className="font-display text-7xl font-bold text-white/40">{p.title.charAt(0)}</span>
+                  <div className="h-56 sm:h-64 relative overflow-hidden bg-stone-100">
+                    {p.imageUrl ? (
+                      <img
+                        src={p.imageUrl}
+                        alt={`${p.title} website screenshot`}
+                        className="absolute inset-0 h-full w-full object-cover object-top"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className={`absolute inset-0 bg-gradient-to-br ${HUES[i % HUES.length]} grid place-items-center`}>
+                        <span className="font-display text-7xl font-bold text-white/40">{p.title.charAt(0)}</span>
+                      </div>
+                    )}
                     <span className="absolute bottom-4 left-4 rounded-full bg-black/40 text-white text-xs font-semibold px-3 py-1.5 backdrop-blur">
                       Case study #{items.length - i}
                     </span>
