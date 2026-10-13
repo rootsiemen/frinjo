@@ -17,7 +17,7 @@ export default function Footer() {
                   alt=""
                   width={52}
                   height={52}
-                  className="h-[26px] w-[26px] shrink-0"
+                  className="h-[40px] w-[40px] shrink-0"
                 />
                 <span className="font-display font-bold text-stone-700 tracking-[0.06em]">
                   ebstore pro
