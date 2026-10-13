@@ -15,9 +15,9 @@ export default function Footer() {
                 <Image
                   src="/logo-w.png"
                   alt=""
-                  width={52}
-                  height={52}
-                  className="h-[40px] w-[40px] shrink-0"
+                  width={56}
+                  height={56}
+                  className="h-[56px] w-[56px] shrink-0"
                 />
                 <span className="font-display font-bold text-stone-700 tracking-[0.06em]">
                   ebstore pro
