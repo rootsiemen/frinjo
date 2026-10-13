@@ -36,6 +36,16 @@ function BrowserMock({ title, hue }: { title: string; hue: string }) {
   );
 }
 
+// Real project screenshots for portfolio cards (mapped by title keyword).
+// Falls back to the gradient placeholder when no screenshot matches.
+function portfolioShot(title: string): string | null {
+  const t = title.toLowerCase();
+  if (t.includes("qomash")) return "/images/portfolio/qomash-wears.png";
+  if (t.includes("babli")) return "/images/portfolio/babli.png";
+  if (t.includes("temp")) return "/images/portfolio/temp-mail.png";
+  return null;
+}
+
 export default async function HomePage() {
   const db = await getDb();
   const portfolio = (await db.prepare("SELECT * FROM portfolio_items ORDER BY id DESC LIMIT 3").all()).map(mapPortfolioItem);
@@ -129,9 +139,15 @@ export default async function HomePage() {
           <div className="grid gap-6 md:grid-cols-3">
             {portfolio.map((p, i) => (
               <article key={p.id} className="rounded-2xl overflow-hidden bg-white border border-stone-200 shadow-sm hover:shadow-lg transition">
-                <div className={`h-40 bg-gradient-to-br ${["from-orange-600 to-orange-800", "from-orange-500 to-orange-700", "from-teal-600 to-orange-800"][i % 3]} grid place-items-center`}>
-                  <span className="font-display text-5xl font-bold text-white/40">{p.title.charAt(0)}</span>
-                </div>
+                {portfolioShot(p.title) ? (
+                  <div className="h-40 overflow-hidden">
+                    <img src={portfolioShot(p.title)!} alt={p.title} className="w-full h-full object-cover object-top" loading="lazy" />
+                  </div>
+                ) : (
+                  <div className={`h-40 bg-gradient-to-br ${["from-orange-600 to-orange-800", "from-orange-500 to-orange-700", "from-teal-600 to-orange-800"][i % 3]} grid place-items-center`}>
+                    <span className="font-display text-5xl font-bold text-white/40">{p.title.charAt(0)}</span>
+                  </div>
+                )}
                 <div className="p-6">
                   <h3 className="font-bold text-stone-900 mb-2">{p.title}</h3>
                   <p className="text-sm text-stone-600 line-clamp-3">{p.description}</p>
