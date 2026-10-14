@@ -59,35 +59,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     blocks = post.content.split("\n");
   }
 
-  const allOthers = (await db
-    .prepare("SELECT * FROM blog_posts WHERE status = 'published' AND id != ?")
+  const others = (await db
+    .prepare("SELECT * FROM blog_posts WHERE status = 'published' AND id != ? ORDER BY id DESC LIMIT 3")
     .all(post.id))
     .map(mapBlogPost);
-
-  // --- Internal backlinks: pick topically related posts (category + keyword overlap) ---
-  const STOP = new Set("a,an,the,and,or,for,to,in,on,of,with,how,what,why,when,your,you,your,vs,is,are,be,by,from,at,as,it,its,this,that,these,those,into,top,ways,guide,tips,pakistan,pakistani".split(","));
-  const keywords = (t: string) =>
-    t.toLowerCase().replace(/[^a-z0-9\s]/g, " ").split(/\s+/).filter((w) => w.length > 2 && !STOP.has(w));
-  const postKeys = new Set(keywords(post.title + " " + post.category));
-  const scored = allOthers.map((o) => {
-    let score = 0;
-    if (o.category && post.category && o.category.toLowerCase() === post.category.toLowerCase()) score += 5;
-    const oKeys = keywords(o.title + " " + o.category);
-    for (const k of oKeys) if (postKeys.has(k)) score += 1;
-    return { post: o, score };
-  });
-  scored.sort((a, b) => b.score - a.score || b.post.id - a.post.id);
-  const related = scored.slice(0, 2).map((s) => s.post);
-  const others = scored.slice(0, 3).map((s) => s.post);
-
-  // Category-matched service page backlink
-  const cat = (post.category || "").toLowerCase() + " " + post.title.toLowerCase();
-  let serviceLink = { href: "/services", label: "Our website services" };
-  if (/payment|jazzcash|easypaisa|checkout|binance/.test(cat)) serviceLink = { href: "/services/payment-integration", label: "Payment integration service" };
-  else if (/whatsapp/.test(cat)) serviceLink = { href: "/services/whatsapp-ordering", label: "WhatsApp ordering setup" };
-  else if (/seo|rank|google/.test(cat)) serviceLink = { href: "/services/seo-basics", label: "SEO services" };
-  else if (/ecommerce|shopify|store|shop|online selling/.test(cat)) serviceLink = { href: "/services/ecommerce-website", label: "Ecommerce website service" };
-  else if (/speed|performance/.test(cat)) serviceLink = { href: "/services/business-website", label: "Business website service" };
 
   const waHref = `https://wa.me/${BRAND.whatsapp}?text=${encodeURIComponent("Hi! I read your blog and I'd like a website for my business.")}`;
 
@@ -96,9 +71,19 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     "@type": "Article",
     headline: post.title,
     description: post.metaDescription || post.excerpt,
+    image: `${SITE_URL}/logo-w.png`,
     datePublished: post.createdAt,
+    dateModified: post.createdAt,
+    inLanguage: "en",
+    articleSection: post.category,
+    wordCount: post.content.split(/\s+/).length,
     author: { "@type": "Organization", name: BRAND.name, url: SITE_URL },
-    publisher: { "@type": "Organization", name: BRAND.name, url: SITE_URL },
+    publisher: {
+      "@type": "Organization",
+      name: BRAND.name,
+      url: SITE_URL,
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/logo-w.png` },
+    },
     mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}/blog/${post.slug}` },
   };
 
@@ -122,28 +107,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <article className="py-12 bg-white">
         <div className="max-w-3xl mx-auto px-4">
           <BlogContent blocks={blocks} />
-
-          {(related.length > 0) && (
-            <div className="mt-10 rounded-2xl border border-stone-200 bg-stone-50 p-6">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-orange-700 mb-4">Related guides</p>
-              <ul className="space-y-3">
-                {related.map((r) => (
-                  <li key={r.id}>
-                    <Link href={`/blog/${r.slug}`} className="group inline-flex items-start gap-2 text-stone-800 hover:text-orange-700 transition font-medium leading-snug">
-                      <span className="text-orange-500 font-bold shrink-0 mt-0.5">→</span>
-                      <span className="group-hover:underline">{r.title}</span>
-                    </Link>
-                  </li>
-                ))}
-                <li>
-                  <Link href={serviceLink.href} className="group inline-flex items-start gap-2 text-stone-800 hover:text-orange-700 transition font-medium leading-snug">
-                    <span className="text-orange-500 font-bold shrink-0 mt-0.5">→</span>
-                    <span className="group-hover:underline">Need help with this? See our {serviceLink.label}</span>
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          )}
 
           <div className="mt-14 rounded-3xl bg-orange-50 border border-orange-200 p-8 text-center">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-orange-700 mb-3">Need a website?</p>

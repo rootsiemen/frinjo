@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin/
+Disallow: /api/
+Disallow: /account/
+Disallow: /checkout/
+Disallow: /cart/
+Disallow: /thank-you/
+Disallow: /verify-email/
+
+Sitemap: https://frinjo.me/sitemap.xml

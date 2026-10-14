@@ -4,6 +4,13 @@ import { Icon, btnPrimary, btnOutline } from "@/components/ui";
 
 export const dynamic = "force-dynamic";
 
+export const metadata = {
+  title: "Portfolio — Ecommerce Websites I've Built",
+  description:
+    "Portfolio of ecommerce websites and online stores built by WebStore Pro: clothing stores, fashion shops, temp-mail tools — real client projects with admin panels and COD checkout.",
+  alternates: { canonical: "https://frinjo.me/portfolio" },
+};
+
 /** Category eyebrow + highlight chips per project, derived from title. */
 function projectMeta(title: string): { category: string; chips: string[] } {
   const t = title.toLowerCase();

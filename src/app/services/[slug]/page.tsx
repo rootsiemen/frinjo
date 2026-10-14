@@ -9,6 +9,18 @@ export function generateStaticParams() {
   return SERVICES.map((s) => ({ slug: s.slug }));
 }
 
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const service = SERVICES.find((s) => s.slug === slug);
+  if (!service) return {};
+  const title = `${service.title} Service`;
+  return {
+    title,
+    description: `WebStore Pro — ${service.desc}`,
+    alternates: { canonical: `https://frinjo.me/services/${service.slug}` },
+  };
+}
+
 export default async function ServiceDetailPage({
   params,
 }: {

@@ -36,24 +36,25 @@ function BrowserMock({ title, hue }: { title: string; hue: string }) {
   );
 }
 
-// Real project screenshots for portfolio cards (mapped by title keyword).
-// Falls back to the gradient placeholder when no screenshot matches.
-function portfolioShot(title: string): string | null {
-  const t = title.toLowerCase();
-  if (t.includes("qomash")) return "/images/portfolio/qomash-wears.png";
-  if (t.includes("babli")) return "/images/portfolio/babli.png";
-  if (t.includes("temp")) return "/images/portfolio/temp-mail.png";
-  return null;
-}
-
 export default async function HomePage() {
   const db = await getDb();
   const portfolio = (await db.prepare("SELECT * FROM portfolio_items ORDER BY id DESC LIMIT 3").all()).map(mapPortfolioItem);
   const testimonials = (await db.prepare("SELECT * FROM testimonials WHERE status = 'approved' ORDER BY id DESC LIMIT 3").all()).map(mapTestimonial);
   const waHref = `https://wa.me/${BRAND.whatsapp}?text=${encodeURIComponent("Hi! I want a website for my business.")}`;
 
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQS.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       {/* ---------- HERO ---------- */}
       <section className="relative bg-orange-50 dot-grid overflow-hidden">
         <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-orange-300/40 blur-3xl" />
@@ -139,15 +140,9 @@ export default async function HomePage() {
           <div className="grid gap-6 md:grid-cols-3">
             {portfolio.map((p, i) => (
               <article key={p.id} className="rounded-2xl overflow-hidden bg-white border border-stone-200 shadow-sm hover:shadow-lg transition">
-                {portfolioShot(p.title) ? (
-                  <div className="h-40 overflow-hidden">
-                    <img src={portfolioShot(p.title)!} alt={p.title} className="w-full h-full object-cover object-top" loading="lazy" />
-                  </div>
-                ) : (
-                  <div className={`h-40 bg-gradient-to-br ${["from-orange-600 to-orange-800", "from-orange-500 to-orange-700", "from-teal-600 to-orange-800"][i % 3]} grid place-items-center`}>
-                    <span className="font-display text-5xl font-bold text-white/40">{p.title.charAt(0)}</span>
-                  </div>
-                )}
+                <div className={`h-40 bg-gradient-to-br ${["from-orange-600 to-orange-800", "from-orange-500 to-orange-700", "from-teal-600 to-orange-800"][i % 3]} grid place-items-center`}>
+                  <span className="font-display text-5xl font-bold text-white/40">{p.title.charAt(0)}</span>
+                </div>
                 <div className="p-6">
                   <h3 className="font-bold text-stone-900 mb-2">{p.title}</h3>
                   <p className="text-sm text-stone-600 line-clamp-3">{p.description}</p>

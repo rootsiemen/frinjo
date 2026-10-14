@@ -4,6 +4,13 @@ import { SectionHead, Icon, btnPrimary } from "@/components/ui";
 
 export const dynamic = "force-dynamic";
 
+export const metadata = {
+  title: "Web Development Services — Ecommerce, Websites & More",
+  description:
+    "Web development services: ecommerce websites, business websites, admin panels, payment integration (COD, JazzCash, Stripe), WhatsApp ordering and SEO — delivered in days.",
+  alternates: { canonical: "https://frinjo.me/services" },
+};
+
 const PROCESS = [
   ["Tell me about your project", "Fill the contact form or message me on WhatsApp with your business details and products."],
   ["I design & build", "You approve the design, then I build your complete website — usually within 5–10 days."],
