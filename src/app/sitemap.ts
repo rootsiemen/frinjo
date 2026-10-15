@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getDb, mapBlogPost } from "@/lib/db";
 import { SERVICES } from "@/lib/content";
+import { REPO_POSTS } from "@/lib/repo-posts";
 
 const SITE_URL = "https://frinjo.me";
 
@@ -31,12 +32,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   try {
     const db = await getDb();
     const rows = await db.prepare("SELECT * FROM blog_posts WHERE status = 'published'").all();
-    blogRoutes = rows.map(mapBlogPost).map((p) => ({
+    const slugs = new Set(rows.map(mapBlogPost).map((p) => p.slug));
+    const dbRoutes = rows.map(mapBlogPost).map((p) => ({
       url: `${SITE_URL}/blog/${p.slug}`,
       lastModified: new Date(p.createdAt),
       changeFrequency: "monthly" as const,
       priority: 0.6,
     }));
+    // Repo-shipped posts (git-push publishing).
+    const repoRoutes = REPO_POSTS.filter((p) => !slugs.has(p.slug)).map((p) => ({
+      url: `${SITE_URL}/blog/${p.slug}`,
+      lastModified: new Date(p.createdAt),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    }));
+    blogRoutes = [...dbRoutes, ...repoRoutes];
   } catch {
     // DB unavailable at build time — blog URLs fall back to the /blog index.
   }

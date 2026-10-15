@@ -3,6 +3,7 @@ import { getDb, mapBlogPost } from "@/lib/db";
 import { BRAND } from "@/lib/content";
 import { SectionHead, Icon } from "@/components/ui";
 import { formatDate } from "@/lib/blog";
+import { REPO_POSTS, mergeRepoPosts } from "@/lib/repo-posts";
 
 export const dynamic = "force-dynamic";
 
@@ -26,10 +27,14 @@ export const metadata = {
 
 export default async function BlogPage() {
   const db = await getDb();
-  const posts = (await db
+  const dbPosts = (await db
     .prepare("SELECT * FROM blog_posts WHERE status = 'published' ORDER BY id DESC")
     .all())
     .map(mapBlogPost);
+  // Repo-shipped posts (git-push publishing) merged in, newest first.
+  const posts = mergeRepoPosts(dbPosts, REPO_POSTS).sort((a, b) =>
+    b.createdAt.localeCompare(a.createdAt)
+  );
 
   return (
     <>

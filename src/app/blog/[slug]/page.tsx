@@ -5,6 +5,7 @@ import { BRAND } from "@/lib/content";
 import { Icon, btnPrimary, btnOutline } from "@/components/ui";
 import BlogContent from "@/components/BlogContent";
 import { formatDate } from "@/lib/blog";
+import { REPO_POSTS } from "@/lib/repo-posts";
 
 export const dynamic = "force-dynamic";
 
@@ -14,8 +15,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const db = await getDb();
   const row = await db.prepare("SELECT * FROM blog_posts WHERE slug = ? AND status = 'published'").get(slug);
-  if (!row) return {};
-  const post = mapBlogPost(row);
+  // Repo-shipped posts (git-push publishing) as fallback.
+  const post = row ? mapBlogPost(row) : REPO_POSTS.find((p) => p.slug === slug);
+  if (!post) return {};
   const description = post.metaDescription || post.excerpt;
   const url = `${SITE_URL}/blog/${post.slug}`;
   return {
@@ -48,8 +50,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const { slug } = await params;
   const db = await getDb();
   const row = await db.prepare("SELECT * FROM blog_posts WHERE slug = ? AND status = 'published'").get(slug);
-  if (!row) notFound();
-  const post = mapBlogPost(row);
+  // Repo-shipped posts (git-push publishing) as fallback.
+  const post = row ? mapBlogPost(row) : REPO_POSTS.find((p) => p.slug === slug);
+  if (!post) notFound();
 
   let blocks: string[];
   try {

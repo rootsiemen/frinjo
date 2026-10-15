@@ -1,0 +1,55 @@
+# WebStore Pro (Frinjo)
+
+> Ecommerce website developer — online stores that sell. Custom websites for Pakistani businesses with Cash on Delivery, JazzCash/Easypaisa, and WhatsApp ordering.
+
+WebStore Pro (https://frinjo.me, also known as Frinjo) is a web development service building ecommerce websites and online stores for small businesses, focused on the Pakistani market. Every website is mobile responsive and includes a shopping cart, checkout, and an admin panel on Business and Pro packages.
+
+## Pages
+
+- [Home — Ecommerce Website Developer](https://frinjo.me/)
+- [Services](https://frinjo.me/services)
+- [Pricing](https://frinjo.me/pricing)
+- [Portfolio](https://frinjo.me/portfolio)
+- [Blog — Guides & Insights](https://frinjo.me/blog)
+- [About](https://frinjo.me/about)
+- [Contact](https://frinjo.me/contact)
+- [Automations](https://frinjo.me/automations)
+- [Privacy Policy](https://frinjo.me/privacy)
+- [Terms of Service](https://frinjo.me/terms)
+
+## Services
+
+- Ecommerce Website — full online store with cart and checkout
+- Business Website — company/service websites
+- Admin Panel — manage products, prices, and orders yourself (no coding)
+- Payment Integration — Cash on Delivery, JazzCash, Easypaisa, Stripe, PayPal, Binance Pay, Payoneer, USDT
+- WhatsApp Ordering — customers order directly through WhatsApp
+- SEO Basics — on-page SEO included in Pro package
+
+## Pricing (one-time)
+
+- Starter Website — $80 — 5-page website, up to 20 products, mobile responsive, shopping cart & checkout, Cash on Delivery setup, 5-day delivery, 7-day support
+- Business Website — $150 (most popular) — everything in Starter, up to 100 products, admin panel, WhatsApp ordering + COD, order notifications, 7-day delivery, 14-day support
+- Pro Website — $300 — everything in Business, payment gateway integration, custom banners & branding, order email alerts, SEO basics, 10-day delivery, 30-day priority support
+
+## Key facts
+
+- Website: https://frinjo.me
+- Brand: WebStore Pro (Frinjo)
+- Focus: ecommerce websites for Pakistani small businesses
+- Tech: mobile-responsive websites (Next.js), tested on phones, tablets, and desktops
+- Payments supported: Cash on Delivery, JazzCash, Easypaisa, Stripe, PayPal, WhatsApp ordering, Binance Pay, Payoneer, USDT
+- Admin: Business and Pro packages include an admin panel to add products, change prices, and manage orders with zero coding
+- Delivery: 5–10 days depending on package
+- Languages: English, Urdu
+- Contact: WhatsApp +92 477 10737529, email via the Contact page
+
+## Common questions, answered
+
+- How much does a website cost in Pakistan? WebStore Pro packages start at $80 (Starter), $150 (Business), $300 (Pro) — one-time pricing.
+- How long does it take to build my website? 5 days (Starter), 7 days (Business), or 10 days (Pro).
+- Will my website work on mobile phones? Yes — every website is fully mobile responsive and tested on phones, tablets, and desktops.
+- Which payment methods are supported? Cash on Delivery, JazzCash, Easypaisa, Stripe, PayPal, WhatsApp ordering, Binance Pay, Payoneer, and USDT.
+- Can I manage the website myself? Yes — Business and Pro packages include an admin panel to add products, change prices, and manage orders with zero coding.
+- What do you need from me to start? Business name, logo (if any), product list with prices and photos, and your WhatsApp number.
+- Landing page vs full website — which does my business need? A landing page suits a single offer or ad campaign; a full website suits businesses with multiple products or services. Full comparison: https://frinjo.me/blog/landing-page-vs-full-website-which-does-your-business-need
