@@ -7,7 +7,7 @@ const menuLink = "uppercase tracking-[0.14em] text-[13px] font-semibold text-sto
 export default function Footer() {
   return (
     <footer className="bg-stone-50 text-stone-600 border-t border-stone-200">
-      <div className="max-w-6xl mx-auto px-4 py-14 grid gap-10 md:grid-cols-4">
+      <div className="max-w-6xl mx-auto px-4 py-14 grid gap-10 md:grid-cols-5">
         <div className="md:col-span-2">
           <div className="flex items-center mb-4">
             <Link href="/" className="flex items-center whitespace-nowrap" aria-label="WebStore Pro home">
@@ -46,6 +46,13 @@ export default function Footer() {
                 </Link>
               </li>
             ))}
+          </ul>
+        </div>
+        <div>
+          <h3 className="text-stone-900 font-bold mb-4 text-sm uppercase tracking-wider">Our Tools</h3>
+          <ul className="space-y-3">
+            <li><a href="https://tempmaill.tech" target="_blank" rel="noopener" className={menuLink}>Temp Mail — Free Disposable Email</a></li>
+            <li><a href="https://games.tempmaill.tech" target="_blank" rel="noopener" className={menuLink}>PlayZone — Free Browser Games</a></li>
           </ul>
         </div>
       </div>
