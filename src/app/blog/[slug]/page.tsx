@@ -19,9 +19,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const post = row ? mapBlogPost(row) : REPO_POSTS.find((p) => p.slug === slug);
   if (!post) return {};
   const description = post.metaDescription || post.excerpt;
-  const url = `${SITE_URL}/blog/${post.slug}`;
+  // The newer cost guide is a near-duplicate of the older one — consolidate
+  // ranking signals on the original article.
+  const CANONICAL_OVERRIDES: Record<string, string> = {
+    "how-much-does-a-website-cost-in-pakistan-2026-price-guide": `${SITE_URL}/blog/website-cost-pakistan-2026`,
+  };
+  const url = CANONICAL_OVERRIDES[post.slug] ?? `${SITE_URL}/blog/${post.slug}`;
   return {
-    title: `${post.title} — ${BRAND.name} Blog`,
+    title: post.title,
     description,
     alternates: { canonical: url },
     openGraph: {
@@ -32,11 +37,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       siteName: BRAND.name,
       publishedTime: post.createdAt,
       authors: [BRAND.name],
+      images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630, alt: post.title }],
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title: post.title,
       description,
+      images: [`${SITE_URL}/og-image.png`],
     },
   };
 }
@@ -90,9 +97,20 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}/blog/${post.slug}` },
   };
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog` },
+      { "@type": "ListItem", position: 3, name: post.title, item: `${SITE_URL}/blog/${post.slug}` },
+    ],
+  };
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <section className="bg-orange-50 dot-grid py-14 sm:py-16">
         <div className="max-w-3xl mx-auto px-4">
           <Link href="/blog" className="inline-flex items-center gap-2 text-sm text-stone-500 hover:text-orange-600 transition mb-6">
@@ -117,6 +135,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <div className="flex flex-wrap justify-center gap-4 mt-6">
               <Link href="/pricing" className={btnPrimary}>
                 See Packages <Icon name="arrow" className="w-5 h-5" />
+              </Link>
+              <Link href="/services" className={btnOutline}>
+                Explore Services <Icon name="arrow" className="w-5 h-5" />
               </Link>
               <a href={waHref} target="_blank" rel="noopener noreferrer" className={btnOutline}>
                 <Icon name="chat" className="w-5 h-5" /> Chat on WhatsApp

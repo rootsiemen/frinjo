@@ -5,8 +5,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: `About — ${BRAND.name}`,
+  title: "About",
   description: `About ${BRAND.name}: I build complete ecommerce websites and business websites for clients worldwide — mobile-friendly, with admin panels and ordering built in.`,
+  alternates: { canonical: "https://frinjo.me/about" },
 };
 
 const VALUES = [

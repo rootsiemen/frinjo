@@ -26,7 +26,6 @@ export const metadata: Metadata = {
     "affordable website development",
     "freelance web developer",
   ],
-  alternates: { canonical: "/" },
   robots: { index: true, follow: true },
   openGraph: {
     title: "WebStore Pro | Ecommerce Website Developer",
@@ -35,14 +34,14 @@ export const metadata: Metadata = {
     url: "https://frinjo.me",
     siteName: "WebStore Pro",
     type: "website",
-    images: [{ url: "/logo-w.png", width: 1200, height: 630, alt: "WebStore Pro — Ecommerce Website Developer" }],
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "WebStore Pro — Ecommerce Website Developer" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "WebStore Pro | Ecommerce Website Developer",
     description:
       "Complete online stores with admin panel, cart, Cash on Delivery, JazzCash & WhatsApp ordering — delivered ready to launch.",
-    images: ["/logo-w.png"],
+    images: ["/og-image.png"],
   },
   icons: {
     icon: [

@@ -5,8 +5,9 @@ import { SectionHead, btnPrimary, Icon } from "@/components/ui";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: `Privacy Policy — ${BRAND.name}`,
+  title: "Privacy Policy",
   description: `Privacy Policy of ${BRAND.name}. How we collect, use and protect your personal information.`,
+  alternates: { canonical: "https://frinjo.me/privacy" },
 };
 
 const SECTIONS: { h: string; body: string[] }[] = [

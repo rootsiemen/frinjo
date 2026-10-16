@@ -7,6 +7,10 @@ import FeedbackForm from "@/components/FeedbackForm";
 
 export const dynamic = "force-dynamic";
 
+export const metadata = {
+  alternates: { canonical: "https://frinjo.me" },
+};
+
 // CSS-only browser mockup visual (no external images).
 function BrowserMock({ title, hue }: { title: string; hue: string }) {
   return (

@@ -5,8 +5,9 @@ import { SectionHead, btnPrimary } from "@/components/ui";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: `Terms of Service — ${BRAND.name}`,
+  title: "Terms of Service",
   description: `Terms of Service of ${BRAND.name}. The terms and conditions for using our website and ordering web development services.`,
+  alternates: { canonical: "https://frinjo.me/terms" },
 };
 
 const SECTIONS: { h: string; body: string[] }[] = [
