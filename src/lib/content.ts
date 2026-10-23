@@ -3,7 +3,7 @@ export const BRAND = {
   name: "WebStore Pro",
   tagline: "Full Stack Web Developer | Websites & Web Apps That Sell",
   whatsapp: "923258774221",
-  email: "muhammadraza512512@gmail.com",
+  email: "neilsonsmarry@gmail.com",
 };
 
 export interface Pkg {
