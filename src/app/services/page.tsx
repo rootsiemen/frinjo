@@ -5,9 +5,9 @@ import { SectionHead, Icon, btnPrimary } from "@/components/ui";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Web Development Services — Ecommerce, Websites & More",
+  title: "Web Development Services — Full Stack, Websites & More",
   description:
-    "Web development services: ecommerce websites, business websites, admin panels, payment integration (COD, JazzCash, Stripe), WhatsApp ordering and SEO — delivered in days.",
+    "Web development services: full stack websites, business websites, admin panels, payment integration (COD, JazzCash, Stripe), WhatsApp ordering and SEO — delivered in days.",
   alternates: { canonical: "https://frinjo.me/services" },
 };
 
