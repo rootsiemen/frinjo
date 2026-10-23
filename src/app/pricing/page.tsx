@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 export const metadata = {
   title: "Pricing — Website Packages from $80",
   description:
-    "Transparent website pricing: Starter ($80, 5 days), Business ($150, 7 days), Pro ($300, 10 days). Complete ecommerce websites with admin panel, COD and WhatsApp ordering.",
+    "Transparent website pricing: Starter ($80, 5 days), Business ($150, 7 days), Pro ($300, 10 days). Complete full stack websites with admin panel, COD and WhatsApp ordering.",
   alternates: { canonical: "https://frinjo.me/pricing" },
 };
 
