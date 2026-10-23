@@ -10,11 +10,11 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   metadataBase: new URL("https://frinjo.me"),
   title: {
-    default: "WebStore Pro | Ecommerce Website Developer",
+    default: "WebStore Pro | Full Stack Web Developer",
     template: "%s | WebStore Pro",
   },
   description:
-    "WebStore Pro builds ecommerce websites & online stores with admin panel, cart, Cash on Delivery, JazzCash & WhatsApp ordering — delivered in days.",
+    "WebStore Pro builds full stack websites & web apps with admin panel, dashboards, Cash on Delivery, JazzCash & WhatsApp ordering — delivered in days.",
   keywords: [
     "ecommerce website developer",
     "online store developer",
@@ -29,19 +29,19 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   robots: { index: true, follow: true },
   openGraph: {
-    title: "WebStore Pro | Ecommerce Website Developer",
+    title: "WebStore Pro | Full Stack Web Developer",
     description:
-      "Complete online stores with admin panel, shopping cart, Cash on Delivery, JazzCash & WhatsApp ordering — delivered ready to launch.",
+      "Complete full stack websites and web apps with admin panel, shopping cart, Cash on Delivery, JazzCash & WhatsApp ordering — delivered ready to launch.",
     url: "https://frinjo.me",
     siteName: "WebStore Pro",
     type: "website",
-    images: [{ url: "/logo-w.png", width: 1200, height: 630, alt: "WebStore Pro — Ecommerce Website Developer" }],
+    images: [{ url: "/logo-w.png", width: 1200, height: 630, alt: "WebStore Pro — Full Stack Web Developer" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "WebStore Pro | Ecommerce Website Developer",
+    title: "WebStore Pro | Full Stack Web Developer",
     description:
-      "Complete online stores with admin panel, cart, Cash on Delivery, JazzCash & WhatsApp ordering — delivered ready to launch.",
+      "Complete full stack websites and web apps with admin panel, cart, Cash on Delivery, JazzCash & WhatsApp ordering — delivered ready to launch.",
     images: ["/logo-w.png"],
   },
   icons: {
@@ -63,7 +63,7 @@ const orgJsonLd = {
   url: SITE_URL,
   logo: `${SITE_URL}/logo-w.png`,
   description:
-    "Web development agency building ecommerce websites and online stores with admin panel, shopping cart, Cash on Delivery, JazzCash/Easypaisa payments and WhatsApp ordering.",
+    "Web development agency building full stack websites and web applications with admin panel, shopping cart, Cash on Delivery, JazzCash/Easypaisa payments and WhatsApp ordering.",
   priceRange: "$$",
   contactPoint: {
     "@type": "ContactPoint",
