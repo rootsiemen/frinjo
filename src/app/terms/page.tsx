@@ -14,7 +14,7 @@ const SECTIONS: { h: string; body: string[] }[] = [
   {
     h: "1. Services",
     body: [
-      `${BRAND.name} provides web development services including business websites, ecommerce websites, landing pages, and related digital services as described on our Services and Pricing pages.`,
+      `${BRAND.name} provides web development services including business websites, full stack websites, landing pages, and related digital services as described on our Services and Pricing pages.`,
       "Each package includes the features listed on the Pricing page at the time of order. Any work beyond the package scope will be quoted separately and requires your approval before we begin.",
     ],
   },
@@ -30,7 +30,7 @@ const SECTIONS: { h: string; body: string[] }[] = [
   {
     h: "3. Delivery Timelines",
     body: [
-      "Starter websites are typically delivered within 5 working days, business websites within 7 working days, and pro ecommerce stores within 14 working days — starting from the day we receive all required content (text, images, logos) from you.",
+      "Starter websites are typically delivered within 5 working days, business websites within 7 working days, and pro websites within 14 working days — starting from the day we receive all required content (text, images, logos) from you.",
       "Delays caused by late content delivery from the client extend the timeline accordingly. We will always communicate proactively if a delay occurs.",
     ],
   },
