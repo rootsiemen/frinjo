@@ -2,7 +2,7 @@
 export const BRAND = {
   name: "WebStore Pro",
   tagline: "Ecommerce Website Developer | Online Stores That Sell",
-  whatsapp: "9647710737529",
+  whatsapp: "923258774221",
   email: "muhammadraza512512@gmail.com",
 };
 
