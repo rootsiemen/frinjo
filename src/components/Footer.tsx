@@ -27,6 +27,27 @@ export default function Footer() {
           </div>
           <p className="text-sm max-w-sm text-stone-500">{BRAND.tagline}. I build complete, mobile-friendly online stores and business websites for clients worldwide.</p>
           <p className="text-sm mt-4 text-stone-500">📧 {BRAND.email}</p>
+          <div className="mt-5">
+            <p className="text-xs font-bold uppercase tracking-wider text-stone-900 mb-3">Follow / Connect</p>
+            <div className="flex flex-wrap gap-2">
+              {[
+                ["LinkedIn", "https://www.linkedin.com/in/mrazahaider1215/"],
+                ["Instagram", "https://www.instagram.com/yours.raza/"],
+                ["X", "https://x.com/irazamirza"],
+                ["GitHub", "https://github.com/rootsiemen"],
+              ].map(([label, href]) => (
+                <a
+                  key={href}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-full bg-white border border-stone-300 px-3.5 py-1.5 text-[13px] font-semibold text-stone-600 hover:border-orange-400 hover:text-orange-600 transition"
+                >
+                  {label}
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
         <div>
           <h3 className="text-stone-900 font-bold mb-4 text-sm uppercase tracking-wider">Pages</h3>

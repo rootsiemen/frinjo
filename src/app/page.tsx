@@ -11,6 +11,29 @@ export const metadata = {
   alternates: { canonical: "https://frinjo.me" },
 };
 
+// Types of websites — real-website-style images in /public/images/website-types/.
+const WEBSITE_TYPES = [
+  { img: "01-business", title: "Business / Corporate Website", text: "A professional home for your company that turns visitors into enquiries — and you can update pages, services and offers yourself, anytime, from your admin panel." },
+  { img: "02-ecommerce", title: "E-commerce Store", text: "Sell around the clock with your own online store — manage products, orders and payments from one simple admin panel. Built like the Qomash Wears store." },
+  { img: "03-portfolio", title: "Portfolio Website", text: "Show your best work beautifully and turn admirers into paying clients — your projects, presented like a professional, not a social media feed." },
+  { img: "04-blog", title: "Blog / Magazine", text: "Publish articles that bring you free Google traffic every day — write and post new content yourself in minutes from your admin panel, no developer needed." },
+  { img: "05-landing", title: "Landing Page", text: "One focused page that turns ad clicks into calls, orders and sign-ups — fast, sharp and built for a single goal, like the Kinoki product page." },
+  { img: "06-webapp", title: "Web Application", text: "Your whole business process in one custom tool — dashboards, customer accounts and data, all run from a powerful admin panel. Like Hakio Leads and Temp Mail." },
+  { img: "07-directory", title: "Directory / Listing Website", text: "A searchable marketplace of listings your visitors can browse and filter — and you control every listing from the admin panel. Like USA Attorneys, with 763 listings." },
+  { img: "08-educational", title: "Educational Website", text: "Teach online and grow your academy — courses, lessons and students organised in one place, so learning never stops at the classroom door." },
+  { img: "09-news", title: "News / Media Website", text: "Publish stories the moment they break and grow a loyal audience that comes back every day — a fast, modern home for your media brand." },
+  { img: "10-social", title: "Social / Community Website", text: "Bring your people together under your own brand — member profiles, posts and discussions that keep your community active and growing." },
+  { img: "11-booking", title: "Booking / Service Website", text: "Let customers book appointments online, day or night — your calendar, slots and bookings manage themselves in your admin panel." },
+  { img: "12-personal", title: "Personal Website", text: "Your own corner of the internet — a polished personal profile and CV that opens doors to better jobs and bigger clients." },
+];
+
+const SOCIAL_LINKS = [
+  ["LinkedIn", "https://www.linkedin.com/in/mrazahaider1215/"],
+  ["Instagram", "https://www.instagram.com/yours.raza/"],
+  ["X", "https://x.com/irazamirza"],
+  ["GitHub", "https://github.com/rootsiemen"],
+];
+
 // CSS-only browser mockup visual (no external images).
 function BrowserMock({ title, hue }: { title: string; hue: string }) {
   return (
@@ -133,6 +156,49 @@ export default async function HomePage() {
           </div>
           <div className="text-center mt-10">
             <Link href="/services" className={btnDark}>View All Services <Icon name="arrow" className="w-5 h-5" /></Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- TYPES OF WEBSITES ---------- */}
+      <section className="py-20 bg-[#f4f8fc]">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mx-auto max-w-2xl mb-10">
+            <h2 className="font-display text-3xl sm:text-4xl font-bold text-stone-900">
+              We Build <span className="text-gold-gradient">Every Kind</span> of Website
+            </h2>
+            <p className="mt-4 text-stone-600">
+              Whatever your business needs — a store, a directory, a booking platform or a full web app — one team designs, builds and launches it, complete.
+            </p>
+          </div>
+          <div className="max-w-3xl mx-auto mb-12 rounded-2xl bg-orange-100 border border-orange-200 px-6 py-4 text-center text-sm sm:text-base text-stone-700">
+            🛠️ <strong className="text-stone-900">Every website comes with its own easy admin panel</strong> — manage products, orders, bookings and content yourself, no developer needed.
+          </div>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {WEBSITE_TYPES.map((t) => (
+              <article key={t.img} className="rounded-2xl overflow-hidden bg-white border border-stone-200 shadow-sm hover:shadow-lg transition">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={`/images/website-types/${t.img}.jpg`} alt={t.title} loading="lazy" className="w-full aspect-video object-cover" />
+                <div className="p-5">
+                  <h3 className="font-bold text-stone-900 mb-2">{t.title}</h3>
+                  <p className="text-sm text-stone-600 leading-relaxed">{t.text}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-3">
+            <span className="text-sm font-semibold text-stone-700">Follow / connect:</span>
+            {SOCIAL_LINKS.map(([label, href]) => (
+              <a
+                key={href}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full bg-white border border-stone-300 px-4 py-2 text-sm font-semibold text-stone-700 hover:border-orange-400 hover:text-orange-700 transition"
+              >
+                {label}
+              </a>
+            ))}
           </div>
         </div>
       </section>
