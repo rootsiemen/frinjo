@@ -1,7 +1,7 @@
 // Shared site content: packages, services, FAQs. Single source of truth.
 export const BRAND = {
   name: "WebStore Pro",
-  tagline: "Ecommerce Website Developer | Online Stores That Sell",
+  tagline: "Full Stack Web Developer | Websites & Web Apps That Sell",
   whatsapp: "923258774221",
   email: "muhammadraza512512@gmail.com",
 };
@@ -73,21 +73,21 @@ export interface Service {
 
 export const SERVICES: Service[] = [
   {
-    title: "Ecommerce Website",
-    slug: "ecommerce-website",
-    desc: "Complete online store with product catalog, cart, checkout and order management — ready to sell from day one.",
+    title: "Full Stack Web Development",
+    slug: "full-stack-web-development",
+    desc: "Complete websites and web applications built end to end — frontend, backend, database and admin panel — fast, secure and ready to grow.",
     icon: "cart",
     longDesc:
-      "A complete online store built to sell — beautiful storefront, smooth shopping experience and everything you need to take orders from day one. Your customers browse products, add to cart and check out in minutes, on any device.",
+      "One developer for the whole build — no hand-offs, no gaps. I design the frontend your customers see, build the backend and database behind it, and wire everything together: user accounts, dashboards, payments and automation. The result is a complete web application that runs your business, not just a brochure.",
     features: [
-      "Modern homepage with banners and categories",
-      "Product pages with images, prices and variants",
-      "Shopping cart with secure checkout flow",
-      "Cash on Delivery built in",
-      "Order notifications on every sale",
-      "Fully mobile responsive design",
+      "Custom frontend — fast, modern, mobile-first",
+      "Backend APIs and database built around your data",
+      "Admin dashboard to manage everything yourself",
+      "User accounts, login and roles built in",
+      "Payments and third-party integrations",
+      "Deployed, secure and ready to scale",
     ],
-    bestFor: "Clothing brands, cosmetics, electronics, groceries — any business that wants to sell products online.",
+    bestFor: "Businesses that need more than a template — web apps, dashboards, booking systems, online stores and custom platforms.",
   },
   {
     title: "Business Website",
