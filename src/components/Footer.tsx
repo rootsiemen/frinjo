@@ -31,7 +31,7 @@ export default function Footer() {
         <div>
           <h3 className="text-stone-900 font-bold mb-4 text-sm uppercase tracking-wider">Pages</h3>
           <ul className="space-y-3">
-            {[["About", "/about"], ["Services", "/services"], ["Automations", "/automations"], ["Portfolio", "/portfolio"], ["Pricing", "/pricing"], ["Blog", "/blog"], ["Contact", "/contact"]].map(([l, h]) => (
+            {[["About", "/about"], ["Services", "/services"], ["Automations", "/automations"], ["Portfolio", "/portfolio"], ["Pricing", "/pricing"], ["Blog", "/blog"], ["Contact", "/contact"], ["FAQ", "/faq"]].map(([l, h]) => (
               <li key={h}><Link href={h} className={menuLink}>{l}</Link></li>
             ))}
           </ul>
