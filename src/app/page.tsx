@@ -66,10 +66,10 @@ export default async function HomePage() {
         <div className="relative max-w-6xl mx-auto px-4 py-20 sm:py-28 grid gap-12 lg:grid-cols-2 items-center">
           <div>
             <p className="inline-flex items-center gap-2 rounded-full bg-orange-100 border border-orange-200 text-orange-800 text-xs font-bold uppercase tracking-[0.18em] px-4 py-2 mb-6">
-              <Icon name="rocket" className="w-4 h-4" /> Ecommerce Website Developer
+              <Icon name="rocket" className="w-4 h-4" /> Full Stack Web Developer
             </p>
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-stone-900 leading-tight">
-              I build ecommerce websites <span className="text-gold-gradient">that sell.</span>
+              I build full stack websites <span className="text-gold-gradient">that sell.</span>
             </h1>
             <p className="mt-6 text-lg text-stone-600 max-w-lg">
               Complete online stores with admin panel, shopping cart, Cash on Delivery, WhatsApp ordering and payment
