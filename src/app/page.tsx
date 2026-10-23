@@ -32,6 +32,8 @@ const SOCIAL_LINKS = [
   ["Instagram", "https://www.instagram.com/yours.raza/"],
   ["X", "https://x.com/irazamirza"],
   ["GitHub", "https://github.com/rootsiemen"],
+  ["Fiverr", "https://www.fiverr.com/s/r3Ev2K0"],
+  ["Portfolio", "https://rootsiemen.github.io/Portfolio/"],
 ];
 
 // CSS-only browser mockup visual (no external images).
