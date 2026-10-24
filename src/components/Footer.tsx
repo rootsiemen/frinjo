@@ -77,6 +77,7 @@ export default function Footer() {
             <li><a href="https://tempmaill.tech" target="_blank" rel="noopener" className={menuLink}>Temp Mail — Free Disposable Email</a></li>
             <li><a href="https://games.tempmaill.tech" target="_blank" rel="noopener" className={menuLink}>PlayZone — Free Browser Games</a></li>
             <li><Link href="/seo-agent-kit" className={menuLink}>SEO Agent Kit — Open-Source SEO Toolkit</Link></li>
+            <li><Link href="/botview" className={menuLink}>BotView</Link></li>
           </ul>
         </div>
       </div>

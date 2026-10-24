@@ -307,6 +307,11 @@ export default function SeoAgentKitPage() {
               honest — a Cloudflare managed robots block was overriding that site's own crawler rules.
               That trap is documented in the ai-visibility skill because it cost real time to find.
             </p>
+            <div className="mt-8 text-center">
+              <Link href="/botview" className={btnPrimary}>
+                Run BotView free in your browser <Icon name="arrow" className="w-5 h-5" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
