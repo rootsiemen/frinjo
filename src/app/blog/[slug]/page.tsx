@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getDb, mapBlogPost } from "@/lib/db";
-import { BRAND } from "@/lib/content";
+import { BRAND, SERVICES } from "@/lib/content";
 import { Icon, btnPrimary, btnOutline } from "@/components/ui";
 import BlogContent from "@/components/BlogContent";
 import { formatDate } from "@/lib/blog";
@@ -143,6 +143,21 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 <Icon name="chat" className="w-5 h-5" /> Chat on WhatsApp
               </a>
             </div>
+          </div>
+
+          <div className="mt-10 rounded-3xl border border-stone-200 bg-white p-8">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-orange-700 mb-3">Our services</p>
+            <h2 className="font-display text-2xl font-bold text-stone-900 mb-5">What WebStore Pro builds for businesses like yours</h2>
+            <ul className="grid gap-4 sm:grid-cols-2">
+              {SERVICES.map((s) => (
+                <li key={s.slug}>
+                  <Link href={`/services/${s.slug}`} className="font-bold text-stone-900 hover:text-orange-800 transition">
+                    {s.title} →
+                  </Link>
+                  <p className="mt-1 text-sm text-stone-600 leading-relaxed">{s.desc}</p>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </article>

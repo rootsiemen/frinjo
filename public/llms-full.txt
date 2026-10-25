@@ -1,0 +1,245 @@
+# WebStore Pro (Frinjo) — Full Site Content (llms-full.txt)
+
+> WebStore Pro (WebStore Pro) is a full stack web development service (https://frinjo.me) that builds complete websites and web apps with Next.js and React — storefront, shopping cart, checkout, order management and admin panel included. Contact: neilsonsmarry@gmail.com · WhatsApp: +923258774221. This file gives AI assistants the site's full service, pricing and FAQ content in plain text.
+
+## Services
+
+### Full Stack Web Development
+URL: https://frinjo.me/services/full-stack-web-development
+One developer for the whole build — no hand-offs, no gaps. I design the frontend your customers see, build the backend and database behind it, and wire everything together: user accounts, dashboards, payments and automation. The result is a complete web application that runs your business, not just a brochure.
+Features:
+- Custom frontend — fast, modern, mobile-first
+- Backend APIs and database built around your data
+- Admin dashboard to manage everything yourself
+- User accounts, login and roles built in
+- Payments and third-party integrations
+- Deployed, secure and ready to scale
+Best for: Businesses that need more than a template — web apps, dashboards, booking systems, online stores and custom platforms.
+
+### Business Website
+URL: https://frinjo.me/services/business-website
+A polished, professional website that makes your business look established and trustworthy. Showcase your services, past work and customer reviews — and turn visitors into inquiries with smart contact forms and WhatsApp chat.
+Features:
+- Stunning homepage that tells your story
+- Services section with detail pages
+- Portfolio / past-work gallery
+- Testimonials and reviews section
+- Contact form with instant alerts
+- WhatsApp chat button on every page
+Best for: Agencies, freelancers, clinics, restaurants, real estate and local businesses that need a strong online presence.
+
+### Admin Panel
+URL: https://frinjo.me/services/admin-panel
+You stay in full control after launch. The admin panel is your website's back office — add new products, change prices, mark orders as delivered and update your portfolio, all from a simple dashboard. No developer needed, no coding at all.
+Features:
+- Add, edit and delete products in seconds
+- Update prices and stock instantly
+- View and manage all customer orders
+- Track inquiries from the contact form
+- Manage portfolio items and testimonials
+- Simple login — works on phone too
+Best for: Store owners who want to run their website themselves without paying a developer for every small change.
+
+### Payment Integration
+URL: https://frinjo.me/services/payment-integration
+Let customers pay you online, not just Cash on Delivery. I integrate trusted payment gateways into your checkout — cards, bank transfers and mobile wallets — all connected to YOUR merchant account, so every rupee goes straight to you.
+Features:
+- Stripe and PayPal for international cards
+- JazzCash / Easypaisa for local customers
+- Secure checkout with trusted providers
+- Your own merchant account — money comes to you
+- Payment status tracked with each order
+- COD and WhatsApp ordering still available
+Best for: Stores ready to accept card and mobile-wallet payments alongside Cash on Delivery.
+
+### WhatsApp Ordering
+URL: https://frinjo.me/services/whatsapp-ordering
+Most of your customers are already on WhatsApp — so let them order there. One tap on your website opens a chat with their cart or inquiry pre-written. You confirm the order in chat and deliver. Simple, personal, and it converts.
+Features:
+- One-tap WhatsApp order button
+- Cart details sent straight to your chat
+- Floating WhatsApp button on every page
+- Pre-written messages — customer just hits send
+- Works with COD for easy fulfillment
+- No app or signup needed for customers
+Best for: Small shops, home-based businesses and anyone whose customers prefer chatting over online checkout.
+
+### SEO Basics
+URL: https://frinjo.me/services/seo-basics
+A beautiful website is useless if nobody finds it. Every site I build comes with SEO fundamentals baked in — clean structure Google understands, lightning-fast loading, and proper titles and descriptions on every page so you start ranking from day one.
+Features:
+- SEO-friendly page structure and URLs
+- Fast loading for better rankings
+- Meta titles and descriptions on every page
+- Mobile-first — Google's top priority
+- Google-friendly sitemap included
+- Social sharing previews set up
+Best for: Any business that wants customers to discover them through Google search.
+
+## Packages
+
+### Starter Website — 80 USD
+- 5-page website
+- Up to 20 products
+- Mobile responsive design
+- Shopping cart & checkout
+- Cash on Delivery setup
+- 7-day support
+
+### Business Website — 150 USD
+- Everything in Starter
+- Up to 100 products
+- Admin panel — manage it yourself
+- WhatsApp ordering + COD
+- Order notifications
+- 14-day support
+
+### Pro Website — 300 USD
+- Everything in Business
+- Payment gateway integration
+- Custom banners & branding
+- Order email alerts
+- SEO basics
+- 30-day priority support
+
+## Frequently Asked Questions
+
+### How long does it take to build my website?
+Starter websites are delivered in 5 days, Business in 7 days and Pro in 10 days. Need it faster? Ask about express delivery.
+
+### Do I need to buy domain and hosting myself?
+Yes, but I guide you step by step — it costs around $15/year and takes 10 minutes. Your site stays 100% yours.
+
+### Can I update products myself after launch?
+Absolutely. The Business and Pro packages include an admin panel where you can add products, change prices and manage orders with zero coding. I'll show you how in a short walkthrough.
+
+### Which payment methods are supported?
+Cash on Delivery, JazzCash, Stripe, PayPal and WhatsApp ordering. Online gateways use your own merchant account, so the money goes straight to you.
+
+### Will my website work on mobile phones?
+Yes — every website is fully mobile responsive and tested on phones, tablets and desktops.
+
+### What do you need from me to start?
+Just your business name, logo (if you have one), product list with prices and photos, and your WhatsApp number. I handle everything else.
+
+## Main Pages
+
+- https://frinjo.me
+- https://frinjo.me/services
+- https://frinjo.me/automations
+- https://frinjo.me/seo-agent-kit
+- https://frinjo.me/botview
+- https://frinjo.me/portfolio
+- https://frinjo.me/pricing
+- https://frinjo.me/blog
+- https://frinjo.me/about
+- https://frinjo.me/contact
+- https://frinjo.me/faq
+- https://frinjo.me/services/full-stack-web-development
+- https://frinjo.me/services/business-website
+- https://frinjo.me/services/admin-panel
+- https://frinjo.me/services/payment-integration
+- https://frinjo.me/services/whatsapp-ordering
+- https://frinjo.me/services/seo-basics
+
+## Blog Articles
+
+- https://frinjo.me/blog/website-cost-pakistan-2026
+- https://frinjo.me/blog/jazzcash-easypaisa-online-store
+- https://frinjo.me/blog/shopify-vs-custom-website
+- https://frinjo.me/blog/whatsapp-ordering-guide
+- https://frinjo.me/blog/speed-up-website-10-tips
+- https://frinjo.me/blog/seo-basics-small-business
+- https://frinjo.me/blog/landing-page-secrets-convert
+- https://frinjo.me/blog/why-small-business-needs-website
+- https://frinjo.me/blog/what-is-nextjs
+- https://frinjo.me/blog/ecommerce-launch-checklist
+- https://frinjo.me/blog/cod-done-right-how-to-cut-fake-orders-and-boost-profit-in-pakistan
+- https://frinjo.me/blog/facebook-google-ads-for-pakistani-stores-a-beginner-s-budget-guide
+- https://frinjo.me/blog/whatsapp-ordering-for-your-online-store-setup-guide-for-pakistan
+- https://frinjo.me/blog/product-photography-with-your-phone-7-tips-for-pakistani-sellers
+- https://frinjo.me/blog/how-much-does-a-website-cost-in-pakistan-2026-price-guide
+- https://frinjo.me/blog/how-to-build-customer-trust-in-your-pakistani-online-store
+- https://frinjo.me/blog/ecommerce-launch-checklist-for-clothing-stores-in-pakistan
+- https://frinjo.me/blog/webstore-seo-7-local-tactics-to-rank-your-pakistani-store-higher
+- https://frinjo.me/blog/next-js-vs-wordpress-for-pakistani-businesses-which-wins
+- https://frinjo.me/blog/how-to-improve-online-store-speed-on-4g-in-pakistan
+- https://frinjo.me/blog/ecommerce-launch-mistakes-to-avoid-in-pakistan-2026
+- https://frinjo.me/blog/ecommerce-checklist-for-beginners-in-pakistan-10-first-steps
+- https://frinjo.me/blog/seo-mistakes-pakistani-online-stores-make-and-how-to-fix-them
+- https://frinjo.me/blog/product-page-seo-for-pakistani-online-stores-a-step-by-step-guide
+- https://frinjo.me/blog/best-courier-for-your-online-store-in-pakistan-2026
+- https://frinjo.me/blog/google-business-profile-for-pakistani-online-stores-2026
+- https://frinjo.me/blog/ecommerce-launch-checklist-for-electronics-stores-in-pakistan
+- https://frinjo.me/blog/return-policy-for-your-online-store-in-pakistan-a-simple-guide
+- https://frinjo.me/blog/ecommerce-launch-checklist-for-beauty-stores-in-pakistan
+- https://frinjo.me/blog/how-to-write-product-descriptions-that-sell-pakistan-guide
+- https://frinjo.me/blog/ecommerce-launch-checklist-for-grocery-stores-in-pakistan
+- https://frinjo.me/blog/jazzcash-vs-easypaisa-for-online-stores-which-should-you-pick
+- https://frinjo.me/blog/ecommerce-post-launch-checklist-first-30-days-in-pakistan
+- https://frinjo.me/blog/abandoned-cart-recovery-pakistan-7-whatsapp-tips-that-win-sales
+- https://frinjo.me/blog/core-web-vitals-for-pakistani-online-stores-pass-the-speed-test
+- https://frinjo.me/blog/how-to-set-up-facebook-shop-in-pakistan-2026-guide
+- https://frinjo.me/blog/how-to-optimize-product-images-for-your-pakistani-online-store
+- https://frinjo.me/blog/how-to-accept-binance-pay-on-your-pakistani-online-store
+- https://frinjo.me/blog/next-js-for-ecommerce-in-pakistan-cost-speed-seo-guide
+- https://frinjo.me/blog/how-to-invest-in-pakistan-s-stock-market-beginner-s-guide-2026
+- https://frinjo.me/blog/how-much-does-a-landing-page-cost-in-pakistan-2026
+- https://frinjo.me/blog/why-is-the-pakistani-rupee-falling-against-the-dollar-2026
+- https://frinjo.me/blog/freelancer-vs-agency-website-in-pakistan-2026
+- https://frinjo.me/blog/emergency-fund-in-pakistan-how-much-to-save-in-2026
+- https://frinjo.me/blog/best-mutual-funds-in-pakistan-for-beginners-2026
+- https://frinjo.me/blog/how-much-does-a-restaurant-website-cost-in-pakistan-2026
+- https://frinjo.me/blog/fbr-tax-filing-for-freelancers-in-pakistan-2026-guide
+- https://frinjo.me/blog/gold-vs-psx-vs-mutual-funds-where-to-invest-in-pakistan-2026
+- https://frinjo.me/blog/how-much-does-an-ecommerce-website-cost-in-pakistan-2026
+- https://frinjo.me/blog/best-digital-wallets-in-pakistan-2026-jazzcash-vs-easypaisa-nayapay
+- https://frinjo.me/blog/portfolio-website-in-pakistan-win-freelance-clients-in-2026
+- https://frinjo.me/blog/is-crypto-legal-in-pakistan-in-2026-the-real-answer
+- https://frinjo.me/blog/best-monthly-income-investments-in-pakistan-2026
+- https://frinjo.me/blog/how-much-does-seo-cost-in-pakistan-2026
+- https://frinjo.me/blog/how-to-hire-a-web-developer-in-pakistan-a-2026-playbook
+- https://frinjo.me/blog/rs-100-000-salary-in-pakistan-what-it-actually-buys-in-2026
+- https://frinjo.me/blog/investment-scams-in-pakistan-7-schemes-that-stole-billions
+- https://frinjo.me/blog/best-health-insurance-in-pakistan-2026-7-plans-compared
+- https://frinjo.me/blog/website-maintenance-cost-in-pakistan-2026-the-real-numbers
+- https://frinjo.me/blog/how-to-buy-gold-in-pakistan-for-investment-2026-guide
+- https://frinjo.me/blog/7-red-flags-when-hiring-a-web-developer-in-pakistan
+- https://frinjo.me/blog/inflation-in-pakistan-explained-why-your-money-shrinks-2026
+- https://frinjo.me/blog/best-islamic-savings-accounts-in-pakistan-2026-profit-rates-compared
+- https://frinjo.me/blog/whatsapp-business-api-pricing-in-pakistan-2026-real-costs
+- https://frinjo.me/blog/pakistan-s-imf-deal-explained-what-it-means-for-your-money-in-2026
+- https://frinjo.me/blog/daraz-vs-own-website-in-pakistan-the-real-2026-math
+- https://frinjo.me/blog/cheapest-ways-to-send-money-to-pakistan-in-2026
+- https://frinjo.me/blog/cryptocurrency-tax-in-pakistan-2026-what-fbr-really-wants-from-you
+- https://frinjo.me/blog/shopify-vs-woocommerce-in-pakistan-2026-real-cost-compared
+- https://frinjo.me/blog/best-debit-cards-in-pakistan-2026-fees-tax-real-costs
+- https://frinjo.me/blog/best-domain-registrar-in-pakistan-2026-prices-compared
+- https://frinjo.me/blog/rs-150-000-salary-budget-plan-in-pakistan-2026
+- https://frinjo.me/blog/best-credit-cards-in-pakistan-2026-9-banks-real-costs-compared
+- https://frinjo.me/blog/do-you-need-a-website-if-you-have-a-facebook-page-pakistan-2026
+- https://frinjo.me/blog/best-personal-loans-in-pakistan-2026-7-banks-compared
+- https://frinjo.me/blog/real-estate-website-cost-in-pakistan-2026-full-price-breakdown
+- https://frinjo.me/blog/sukuk-investment-in-pakistan-2026-the-rs-5-000-investor-s-guide
+- https://frinjo.me/blog/best-fixed-deposit-rates-in-pakistan-2026-banks-vs-national-savings
+- https://frinjo.me/blog/local-seo-in-pakistan-2026-rank-your-business-on-google-maps
+- https://frinjo.me/blog/circular-debt-in-pakistan-why-your-bijli-bill-keeps-rising
+- https://frinjo.me/blog/best-life-insurance-in-pakistan-2026-7-companies-compared
+- https://frinjo.me/blog/wordpress-vs-custom-website-in-pakistan-which-wins-in-2026
+- https://frinjo.me/blog/how-to-calculate-zakat-on-savings-in-pakistan-2026
+- https://frinjo.me/blog/ntn-for-online-store-in-pakistan-2026-registration-guide
+- https://frinjo.me/blog/how-does-beesi-work-in-pakistan-2026-guide-with-real-math
+- https://frinjo.me/blog/how-to-move-your-instagram-shop-to-your-own-website-pakistan-2026
+- https://frinjo.me/blog/how-to-invest-in-the-pakistan-stock-market-beginner-s-2026-guide
+- https://frinjo.me/blog/website-speed-in-pakistan-2026-the-3-second-rule-that-decides-sales
+- https://frinjo.me/blog/best-money-market-funds-in-pakistan-2026-ranked-on-real-returns
+- https://frinjo.me/blog/best-payment-gateway-in-pakistan-2026-7-options-compared
+- https://frinjo.me/blog/how-much-money-do-you-need-to-retire-in-pakistan-2026
+- https://frinjo.me/blog/rent-vs-buy-a-house-in-pakistan-2026-the-real-math
+- https://frinjo.me/blog/school-website-cost-in-pakistan-2026-full-price-guide
+- https://frinjo.me/blog/restaurant-website-in-pakistan-2026-menus-orders-bookings
+- https://frinjo.me/blog/best-bank-account-for-freelancers-in-pakistan-2026
+- https://frinjo.me/blog/how-much-does-a-landing-page-cost-in-pakistan-2026-2
+- https://frinjo.me/blog/landing-page-vs-full-website-which-does-your-business-need
+- https://frinjo.me/blog/best-savings-accounts-in-pakistan-2026
+- https://frinjo.me/blog/best-web-hosting-in-pakistan-2026

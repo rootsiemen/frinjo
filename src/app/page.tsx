@@ -269,7 +269,7 @@ export default async function HomePage() {
             {FAQS.map((f) => (
               <details key={f.q} className="group rounded-2xl border border-stone-200 bg-stone-50 open:bg-white open:shadow-sm transition">
                 <summary className="cursor-pointer list-none px-6 py-5 font-semibold text-stone-900 flex justify-between items-center gap-4">
-                  {f.q}
+                  <h3 className="font-semibold text-stone-900">{f.q}</h3>
                   <span className="text-orange-700 text-xl group-open:rotate-45 transition shrink-0">+</span>
                 </summary>
                 <p className="px-6 pb-6 text-stone-600 text-sm leading-relaxed">{f.a}</p>
