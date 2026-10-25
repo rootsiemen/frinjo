@@ -1,5 +1,6 @@
 // Renders blog post body blocks:
-// plain string -> paragraph, "## " -> h2, "- " -> bullet list, "> " -> callout.
+// plain string -> paragraph, "## " -> h2, "- " -> bullet list, "> " -> callout,
+// "![alt](url)" -> body image.
 export default function BlogContent({ blocks }: { blocks: string[] }) {
   const out: React.ReactNode[] = [];
   let list: string[] = [];
@@ -21,7 +22,14 @@ export default function BlogContent({ blocks }: { blocks: string[] }) {
   }
 
   blocks.forEach((b, i) => {
-    if (b.startsWith("## ")) {
+    const imgMatch = b.match(/^!\[([^\]]*)\]\((https?:[^)\s]+)\)\s*$/);
+    if (imgMatch) {
+      flushList(`ul-${i}`);
+      out.push(
+        // eslint-disable-next-line @next/next/no-img-element
+        <img key={i} src={imgMatch[2]} alt={imgMatch[1]} loading="lazy" className="w-full rounded-2xl my-8 border border-orange-100" />
+      );
+    } else if (b.startsWith("## ")) {
       flushList(`ul-${i}`);
       out.push(
         <h2 key={i} className="font-display text-2xl font-bold text-stone-900 mt-10 mb-4">
