@@ -49,25 +49,32 @@ const SECTIONS: { h: string; body: string[] }[] = [
     ],
   },
   {
-    h: "5. Data Security",
+    h: "5. Third-Party Advertising",
+    body: [
+      "We display ads served by third-party advertising companies, including Google (Google AdSense). These companies may use cookies (including the Google DoubleClick cookie) to serve ads based on your visits to this and other websites.",
+      "Google's use of advertising cookies enables it and its partners to serve ads based on your visit to our site and/or other sites on the Internet. You may opt out of personalized advertising by visiting Google Ads Settings (https://www.google.com/settings/ads).",
+    ],
+  },
+  {
+    h: "6. Data Security",
     body: [
       "We take reasonable technical and organizational measures to protect your information against unauthorized access, alteration or disclosure. However, no method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.",
     ],
   },
   {
-    h: "6. Your Rights",
+    h: "7. Your Rights",
     body: [
       "You may request access to, correction of, or deletion of your personal information at any time by contacting us. We will respond to reasonable requests within a reasonable timeframe.",
     ],
   },
   {
-    h: "7. Changes to This Policy",
+    h: "8. Changes to This Policy",
     body: [
       "We may update this Privacy Policy from time to time. The latest version will always be published on this page, with the effective date shown below.",
     ],
   },
   {
-    h: "8. Contact Us",
+    h: "9. Contact Us",
     body: [
       `If you have any questions about this Privacy Policy, contact us at ${BRAND.email} or via WhatsApp using the button on this site.`,
     ],
