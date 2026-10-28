@@ -269,8 +269,47 @@ export default function KeywordChecker({ initialKeyword = "" }: { initialKeyword
                 </div>
                 <div className="rounded-3xl border border-stone-200 bg-white p-6 shadow-sm">
                   <div className="text-[11px] font-bold uppercase tracking-[0.15em] text-stone-500">Monthly search volume</div>
-                  <p className="mt-2 font-display text-xl font-bold text-stone-900">Not shown — on purpose</p>
-                  <p className="mt-2 text-sm text-stone-600 leading-relaxed">{data.volume.note}</p>
+                  {data.volume.exactVolume !== null ? (
+                    <>
+                      <p className="mt-2 font-display text-xl font-bold text-stone-900">
+                        {data.volume.exactVolume.toLocaleString()}
+                      </p>
+                      <p className="mt-2 text-sm text-stone-600 leading-relaxed">
+                        Avg. monthly searches — Google Keyword Planner · {data.country.name}
+                      </p>
+                      {data.volume.googleCompetition ? (
+                        <p className="mt-2 text-sm text-stone-600 leading-relaxed">
+                          Advertiser competition:{" "}
+                          <span className="font-semibold text-stone-900">
+                            {data.volume.googleCompetition}
+                            {typeof data.volume.googleCompetitionIndex === "number"
+                              ? ` (index ${data.volume.googleCompetitionIndex}/100)`
+                              : ""}
+                          </span>{" "}
+                          — how hard advertisers bid on this keyword in Google Ads. This is NOT the difficulty
+                          score above, which measures organic SERP competition.
+                        </p>
+                      ) : null}
+                      {data.volume.monthlyVolumes && data.volume.monthlyVolumes.length > 0 ? (
+                        <p className="mt-2 text-sm text-stone-600 leading-relaxed">
+                          Recent months:{" "}
+                          {data.volume.monthlyVolumes
+                            .map((m) => `${m.month}: ${m.searches.toLocaleString()}`)
+                            .join(" · ")}
+                        </p>
+                      ) : null}
+                    </>
+                  ) : data.volume.provider === "google-ads" ? (
+                    <>
+                      <p className="mt-2 font-display text-xl font-bold text-stone-900">No Planner data</p>
+                      <p className="mt-2 text-sm text-stone-600 leading-relaxed">{data.volume.note}</p>
+                    </>
+                  ) : (
+                    <>
+                      <p className="mt-2 font-display text-xl font-bold text-stone-900">Not shown — on purpose</p>
+                      <p className="mt-2 text-sm text-stone-600 leading-relaxed">{data.volume.note}</p>
+                    </>
+                  )}
                 </div>
               </div>
               {data.approxResultCount !== null && (

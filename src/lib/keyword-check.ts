@@ -11,6 +11,9 @@
  *    factor's points shown to the user,
  *  - Google Autocomplete suggestions (real queries people type),
  *  - Google Trends interest, when Google does not rate-limit the request,
+ *  - exact monthly search volume from Google Keyword Planner (Google Ads
+ *    API), when the GOOGLE_ADS_* credentials are configured — otherwise
+ *    the volume stays null and the report says so (see getVolumeData),
  *  - a rule-based search-intent classification that names the rule that fired.
  *
  * Every fetch is geo-targeted to ONE user-selected country (see
@@ -39,27 +42,203 @@ export interface DifficultyFactor {
 }
 
 /**
- * Pluggable volume provider.
+ * Volume providers.
  *
- * Today the only provider is "free-signals": it returns NO exact volume
- * (exactVolume is always null) and the report is built from autocomplete,
- * Trends and the SERP sample instead.
- *
- * The paid upgrade path chosen for this tool is the Google Keyword Planner
- * API (Google Ads API) — NOT a third-party database. A future
- * "google-ads" provider can be added behind this same interface, reading
- * its credentials from environment variables (placeholders only — no real
- * secrets exist yet, and none may be committed):
+ * "google-ads" (live when configured): exact monthly search volume from
+ * the Google Keyword Planner API (Google Ads API). Credentials come from
+ * environment variables only — no secrets are ever committed:
  *   GOOGLE_ADS_CLIENT_ID, GOOGLE_ADS_CLIENT_SECRET,
- *   GOOGLE_ADS_REFRESH_TOKEN, GOOGLE_ADS_DEVELOPER_TOKEN,
- *   GOOGLE_ADS_CUSTOMER_ID, GOOGLE_ADS_LOGIN_CUSTOMER_ID
- * Swapping providers must not change the page or the API route shape:
- * only this function and the `provider` / `exactVolume` fields change.
+ *   GOOGLE_ADS_REFRESH_TOKEN, GOOGLE_ADS_CUSTOMER_ID,
+ *   GOOGLE_ADS_LOGIN_CUSTOMER_ID
+ * Access follows the Cloud access model: an OAuth access token (minted
+ * from the refresh token, cached in module scope) plus the
+ * login-customer-id header — no developer-token header is sent.
+ *
+ * "free-signals" (fallback): returns NO exact volume (exactVolume is
+ * always null) and the report is built from autocomplete, Trends and the
+ * SERP sample instead. It is used whenever the Ads credentials are not
+ * configured, the selected country has no geo target constant (see
+ * countries.ts `geoTargetId`), or the Planner lookup fails — the volume
+ * lookup must never fail the whole check.
  */
+export interface MonthlyVolume {
+  month: string; // e.g. "Sep 2026"
+  searches: number;
+}
+
 export interface VolumeData {
   provider: "free-signals" | "google-ads";
   exactVolume: number | null;
   note: string;
+  /**
+   * Keyword Planner ADVERTISER competition (how hard advertisers bid in
+   * Google Ads) — a different thing from the SERP difficulty score, and
+   * always labelled as such in the UI. Only set by the google-ads provider.
+   */
+  googleCompetition?: "LOW" | "MEDIUM" | "HIGH" | null;
+  /** Advertiser competition index, 0-100. */
+  googleCompetitionIndex?: number | null;
+  /** Most recent monthly search volumes first, up to 3 entries. */
+  monthlyVolumes?: MonthlyVolume[];
+}
+
+/* ---------------- Google Ads API (Keyword Planner) ---------------- */
+
+const ADS_API_VERSION = "v23";
+const ADS_TIMEOUT_MS = 8_000;
+
+interface AdsConfig {
+  clientId: string;
+  clientSecret: string;
+  refreshToken: string;
+  customerId: string; // digits only
+  loginCustomerId: string; // digits only
+}
+
+function adsConfig(): AdsConfig | null {
+  const clientId = process.env.GOOGLE_ADS_CLIENT_ID;
+  const clientSecret = process.env.GOOGLE_ADS_CLIENT_SECRET;
+  const refreshToken = process.env.GOOGLE_ADS_REFRESH_TOKEN;
+  const customerId = process.env.GOOGLE_ADS_CUSTOMER_ID?.replace(/\D/g, "");
+  const loginCustomerId = process.env.GOOGLE_ADS_LOGIN_CUSTOMER_ID?.replace(/\D/g, "");
+  if (!clientId || !clientSecret || !refreshToken || !customerId || !loginCustomerId) return null;
+  return { clientId, clientSecret, refreshToken, customerId, loginCustomerId };
+}
+
+let adsTokenCache: { token: string; expiresAt: number } | null = null;
+
+async function adsAccessToken(cfg: AdsConfig): Promise<string | null> {
+  if (adsTokenCache && Date.now() < adsTokenCache.expiresAt) return adsTokenCache.token;
+  try {
+    const res = await fetch("https://oauth2.googleapis.com/token", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({
+        client_id: cfg.clientId,
+        client_secret: cfg.clientSecret,
+        refresh_token: cfg.refreshToken,
+        grant_type: "refresh_token",
+      }),
+      signal: AbortSignal.timeout(ADS_TIMEOUT_MS),
+    });
+    if (!res.ok) return null;
+    const json = (await res.json()) as { access_token?: string; expires_in?: number };
+    if (!json.access_token) return null;
+    const ttlMs = (typeof json.expires_in === "number" ? json.expires_in : 3600) * 1000;
+    // Cache the token until ~5 minutes before it actually expires.
+    adsTokenCache = {
+      token: json.access_token,
+      expiresAt: Date.now() + Math.max(0, ttlMs - 5 * 60_000),
+    };
+    return json.access_token;
+  } catch {
+    return null;
+  }
+}
+
+const MONTH_NUMBER: Record<string, number> = {
+  JANUARY: 1, FEBRUARY: 2, MARCH: 3, APRIL: 4, MAY: 5, JUNE: 6,
+  JULY: 7, AUGUST: 8, SEPTEMBER: 9, OCTOBER: 10, NOVEMBER: 11, DECEMBER: 12,
+};
+const MONTH_LABEL = [
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+];
+
+interface PlannerMetrics {
+  avgMonthlySearches: number;
+  competition: "LOW" | "MEDIUM" | "HIGH" | null;
+  competitionIndex: number | null;
+  monthlyVolumes: MonthlyVolume[];
+}
+
+type PlannerResult =
+  | { status: "ok"; metrics: PlannerMetrics }
+  | { status: "no-data" }
+  | { status: "error" };
+
+async function fetchPlannerMetrics(
+  cfg: AdsConfig,
+  accessToken: string,
+  keyword: string,
+  geoTargetId: number,
+): Promise<PlannerResult> {
+  try {
+    const res = await fetch(
+      `https://googleads.googleapis.com/${ADS_API_VERSION}/customers/${cfg.customerId}:generateKeywordHistoricalMetrics`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          "login-customer-id": cfg.loginCustomerId,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          keywords: [keyword],
+          geoTargetConstants: [`geoTargetConstants/${geoTargetId}`],
+          language: "languageConstants/1000",
+          keywordPlanNetwork: "GOOGLE_SEARCH",
+        }),
+        signal: AbortSignal.timeout(ADS_TIMEOUT_MS),
+      },
+    );
+    if (!res.ok) return { status: "error" };
+    const json = (await res.json()) as {
+      results?: {
+        text?: string;
+        keywordMetrics?: {
+          avgMonthlySearches?: string | number | null;
+          competition?: string | null;
+          competitionIndex?: string | number | null;
+          monthlySearchVolumes?: {
+            month?: string | number;
+            year?: string | number;
+            monthlySearches?: string | number | null;
+          }[];
+        } | null;
+      }[];
+    };
+    const results = json.results ?? [];
+    const match =
+      results.find((r) => (r.text ?? "").toLowerCase() === keyword.toLowerCase()) ?? results[0];
+    const km = match?.keywordMetrics;
+    if (!km || km.avgMonthlySearches === null || km.avgMonthlySearches === undefined || km.avgMonthlySearches === "") {
+      // The API answered, but Planner holds no metrics for this keyword in
+      // this geo — a real "no data", not a failure.
+      return { status: "no-data" };
+    }
+    const avg = Number(km.avgMonthlySearches);
+    if (!Number.isFinite(avg)) return { status: "no-data" };
+
+    const monthly: { y: number; m: number; searches: number }[] = [];
+    for (const v of km.monthlySearchVolumes ?? []) {
+      const m =
+        typeof v.month === "number" ? v.month : MONTH_NUMBER[String(v.month ?? "").toUpperCase()];
+      const y = Number(v.year);
+      const searches = Number(v.monthlySearches);
+      if (m && Number.isFinite(y) && Number.isFinite(searches)) monthly.push({ y, m, searches });
+    }
+    monthly.sort((a, b) => b.y - a.y || b.m - a.m);
+
+    const compIndex = km.competitionIndex == null ? null : Number(km.competitionIndex);
+    return {
+      status: "ok",
+      metrics: {
+        avgMonthlySearches: avg,
+        competition:
+          km.competition === "LOW" || km.competition === "MEDIUM" || km.competition === "HIGH"
+            ? km.competition
+            : null,
+        competitionIndex: compIndex !== null && Number.isFinite(compIndex) ? compIndex : null,
+        monthlyVolumes: monthly.slice(0, 3).map((v) => ({
+          month: `${MONTH_LABEL[v.m - 1]} ${v.y}`,
+          searches: v.searches,
+        })),
+      },
+    };
+  } catch {
+    return { status: "error" };
+  }
 }
 
 export async function getVolumeData(
@@ -67,20 +246,54 @@ export async function getVolumeData(
   countryCode: string,
   context: { suggestionsCount: number; trendsStatus: string },
 ): Promise<VolumeData> {
-  void keyword;
-  // `countryCode` (ISO 3166-1 alpha-2) is the market this check ran for.
-  // When the "google-ads" provider lands, it maps 1:1 to a Keyword Planner
-  // geo target: Google Ads geo targets are keyed by country (each country
-  // has a numeric geoTargetConstant id, e.g. US=2840, PK=2586, GB=2826),
-  // so the provider will resolve alpha-2 -> geoTargetConstant and pass it as
-  // the keyword plan's target — no signature change will be needed.
-  void countryCode;
-  // Free provider: exact volume is paid-API data, so it stays null and the
-  // note says so plainly instead of dressing up an estimate as a number.
+  const demandTail = `Demand signal here is based on ${context.suggestionsCount} Google Autocomplete suggestion(s) and Trends status: ${context.trendsStatus}.`;
+
+  // No Ads credentials configured -> the original free-signals behaviour,
+  // word for word.
+  const cfg = adsConfig();
+  if (!cfg) {
+    return {
+      provider: "free-signals",
+      exactVolume: null,
+      note: `No exact monthly volume in the free version — that figure comes from the Google Keyword Planner / Google Ads API. ${demandTail}`,
+    };
+  }
+
+  const country = resolveCountry(countryCode);
+  if (!country.geoTargetId) {
+    return {
+      provider: "free-signals",
+      exactVolume: null,
+      note: `Exact volume is not available for ${country.name} yet — this tool has no Keyword Planner geo target configured for that market, and no other country's data was substituted. ${demandTail}`,
+    };
+  }
+
+  const token = await adsAccessToken(cfg);
+  const result = token
+    ? await fetchPlannerMetrics(cfg, token, keyword, country.geoTargetId)
+    : ({ status: "error" } as PlannerResult);
+
+  if (result.status === "error") {
+    return {
+      provider: "free-signals",
+      exactVolume: null,
+      note: `The Google Keyword Planner lookup failed just now, so no exact volume is shown — a volume number is never estimated or invented. ${demandTail}`,
+    };
+  }
+  if (result.status === "no-data") {
+    return {
+      provider: "google-ads",
+      exactVolume: null,
+      note: `Keyword Planner has no data for this keyword in ${country.name}.`,
+    };
+  }
   return {
-    provider: "free-signals",
-    exactVolume: null,
-    note: `No exact monthly volume in the free version — that figure comes from the Google Keyword Planner / Google Ads API. Demand signal here is based on ${context.suggestionsCount} Google Autocomplete suggestion(s) and Trends status: ${context.trendsStatus}.`,
+    provider: "google-ads",
+    exactVolume: result.metrics.avgMonthlySearches,
+    note: `Exact volume from Google Keyword Planner for ${country.name} — the average monthly searches over the last 12 months.`,
+    googleCompetition: result.metrics.competition,
+    googleCompetitionIndex: result.metrics.competitionIndex,
+    monthlyVolumes: result.metrics.monthlyVolumes,
   };
 }
 
