@@ -4,9 +4,10 @@
  * What this does NOT do: invent a monthly search volume. Exact volume is
  * paid-database data (Ahrefs / Semrush / Keyword Planner). This engine only
  * reports things it actually fetched:
- *  - a live SERP sample (DuckDuckGo HTML -> DuckDuckGo Lite -> Bing ->
- *    Mojeek -> Yahoo, the whole chain retried once — a score needs >=5
- *    real results from ONE source, whichever answers first),
+ *  - a live SERP sample (DuckDuckGo HTML, DuckDuckGo Lite, Bing in two
+ *    URL variants, Mojeek and Yahoo raced in parallel, the whole race
+ *    retried once — a score needs >=5 real results from ONE source,
+ *    whichever answers first with a usable sample),
  *  - a difficulty score computed ONLY from that SERP sample, with every
  *    factor's points shown to the user,
  *  - Google Autocomplete suggestions (real queries people type),
@@ -553,9 +554,37 @@ function dropJunk(results: SerpResult[]): SerpResult[] {
 
 type SerpSample = { source: string; results: SerpResult[]; approxCount: number | null };
 
-/** Whole SERP chain gets ~19s max, however many sources/passes that takes. */
-const SERP_BUDGET_MS = 19_000;
+/** Whole SERP race gets ~14s max across both passes. */
+const SERP_BUDGET_MS = 14_000;
 const SERP_FETCH_TIMEOUT_MS = 5_000;
+
+/**
+ * Resolve with the first attempt that yields a usable sample; resolve null
+ * only once every attempt has settled without one. Losing attempts are
+ * left to finish on their own per-fetch timeout — nothing waits on them.
+ */
+function firstSerpSuccess(
+  attempts: Promise<SerpSample | null>[],
+): Promise<SerpSample | null> {
+  return new Promise((resolve) => {
+    if (attempts.length === 0) return resolve(null);
+    let pending = attempts.length;
+    let done = false;
+    const settle = (sample: SerpSample | null) => {
+      if (done) return;
+      if (sample) {
+        done = true;
+        resolve(sample);
+        return;
+      }
+      pending -= 1;
+      if (pending === 0) resolve(null);
+    };
+    for (const p of attempts) {
+      p.then(settle, () => settle(null));
+    }
+  });
+}
 
 async function fetchSerpPass(
   keyword: string,
@@ -571,69 +600,85 @@ async function fetchSerpPass(
   const label = (source: string) => `${source} · ${country.name}`;
   const left = () => deadline - Date.now();
   const t = () => Math.min(SERP_FETCH_TIMEOUT_MS, left());
+  if (left() <= 1_200) return null;
 
-  // 1) DuckDuckGo HTML
-  if (left() > 1_200) {
-    const ddg = await fetchText(`https://html.duckduckgo.com/html/?q=${q}${kl}`, t());
+  // Every applicable source is queried CONCURRENTLY and the first one to
+  // return >= MIN_SERP_RESULTS parseable results wins the pass. (The old
+  // sequential chain burned the whole budget on the first sources' timeouts
+  // and often never reached Mojeek/Yahoo at all.)
+  const timeout = t();
+
+  // DuckDuckGo HTML
+  const tryDdgHtml = async (): Promise<SerpSample | null> => {
+    const ddg = await fetchText(`https://html.duckduckgo.com/html/?q=${q}${kl}`, timeout);
     if (ddg && ddg.status === 200) {
       const r = dropJunk(parseDdgHtml(ddg.body));
       if (r.length >= MIN_SERP_RESULTS) return { source: label("DuckDuckGo"), results: r, approxCount: null };
     }
-  }
-  // 2) DuckDuckGo Lite (same engine, lighter page — often survives when the
-  // HTML endpoint is bot-checked with a 202/403, so it is tried on ANY thin
-  // or failed HTML result, not only on HTTP 200)
-  if (left() > 1_200) {
-    const lite = await fetchText(`https://lite.duckduckgo.com/lite/?q=${q}${kl}`, t());
+    return null;
+  };
+  // DuckDuckGo Lite (same engine, lighter page — often survives when the
+  // HTML endpoint is bot-checked with a 202/403)
+  const tryDdgLite = async (): Promise<SerpSample | null> => {
+    const lite = await fetchText(`https://lite.duckduckgo.com/lite/?q=${q}${kl}`, timeout);
     if (lite && lite.status === 200) {
       const lr = dropJunk(parseDdgLite(lite.body));
       if (lr.length >= MIN_SERP_RESULTS) return { source: label("DuckDuckGo (Lite)"), results: lr, approxCount: null };
     }
-  }
-  // 3) Bing — Bing occasionally answers a degraded page with a single junk
-  // result, so a thin parse is retried once before moving on. Both attempts
+    return null;
+  };
+  // Bing — Bing occasionally answers a degraded page with a single junk
+  // result, so two URL variants run in the race; either can win. Both
   // target the SAME requested country (`cc`, plus `setmkt` where Bing
   // defines a market for it).
   const mkt = country.bingMkt ? `&setmkt=${country.bingMkt}` : "";
-  for (let attempt = 0; attempt < 2; attempt++) {
-    if (left() <= 1_200) break;
-    const bing = await fetchText(
-      attempt === 0
-        ? `https://www.bing.com/search?q=${q}&count=10&cc=${country.code}${mkt}`
-        : `https://www.bing.com/search?q=${q}&count=10&setlang=en&cc=${country.code}${mkt}&form=QBRE`,
-      t(),
-    );
+  const tryBing = async (url: string): Promise<SerpSample | null> => {
+    const bing = await fetchText(url, timeout);
     if (bing && bing.status === 200) {
       const { results, approxCount } = parseBing(bing.body);
       const clean = dropJunk(results);
       if (clean.length >= MIN_SERP_RESULTS) return { source: label("Bing"), results: clean, approxCount };
     }
-    if (attempt === 0 && left() > 2_000) await new Promise((r) => setTimeout(r, 700));
-  }
-  // 4) Mojeek — an independent index (not Bing/Google), usually tolerant of
+    return null;
+  };
+  // Mojeek — an independent index (not Bing/Google), usually tolerant of
   // server-side fetches. Mojeek has NO country parameter, so its sample is
   // a global index and the label says exactly that — it is never dressed up
   // as a country-targeted sample.
-  if (left() > 1_200) {
-    const mojeek = await fetchText(`https://www.mojeek.com/search?q=${q}`, t());
+  const tryMojeek = async (): Promise<SerpSample | null> => {
+    const mojeek = await fetchText(`https://www.mojeek.com/search?q=${q}`, timeout);
     if (mojeek && mojeek.status === 200) {
       const mr = dropJunk(parseMojeek(mojeek.body));
       if (mr.length >= MIN_SERP_RESULTS) {
         return { source: "Mojeek · global index (not country-targeted)", results: mr, approxCount: null };
       }
     }
-  }
-  // 5) Yahoo Search — Bing-powered but a different host that often answers
-  // when bing.com degrades. Yahoo localizes by regional host, so it is only
-  // tried for countries that have one (see countries.ts `yahooHost`).
-  if (country.yahooHost && left() > 1_200) {
-    const yahoo = await fetchText(`https://${country.yahooHost}/search?p=${q}`, t());
+    return null;
+  };
+  // Yahoo Search — Bing-powered but a different host that often answers
+  // when bing.com degrades. Yahoo localizes by regional host, so it only
+  // joins the race for countries that have one (see countries.ts
+  // `yahooHost`).
+  const tryYahoo = async (): Promise<SerpSample | null> => {
+    const yahoo = await fetchText(`https://${country.yahooHost}/search?p=${q}`, timeout);
     if (yahoo && yahoo.status === 200) {
       const yr = dropJunk(parseYahoo(yahoo.body));
       if (yr.length >= MIN_SERP_RESULTS) return { source: label("Yahoo"), results: yr, approxCount: null };
     }
-  }
-  return null;
+    return null;
+  };
+
+  const attempts: Promise<SerpSample | null>[] = [
+    tryDdgHtml(),
+    tryDdgLite(),
+    tryBing(`https://www.bing.com/search?q=${q}&count=10&cc=${country.code}${mkt}`),
+    tryBing(
+      `https://www.bing.com/search?q=${q}&count=10&setlang=en&cc=${country.code}${mkt}&form=QBRE`,
+    ),
+    tryMojeek(),
+  ];
+  if (country.yahooHost) attempts.push(tryYahoo());
+  return firstSerpSuccess(attempts);
 }
 
 async function fetchSerp(keyword: string, country: Country): Promise<SerpSample | null> {
