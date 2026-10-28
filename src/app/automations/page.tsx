@@ -115,6 +115,49 @@ const SERVICES = [
   },
 ];
 
+const COMPLEX_SYSTEMS = [
+  {
+    icon: "chat",
+    title: "AI Email Inbox Manager",
+    desc: "Your inbox triages itself: every incoming email is read by AI, sorted by intent and urgency, answered or drafted, and logged — so nothing important sits unread and nothing routine eats your morning.",
+    flow: ["Email arrives (Gmail / Outlook)", "AI triage: lead · support · urgent · spam", "Auto-reply or AI-drafted reply for review", "Contact & thread updated in CRM", "Slack / Telegram alert for urgent items"],
+    tools: ["n8n", "Gmail / Outlook", "AI (GPT / Gemini)", "CRM", "Slack / Telegram"],
+    saves: "Automates: inbox sorting, first replies, CRM logging and urgent-mail alerts.",
+  },
+  {
+    icon: "search",
+    title: "Cold Outreach Machine",
+    desc: "A full outreach pipeline in one workflow: a lead list goes in, and personalised, followed-up, CRM-synced email sequences come out — with replies detected automatically so follow-ups only go to people who haven't answered.",
+    flow: ["Lead list import (CSV / Sheets / CRM)", "Data enrichment (company, role, website)", "AI-personalised email sequence", "Reply detection on every inbox", "Auto follow-up only for non-repliers", "Pipeline & replies synced to CRM"],
+    tools: ["n8n", "Google Sheets", "AI (GPT / Gemini)", "Email / SMTP", "CRM"],
+    saves: "Automates: enrichment, personalisation, sending schedules, reply tracking and follow-ups.",
+  },
+  {
+    icon: "globe",
+    title: "WhatsApp AI Sales Bot",
+    desc: "A WhatsApp number that sells and supports on its own: the AI understands what the customer wants, answers from your business data, books and takes payment links — and hands over to a human the moment a conversation needs one.",
+    flow: ["Customer messages on WhatsApp", "AI intent routing: sales · support · booking", "Answers, booking or payment link sent", "Order / booking logged to CRM or Sheets", "Human handoff with full chat context"],
+    tools: ["WhatsApp Business API", "n8n", "AI (GPT / Gemini)", "CRM", "Payment links"],
+    saves: "Automates: first response, common sales & support answers, bookings and payment collection.",
+  },
+  {
+    icon: "cart",
+    title: "Telegram E-Commerce Store Bot",
+    desc: "A complete shop inside Telegram: customers browse a menu, fill a cart, get an invoice, pay, track their order and leave reviews — while an AI agent answers product questions. Google Sheets acts as the menu and order database, so the owner edits products in a spreadsheet, not a codebase.",
+    flow: ["Customer opens the Telegram bot", "Menu & cart from Google Sheets catalogue", "Invoice generated & payment taken", "Order saved + tracking updates in chat", "Review requested after delivery", "AI agent answers product questions anytime"],
+    tools: ["Telegram Bot API", "n8n", "Google Sheets", "AI agent (Gemini-style)", "Payments"],
+    saves: "Automates: ordering, invoicing, order tracking, review collection and product Q&A.",
+  },
+  {
+    icon: "dashboard",
+    title: "AI Lead Enrichment & Research Agent",
+    desc: "Give it a seed list or a keyword and the agent researches each lead on the web, enriches the record, scores it against your ideal customer, and delivers a clean, ready-to-use report — with memory, branching and error handling built in, so long research runs finish reliably instead of dying halfway.",
+    flow: ["Seed list or keyword in", "AI agent researches the web per lead", "Enrichment: company, role, contact, signals", "Lead scoring against your criteria", "Clean report delivered to Sheets / CRM", "Memory + error handling across long runs"],
+    tools: ["n8n", "AI agent + memory", "Web research APIs", "Google Sheets", "CRM"],
+    saves: "Automates: lead research, data cleaning, scoring and report building.",
+  },
+];
+
 const STEPS = [
   {
     t: "We map your bottlenecks",
@@ -262,6 +305,60 @@ export default function AutomationsPage() {
                 <p className="text-stone-600 leading-relaxed text-[15px]">{s.desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* COMPLEX AUTOMATION SYSTEMS */}
+      <section className="py-16 sm:py-20 bg-white border-t border-stone-100">
+        <div className="max-w-6xl mx-auto px-4">
+          <SectionHead
+            eyebrow="Advanced n8n workflows"
+            title="Complex Automation Systems"
+            sub="Multi-step, AI-powered systems — not single zaps. Each one chains triggers, AI decisions, your business tools and human handoff into one workflow that runs end to end."
+          />
+          <div className="space-y-6">
+            {COMPLEX_SYSTEMS.map((s, i) => (
+              <div
+                key={s.title}
+                className="rounded-3xl border border-stone-200 bg-stone-50/60 p-8 hover:shadow-xl hover:border-orange-200 transition"
+              >
+                <div className="flex flex-wrap items-start gap-5">
+                  <span className="w-14 h-14 shrink-0 rounded-2xl bg-orange-100 text-orange-800 grid place-items-center">
+                    <Icon name={s.icon} className="w-7 h-7" />
+                  </span>
+                  <div className="flex-1 min-w-[240px]">
+                    <p className="font-display font-bold text-stone-300 text-lg">{String(i + 1).padStart(2, "0")}</p>
+                    <h3 className="font-display text-2xl font-bold text-stone-900 mb-2">{s.title}</h3>
+                    <p className="text-stone-600 leading-relaxed max-w-3xl">{s.desc}</p>
+                  </div>
+                </div>
+                {/* Flow chain */}
+                <div className="mt-6 flex flex-wrap items-center gap-2">
+                  {s.flow.map((step, j) => (
+                    <span key={step} className="inline-flex items-center gap-2">
+                      <span className="rounded-full bg-white border border-orange-200 px-3.5 py-1.5 text-[13px] font-semibold text-stone-800">
+                        {step}
+                      </span>
+                      {j < s.flow.length - 1 && <Icon name="arrow" className="w-4 h-4 text-orange-400" />}
+                    </span>
+                  ))}
+                </div>
+                <div className="mt-5 flex flex-wrap items-center gap-2">
+                  {s.tools.map((t) => (
+                    <span key={t} className="rounded-full bg-orange-600/10 border border-orange-200 px-3 py-1 text-[12px] font-bold uppercase tracking-wide text-orange-800">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+                <p className="mt-5 text-sm font-semibold text-stone-700">{s.saves}</p>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-10">
+            <Link href="/contact" className={btnPrimary}>
+              Discuss a complex workflow <Icon name="arrow" className="w-5 h-5" />
+            </Link>
           </div>
         </div>
       </section>

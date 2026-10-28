@@ -10,7 +10,7 @@ const MENU = [
   { label: "SERVICES", href: "/services", dropdown: true },
   { label: "PORTFOLIO", href: "/portfolio" },
   { label: "AUTOMATIONS", href: "/automations", tag: "NEW" },
-  { label: "BotView", href: "/botview" },
+  { label: "Tools", href: "/tools" },
   { label: "PRICING", href: "/pricing" },
   { label: "CONTACT", href: "/contact" },
 ];

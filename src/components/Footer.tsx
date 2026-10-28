@@ -72,12 +72,16 @@ export default function Footer() {
           </ul>
         </div>
         <div>
-          <h3 className="text-stone-900 font-bold mb-4 text-sm uppercase tracking-wider">Our Tools</h3>
+          <h3 className="text-stone-900 font-bold mb-4 text-sm uppercase tracking-wider">
+            <Link href="/tools" className="hover:text-orange-600 transition">Our Tools</Link>
+          </h3>
           <ul className="space-y-3">
+            <li><Link href="/tools" className={menuLink}>All Tools — Tools Hub</Link></li>
             <li><a href="https://tempmaill.tech" target="_blank" rel="noopener" className={menuLink}>Temp Mail — Free Disposable Email</a></li>
             <li><a href="https://games.tempmaill.tech" target="_blank" rel="noopener" className={menuLink}>PlayZone — Free Browser Games</a></li>
             <li><Link href="/seo-agent-kit" className={menuLink}>SEO Agent Kit — Open-Source SEO Toolkit</Link></li>
             <li><Link href="/botview" className={menuLink}>BotView</Link></li>
+            <li><Link href="/keyword-traffic-checker" className={menuLink}>Keyword Traffic Checker</Link></li>
           </ul>
         </div>
       </div>
