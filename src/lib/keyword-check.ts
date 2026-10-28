@@ -10,7 +10,16 @@
  *  - Google Autocomplete suggestions (real queries people type),
  *  - Google Trends interest, when Google does not rate-limit the request,
  *  - a rule-based search-intent classification that names the rule that fired.
+ *
+ * Every fetch is geo-targeted to ONE user-selected country (see
+ * src/lib/countries.ts): DuckDuckGo gets its `kl` region code where DDG
+ * publishes one, Bing gets `cc` (plus `setmkt` where Bing defines a market),
+ * Google Autocomplete gets `gl`, and Google Trends gets `geo`. The report
+ * always names the country it was fetched for — there is no silent fallback
+ * to another country's results.
  */
+
+import { resolveCountry, type Country } from "./countries";
 
 export interface SerpResult {
   rank: number;
@@ -53,9 +62,17 @@ export interface VolumeData {
 
 export async function getVolumeData(
   keyword: string,
+  countryCode: string,
   context: { suggestionsCount: number; trendsStatus: string },
 ): Promise<VolumeData> {
   void keyword;
+  // `countryCode` (ISO 3166-1 alpha-2) is the market this check ran for.
+  // When the "google-ads" provider lands, it maps 1:1 to a Keyword Planner
+  // geo target: Google Ads geo targets are keyed by country (each country
+  // has a numeric geoTargetConstant id, e.g. US=2840, PK=2586, GB=2826),
+  // so the provider will resolve alpha-2 -> geoTargetConstant and pass it as
+  // the keyword plan's target — no signature change will be needed.
+  void countryCode;
   // Free provider: exact volume is paid-API data, so it stays null and the
   // note says so plainly instead of dressing up an estimate as a number.
   return {
@@ -67,6 +84,7 @@ export async function getVolumeData(
 
 export interface KeywordReport {
   keyword: string;
+  country: { code: string; name: string };
   volume: VolumeData;
   checkedAt: string;
   serpSource: string | null; // e.g. "DuckDuckGo (Lite)"
@@ -257,32 +275,42 @@ function dropJunk(results: SerpResult[]): SerpResult[] {
 
 async function fetchSerp(
   keyword: string,
+  country: Country,
 ): Promise<{ source: string; results: SerpResult[]; approxCount: number | null } | null> {
   const q = encodeURIComponent(keyword);
+  // Geo parameters for the requested country — never substituted with
+  // another country's. DDG only publishes `kl` codes for some countries;
+  // without one the DDG request goes unregionalized and Bing (which always
+  // receives `cc`) carries the localization.
+  const kl = country.ddgKl ? `&kl=${country.ddgKl}` : "";
+  const label = (source: string) => `${source} · ${country.name}`;
   // 1) DuckDuckGo HTML
-  const ddg = await fetchText(`https://html.duckduckgo.com/html/?q=${q}`);
+  const ddg = await fetchText(`https://html.duckduckgo.com/html/?q=${q}${kl}`);
   if (ddg && ddg.status === 200) {
     const r = dropJunk(parseDdgHtml(ddg.body));
-    if (r.length >= MIN_SERP_RESULTS) return { source: "DuckDuckGo", results: r, approxCount: null };
+    if (r.length >= MIN_SERP_RESULTS) return { source: label("DuckDuckGo"), results: r, approxCount: null };
     // 2) DuckDuckGo Lite (same engine, lighter page — often survives when HTML is bot-checked)
-    const lite = await fetchText(`https://lite.duckduckgo.com/lite/?q=${q}`);
+    const lite = await fetchText(`https://lite.duckduckgo.com/lite/?q=${q}${kl}`);
     if (lite && lite.status === 200) {
       const lr = dropJunk(parseDdgLite(lite.body));
-      if (lr.length >= MIN_SERP_RESULTS) return { source: "DuckDuckGo (Lite)", results: lr, approxCount: null };
+      if (lr.length >= MIN_SERP_RESULTS) return { source: label("DuckDuckGo (Lite)"), results: lr, approxCount: null };
     }
   }
   // 3) Bing fallback — Bing occasionally answers a degraded page with a
   // single junk result, so a thin parse is retried once before giving up.
+  // Both attempts target the SAME requested country (`cc`, plus `setmkt`
+  // where Bing defines a market for it).
+  const mkt = country.bingMkt ? `&setmkt=${country.bingMkt}` : "";
   for (let attempt = 0; attempt < 2; attempt++) {
     const bing = await fetchText(
       attempt === 0
-        ? `https://www.bing.com/search?q=${q}&count=10`
-        : `https://www.bing.com/search?q=${q}&count=10&setlang=en&cc=US&form=QBRE`,
+        ? `https://www.bing.com/search?q=${q}&count=10&cc=${country.code}${mkt}`
+        : `https://www.bing.com/search?q=${q}&count=10&setlang=en&cc=${country.code}${mkt}&form=QBRE`,
     );
     if (bing && bing.status === 200) {
       const { results, approxCount } = parseBing(bing.body);
       const clean = dropJunk(results);
-      if (clean.length >= MIN_SERP_RESULTS) return { source: "Bing", results: clean, approxCount };
+      if (clean.length >= MIN_SERP_RESULTS) return { source: label("Bing"), results: clean, approxCount };
     }
     if (attempt === 0) await new Promise((r) => setTimeout(r, 700));
   }
@@ -437,9 +465,9 @@ export function verdictFor(score: number): string {
 
 /* ---------------- Google Autocomplete ---------------- */
 
-async function fetchSuggestions(query: string): Promise<string[]> {
+async function fetchSuggestions(query: string, country: Country): Promise<string[]> {
   const res = await fetchText(
-    `https://suggestqueries.google.com/complete/search?client=firefox&q=${encodeURIComponent(query)}`,
+    `https://suggestqueries.google.com/complete/search?client=firefox&hl=en&gl=${country.code.toLowerCase()}&q=${encodeURIComponent(query)}`,
   );
   if (!res || res.status !== 200) return [];
   try {
@@ -457,13 +485,14 @@ async function fetchSuggestions(query: string): Promise<string[]> {
 
 async function fetchTrends(
   keyword: string,
+  country: Country,
 ): Promise<KeywordReport["trends"]> {
   const unavailable: KeywordReport["trends"] = {
     status: "unavailable",
     note: "Trends data abhi available nahi (rate-limited)",
   };
   const req = {
-    comparisonItem: [{ keyword, geo: "", time: "today 12-m" }],
+    comparisonItem: [{ keyword, geo: country.code, time: "today 12-m" }],
     category: 0,
     property: "",
   };
@@ -529,10 +558,15 @@ export function classifyIntent(keyword: string): { label: string; rule: string }
 
 /* ---------------- main ---------------- */
 
-export async function runKeywordCheck(rawKeyword: string): Promise<KeywordReport> {
+export async function runKeywordCheck(
+  rawKeyword: string,
+  rawCountry?: string | null,
+): Promise<KeywordReport> {
   const keyword = rawKeyword.trim().replace(/\s+/g, " ").slice(0, 120);
+  const country = resolveCountry(rawCountry);
   const base: KeywordReport = {
     keyword,
+    country: { code: country.code, name: country.name },
     volume: {
       provider: "free-signals",
       exactVolume: null,
@@ -556,21 +590,21 @@ export async function runKeywordCheck(rawKeyword: string): Promise<KeywordReport
   }
 
   const [serp, suggestions, trends] = await Promise.all([
-    fetchSerp(keyword),
-    fetchSuggestions(keyword),
-    fetchTrends(keyword),
+    fetchSerp(keyword, country),
+    fetchSuggestions(keyword, country),
+    fetchTrends(keyword, country),
   ]);
 
   // Related keywords: a few prefix expansions, reusing the base suggestions.
   const prefixes = ["how ", "best ", "what is "];
-  const extraLists = await Promise.all(prefixes.map((p) => fetchSuggestions(p + keyword)));
+  const extraLists = await Promise.all(prefixes.map((p) => fetchSuggestions(p + keyword, country)));
   const relatedSet = new Set<string>();
   for (const s of [...suggestions, ...extraLists.flat()]) {
     const v = s.trim();
     if (v && v.toLowerCase() !== keyword.toLowerCase()) relatedSet.add(v);
   }
   const relatedKeywords = [...relatedSet].slice(0, 24);
-  const volume = await getVolumeData(keyword, {
+  const volume = await getVolumeData(keyword, country.code, {
     suggestionsCount: suggestions.length,
     trendsStatus: trends.status,
   });
@@ -583,8 +617,8 @@ export async function runKeywordCheck(rawKeyword: string): Promise<KeywordReport
       relatedKeywords,
       trends,
       serpError:
-        "Both SERP sources (DuckDuckGo and Bing) failed or returned too few parseable results this time (a score needs a sample of at least 5), so no difficulty score was calculated — a score is never invented. Please try again in a minute.",
-      verdict: "No verdict — the live SERP sample could not be fetched.",
+        `Both SERP sources (DuckDuckGo and Bing) failed or returned too few parseable results for ${country.name} this time (a score needs a sample of at least 5), so no difficulty score was calculated — a score is never invented, and no other country's results were substituted. Please try again in a minute.`,
+      verdict: `No verdict — the live SERP sample for ${country.name} could not be fetched.`,
     };
   }
 

@@ -5,7 +5,7 @@ import KeywordChecker from "./KeywordChecker";
 export const metadata = {
   title: "Keyword Traffic Checker — Free Keyword Difficulty & Competition Checker",
   description:
-    "Free keyword traffic checker: enter any keyword and get a live SERP competition report, a difficulty score out of 100 with its full breakdown, Google demand signals, search intent and related long-tail keywords. No fake search-volume numbers.",
+    "Free keyword traffic checker by country: pick any country, enter a keyword and get that market's live SERP competition report, a difficulty score out of 100 with its full breakdown, Google demand signals, search intent and related long-tail keywords. No fake search-volume numbers.",
   keywords: [
     "keyword traffic checker",
     "keyword difficulty checker",
@@ -35,7 +35,7 @@ const appJsonLd = {
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   author: { "@type": "Organization", name: "WebStore Pro", url: "https://frinjo.me" },
   description:
-    "Free keyword traffic checker. Fetches a live SERP sample for any keyword, scores its ranking difficulty out of 100 from that sample with a visible per-factor breakdown, classifies search intent, and shows Google Autocomplete demand signals and related long-tail keywords. It does not invent monthly search volume.",
+    "Free keyword traffic checker for any country. Fetches a live, country-targeted SERP sample for any keyword, scores its ranking difficulty out of 100 from that sample with a visible per-factor breakdown, classifies search intent, and shows Google Autocomplete demand signals and related long-tail keywords for the selected market. It does not invent monthly search volume.",
 };
 
 const FAQS: [string, string][] = [
@@ -44,8 +44,12 @@ const FAQS: [string, string][] = [
     "Yes — completely free, with no sign-up. Enter a keyword and the report is generated live from a real search-results sample and Google's own suggestion data.",
   ],
   [
+    "Can I check keywords for different countries?",
+    "Yes — pick any country from the dropdown (Pakistan is the default) and the whole report is fetched for that market: the SERP sample, the difficulty score, the Google suggestions and the Trends data are all targeted to the country you selected, and the report header names that country. The same keyword can be easy in one country and brutal in another, so always check the market you actually want to rank in.",
+  ],
+  [
     "Where does the data come from?",
-    "Three live sources: a SERP sample fetched at check time (DuckDuckGo, with Bing as fallback — the report names the source it used), Google Autocomplete suggestions, and Google Trends when Google does not rate-limit the request. If a source fails, the report says so instead of filling the gap with an estimate.",
+    "Three live sources, all targeted to the country you selected: a SERP sample fetched at check time (DuckDuckGo, with Bing as fallback — the report names the source and country it used), Google Autocomplete suggestions for that country, and Google Trends for that country when Google does not rate-limit the request. If a source fails, the report says so instead of filling the gap with an estimate.",
   ],
   [
     "Why doesn't it show an exact monthly search volume?",
@@ -98,7 +102,8 @@ export default async function KeywordCheckerPage({
             Free Keyword Difficulty &amp; Competition Checker
           </p>
           <p className="mt-5 text-lg text-stone-600 max-w-2xl mx-auto leading-relaxed">
-            Enter any keyword and see who you would actually have to beat: a live SERP sample, a{" "}
+            Pick any country, enter a keyword and see who you would actually have to beat in that
+            market: a live SERP sample, a{" "}
             <strong>difficulty score out of 100 with every factor shown</strong>, real Google demand
             signals, search intent and related long-tail keywords — with{" "}
             <strong>no invented search-volume numbers</strong>.

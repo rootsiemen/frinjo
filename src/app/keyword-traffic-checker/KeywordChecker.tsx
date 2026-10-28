@@ -2,7 +2,12 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { KeywordReport } from "@/lib/keyword-check";
+import { COUNTRIES, DEFAULT_COUNTRY_CODE } from "@/lib/countries";
 import { btnPrimary } from "@/components/ui";
+
+function countryName(code: string): string {
+  return COUNTRIES.find((c) => c.code === code)?.name ?? code;
+}
 
 function tone(score: number): { text: string; bar: string } {
   if (score < 40) return { text: "text-green-600", bar: "bg-green-500" };
@@ -14,21 +19,26 @@ const EXAMPLES = ["salon website cost in pakistan", "insurance", "how to start a
 
 export default function KeywordChecker({ initialKeyword = "" }: { initialKeyword?: string }) {
   const [input, setInput] = useState(initialKeyword);
+  const [country, setCountry] = useState(DEFAULT_COUNTRY_CODE);
   const [data, setData] = useState<KeywordReport | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [checked, setChecked] = useState("");
+  const [checkedCountry, setCheckedCountry] = useState(DEFAULT_COUNTRY_CODE);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const run = useCallback(async (raw: string) => {
+  const run = useCallback(async (raw: string, cc: string) => {
     const kw = raw.trim();
     if (!kw) return;
     setLoading(true);
     setError(null);
     setData(null);
     setChecked(kw);
+    setCheckedCountry(cc);
     try {
-      const res = await fetch(`/api/keyword-check?keyword=${encodeURIComponent(kw)}`);
+      const res = await fetch(
+        `/api/keyword-check?keyword=${encodeURIComponent(kw)}&country=${encodeURIComponent(cc)}`,
+      );
       const json = (await res.json()) as KeywordReport;
       if (json.error) setError(json.error);
       else setData(json);
@@ -40,7 +50,7 @@ export default function KeywordChecker({ initialKeyword = "" }: { initialKeyword
   }, []);
 
   useEffect(() => {
-    if (initialKeyword) void run(initialKeyword);
+    if (initialKeyword) void run(initialKeyword, DEFAULT_COUNTRY_CODE);
   }, [initialKeyword, run]);
 
   function reset() {
@@ -69,10 +79,10 @@ export default function KeywordChecker({ initialKeyword = "" }: { initialKeyword
       <section className="bg-orange-50 dot-grid pb-16 sm:pb-20 overflow-hidden">
         <div className="max-w-4xl mx-auto px-4">
           <form
-            className="flex flex-col sm:flex-row gap-3 max-w-2xl mx-auto"
+            className="flex flex-col sm:flex-row gap-3 max-w-3xl mx-auto"
             onSubmit={(e) => {
               e.preventDefault();
-              void run(input);
+              void run(input, country);
             }}
           >
             <input
@@ -86,10 +96,27 @@ export default function KeywordChecker({ initialKeyword = "" }: { initialKeyword
               autoComplete="off"
               className="flex-1 rounded-full border border-stone-300 bg-white px-6 py-3.5 text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200"
             />
+            <select
+              name="country"
+              value={country}
+              onChange={(e) => setCountry(e.target.value)}
+              aria-label="Country for this keyword check"
+              className="sm:w-52 rounded-full border border-stone-300 bg-white px-5 py-3.5 text-stone-900 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200"
+            >
+              {COUNTRIES.map((c) => (
+                <option key={c.code} value={c.code}>
+                  {c.name}
+                </option>
+              ))}
+            </select>
             <button type="submit" disabled={loading} className={`${btnPrimary} justify-center disabled:opacity-60`}>
               {loading ? "Checking…" : "Check keyword →"}
             </button>
           </form>
+          <p className="mt-4 text-center text-sm text-stone-500">
+            Results, difficulty and suggestions are fetched for the selected country —{" "}
+            <span className="font-semibold text-stone-700">{countryName(country)}</span> is selected.
+          </p>
           <div className="mt-6 flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-stone-600">
             <span>Try:</span>
             {EXAMPLES.map((ex) => (
@@ -99,7 +126,7 @@ export default function KeywordChecker({ initialKeyword = "" }: { initialKeyword
                 className="font-semibold text-orange-700"
                 onClick={() => {
                   setInput(ex);
-                  void run(ex);
+                  void run(ex, country);
                 }}
               >
                 {ex}
@@ -113,8 +140,9 @@ export default function KeywordChecker({ initialKeyword = "" }: { initialKeyword
       {loading && (
         <section className="py-16 sm:py-24 bg-white">
           <div className="max-w-2xl mx-auto px-4 text-center text-stone-500 text-lg">
-            🔍 Checking <span className="font-semibold text-stone-800">“{checked}”</span> — fetching the
-            live SERP sample, Google suggestions and Trends…
+            🔍 Checking <span className="font-semibold text-stone-800">“{checked}”</span> for{" "}
+            <span className="font-semibold text-stone-800">{countryName(checkedCountry)}</span> — fetching
+            the live SERP sample, Google suggestions and Trends…
           </div>
         </section>
       )}
@@ -149,7 +177,8 @@ export default function KeywordChecker({ initialKeyword = "" }: { initialKeyword
                   “{data.keyword}”
                 </p>
                 <p className="mt-3 text-sm text-stone-500">
-                  Checked {new Date(data.checkedAt).toLocaleString()}
+                  Checked {new Date(data.checkedAt).toLocaleString()} · Country:{" "}
+                  <span className="font-semibold text-stone-700">{data.country.name}</span>
                   {data.serpSource ? <> · SERP sample: {data.serpSource}</> : null} ·{" "}
                   <button type="button" onClick={reset} className="font-semibold text-orange-700">
                     Check another keyword
@@ -231,8 +260,8 @@ export default function KeywordChecker({ initialKeyword = "" }: { initialKeyword
                       <span className="font-display text-xl font-bold text-stone-900 block">
                         Interest index {data.trends.averageInterest}/100 · {data.trends.direction}
                       </span>
-                      Average relative interest over the last 12 months (100 = this keyword&apos;s own peak in that period —
-                      a relative index, not a search count).
+                      Average relative interest in {data.country.name} over the last 12 months (100 = this
+                      keyword&apos;s own peak in that period — a relative index, not a search count).
                     </p>
                   ) : (
                     <p className="mt-2 font-semibold text-stone-900">{data.trends.note}</p>
@@ -310,7 +339,7 @@ export default function KeywordChecker({ initialKeyword = "" }: { initialKeyword
                         type="button"
                         onClick={() => {
                           setInput(k);
-                          void run(k);
+                          void run(k, country);
                           window.scrollTo({ top: 0, behavior: "smooth" });
                         }}
                         className="rounded-full bg-white border border-stone-300 px-3.5 py-1.5 text-[13px] font-semibold text-stone-700 hover:border-orange-400 hover:text-orange-700 transition"
