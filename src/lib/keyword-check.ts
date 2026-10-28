@@ -289,12 +289,14 @@ async function fetchSerp(
   if (ddg && ddg.status === 200) {
     const r = dropJunk(parseDdgHtml(ddg.body));
     if (r.length >= MIN_SERP_RESULTS) return { source: label("DuckDuckGo"), results: r, approxCount: null };
-    // 2) DuckDuckGo Lite (same engine, lighter page — often survives when HTML is bot-checked)
-    const lite = await fetchText(`https://lite.duckduckgo.com/lite/?q=${q}${kl}`);
-    if (lite && lite.status === 200) {
-      const lr = dropJunk(parseDdgLite(lite.body));
-      if (lr.length >= MIN_SERP_RESULTS) return { source: label("DuckDuckGo (Lite)"), results: lr, approxCount: null };
-    }
+  }
+  // 2) DuckDuckGo Lite (same engine, lighter page — often survives when the
+  // HTML endpoint is bot-checked with a 202/403, so it is tried on ANY thin
+  // or failed HTML result, not only on HTTP 200)
+  const lite = await fetchText(`https://lite.duckduckgo.com/lite/?q=${q}${kl}`);
+  if (lite && lite.status === 200) {
+    const lr = dropJunk(parseDdgLite(lite.body));
+    if (lr.length >= MIN_SERP_RESULTS) return { source: label("DuckDuckGo (Lite)"), results: lr, approxCount: null };
   }
   // 3) Bing fallback — Bing occasionally answers a degraded page with a
   // single junk result, so a thin parse is retried once before giving up.
