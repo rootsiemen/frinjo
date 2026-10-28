@@ -4,7 +4,9 @@
  * What this does NOT do: invent a monthly search volume. Exact volume is
  * paid-database data (Ahrefs / Semrush / Keyword Planner). This engine only
  * reports things it actually fetched:
- *  - a live SERP sample (DuckDuckGo HTML -> DuckDuckGo Lite -> Bing),
+ *  - a live SERP sample (DuckDuckGo HTML -> DuckDuckGo Lite -> Bing ->
+ *    Mojeek -> Yahoo, the whole chain retried once — a score needs >=5
+ *    real results from ONE source, whichever answers first),
  *  - a difficulty score computed ONLY from that SERP sample, with every
  *    factor's points shown to the user,
  *  - Google Autocomplete suggestions (real queries people type),
@@ -127,7 +129,10 @@ function stripTags(s: string): string {
     .trim();
 }
 
-async function fetchText(url: string): Promise<{ status: number; body: string } | null> {
+async function fetchText(
+  url: string,
+  timeoutMs: number = TIMEOUT_MS,
+): Promise<{ status: number; body: string } | null> {
   try {
     const res = await fetch(url, {
       headers: {
@@ -136,7 +141,7 @@ async function fetchText(url: string): Promise<{ status: number; body: string } 
         "Accept-Language": "en-US,en;q=0.9",
       },
       redirect: "follow",
-      signal: AbortSignal.timeout(TIMEOUT_MS),
+      signal: AbortSignal.timeout(Math.max(500, timeoutMs)),
     });
     return { status: res.status, body: await res.text() };
   } catch {
@@ -264,6 +269,66 @@ function parseBing(html: string): { results: SerpResult[]; approxCount: number |
   return { results, approxCount: approxCount && approxCount > 10 ? approxCount : null };
 }
 
+/** Yahoo result links hide the target in a `/RU=<url-encoded>/RK=` segment. */
+function unwrapYahoo(href: string): string {
+  const m = decodeEntities(href).match(/\/RU=([^/]+)\/RK=/);
+  if (m) {
+    try {
+      const decoded = decodeURIComponent(m[1]);
+      if (/^https?:\/\//.test(decoded)) return decoded;
+    } catch {
+      /* fall through */
+    }
+  }
+  return href;
+}
+
+function parseYahoo(html: string): SerpResult[] {
+  const results: SerpResult[] = [];
+  const anchors = [
+    ...html.matchAll(/<h3[^>]*class="[^"]*title[^"]*"[^>]*>\s*<a[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi),
+  ];
+  const snippets = [
+    ...html.matchAll(/<div[^>]*class="[^"]*compText[^"]*"[^>]*>[\s\S]*?<p[^>]*>([\s\S]*?)<\/p>/gi),
+  ];
+  anchors.forEach((m, i) => {
+    const url = unwrapYahoo(m[1]);
+    const domain = domainOf(url);
+    if (!url || !domain || domain.includes("yahoo.com")) return;
+    results.push({
+      rank: results.length + 1,
+      title: stripTags(m[2]),
+      url,
+      domain,
+      snippet: snippets[i] ? stripTags(snippets[i][1]) : "",
+    });
+  });
+  return results.slice(0, 10);
+}
+
+function parseMojeek(html: string): SerpResult[] {
+  const results: SerpResult[] = [];
+  const anchors = [
+    ...html.matchAll(/<a[^>]*class="[^"]*\btitle\b[^"]*"[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi),
+  ];
+  const snippets = [
+    ...html.matchAll(/<p[^>]*class="[^"]*\bs\b[^"]*"[^>]*>([\s\S]*?)<\/p>/gi),
+  ];
+  anchors.forEach((m, i) => {
+    const url = decodeEntities(m[1]);
+    const domain = domainOf(url);
+    if (!url || !domain || domain.includes("mojeek.com")) return;
+    results.push({
+      rank: results.length + 1,
+      title: stripTags(m[2]),
+      url,
+      domain,
+      snippet: snippets[i] ? stripTags(snippets[i][1]) : "",
+    });
+  });
+  return results.slice(0, 10);
+}
+
 /** A score is only ever built on a real sample: at least 5 results. */
 const MIN_SERP_RESULTS = 5;
 
@@ -273,10 +338,17 @@ function dropJunk(results: SerpResult[]): SerpResult[] {
     .map((r, i) => ({ ...r, rank: i + 1 }));
 }
 
-async function fetchSerp(
+type SerpSample = { source: string; results: SerpResult[]; approxCount: number | null };
+
+/** Whole SERP chain gets ~19s max, however many sources/passes that takes. */
+const SERP_BUDGET_MS = 19_000;
+const SERP_FETCH_TIMEOUT_MS = 5_000;
+
+async function fetchSerpPass(
   keyword: string,
   country: Country,
-): Promise<{ source: string; results: SerpResult[]; approxCount: number | null } | null> {
+  deadline: number,
+): Promise<SerpSample | null> {
   const q = encodeURIComponent(keyword);
   // Geo parameters for the requested country — never substituted with
   // another country's. DDG only publishes `kl` codes for some countries;
@@ -284,37 +356,85 @@ async function fetchSerp(
   // receives `cc`) carries the localization.
   const kl = country.ddgKl ? `&kl=${country.ddgKl}` : "";
   const label = (source: string) => `${source} · ${country.name}`;
+  const left = () => deadline - Date.now();
+  const t = () => Math.min(SERP_FETCH_TIMEOUT_MS, left());
+
   // 1) DuckDuckGo HTML
-  const ddg = await fetchText(`https://html.duckduckgo.com/html/?q=${q}${kl}`);
-  if (ddg && ddg.status === 200) {
-    const r = dropJunk(parseDdgHtml(ddg.body));
-    if (r.length >= MIN_SERP_RESULTS) return { source: label("DuckDuckGo"), results: r, approxCount: null };
+  if (left() > 1_200) {
+    const ddg = await fetchText(`https://html.duckduckgo.com/html/?q=${q}${kl}`, t());
+    if (ddg && ddg.status === 200) {
+      const r = dropJunk(parseDdgHtml(ddg.body));
+      if (r.length >= MIN_SERP_RESULTS) return { source: label("DuckDuckGo"), results: r, approxCount: null };
+    }
   }
   // 2) DuckDuckGo Lite (same engine, lighter page — often survives when the
   // HTML endpoint is bot-checked with a 202/403, so it is tried on ANY thin
   // or failed HTML result, not only on HTTP 200)
-  const lite = await fetchText(`https://lite.duckduckgo.com/lite/?q=${q}${kl}`);
-  if (lite && lite.status === 200) {
-    const lr = dropJunk(parseDdgLite(lite.body));
-    if (lr.length >= MIN_SERP_RESULTS) return { source: label("DuckDuckGo (Lite)"), results: lr, approxCount: null };
+  if (left() > 1_200) {
+    const lite = await fetchText(`https://lite.duckduckgo.com/lite/?q=${q}${kl}`, t());
+    if (lite && lite.status === 200) {
+      const lr = dropJunk(parseDdgLite(lite.body));
+      if (lr.length >= MIN_SERP_RESULTS) return { source: label("DuckDuckGo (Lite)"), results: lr, approxCount: null };
+    }
   }
-  // 3) Bing fallback — Bing occasionally answers a degraded page with a
-  // single junk result, so a thin parse is retried once before giving up.
-  // Both attempts target the SAME requested country (`cc`, plus `setmkt`
-  // where Bing defines a market for it).
+  // 3) Bing — Bing occasionally answers a degraded page with a single junk
+  // result, so a thin parse is retried once before moving on. Both attempts
+  // target the SAME requested country (`cc`, plus `setmkt` where Bing
+  // defines a market for it).
   const mkt = country.bingMkt ? `&setmkt=${country.bingMkt}` : "";
   for (let attempt = 0; attempt < 2; attempt++) {
+    if (left() <= 1_200) break;
     const bing = await fetchText(
       attempt === 0
         ? `https://www.bing.com/search?q=${q}&count=10&cc=${country.code}${mkt}`
         : `https://www.bing.com/search?q=${q}&count=10&setlang=en&cc=${country.code}${mkt}&form=QBRE`,
+      t(),
     );
     if (bing && bing.status === 200) {
       const { results, approxCount } = parseBing(bing.body);
       const clean = dropJunk(results);
       if (clean.length >= MIN_SERP_RESULTS) return { source: label("Bing"), results: clean, approxCount };
     }
-    if (attempt === 0) await new Promise((r) => setTimeout(r, 700));
+    if (attempt === 0 && left() > 2_000) await new Promise((r) => setTimeout(r, 700));
+  }
+  // 4) Mojeek — an independent index (not Bing/Google), usually tolerant of
+  // server-side fetches. Mojeek has NO country parameter, so its sample is
+  // a global index and the label says exactly that — it is never dressed up
+  // as a country-targeted sample.
+  if (left() > 1_200) {
+    const mojeek = await fetchText(`https://www.mojeek.com/search?q=${q}`, t());
+    if (mojeek && mojeek.status === 200) {
+      const mr = dropJunk(parseMojeek(mojeek.body));
+      if (mr.length >= MIN_SERP_RESULTS) {
+        return { source: "Mojeek · global index (not country-targeted)", results: mr, approxCount: null };
+      }
+    }
+  }
+  // 5) Yahoo Search — Bing-powered but a different host that often answers
+  // when bing.com degrades. Yahoo localizes by regional host, so it is only
+  // tried for countries that have one (see countries.ts `yahooHost`).
+  if (country.yahooHost && left() > 1_200) {
+    const yahoo = await fetchText(`https://${country.yahooHost}/search?p=${q}`, t());
+    if (yahoo && yahoo.status === 200) {
+      const yr = dropJunk(parseYahoo(yahoo.body));
+      if (yr.length >= MIN_SERP_RESULTS) return { source: label("Yahoo"), results: yr, approxCount: null };
+    }
+  }
+  return null;
+}
+
+async function fetchSerp(keyword: string, country: Country): Promise<SerpSample | null> {
+  const deadline = Date.now() + SERP_BUDGET_MS;
+  // One full pass through every source; if all of them come back thin
+  // (bot-checks and degraded pages are usually transient), wait ~1.8s and
+  // run the whole chain once more before giving up.
+  for (let pass = 0; pass < 2; pass++) {
+    if (pass > 0) {
+      if (deadline - Date.now() < 3_000) break;
+      await new Promise((r) => setTimeout(r, 1_800));
+    }
+    const sample = await fetchSerpPass(keyword, country, deadline);
+    if (sample) return sample;
   }
   return null;
 }
@@ -619,7 +739,7 @@ export async function runKeywordCheck(
       relatedKeywords,
       trends,
       serpError:
-        `Both SERP sources (DuckDuckGo and Bing) failed or returned too few parseable results for ${country.name} this time (a score needs a sample of at least 5), so no difficulty score was calculated — a score is never invented, and no other country's results were substituted. Please try again in a minute.`,
+        `Every SERP source tried (DuckDuckGo, Bing, Mojeek, and Yahoo where the country has a regional host — each retried once) failed or returned too few parseable results for ${country.name} this time (a score needs a sample of at least 5), so no difficulty score was calculated — a score is never invented, and no other country's results were substituted. Please try again in a minute.`,
       verdict: `No verdict — the live SERP sample for ${country.name} could not be fetched.`,
     };
   }
