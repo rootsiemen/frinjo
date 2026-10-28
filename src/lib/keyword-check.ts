@@ -246,6 +246,15 @@ function parseBing(html: string): { results: SerpResult[]; approxCount: number |
   return { results, approxCount: approxCount && approxCount > 10 ? approxCount : null };
 }
 
+/** A score is only ever built on a real sample: at least 5 results. */
+const MIN_SERP_RESULTS = 5;
+
+function dropJunk(results: SerpResult[]): SerpResult[] {
+  return results
+    .filter((r) => !/moved permanently|access denied|just a moment|are you a robot|captcha/i.test(r.title))
+    .map((r, i) => ({ ...r, rank: i + 1 }));
+}
+
 async function fetchSerp(
   keyword: string,
 ): Promise<{ source: string; results: SerpResult[]; approxCount: number | null } | null> {
@@ -253,20 +262,29 @@ async function fetchSerp(
   // 1) DuckDuckGo HTML
   const ddg = await fetchText(`https://html.duckduckgo.com/html/?q=${q}`);
   if (ddg && ddg.status === 200) {
-    const r = parseDdgHtml(ddg.body);
-    if (r.length >= 3) return { source: "DuckDuckGo", results: r, approxCount: null };
+    const r = dropJunk(parseDdgHtml(ddg.body));
+    if (r.length >= MIN_SERP_RESULTS) return { source: "DuckDuckGo", results: r, approxCount: null };
     // 2) DuckDuckGo Lite (same engine, lighter page — often survives when HTML is bot-checked)
     const lite = await fetchText(`https://lite.duckduckgo.com/lite/?q=${q}`);
     if (lite && lite.status === 200) {
-      const lr = parseDdgLite(lite.body);
-      if (lr.length >= 3) return { source: "DuckDuckGo (Lite)", results: lr, approxCount: null };
+      const lr = dropJunk(parseDdgLite(lite.body));
+      if (lr.length >= MIN_SERP_RESULTS) return { source: "DuckDuckGo (Lite)", results: lr, approxCount: null };
     }
   }
-  // 3) Bing fallback
-  const bing = await fetchText(`https://www.bing.com/search?q=${q}&count=10`);
-  if (bing && bing.status === 200) {
-    const { results, approxCount } = parseBing(bing.body);
-    if (results.length >= 1) return { source: "Bing", results, approxCount };
+  // 3) Bing fallback — Bing occasionally answers a degraded page with a
+  // single junk result, so a thin parse is retried once before giving up.
+  for (let attempt = 0; attempt < 2; attempt++) {
+    const bing = await fetchText(
+      attempt === 0
+        ? `https://www.bing.com/search?q=${q}&count=10`
+        : `https://www.bing.com/search?q=${q}&count=10&setlang=en&cc=US&form=QBRE`,
+    );
+    if (bing && bing.status === 200) {
+      const { results, approxCount } = parseBing(bing.body);
+      const clean = dropJunk(results);
+      if (clean.length >= MIN_SERP_RESULTS) return { source: "Bing", results: clean, approxCount };
+    }
+    if (attempt === 0) await new Promise((r) => setTimeout(r, 700));
   }
   return null;
 }
@@ -565,7 +583,7 @@ export async function runKeywordCheck(rawKeyword: string): Promise<KeywordReport
       relatedKeywords,
       trends,
       serpError:
-        "Both SERP sources (DuckDuckGo and Bing) failed or returned no parseable results this time, so no difficulty score was calculated — a score is never invented. Please try again in a minute.",
+        "Both SERP sources (DuckDuckGo and Bing) failed or returned too few parseable results this time (a score needs a sample of at least 5), so no difficulty score was calculated — a score is never invented. Please try again in a minute.",
       verdict: "No verdict — the live SERP sample could not be fetched.",
     };
   }
