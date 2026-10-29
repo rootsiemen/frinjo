@@ -4,11 +4,13 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 export const metadata = {
   title: "Free Tools — BotView, Keyword Traffic Checker, SEO Agent Kit & More",
   description:
-    "All of WebStore Pro's free tools in one place: BotView (SEO, AEO & GEO checker), Keyword Traffic Checker (keyword difficulty & competition), SEO Agent Kit, Temp Mail and PlayZone. Free, no sign-up.",
+    "All of WebStore Pro's free tools in one place: BotView (SEO, AEO & GEO checker), Keyword Traffic Checker (keyword difficulty & competition), IP Address Tracker (what is my IP, anonymity & leak checks), SEO Agent Kit, Temp Mail and PlayZone. Free, no sign-up.",
   keywords: [
     "free seo tools",
     "botview",
     "keyword traffic checker",
+    "ip address tracker",
+    "what is my ip",
     "seo agent kit",
     "free tools webstore pro",
     "temp mail",
@@ -18,7 +20,7 @@ export const metadata = {
   openGraph: {
     title: "Free Tools | WebStore Pro",
     description:
-      "BotView, Keyword Traffic Checker, SEO Agent Kit, Temp Mail and PlayZone — every free WebStore Pro tool, in one hub.",
+      "BotView, Keyword Traffic Checker, IP Address Tracker, SEO Agent Kit, Temp Mail and PlayZone — every free WebStore Pro tool, in one hub.",
     url: "https://frinjo.me/tools",
     type: "website",
   },
@@ -44,6 +46,12 @@ const TOOLS: Tool[] = [
     href: "/keyword-traffic-checker",
     tag: "Keyword research",
     desc: "Enter a keyword and get a live SERP competition report, a difficulty score with its full breakdown, demand signals and related long-tail keywords.",
+  },
+  {
+    name: "IP Address Tracker",
+    href: "/ip-address-tracker",
+    tag: "Privacy · Network",
+    desc: "See what your connection reveals: your IP address, location and ISP, plus an anonymity score from six live leak checks (WebRTC, DNS, timezone and more) — and track any other IP the same way.",
   },
   {
     name: "SEO Agent Kit",
@@ -73,7 +81,7 @@ const collectionJsonLd = {
   name: "Free Tools — WebStore Pro",
   url: "https://frinjo.me/tools",
   description:
-    "A hub of WebStore Pro's free tools: BotView, Keyword Traffic Checker, SEO Agent Kit, Temp Mail and PlayZone.",
+    "A hub of WebStore Pro's free tools: BotView, Keyword Traffic Checker, IP Address Tracker, SEO Agent Kit, Temp Mail and PlayZone.",
   mainEntity: {
     "@type": "ItemList",
     itemListElement: TOOLS.map((t, i) => ({
