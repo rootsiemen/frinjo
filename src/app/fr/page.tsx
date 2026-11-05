@@ -4,13 +4,18 @@ import { SectionHead, Icon } from "@/components/ui";
 export const metadata = {
   title: "Outils Gratuits en Français — Convertisseurs et Calculateurs | Frinjo",
   description:
-    "Outils et calculateurs gratuits en français de WebStore Pro : convertisseur salaire brut en net (cadre, non-cadre, fonction publique, après impôt), générateur de faux nom avec boîte e-mail temporaire et calcul d'IMC selon l'OMS. Sans inscription, dans votre navigateur.",
+    "Outils et calculateurs gratuits en français de WebStore Pro : convertisseur salaire brut en net, calcul TVA HT/TTC, frais de notaire au barème officiel, jours entre deux dates avec jours fériés, intérêts composés, générateur de QR code (dont virement SEPA), générateur de faux nom et calcul d'IMC. Sans inscription, dans votre navigateur.",
   keywords: [
     "outils en ligne en français",
     "salaire brut en net",
     "calcul imc",
     "générateur de faux nom",
     "convertisseur salaire",
+    "calcul tva",
+    "frais de notaire",
+    "jours entre deux dates",
+    "intérêts composés",
+    "générateur de qr code",
   ],
   alternates: {
     canonical: "https://frinjo.me/fr",
@@ -44,6 +49,36 @@ const TOOLS = [
     tag: "Santé · Forme",
     desc: "Votre indice de masse corporelle selon l'échelle de l'OMS, en unités métriques ou impériales, avec la plage de poids santé pour votre taille exacte et des explications honnêtes sur les limites de l'IMC.",
   },
+  {
+    name: "Calcul TVA",
+    href: "/fr/calcul-tva",
+    tag: "Taxes · Facturation",
+    desc: "Convertissez HT en TTC et TTC en HT avec les taux français 20 %, 10 %, 5,5 % et 2,1 % (et 8,5 % pour les DOM) : facture multi-lignes et ventilation de la TVA par taux, comme l'exige la facturation.",
+  },
+  {
+    name: "Frais de Notaire",
+    href: "/fr/frais-de-notaire",
+    tag: "Immobilier · Achat",
+    desc: "Estimation poste par poste : droits de mutation (5,81 % ou 5,09 % selon le département, 0,715 % dans le neuf), émoluments au barème officiel dégressif, débours et contribution de sécurité immobilière.",
+  },
+  {
+    name: "Jours Entre Deux Dates",
+    href: "/fr/jours-entre-deux-dates",
+    tag: "Dates · Délais",
+    desc: "Durée totale, jours ouvrés et jours ouvrables entre deux dates — avec le calendrier complet des jours fériés français réellement déduits, fêtes mobiles incluses (Pâques, Ascension, Pentecôte) et option Alsace-Moselle.",
+  },
+  {
+    name: "Intérêts Composés",
+    href: "/fr/interets-composes",
+    tag: "Épargne · Finance",
+    desc: "Projetez votre épargne : capital initial, versements mensuels, capitalisation mensuelle, trimestrielle ou annuelle, graphique année par année et valeur réelle après inflation. Presets Livret A, assurance-vie, PEA.",
+  },
+  {
+    name: "Générateur de QR Code",
+    href: "/fr/generateur-de-qr-code",
+    tag: "Générateur · Entreprise",
+    desc: "QR codes gratuits et sans filigrane : URL, texte, WiFi, contact vCard, WhatsApp, e-mail, téléphone — et le QR de virement SEPA qui pré-remplit le paiement sur vos factures. PNG 1024 px ou SVG.",
+  },
 ];
 
 const itemListJsonLd = {
@@ -75,8 +110,9 @@ export default function FrHubPage() {
           </h1>
           <p className="mt-5 text-lg text-stone-600 max-w-2xl mx-auto leading-relaxed">
             Des calculateurs pensés pour la France et la francophonie : le salaire net réel derrière un
-            brut, des identités de test avec de vraies adresses locales, et l'IMC expliqué sans détour.
-            Tout fonctionne dans votre navigateur.
+            brut, la TVA et les frais de notaire au barème officiel, les jours ouvrés avec les jours
+            fériés, les intérêts composés, les QR codes de virement SEPA, des identités de test locales
+            et l'IMC expliqué sans détour. Tout fonctionne dans votre navigateur.
           </p>
         </div>
       </section>

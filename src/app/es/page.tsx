@@ -4,13 +4,18 @@ import { SectionHead, Icon } from "@/components/ui";
 export const metadata = {
   title: "Herramientas Gratuitas en Español — Calculadoras Online | Frinjo",
   description:
-    "Herramientas y calculadoras gratuitas en español de WebStore Pro: calculadora de IVA para España y Latinoamérica, generador de identidad falsa con correo temporal y calculadora de hipoteca en euros y dólares. Sin registro, en tu navegador.",
+    "Herramientas y calculadoras gratuitas en español de WebStore Pro: calculadora de IVA para España y Latinoamérica, generador de identidad falsa con correo temporal, calculadora de hipoteca y de préstamos, aguinaldo y finiquito de México (LFT), días entre fechas con festivos oficiales y generador de códigos QR. Sin registro, en tu navegador.",
   keywords: [
     "herramientas online en español",
     "calculadoras gratuitas",
     "calculadora de iva",
     "generador de identidad falsa",
     "calculadora de hipoteca",
+    "calculadora de préstamos",
+    "calculadora de aguinaldo",
+    "calculadora de finiquito",
+    "días entre fechas",
+    "generador de códigos qr",
   ],
   alternates: {
     canonical: "https://frinjo.me/es",
@@ -44,6 +49,36 @@ const TOOLS = [
     tag: "Finanzas · Vivienda",
     desc: "Tu cuota mensual en euros (€) o dólares ($): entrada, interés y plazo, con impuestos, seguro y HOA en el modo EE. UU., interés total y tabla de amortización año por año.",
   },
+  {
+    name: "Calculadora de Préstamos",
+    href: "/es/calculadora-de-prestamos",
+    tag: "Finanzas · Créditos",
+    desc: "Cuota mensual, intereses totales y tabla de amortización de cualquier préstamo personal, en dólares, pesos mexicanos, euros, pesos colombianos, argentinos o soles. Compara plazos antes de firmar.",
+  },
+  {
+    name: "Calculadora de Aguinaldo",
+    href: "/es/calculadora-de-aguinaldo",
+    tag: "Trabajo · México",
+    desc: "Tu aguinaldo según la Ley Federal del Trabajo: mínimo 15 días, año completo o parte proporcional por días trabajados o desde tu fecha de ingreso. Pago antes del 20 de diciembre.",
+  },
+  {
+    name: "Calculadora de Finiquito",
+    href: "/es/calculadora-de-finiquito",
+    tag: "Trabajo · México",
+    desc: "Lo que te debe la empresa al salir, desglosado: salarios pendientes, aguinaldo proporcional, vacaciones con la tabla de Vacaciones Dignas y prima vacacional del 25%. Finiquito no es liquidación: aquí no se mezclan.",
+  },
+  {
+    name: "Días Entre Fechas",
+    href: "/es/calculadora-de-dias-entre-fechas",
+    tag: "Fechas · Plazos",
+    desc: "Días naturales y días hábiles reales entre dos fechas, descontando los festivos oficiales de México (descansos LFT con sus lunes de traslado) o de España. Con la lista de festivos del periodo.",
+  },
+  {
+    name: "Generador de Códigos QR",
+    href: "/es/generador-de-codigos-qr",
+    tag: "Generador · Negocios",
+    desc: "Códigos QR gratis y sin marca de agua: URL, texto, WiFi, contacto vCard, WhatsApp, correo y teléfono. Descarga en PNG de 1024 px o SVG vectorial; todo se genera en tu navegador.",
+  },
 ];
 
 const itemListJsonLd = {
@@ -75,7 +110,8 @@ export default function EsHubPage() {
           </h1>
           <p className="mt-5 text-lg text-stone-600 max-w-2xl mx-auto leading-relaxed">
             Calculadoras pensadas para España y Latinoamérica: impuestos con los tipos de cada país,
-            hipotecas en euros y dólares, e identidades de prueba con datos locales de verdad.
+            hipotecas y préstamos en euros y dólares, aguinaldo y finiquito de México, días hábiles con
+            festivos oficiales, códigos QR e identidades de prueba con datos locales de verdad.
             Todo funciona en tu navegador.
           </p>
         </div>
