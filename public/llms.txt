@@ -70,6 +70,15 @@ WebStore Pro (https://frinjo.me, also known as Frinjo) is a web development serv
 - [Love Calculator](https://frinjo.me/love-calculator) — deterministic love compatibility score from two names (same pair, same score), with an optional zodiac element compatibility reading
 - [BMI Calculator](https://frinjo.me/bmi-calculator) — Body Mass Index on the WHO adult scale in imperial or metric, with the healthy weight range for the entered height
 - [Sun, Moon & Rising Calculator](https://frinjo.me/sun-moon-rising-calculator) — free Big Three astrology calculator: Sun, Moon and Rising (Ascendant) signs with exact degrees from birth date, time and city, computed with Meeus astronomical algorithms in the tropical zodiac; runs privately in the browser
+- [Income Tax Calculator Pakistan](https://frinjo.me/salary-tax-calculator-pakistan) — Pakistan salary income tax 2026-27 (Finance Act 2026 FBR slabs): monthly/annual tax, take-home pay, effective rate, highlighted slab table
+- [PTA Tax Calculator](https://frinjo.me/pta-tax-calculator) — PTA DIRBS mobile registration tax 2026-27 (SRO 1064(I)/2026) on passport or CNIC, filer/non-filer: customs duty, regulatory duty, 18/25% sales tax, income tax, handset levy, line by line
+- [Zakat Calculator](https://frinjo.me/zakat-calculator) — 2.5% zakat on cash, gold, silver and business assets minus debts; nisab = lower of 7.5 tola gold / 52.5 tola silver at editable per-tola rates
+- [UK Take-Home Pay Calculator](https://frinjo.me/uk-take-home-pay-calculator) — UK net pay 2026/27 from salary or hourly rate: £12,570 personal allowance with taper, income tax bands and employee NI 8%/2%; England/Wales/NI and Scotland (six bands 19–48%)
+- [IR35 Calculator](https://frinjo.me/ir35-calculator) — UK contractor inside-IR35 deemed-employment take-home from a day rate: employer NI 15% above £5,000 + 0.5% levy out of the rate, then PAYE tax and NI; outside-IR35 comparison
+- [Umbrella vs Limited Company](https://frinjo.me/umbrella-vs-limited-company) — plain-English UK contractor guide: umbrella deduction chain (margin, employer NI, levy), limited company salary+dividends basics, side-by-side table, who should pick which
+- [H-1B Lottery Calculator](https://frinjo.me/h1b-lottery-calculator) — H-1B selection odds under the FY2027 wage-weighted lottery by DOL wage level (I ~15%, II ~30%, III ~45%, IV ~61%); USCIS FY2027 data: 211,600 registrations, ~40% overall
+- [Visa Bulletin Priority Date Checker](https://frinjo.me/visa-bulletin) — October 2026 US visa bulletin Final Action Dates for EB-1/EB-2/EB-3 (ROW, China, India); enter a priority date to check CURRENT vs NOT YET CURRENT
+- [F1 Visa Interview Questions](https://frinjo.me/f1-visa-interview-questions) — F1 student visa interview guide: five question groups (university choice, study plans, finances, home ties, post-graduation plans) with sample questions and 10 practical tips
 
 ## Services
 
