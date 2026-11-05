@@ -133,6 +133,8 @@ Just your business name, logo (if you have one), product list with prices and ph
 - https://frinjo.me/keyword-traffic-checker
 - https://frinjo.me/ip-address-tracker
 - https://frinjo.me/sun-moon-rising-calculator — Sun, Moon & Rising (Big Three) astrology calculator: exact Sun, Moon and Ascendant signs from birth date, time and city (Meeus ephemeris, tropical zodiac, in-browser, free)
+- https://frinjo.me/calorie-calculator — Calorie Calculator: Mifflin-St Jeor BMR × activity factor = TDEE; goal targets (−1000/−500/0/+250/+500, floor 1,200 kcal) with macro grams; in-browser, free
+- https://frinjo.me/ovulation-calculator — Ovulation Calculator: ovulation = LMP + (cycle − 14); fertile window −5d..+1d; next period, test day, due date (LMP + 280); accuracy limits stated; in-browser, free
 - https://frinjo.me/percentage-calculator — Percentage Calculator: five live modes (% of number, share of total, % change/increase/decrease, apply %, reverse percentage) with formulas; in-browser, free
 - https://frinjo.me/final-grade-calculator — Final Grade Calculator: needed final score = (desired − current × (1 − weight)) ÷ weight, feasibility verdicts, reverse outcomes with letter grades; in-browser, free
 - https://frinjo.me/hourly-to-salary-calculator — Hourly to Salary Calculator: rate × hours × weeks → daily/weekly/biweekly/monthly/annual gross pay + reverse; 38 per-rate pages ($12–$100 an hour) under the same path; in-browser, free

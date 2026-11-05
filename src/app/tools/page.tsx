@@ -60,6 +60,18 @@ const TOOLS: Tool[] = [
     desc: "The open-source SEO toolkit behind this site: 8 workflow modules for technical audits, AI visibility, schema, content clusters and more.",
   },
   {
+    name: "Calorie Calculator",
+    href: "/calorie-calculator",
+    tag: "Health · Nutrition",
+    desc: "Your BMR, maintenance calories (TDEE) and the exact daily target for losing, maintaining or gaining — from the Mifflin-St Jeor equation, with a protein/carb/fat split in grams.",
+  },
+  {
+    name: "Ovulation Calculator",
+    href: "/ovulation-calculator",
+    tag: "Health · Fertility",
+    desc: "Ovulation date and fertile window from your last period, plus next period, earliest test day and an estimated due date — with the real limits of calendar methods stated upfront.",
+  },
+  {
     name: "Percentage Calculator",
     href: "/percentage-calculator",
     tag: "Math · Money",

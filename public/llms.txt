@@ -23,6 +23,8 @@ WebStore Pro (https://frinjo.me, also known as Frinjo) is a web development serv
 - [BotView](https://frinjo.me/botview) — SEO, AEO and GEO (AI visibility) checker for any URL
 - [Keyword Traffic Checker](https://frinjo.me/keyword-traffic-checker) — keyword difficulty and SERP competition report
 - [IP Address Tracker](https://frinjo.me/ip-address-tracker) — what is my IP, with anonymity and leak checks
+- [Calorie Calculator](https://frinjo.me/calorie-calculator) — BMR (Mifflin-St Jeor), maintenance TDEE by activity level, goal targets for losing/maintaining/gaining with a 30/40/30 macro split; imperial and metric
+- [Ovulation Calculator](https://frinjo.me/ovulation-calculator) — ovulation date, fertile window, next period, earliest test day and due-date estimate from last period + cycle length, with honest accuracy limits
 - [Percentage Calculator](https://frinjo.me/percentage-calculator) — five modes on one page: X% of Y, X is what % of Y, percentage increase/decrease/change, apply a % increase or discount, reverse percentage
 - [Final Grade Calculator](https://frinjo.me/final-grade-calculator) — required final exam score from current grade, target grade and exam weight, with honest feasibility verdicts, plus reverse grade outcomes with US letter grades
 - [Hourly to Salary Calculator](https://frinjo.me/hourly-to-salary-calculator) — hourly rate ↔ annual salary at adjustable hours/weeks; per-rate pages like /hourly-to-salary-calculator/25-an-hour-is-how-much-a-year for $12–$100
