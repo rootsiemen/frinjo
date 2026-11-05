@@ -23,6 +23,11 @@ WebStore Pro (https://frinjo.me, also known as Frinjo) is a web development serv
 - [BotView](https://frinjo.me/botview) — SEO, AEO and GEO (AI visibility) checker for any URL
 - [Keyword Traffic Checker](https://frinjo.me/keyword-traffic-checker) — keyword difficulty and SERP competition report
 - [IP Address Tracker](https://frinjo.me/ip-address-tracker) — what is my IP, with anonymity and leak checks
+- [Word Counter](https://frinjo.me/word-counter) — words/chars/sentences/unique, selection counting, adjustable reading & speaking times (238/130 wpm defaults, Brysbaert 2019), Flesch readability, keyword density + CSV export, .txt loading
+- [GPA Calculator](https://frinjo.me/gpa-calculator) — letter or % input, 4.0 & weighted 5.0 (Honors +0.5, AP +1.0), localStorage persistence, CSV export, standing label, target-GPA planner
+- [Weighted Grade Calculator](https://frinjo.me/weighted-grade-calculator) — category weights with % or raw-points input, extra credit, secured points, needed-average table for remaining weight
+- [Test Score Calculator](https://frinjo.me/test-score-calculator) — EZ grader: wrong count → % + letter (half points, 2 scales), full grading chart, class roster mode with average/median/distribution + CSV export
+- [Age Calculator](https://frinjo.me/age-calculator) — exact age with time of birth, live seconds ticker, next/half birthday, generation (Pew ranges), Chinese zodiac by real Lunar New Year, age difference
 - [Password Generator](https://frinjo.me/password-generator) — cryptographically random passwords (Web Crypto API, rejection sampling), 8–64 chars, character-set toggles, ambiguous-character exclusion, entropy in bits; client-side only
 - [Case Converter](https://frinjo.me/case-converter) — 16 text-case conversions incl. Title Case, camelCase, snake_case, kebab-case URL slugs; client-side only
 - [Time Duration Calculator](https://frinjo.me/time-duration-calculator) — duration between two date-times with decimal hours, total minutes/seconds, plus add/subtract time

@@ -60,6 +60,36 @@ const TOOLS: Tool[] = [
     desc: "The open-source SEO toolkit behind this site: 8 workflow modules for technical audits, AI visibility, schema, content clusters and more.",
   },
   {
+    name: "Word Counter",
+    href: "/word-counter",
+    tag: "Writing · SEO",
+    desc: "Words, characters, sentences and unique words — plus selection-only counting, adjustable reading/speaking times, real Flesch readability, top-word density with CSV export, and .txt file loading.",
+  },
+  {
+    name: "GPA Calculator",
+    href: "/gpa-calculator",
+    tag: "School · College",
+    desc: "Semester and cumulative GPA with letter or % grades, weighted 5.0 scale with Honors/AP bonuses, courses that auto-save in your browser, CSV export, standing label and a target-GPA planner.",
+  },
+  {
+    name: "Weighted Grade Calculator",
+    href: "/weighted-grade-calculator",
+    tag: "School · Courses",
+    desc: "Course grade by category — grades entered as percentages OR raw points (45/50 works as-is), extra credit, secured-points tracking, and the average you still need for 90/80/70/60.",
+  },
+  {
+    name: "Test Score Calculator (EZ Grader)",
+    href: "/test-score-calculator",
+    tag: "School · Teachers",
+    desc: "Number wrong → percentage and letter grade with half-points and two scales, the full grading chart — and a class mode that grades a whole pasted roster with average, median, distribution and CSV export.",
+  },
+  {
+    name: "Age Calculator",
+    href: "/age-calculator",
+    tag: "Dates · Fun facts",
+    desc: "Exact age with optional time of birth, a live ticking seconds counter, next-birthday countdown, half birthday, generation, a Chinese zodiac that uses the real Lunar New Year, and an age-difference tool.",
+  },
+  {
     name: "Password Generator",
     href: "/password-generator",
     tag: "Security · Privacy",
