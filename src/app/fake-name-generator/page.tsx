@@ -59,7 +59,7 @@ const FAQS: [string, string][] = [
   ],
   [
     "Are the generated email addresses real inboxes?",
-    "Yes — deliberately. Every email sits on one of our own Temp Mail domains (abahi.tech, abahi.page, abahi.me), so a verification code or test message sent to it really arrives: open tempmaill.tech, enter the same address, and read the inbox. Two cautions: those inboxes are public (anyone with the address can read them) and auto-delete after one hour, so never use a generated identity for anything private, financial or important.",
+    "Yes — deliberately. Every email sits on one of our own Temp Mail domains (abahi.tech, abahi.page, abahi.me), so a verification code or test message sent to it really arrives: har identity card par Inbox button hai — email isi page par khul jati hai (ya tempmaill.tech par wohi address daal kar bhi parh sakte ho). Two cautions: those inboxes are public (anyone with the address can read them) and auto-delete after one hour, so never use a generated identity for anything private, financial or important.",
   ],
   [
     "Is anything stored or sent to a server?",

@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 const inputCls =
   "w-full rounded-xl border border-stone-300 bg-white px-3 py-2.5 text-stone-900 placeholder-stone-400 focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-200 transition";
@@ -165,6 +165,32 @@ export function identitiesCSV(list: Identity[]): string {
   return [head, ...rows].join("\n");
 }
 
+export interface InboxEmail {
+  id: string; from: string; to: string; subject: string; date: string;
+  text?: string; html?: string; preview?: string;
+}
+
+export function stripHtml(html: string): string {
+  return html
+    .replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<script[\s\S]*?<\/script>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/[ \t]{2,}/g, " ")
+    .trim();
+}
+
+export function inboxBody(msg: InboxEmail): string {
+  const t = (msg.text || "").trim();
+  if (t) return t;
+  const h = stripHtml(msg.html || "");
+  if (h) return h;
+  return (msg.preview || "").trim() || "(Khali message)";
+}
+
 function download(name: string, content: string, type: string) {
   const url = URL.createObjectURL(new Blob([content], { type }));
   const a = document.createElement("a");
@@ -179,6 +205,44 @@ export default function FakeName() {
   const [count, setCount] = useState(5);
   const [seed, setSeed] = useState(1);
   const [copied, setCopied] = useState("");
+  const [inboxEmail, setInboxEmail] = useState<string | null>(null);
+  const [inboxMsgs, setInboxMsgs] = useState<InboxEmail[]>([]);
+  const [inboxLoading, setInboxLoading] = useState(false);
+  const [inboxError, setInboxError] = useState("");
+  const [openMsg, setOpenMsg] = useState<InboxEmail | null>(null);
+
+  useEffect(() => {
+    if (!inboxEmail) return;
+    let cancelled = false;
+    const load = async () => {
+      try {
+        const res = await fetch(`/api/temp-inbox?address=${encodeURIComponent(inboxEmail)}`);
+        const data = (await res.json()) as { emails?: InboxEmail[]; error?: string };
+        if (!cancelled) {
+          setInboxMsgs(Array.isArray(data.emails) ? data.emails : []);
+          setInboxError(data.error || "");
+        }
+      } catch {
+        if (!cancelled) setInboxError("Inbox load nahi ho saka — dobara try karo.");
+      }
+      if (!cancelled) setInboxLoading(false);
+    };
+    setInboxLoading(true);
+    setInboxMsgs([]);
+    setOpenMsg(null);
+    load();
+    const t = window.setInterval(load, 15000);
+    return () => { cancelled = true; window.clearInterval(t); };
+  }, [inboxEmail]);
+
+  function toggleInbox(emailAddr: string) {
+    if (inboxEmail === emailAddr) {
+      setInboxEmail(null);
+      setOpenMsg(null);
+    } else {
+      setInboxEmail(emailAddr);
+    }
+  }
 
   const identities = useMemo(() => {
     void seed;
@@ -241,7 +305,7 @@ export default function FakeName() {
               </div>
             </div>
             <div className="mt-6 flex flex-wrap gap-3">
-              <button type="button" onClick={() => setSeed((s) => s + 1)} className="rounded-full bg-orange-600 hover:bg-orange-700 text-white font-bold px-7 py-3 transition">
+              <button type="button" onClick={() => { setSeed((s) => s + 1); setInboxEmail(null); setOpenMsg(null); }} className="rounded-full bg-orange-600 hover:bg-orange-700 text-white font-bold px-7 py-3 transition">
                 Generate {count > 1 ? `${count} identities` : "identity"}
               </button>
               {mode === "identity" ? (
@@ -292,6 +356,48 @@ export default function FakeName() {
                     {field("Username", idn.username)}
                     {field("Password", idn.password)}
                     {field("Birthday", `${idn.birthday} (age ${idn.age})`)}
+                  </div>
+                  <div className="mt-4 border-t border-stone-100 pt-4">
+                    <button type="button" onClick={() => toggleInbox(idn.email)}
+                      className={`rounded-full px-5 py-2.5 text-sm font-bold transition ${inboxEmail === idn.email ? "bg-stone-900 text-white" : "bg-orange-600 text-white hover:bg-orange-700"}`}>
+                      {inboxEmail === idn.email ? "Inbox band karo" : "📥 Email inbox kholo"}
+                    </button>
+                    {inboxEmail === idn.email && (
+                      <div className="mt-3 rounded-2xl bg-stone-50 border border-stone-200 p-4">
+                        <p className="text-xs font-bold text-stone-400 uppercase tracking-wider">
+                          Inbox — {idn.email} <span className="normal-case font-semibold">(public hai · har 15s auto-refresh · mail 1 ghante me auto-delete)</span>
+                        </p>
+                        {inboxLoading ? (
+                          <p className="mt-3 text-sm text-stone-500">Inbox load ho raha hai…</p>
+                        ) : openMsg ? (
+                          <div className="mt-3">
+                            <button type="button" onClick={() => setOpenMsg(null)} className="text-xs font-bold text-orange-700 hover:text-orange-800">← Saari emails</button>
+                            <h4 className="mt-2 font-display text-lg font-bold text-stone-900">{openMsg.subject || "(No subject)"}</h4>
+                            <p className="text-xs text-stone-400">{openMsg.from} · {new Date(openMsg.date).toLocaleString("en-GB")}</p>
+                            <pre className="mt-3 whitespace-pre-wrap break-words text-sm text-stone-700 leading-relaxed font-sans max-h-96 overflow-y-auto">{inboxBody(openMsg)}</pre>
+                          </div>
+                        ) : inboxError ? (
+                          <p className="mt-3 text-sm text-red-600">{inboxError}</p>
+                        ) : inboxMsgs.length === 0 ? (
+                          <p className="mt-3 text-sm text-stone-500">Abhi is address par koi email nahi aayi. Is email se kisi test site par signup karke dekho — verification mail yahin nazar aayegi.</p>
+                        ) : (
+                          <ul className="mt-2 divide-y divide-stone-200">
+                            {inboxMsgs.map((m) => (
+                              <li key={m.id}>
+                                <button type="button" onClick={() => setOpenMsg(m)} className="w-full text-left py-3 hover:bg-white rounded-lg px-2 transition">
+                                  <span className="flex items-baseline justify-between gap-3">
+                                    <span className="font-bold text-stone-900 truncate">{m.subject || "(No subject)"}</span>
+                                    <span className="shrink-0 text-xs text-stone-400">{new Date(m.date).toLocaleString("en-GB", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" })}</span>
+                                  </span>
+                                  <span className="block text-xs text-stone-500 truncate">{m.from}</span>
+                                  {m.preview && <span className="block text-sm text-stone-500 truncate mt-0.5">{m.preview}</span>}
+                                </button>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                    )}
                   </div>
                 </article>
               ))}
