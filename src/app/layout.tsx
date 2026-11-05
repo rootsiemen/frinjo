@@ -93,6 +93,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           crossOrigin="anonymous"
           strategy="afterInteractive"
         />
+        {/* Google Analytics (GA4) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-9G9BEJS1PS" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9G9BEJS1PS');",
+          }}
+        />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
       </head>
