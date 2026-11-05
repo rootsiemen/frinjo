@@ -133,6 +133,12 @@ Just your business name, logo (if you have one), product list with prices and ph
 - https://frinjo.me/keyword-traffic-checker
 - https://frinjo.me/ip-address-tracker
 - https://frinjo.me/sun-moon-rising-calculator — Sun, Moon & Rising (Big Three) astrology calculator: exact Sun, Moon and Ascendant signs from birth date, time and city (Meeus ephemeris, tropical zodiac, in-browser, free)
+- https://frinjo.me/password-generator — Password Generator: CSPRNG passwords via crypto.getRandomValues + rejection sampling, entropy display, set guarantees; never transmitted/stored; free
+- https://frinjo.me/case-converter — Case Converter: 16 conversions (UPPER/lower/Title/Sentence/camel/Pascal/snake/SCREAMING/kebab/Train/dot/alternating/inverse/reverse/no-spaces), word-aware splitting; in-browser, free
+- https://frinjo.me/time-duration-calculator — Time Duration Calculator: between-two-times duration (d h:m:s + decimal hours/minutes/seconds/days) and add/subtract hours-minutes; in-browser, free
+- https://frinjo.me/dice-roller — Dice Roller: 1–10 dice d4–d100, pip visuals for d6, totals, averages vs expected value, history; crypto randomness; free
+- https://frinjo.me/board-foot-calculator — Board Foot Calculator: BF = T″×W″×L″÷144, quantity, $/BF pricing, nominal→actual size table (2×4 = 1.5×3.5) with one-tap fill; in-browser, free
+- https://frinjo.me/water-intake-calculator — Water Intake Calculator: 35 ml/kg drinking-water target + exercise/heat/pregnancy/breastfeeding adders, L/oz/cups/glasses, EFSA total-water context; in-browser, free
 - https://frinjo.me/calorie-calculator — Calorie Calculator: Mifflin-St Jeor BMR × activity factor = TDEE; goal targets (−1000/−500/0/+250/+500, floor 1,200 kcal) with macro grams; in-browser, free
 - https://frinjo.me/ovulation-calculator — Ovulation Calculator: ovulation = LMP + (cycle − 14); fertile window −5d..+1d; next period, test day, due date (LMP + 280); accuracy limits stated; in-browser, free
 - https://frinjo.me/percentage-calculator — Percentage Calculator: five live modes (% of number, share of total, % change/increase/decrease, apply %, reverse percentage) with formulas; in-browser, free

@@ -60,6 +60,42 @@ const TOOLS: Tool[] = [
     desc: "The open-source SEO toolkit behind this site: 8 workflow modules for technical audits, AI visibility, schema, content clusters and more.",
   },
   {
+    name: "Password Generator",
+    href: "/password-generator",
+    tag: "Security · Privacy",
+    desc: "Strong passwords from your browser's cryptographic random source — length and character sets you control, look-alike characters excluded, real entropy shown in bits. Nothing is ever sent or stored.",
+  },
+  {
+    name: "Case Converter",
+    href: "/case-converter",
+    tag: "Text · Writing",
+    desc: "Sixteen instant conversions: Title Case, UPPER, Sentence case, camelCase, snake_case, kebab-case URL slugs and more — everything runs in your browser, nothing is uploaded.",
+  },
+  {
+    name: "Time Duration Calculator",
+    href: "/time-duration-calculator",
+    tag: "Time · Payroll",
+    desc: "The exact duration between two dates and times in hours, minutes and seconds — plus decimal hours for timesheets, and add/subtract hours and minutes.",
+  },
+  {
+    name: "Dice Roller",
+    href: "/dice-roller",
+    tag: "Games · RPG",
+    desc: "Roll up to 10 dice at once — d4 through d100 — with pip-face visuals, totals, averages, expected values and a roll history. Fair crypto-grade randomness.",
+  },
+  {
+    name: "Board Foot Calculator",
+    href: "/board-foot-calculator",
+    tag: "Woodworking · DIY",
+    desc: "Board feet from thickness × width × length ÷ 144, with quantity and lumber pricing — and the nominal-vs-actual size table (a 2×4 is 1.5×3.5) built in.",
+  },
+  {
+    name: "Water Intake Calculator",
+    href: "/water-intake-calculator",
+    tag: "Health · Hydration",
+    desc: "Your daily drinking-water target from body weight, exercise, climate, pregnancy and breastfeeding — in litres, ounces, cups and glasses, with EFSA reference values for context.",
+  },
+  {
     name: "Calorie Calculator",
     href: "/calorie-calculator",
     tag: "Health · Nutrition",
