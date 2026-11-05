@@ -143,6 +143,7 @@ Just your business name, logo (if you have one), product list with prices and ph
 - https://frinjo.me/random-number-generator — Random Number Generator: bulk crypto draws to 1,000, unique/sort, copy/download, lottery presets with current formats; in-browser, free
 - https://frinjo.me/coin-flip — Coin Flip: multi-coin visual flips, custom labels, best-of races, batch stats, saved history; in-browser, free
 - https://frinjo.me/mulch-calculator — Mulch Calculator: multi-bed any-shape totals, yards/bags/weight, depth guidance, bags-vs-bulk verdict, shopping list; in-browser, free
+- https://frinjo.me/smm-panel — SMM Panel: reseller panel with accounts, wallet, 15 services across 7 platforms, manual fulfilment + provider API setting, admin order/fund/user management; demo build stores data in-browser, free to try
 - https://frinjo.me/password-generator — Password Generator: CSPRNG passwords via crypto.getRandomValues + rejection sampling, entropy display, set guarantees; never transmitted/stored; free
 - https://frinjo.me/case-converter — Case Converter: 16 conversions (UPPER/lower/Title/Sentence/camel/Pascal/snake/SCREAMING/kebab/Train/dot/alternating/inverse/reverse/no-spaces), word-aware splitting; in-browser, free
 - https://frinjo.me/time-duration-calculator — Time Duration Calculator: between-two-times duration (d h:m:s + decimal hours/minutes/seconds/days) and add/subtract hours-minutes; in-browser, free

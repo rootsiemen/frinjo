@@ -120,6 +120,12 @@ const TOOLS: Tool[] = [
     desc: "Multiple beds of any shape measured properly: cubic yards, bags in 1.5/2/3 cu ft, total weight by mulch type, bags-vs-bulk verdict and a copyable shopping list.",
   },
   {
+    name: "SMM Panel",
+    href: "/smm-panel",
+    tag: "SMM · Growth Service",
+    desc: "WebStore Pro's social media panel: Instagram, YouTube, TikTok, Facebook, X and Telegram followers, views, likes and subscribers with wallet balance, transparent per-1,000 rates and live order tracking. Funds via Binance, Payoneer, JazzCash or Easypaisa.",
+  },
+  {
     name: "Password Generator",
     href: "/password-generator",
     tag: "Security · Privacy",
