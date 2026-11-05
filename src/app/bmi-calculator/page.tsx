@@ -14,7 +14,13 @@ export const metadata = {
     "bmi chart",
     "what is my bmi",
   ],
-  alternates: { canonical: "https://frinjo.me/bmi-calculator" },
+  alternates: {
+    canonical: "https://frinjo.me/bmi-calculator",
+    languages: {
+      en: "https://frinjo.me/bmi-calculator",
+      fr: "https://frinjo.me/fr/calcul-imc",
+    },
+  },
   openGraph: {
     title: "BMI Calculator — Body Mass Index & Healthy Weight Range | WebStore Pro",
     description:

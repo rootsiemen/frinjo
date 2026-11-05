@@ -7,7 +7,14 @@ export const metadata = {
   description:
     "Generate realistic fake names and complete test identities free: name, address, phone, email, username, password, birthday, job and company for the US, UK, Canada, Australia and Pakistan. Up to 100 at once, CSV/JSON export, no daily limit, generated privately in your browser.",
   keywords: ["fake name generator", "fake identity generator", "random name generator", "fake address generator", "fake person generator", "test data generator"],
-  alternates: { canonical: "https://frinjo.me/fake-name-generator" },
+  alternates: {
+    canonical: "https://frinjo.me/fake-name-generator",
+    languages: {
+      en: "https://frinjo.me/fake-name-generator",
+      es: "https://frinjo.me/es/generador-de-identidad-falsa",
+      fr: "https://frinjo.me/fr/generateur-de-faux-nom",
+    },
+  },
   openGraph: {
     title: "Fake Name Generator — Full Identities for Testing | Frinjo",
     description:

@@ -126,6 +126,18 @@ const TOOLS: Tool[] = [
     desc: "Generate full fake identities for the US, UK, Canada, Australia and Pakistan — name, address, phone, email, username, password, birthday, job and company — up to 100 at once with CSV/JSON export, or names only. No daily limit, all in your browser.",
   },
   {
+    name: "Herramientas en Español",
+    href: "/es",
+    tag: "Español · IVA · Hipoteca",
+    desc: "Free tools in Spanish: a multi-country IVA (VAT) calculator for Spain and Latin America with invoices and totals in words, a fake identity generator with local data and working temp email, and a mortgage calculator in euros and dollars.",
+  },
+  {
+    name: "Outils en Français",
+    href: "/fr",
+    tag: "Français · Salaire · IMC",
+    desc: "Free tools in French: a salaire brut en net converter (cadre, non-cadre, fonction publique, after income tax), a générateur de faux nom with local French, Belgian, Swiss and Québec data, and a calcul IMC on the WHO scale.",
+  },
+  {
     name: "SMM Panel",
     href: "/smm-panel",
     tag: "SMM · Growth Service",

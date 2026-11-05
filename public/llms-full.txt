@@ -161,6 +161,14 @@ Just your business name, logo (if you have one), product list with prices and ph
 - https://frinjo.me/square-feet-calculator — Square Feet Calculator: multi-area sq ft (rectangle/triangle/circle) with waste allowance, sq yd and m² conversions, material cost estimate; in-browser, free
 - https://frinjo.me/love-calculator — Love Calculator: deterministic compatibility score (24–99%) from two names plus an optional zodiac element reading; entertainment tool, in-browser, free
 - https://frinjo.me/bmi-calculator — BMI Calculator: Body Mass Index (kg/m²) on the WHO adult scale, imperial or metric input, healthy weight range for height; in-browser, free
+- https://frinjo.me/es — Tools hub in Spanish: IVA calculator, fake identity generator, mortgage calculator; in-browser, free
+- https://frinjo.me/es/calculadora-de-iva — Calculadora de IVA: multi-country VAT (Spain 21/10/4, Mexico 16, Colombia 19, Argentina 21, Chile 19, Peru IGV 18, Ecuador 15, Uruguay 22, Dominican Republic ITBIS 18, Costa Rica 13, Panama ITBMS 7), multi-line invoices, add or extract tax, optional ISR/IVA withholdings, total in Spanish words; in-browser, free
+- https://frinjo.me/es/generador-de-identidad-falsa — Generador de Identidad Falsa: fictional identities with two surnames, city-matched postal codes and local phone formats for Spain, Mexico, Colombia, Argentina, Chile, Peru, US Hispanic; emails on @abahi.tech/@abahi.page/@abahi.me with live on-page inbox (auto-delete 1h); no ID numbers by design; bulk 1–100, CSV/JSON/TXT export; free
+- https://frinjo.me/es/calculadora-de-hipoteca — Calculadora de Hipoteca: French-system amortization, monthly payment in EUR (Spain) or USD (US/LatAm incl. property tax, home insurance, HOA), total interest, year-by-year amortization table; in-browser, free
+- https://frinjo.me/fr — Tools hub in French: salaire brut en net, générateur de faux nom, calcul IMC; in-browser, free
+- https://frinjo.me/fr/salaire-brut-en-net — Salaire Brut en Net: French gross-to-net salary estimate (employee charges 22% non-cadre, 25% cadre, 17% fonction publique; employer charges ~42%/45% private sector), net before/after prélèvement à la source, monthly/annual; estimate only — official Urssaf/mon-entreprise simulator prevails; in-browser, free
+- https://frinjo.me/fr/generateur-de-faux-nom — Générateur de Faux Nom: fictional identities with city-matched postal codes (Paris 750xx, Québec alphanumeric) and local phone formats for France, Belgium, Switzerland, Québec; emails on @abahi.tech/@abahi.page/@abahi.me with live on-page inbox (auto-delete 1h); no ID numbers by design; bulk 1–100, CSV/JSON/TXT export; free
+- https://frinjo.me/fr/calcul-imc — Calcul IMC: indice de masse corporelle (kg/m²) on the WHO adult scale, metric or imperial input, healthy weight range for height; in-browser, free
 - https://frinjo.me/portfolio
 - https://frinjo.me/pricing
 - https://frinjo.me/blog
