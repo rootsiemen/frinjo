@@ -23,6 +23,9 @@ WebStore Pro (https://frinjo.me, also known as Frinjo) is a web development serv
 - [BotView](https://frinjo.me/botview) — SEO, AEO and GEO (AI visibility) checker for any URL
 - [Keyword Traffic Checker](https://frinjo.me/keyword-traffic-checker) — keyword difficulty and SERP competition report
 - [IP Address Tracker](https://frinjo.me/ip-address-tracker) — what is my IP, with anonymity and leak checks
+- [Percentage Calculator](https://frinjo.me/percentage-calculator) — five modes on one page: X% of Y, X is what % of Y, percentage increase/decrease/change, apply a % increase or discount, reverse percentage
+- [Final Grade Calculator](https://frinjo.me/final-grade-calculator) — required final exam score from current grade, target grade and exam weight, with honest feasibility verdicts, plus reverse grade outcomes with US letter grades
+- [Hourly to Salary Calculator](https://frinjo.me/hourly-to-salary-calculator) — hourly rate ↔ annual salary at adjustable hours/weeks; per-rate pages like /hourly-to-salary-calculator/25-an-hour-is-how-much-a-year for $12–$100
 - [Countdown Timer](https://frinjo.me/countdown-timer) — free online countdown timer with alarm, accurate in background tabs, tab-title countdown, and preset pages (1, 2, 3, 5, 10, 15, 20, 25 Pomodoro, 30, 45, 60 minutes) at /countdown-timer/<n>-minute-timer
 - [Days Between Dates Calculator](https://frinjo.me/days-between-dates-calculator) — total days, business days (Mon–Fri) and weeks between two dates, plus add/subtract calendar or business days from a date
 - [Square Feet Calculator](https://frinjo.me/square-feet-calculator) — multi-area square footage (rectangle, triangle, circle) with waste allowance, sq yd/m² conversion and material cost estimate

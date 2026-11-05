@@ -133,6 +133,9 @@ Just your business name, logo (if you have one), product list with prices and ph
 - https://frinjo.me/keyword-traffic-checker
 - https://frinjo.me/ip-address-tracker
 - https://frinjo.me/sun-moon-rising-calculator — Sun, Moon & Rising (Big Three) astrology calculator: exact Sun, Moon and Ascendant signs from birth date, time and city (Meeus ephemeris, tropical zodiac, in-browser, free)
+- https://frinjo.me/percentage-calculator — Percentage Calculator: five live modes (% of number, share of total, % change/increase/decrease, apply %, reverse percentage) with formulas; in-browser, free
+- https://frinjo.me/final-grade-calculator — Final Grade Calculator: needed final score = (desired − current × (1 − weight)) ÷ weight, feasibility verdicts, reverse outcomes with letter grades; in-browser, free
+- https://frinjo.me/hourly-to-salary-calculator — Hourly to Salary Calculator: rate × hours × weeks → daily/weekly/biweekly/monthly/annual gross pay + reverse; 38 per-rate pages ($12–$100 an hour) under the same path; in-browser, free
 - https://frinjo.me/countdown-timer — Countdown Timer: online timer with alarm, end-time based (no drift in background tabs), tab-title countdown; presets at /countdown-timer/1-minute-timer … /60-minute-timer incl. 25-minute Pomodoro; in-browser, free
 - https://frinjo.me/days-between-dates-calculator — Days Between Dates Calculator: total/business days and weeks between dates, add/subtract calendar or business days; in-browser, free
 - https://frinjo.me/square-feet-calculator — Square Feet Calculator: multi-area sq ft (rectangle/triangle/circle) with waste allowance, sq yd and m² conversions, material cost estimate; in-browser, free

@@ -60,6 +60,24 @@ const TOOLS: Tool[] = [
     desc: "The open-source SEO toolkit behind this site: 8 workflow modules for technical audits, AI visibility, schema, content clusters and more.",
   },
   {
+    name: "Percentage Calculator",
+    href: "/percentage-calculator",
+    tag: "Math · Money",
+    desc: "All five percentage modes on one page — % of a number, percentage increase/decrease, discounts, and reverse percentages, each with its formula printed under the result.",
+  },
+  {
+    name: "Final Grade Calculator",
+    href: "/final-grade-calculator",
+    tag: "School · Exams",
+    desc: "Exactly what you need to score on the final to get the grade you want — with an honest verdict when a target is locked in, a stretch, or mathematically out of reach.",
+  },
+  {
+    name: "Hourly to Salary Calculator",
+    href: "/hourly-to-salary-calculator",
+    tag: "Pay · Careers",
+    desc: "Convert any hourly rate to daily, weekly, biweekly, monthly and annual pay at your real hours and weeks — plus full breakdown pages for every rate from $12 to $100 an hour.",
+  },
+  {
     name: "Countdown Timer",
     href: "/countdown-timer",
     tag: "Time · Focus",
