@@ -15,6 +15,7 @@ export const metadata = {
   ],
   alternates: { canonical: "https://frinjo.me/life-insurance-calculator" },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Life Insurance Needs Calculator — DIME, No Lead Form | Frinjo",
     description:
       "An itemized coverage number with honest offsets and a three-method comparison — and no form harvesting your phone number at the end.",

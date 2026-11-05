@@ -7,6 +7,39 @@ const SITE_URL = "https://frinjo.me";
 
 export const dynamic = "force-dynamic";
 
+/** Hreflang clusters for pages with true language equivalents (mirrors the
+ *  alternates.languages metadata on those pages). */
+const LANG_ALTERNATES: Record<string, Record<string, string>> = {
+  [`${SITE_URL}/tools`]: { en: `${SITE_URL}/tools`, es: `${SITE_URL}/es`, fr: `${SITE_URL}/fr`, "x-default": `${SITE_URL}/tools` },
+  [`${SITE_URL}/es`]: { es: `${SITE_URL}/es`, fr: `${SITE_URL}/fr`, en: `${SITE_URL}/tools`, "x-default": `${SITE_URL}/tools` },
+  [`${SITE_URL}/fr`]: { fr: `${SITE_URL}/fr`, es: `${SITE_URL}/es`, en: `${SITE_URL}/tools`, "x-default": `${SITE_URL}/tools` },
+  [`${SITE_URL}/bmi-calculator`]: { en: `${SITE_URL}/bmi-calculator`, fr: `${SITE_URL}/fr/calcul-imc`, "x-default": `${SITE_URL}/bmi-calculator` },
+  [`${SITE_URL}/fr/calcul-imc`]: { fr: `${SITE_URL}/fr/calcul-imc`, en: `${SITE_URL}/bmi-calculator`, "x-default": `${SITE_URL}/bmi-calculator` },
+  [`${SITE_URL}/fake-name-generator`]: { en: `${SITE_URL}/fake-name-generator`, es: `${SITE_URL}/es/generador-de-identidad-falsa`, fr: `${SITE_URL}/fr/generateur-de-faux-nom`, "x-default": `${SITE_URL}/fake-name-generator` },
+  [`${SITE_URL}/es/generador-de-identidad-falsa`]: { es: `${SITE_URL}/es/generador-de-identidad-falsa`, en: `${SITE_URL}/fake-name-generator`, fr: `${SITE_URL}/fr/generateur-de-faux-nom`, "x-default": `${SITE_URL}/fake-name-generator` },
+  [`${SITE_URL}/fr/generateur-de-faux-nom`]: { fr: `${SITE_URL}/fr/generateur-de-faux-nom`, en: `${SITE_URL}/fake-name-generator`, es: `${SITE_URL}/es/generador-de-identidad-falsa`, "x-default": `${SITE_URL}/fake-name-generator` },
+  [`${SITE_URL}/days-between-dates-calculator`]: { en: `${SITE_URL}/days-between-dates-calculator`, es: `${SITE_URL}/es/calculadora-de-dias-entre-fechas`, fr: `${SITE_URL}/fr/jours-entre-deux-dates`, "x-default": `${SITE_URL}/days-between-dates-calculator` },
+  [`${SITE_URL}/es/calculadora-de-dias-entre-fechas`]: { es: `${SITE_URL}/es/calculadora-de-dias-entre-fechas`, fr: `${SITE_URL}/fr/jours-entre-deux-dates`, en: `${SITE_URL}/days-between-dates-calculator`, "x-default": `${SITE_URL}/days-between-dates-calculator` },
+  [`${SITE_URL}/fr/jours-entre-deux-dates`]: { fr: `${SITE_URL}/fr/jours-entre-deux-dates`, es: `${SITE_URL}/es/calculadora-de-dias-entre-fechas`, en: `${SITE_URL}/days-between-dates-calculator`, "x-default": `${SITE_URL}/days-between-dates-calculator` },
+  [`${SITE_URL}/es/calculadora-de-iva`]: { es: `${SITE_URL}/es/calculadora-de-iva`, fr: `${SITE_URL}/fr/calcul-tva`, "x-default": `${SITE_URL}/es/calculadora-de-iva` },
+  [`${SITE_URL}/fr/calcul-tva`]: { fr: `${SITE_URL}/fr/calcul-tva`, es: `${SITE_URL}/es/calculadora-de-iva`, "x-default": `${SITE_URL}/es/calculadora-de-iva` },
+  [`${SITE_URL}/es/generador-de-codigos-qr`]: { es: `${SITE_URL}/es/generador-de-codigos-qr`, fr: `${SITE_URL}/fr/generateur-de-qr-code`, "x-default": `${SITE_URL}/es/generador-de-codigos-qr` },
+  [`${SITE_URL}/fr/generateur-de-qr-code`]: { fr: `${SITE_URL}/fr/generateur-de-qr-code`, es: `${SITE_URL}/es/generador-de-codigos-qr`, "x-default": `${SITE_URL}/es/generador-de-codigos-qr` },
+  [`${SITE_URL}/personal-loan-calculator`]: { en: `${SITE_URL}/personal-loan-calculator`, es: `${SITE_URL}/es/calculadora-de-prestamos`, "x-default": `${SITE_URL}/personal-loan-calculator` },
+  [`${SITE_URL}/es/calculadora-de-prestamos`]: { es: `${SITE_URL}/es/calculadora-de-prestamos`, en: `${SITE_URL}/personal-loan-calculator`, "x-default": `${SITE_URL}/personal-loan-calculator` },
+  [`${SITE_URL}/compound-interest-calculator`]: { en: `${SITE_URL}/compound-interest-calculator`, fr: `${SITE_URL}/fr/interets-composes`, "x-default": `${SITE_URL}/compound-interest-calculator` },
+  [`${SITE_URL}/fr/interets-composes`]: { fr: `${SITE_URL}/fr/interets-composes`, en: `${SITE_URL}/compound-interest-calculator`, "x-default": `${SITE_URL}/compound-interest-calculator` },
+  [`${SITE_URL}/es/calculadora-de-aguinaldo`]: { es: `${SITE_URL}/es/calculadora-de-aguinaldo`, "x-default": `${SITE_URL}/es/calculadora-de-aguinaldo` },
+  [`${SITE_URL}/es/calculadora-de-finiquito`]: { es: `${SITE_URL}/es/calculadora-de-finiquito`, "x-default": `${SITE_URL}/es/calculadora-de-finiquito` },
+  [`${SITE_URL}/es/calculadora-de-hipoteca`]: { es: `${SITE_URL}/es/calculadora-de-hipoteca`, "x-default": `${SITE_URL}/es/calculadora-de-hipoteca` },
+  [`${SITE_URL}/fr/frais-de-notaire`]: { fr: `${SITE_URL}/fr/frais-de-notaire`, "x-default": `${SITE_URL}/fr/frais-de-notaire` },
+  [`${SITE_URL}/fr/salaire-brut-en-net`]: { fr: `${SITE_URL}/fr/salaire-brut-en-net`, "x-default": `${SITE_URL}/fr/salaire-brut-en-net` },
+};
+
+/** Blog slugs whose canonical is consolidated onto another post (see
+ *  CANONICAL_OVERRIDES in blog/[slug]) — they must not appear in the sitemap. */
+const SITEMAP_EXCLUDED_SLUGS = new Set(["how-much-does-a-website-cost-in-pakistan-2026-price-guide"]);
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
 
@@ -141,6 +174,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${SITE_URL}/about`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: `${SITE_URL}/contact`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${SITE_URL}/faq`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${SITE_URL}/privacy`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${SITE_URL}/terms`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
   ];
 
   const serviceRoutes: MetadataRoute.Sitemap = SERVICES.map((s) => ({
@@ -155,14 +190,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const db = await getDb();
     const rows = await db.prepare("SELECT * FROM blog_posts WHERE status = 'published'").all();
     const slugs = new Set(rows.map(mapBlogPost).map((p) => p.slug));
-    const dbRoutes = rows.map(mapBlogPost).map((p) => ({
+    const dbRoutes = rows.map(mapBlogPost).filter((p) => !SITEMAP_EXCLUDED_SLUGS.has(p.slug)).map((p) => ({
       url: `${SITE_URL}/blog/${p.slug}`,
       lastModified: new Date(p.createdAt),
       changeFrequency: "monthly" as const,
       priority: 0.6,
     }));
     // Repo-shipped posts (git-push publishing).
-    const repoRoutes = REPO_POSTS.filter((p) => !slugs.has(p.slug)).map((p) => ({
+    const repoRoutes = REPO_POSTS.filter((p) => !slugs.has(p.slug) && !SITEMAP_EXCLUDED_SLUGS.has(p.slug)).map((p) => ({
       url: `${SITE_URL}/blog/${p.slug}`,
       lastModified: new Date(p.createdAt),
       changeFrequency: "monthly" as const,
@@ -173,5 +208,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // DB unavailable at build time — blog URLs fall back to the /blog index.
   }
 
-  return [...staticRoutes, ...serviceRoutes, ...blogRoutes];
+  const withAlternates = (entry: MetadataRoute.Sitemap[number]) =>
+    LANG_ALTERNATES[entry.url] ? { ...entry, alternates: { languages: LANG_ALTERNATES[entry.url] } } : entry;
+
+  return [...staticRoutes.map(withAlternates), ...serviceRoutes, ...blogRoutes];
 }

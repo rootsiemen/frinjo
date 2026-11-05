@@ -2,7 +2,7 @@ import Link from "next/link";
 import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 
 export const metadata = {
-  title: "Free Tools — Online Calculators & Checkers",
+  title: "Free Tools — Calculators & Checkers",
   description:
     "100+ free online tools: SEO checkers (BotView, Keyword Traffic Checker), calculators, generators and the IP Address Tracker. Free, no sign-up.",
   keywords: [
@@ -16,8 +16,17 @@ export const metadata = {
     "temp mail",
     "playzone",
   ],
-  alternates: { canonical: "https://frinjo.me/tools" },
+  alternates: {
+    canonical: "https://frinjo.me/tools",
+    languages: {
+      en: "https://frinjo.me/tools",
+      es: "https://frinjo.me/es",
+      fr: "https://frinjo.me/fr",
+      "x-default": "https://frinjo.me/tools",
+    },
+  },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Free Tools | WebStore Pro",
     description:
       "BotView, Keyword Traffic Checker, IP Address Tracker, SEO Agent Kit, Temp Mail and PlayZone — every free WebStore Pro tool, in one hub.",

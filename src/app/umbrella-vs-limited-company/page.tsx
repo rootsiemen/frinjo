@@ -14,6 +14,7 @@ export const metadata = {
   ],
   alternates: { canonical: "https://frinjo.me/umbrella-vs-limited-company" },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Umbrella vs Limited Company — Which Is Right for You? | WebStore Pro",
     description:
       "How umbrella deductions really work, limited company basics, and a side-by-side comparison for UK contractors. Free guide.",

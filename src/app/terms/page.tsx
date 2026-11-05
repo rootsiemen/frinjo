@@ -92,6 +92,7 @@ export default function TermsPage() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-12">
       <SectionHead
+        asH1
         eyebrow="Legal"
         title="Terms of Service"
         sub={`Last updated: ${new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}. Please read these terms carefully before ordering.`}

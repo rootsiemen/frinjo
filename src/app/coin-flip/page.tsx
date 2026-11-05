@@ -9,6 +9,7 @@ export const metadata = {
   keywords: ["coin flip", "flip a coin", "heads or tails", "online coin flip", "coin flipper", "decision maker coin"],
   alternates: { canonical: "https://frinjo.me/coin-flip" },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Coin Flip — Multi-Coin, Best-Of & Decisions | WebStore Pro",
     description: "1–3 coins, custom side names, best-of races, batches up to 1,000 and saved history. Fair crypto randomness. Free.",
     url: "https://frinjo.me/coin-flip",

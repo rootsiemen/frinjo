@@ -16,9 +16,14 @@ export const metadata = {
   ],
   alternates: {
     canonical: "https://frinjo.me/es/generador-de-codigos-qr",
-    languages: { es: "https://frinjo.me/es/generador-de-codigos-qr", fr: "https://frinjo.me/fr/generateur-de-qr-code", en: "https://frinjo.me/tools" },
+    languages: {
+      es: "https://frinjo.me/es/generador-de-codigos-qr",
+      fr: "https://frinjo.me/fr/generateur-de-qr-code",
+      "x-default": "https://frinjo.me/es/generador-de-codigos-qr",
+    },
   },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Generador de Códigos QR Gratis — PNG y SVG, Sin Marca de Agua | Frinjo",
     description:
       "Crea QR para URL, WiFi, vCard, WhatsApp, correo y teléfono. Descarga PNG 1024 px o SVG vectorial. Gratis, sin registro, 100% en tu navegador.",

@@ -19,9 +19,11 @@ export const metadata = {
     languages: {
       en: "https://frinjo.me/bmi-calculator",
       fr: "https://frinjo.me/fr/calcul-imc",
+      "x-default": "https://frinjo.me/bmi-calculator",
     },
   },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "BMI Calculator — Body Mass Index & Healthy Weight Range | WebStore Pro",
     description:
       "Your BMI, your category on the WHO scale, and the healthy weight range for your exact height — in imperial or metric, free and instant.",
@@ -218,7 +220,7 @@ export default function BmiCalculatorPage() {
           </div>
           <p className="mt-5 text-sm text-stone-500">
             Prefer email? <a href="mailto:neilsonsmarry@gmail.com" className="font-semibold text-orange-700 hover:text-orange-800">neilsonsmarry@gmail.com</a>
-            {" "}· Or browse our <Link href="/services" className="font-semibold text-orange-700 hover:text-orange-800">services</Link> and <Link href="/tools" className="font-semibold text-orange-700 hover:text-orange-800">free tools</Link>.
+            {" "}· Or browse our <Link href="/services" className="font-semibold text-orange-700 hover:text-orange-800">services</Link> , <Link href="/calorie-calculator" className="font-semibold text-orange-700 hover:text-orange-800">calorie calculator</Link>, <Link href="/ovulation-calculator" className="font-semibold text-orange-700 hover:text-orange-800">ovulation calculator</Link> and <Link href="/tools" className="font-semibold text-orange-700 hover:text-orange-800">free tools</Link>.
           </p>
         </div>
       </section>

@@ -5,10 +5,18 @@ import { SectionHead, Icon, btnPrimary } from "@/components/ui";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Web Development Services — Full Stack, Websites & More",
+  title: "Web Development Services — Full Stack",
   description:
-    "Web development services: full stack websites, business websites, admin panels, payment integration (COD, JazzCash, Stripe), WhatsApp ordering and SEO — delivered in days.",
+    "Web development services: full stack and business websites, admin panels, payments (COD, JazzCash, Stripe) and WhatsApp ordering — delivered in days.",
   alternates: { canonical: "https://frinjo.me/services" },
+  openGraph: {
+    title: "Web Development Services — Full Stack | WebStore Pro",
+    description:
+      "Web development services: full stack and business websites, admin panels, payments (COD, JazzCash, Stripe) and WhatsApp ordering — delivered in days.",
+    url: "https://frinjo.me/services",
+    type: "website",
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
+  },
 };
 
 const PROCESS = [

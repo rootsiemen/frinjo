@@ -9,6 +9,7 @@ export const metadata = {
   keywords: ["concrete calculator", "concrete bags calculator", "how many bags of concrete", "concrete slab calculator", "post hole concrete calculator", "bags of concrete per yard"],
   alternates: { canonical: "https://frinjo.me/concrete-calculator" },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Concrete Calculator — All Your Pours, One Total | WebStore Pro",
     description: "Slabs + rounds + post holes in one answer: yards, bags, pallets, water and the ready-mix verdict. Free.",
     url: "https://frinjo.me/concrete-calculator",
@@ -121,7 +122,7 @@ export default function ConcretePage() {
           </div>
           <p className="mt-5 text-sm text-stone-500">
             Prefer email? <a href="mailto:neilsonsmarry@gmail.com" className="font-semibold text-orange-700 hover:text-orange-800">neilsonsmarry@gmail.com</a>
-            {" "}· Measuring the area first? Use the <Link href="/square-feet-calculator" className="font-semibold text-orange-700 hover:text-orange-800">Square Feet Calculator</Link>.
+            {" "}· Measuring the area first? Use the <Link href="/square-feet-calculator" className="font-semibold text-orange-700 hover:text-orange-800">Square Feet Calculator</Link> — and for the rest of the job, the <Link href="/board-foot-calculator" className="font-semibold text-orange-700 hover:text-orange-800">Board Foot Calculator</Link> and <Link href="/mulch-calculator" className="font-semibold text-orange-700 hover:text-orange-800">Mulch Calculator</Link>.
           </p>
         </div>
       </section>

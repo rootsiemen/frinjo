@@ -9,6 +9,7 @@ export const metadata = {
   keywords: ["gpa calculator", "college gpa calculator", "semester gpa calculator", "cumulative gpa calculator", "weighted gpa calculator", "target gpa calculator"],
   alternates: { canonical: "https://frinjo.me/gpa-calculator" },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "GPA Calculator — With Planner, Persistence & Export | WebStore Pro",
     description: "Semester and cumulative GPA, Honors/AP weighting, % or letter input, auto-save, CSV export and a target planner. Free.",
     url: "https://frinjo.me/gpa-calculator",
@@ -121,7 +122,7 @@ export default function GpaPage() {
           </div>
           <p className="mt-5 text-sm text-stone-500">
             Prefer email? <a href="mailto:neilsonsmarry@gmail.com" className="font-semibold text-orange-700 hover:text-orange-800">neilsonsmarry@gmail.com</a>
-            {" "}· Students also use the <Link href="/final-grade-calculator" className="font-semibold text-orange-700 hover:text-orange-800">Final Grade Calculator</Link> and <Link href="/tools" className="font-semibold text-orange-700 hover:text-orange-800">all free tools</Link>.
+            {" "}· Students also use the <Link href="/final-grade-calculator" className="font-semibold text-orange-700 hover:text-orange-800">Final Grade Calculator</Link>, <Link href="/percentage-calculator" className="font-semibold text-orange-700 hover:text-orange-800">Percentage Calculator</Link> and <Link href="/test-score-calculator" className="font-semibold text-orange-700 hover:text-orange-800">Test Score Calculator</Link> — or browse <Link href="/tools" className="font-semibold text-orange-700 hover:text-orange-800">all free tools</Link>.
           </p>
         </div>
       </section>

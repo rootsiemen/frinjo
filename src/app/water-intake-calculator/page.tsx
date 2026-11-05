@@ -9,6 +9,7 @@ export const metadata = {
   keywords: ["water intake calculator", "how much water should i drink", "daily water intake", "hydration calculator", "water calculator by weight"],
   alternates: { canonical: "https://frinjo.me/water-intake-calculator" },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Water Intake Calculator — Your Daily Target | WebStore Pro",
     description: "Daily water from your weight and activity — litres, oz, cups and glasses, with honest reference values. Free.",
     url: "https://frinjo.me/water-intake-calculator",

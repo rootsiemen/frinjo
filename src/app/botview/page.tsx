@@ -18,6 +18,7 @@ export const metadata = {
   ],
   alternates: { canonical: "https://frinjo.me/botview" },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "BotView — Free SEO, AEO & GEO Checker | WebStore Pro",
     description:
       "Paste any URL and get SEO, AEO and GEO (AI visibility) scores out of 100 — every check, every fix, free and with no sign-up.",
@@ -33,7 +34,6 @@ const appJsonLd = {
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
   url: "https://frinjo.me/botview",
-  codeRepository: "https://github.com/rootsiemen/botview-web",
   license: "https://opensource.org/licenses/MIT",
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   author: { "@type": "Organization", name: "WebStore Pro", url: "https://frinjo.me" },
@@ -217,6 +217,10 @@ export default async function BotViewPage({
             check the keyword is worth winning with the{" "}
             <Link href="/keyword-traffic-checker" className="font-semibold text-orange-400 hover:text-orange-300">
               Keyword Traffic Checker
+            </Link>
+            . You can also check what your own connection reveals with the{" "}
+            <Link href="/ip-address-tracker" className="font-semibold text-orange-400 hover:text-orange-300">
+              IP Address Tracker
             </Link>
             .
           </p>

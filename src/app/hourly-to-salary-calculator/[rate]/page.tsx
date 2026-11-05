@@ -31,6 +31,7 @@ export async function generateMetadata({ params }: { params: Promise<{ rate: str
     ],
     alternates: { canonical: `https://frinjo.me/hourly-to-salary-calculator/${rateSlug(r)}` },
     openGraph: {
+      images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
       title: `$${r} an Hour = ${money(b.annual)} a Year | WebStore Pro`,
       description: `Full breakdown for $${r}/hour: ${money(b.monthly)}/month, ${money(b.biweekly)} biweekly, ${money(b.weekly)}/week.`,
       url: `https://frinjo.me/hourly-to-salary-calculator/${rateSlug(r)}`,

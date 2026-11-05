@@ -19,9 +19,15 @@ export const metadata = {
   ],
   alternates: {
     canonical: "https://frinjo.me/fr",
-    languages: { fr: "https://frinjo.me/fr", es: "https://frinjo.me/es", en: "https://frinjo.me/tools" },
+    languages: {
+      fr: "https://frinjo.me/fr",
+      es: "https://frinjo.me/es",
+      en: "https://frinjo.me/tools",
+      "x-default": "https://frinjo.me/tools",
+    },
   },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Outils Gratuits en Français | WebStore Pro",
     description:
       "Salaire brut en net, générateur de faux nom et calcul IMC — gratuits, sans inscription et en français.",

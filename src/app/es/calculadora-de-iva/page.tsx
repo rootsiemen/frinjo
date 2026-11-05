@@ -19,9 +19,14 @@ export const metadata = {
   ],
   alternates: {
     canonical: "https://frinjo.me/es/calculadora-de-iva",
-    languages: { es: "https://frinjo.me/es/calculadora-de-iva" },
+    languages: {
+      es: "https://frinjo.me/es/calculadora-de-iva",
+      fr: "https://frinjo.me/fr/calcul-tva",
+      "x-default": "https://frinjo.me/es/calculadora-de-iva",
+    },
   },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Calculadora de IVA 2026 — España, México y Latinoamérica | Frinjo",
     description:
       "Añade o quita el IVA con los tipos oficiales de 11 países: factura multilínea, retenciones, total en letra y copiar resumen. Gratis y sin registro.",

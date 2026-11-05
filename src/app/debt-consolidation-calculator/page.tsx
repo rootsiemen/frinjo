@@ -15,6 +15,7 @@ export const metadata = {
   ],
   alternates: { canonical: "https://frinjo.me/debt-consolidation-calculator" },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Debt Consolidation Calculator — Per-Debt, With the Honest Verdict | Frinjo",
     description:
       "Each debt on its own balance, APR and payment. Staying put vs a consolidation loan vs a balance transfer — and a verdict that can tell you to stay put.",

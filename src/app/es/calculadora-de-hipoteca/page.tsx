@@ -17,9 +17,13 @@ export const metadata = {
   ],
   alternates: {
     canonical: "https://frinjo.me/es/calculadora-de-hipoteca",
-    languages: { es: "https://frinjo.me/es/calculadora-de-hipoteca" },
+    languages: {
+      es: "https://frinjo.me/es/calculadora-de-hipoteca",
+      "x-default": "https://frinjo.me/es/calculadora-de-hipoteca",
+    },
   },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Calculadora de Hipoteca 2026 — Cuota Mensual en € y $ | Frinjo",
     description:
       "Tu cuota mensual en España o en EE. UU./Latinoamérica, con intereses totales y tabla de amortización año a año. Gratis y sin registro.",

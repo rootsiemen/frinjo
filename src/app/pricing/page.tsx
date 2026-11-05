@@ -7,8 +7,16 @@ export const dynamic = "force-dynamic";
 export const metadata = {
   title: "Pricing — Website Packages from $80",
   description:
-    "Transparent website pricing: Starter ($80, 5 days), Business ($150, 7 days), Pro ($300, 10 days). Complete full stack websites with admin panel, COD and WhatsApp ordering.",
+    "Transparent website pricing: Starter $80 (5 days), Business $150 (7 days), Pro $300 (10 days). Full stack websites with admin panel, COD & WhatsApp ordering.",
   alternates: { canonical: "https://frinjo.me/pricing" },
+  openGraph: {
+    title: "Pricing — Website Packages from $80 | WebStore Pro",
+    description:
+      "Transparent website pricing: Starter $80 (5 days), Business $150 (7 days), Pro $300 (10 days). Full stack websites with admin panel, COD & WhatsApp ordering.",
+    url: "https://frinjo.me/pricing",
+    type: "website",
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
+  },
 };
 
 export default function PricingPage() {

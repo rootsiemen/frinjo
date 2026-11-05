@@ -19,9 +19,15 @@ export const metadata = {
   ],
   alternates: {
     canonical: "https://frinjo.me/es",
-    languages: { es: "https://frinjo.me/es", fr: "https://frinjo.me/fr", en: "https://frinjo.me/tools" },
+    languages: {
+      es: "https://frinjo.me/es",
+      fr: "https://frinjo.me/fr",
+      en: "https://frinjo.me/tools",
+      "x-default": "https://frinjo.me/tools",
+    },
   },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Herramientas Gratuitas en Español | WebStore Pro",
     description:
       "Calculadora de IVA, generador de identidad falsa y calculadora de hipoteca — gratis, sin registro y en español.",

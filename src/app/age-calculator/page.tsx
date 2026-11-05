@@ -9,6 +9,7 @@ export const metadata = {
   keywords: ["age calculator", "how old am i", "exact age calculator", "age difference calculator", "birthday countdown", "chinese zodiac calculator"],
   alternates: { canonical: "https://frinjo.me/age-calculator" },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Age Calculator — Exact Age, Live | WebStore Pro",
     description:
       "Your exact age ticking by the second, generation, correct Chinese zodiac, half birthday and age difference. Free.",

@@ -15,6 +15,7 @@ export const metadata = {
   ],
   alternates: { canonical: "https://frinjo.me/final-grade-calculator" },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Final Grade Calculator — What You Need on the Final | WebStore Pro",
     description:
       "The exact score you need on your final, and an honest verdict on whether it is reachable. Free, instant.",

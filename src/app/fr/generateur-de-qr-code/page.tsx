@@ -17,9 +17,14 @@ export const metadata = {
   ],
   alternates: {
     canonical: "https://frinjo.me/fr/generateur-de-qr-code",
-    languages: { fr: "https://frinjo.me/fr/generateur-de-qr-code", es: "https://frinjo.me/es/generador-de-codigos-qr", en: "https://frinjo.me/tools" },
+    languages: {
+      fr: "https://frinjo.me/fr/generateur-de-qr-code",
+      es: "https://frinjo.me/es/generador-de-codigos-qr",
+      "x-default": "https://frinjo.me/es/generador-de-codigos-qr",
+    },
   },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Générateur de QR Code Gratuit — Dont Virement SEPA | Frinjo",
     description:
       "QR pour URL, WiFi, vCard, WhatsApp et virements SEPA pré-remplis. PNG 1024 px ou SVG, sans filigrane, sans inscription, 100 % navigateur.",

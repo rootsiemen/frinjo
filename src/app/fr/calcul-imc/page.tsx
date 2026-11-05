@@ -18,11 +18,13 @@ export const metadata = {
   alternates: {
     canonical: "https://frinjo.me/fr/calcul-imc",
     languages: {
-      en: "https://frinjo.me/bmi-calculator",
       fr: "https://frinjo.me/fr/calcul-imc",
+      en: "https://frinjo.me/bmi-calculator",
+      "x-default": "https://frinjo.me/bmi-calculator",
     },
   },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Calcul IMC — Indice de Masse Corporelle & Poids Santé | Frinjo",
     description:
       "Votre IMC, votre catégorie sur l'échelle de l'OMS et la fourchette de poids santé pour votre taille exacte — en métrique ou en impérial, gratuit et instantané.",

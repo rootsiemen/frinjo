@@ -16,6 +16,7 @@ export const metadata = {
   ],
   alternates: { canonical: "https://frinjo.me/hourly-to-salary-calculator" },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Hourly to Salary Calculator | WebStore Pro",
     description:
       "Any hourly rate → daily, weekly, biweekly, monthly and yearly pay, at your actual hours. Plus salary → hourly. Free.",

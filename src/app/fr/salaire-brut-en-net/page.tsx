@@ -17,9 +17,13 @@ export const metadata = {
   ],
   alternates: {
     canonical: "https://frinjo.me/fr/salaire-brut-en-net",
-    languages: { fr: "https://frinjo.me/fr/salaire-brut-en-net" },
+    languages: {
+      fr: "https://frinjo.me/fr/salaire-brut-en-net",
+      "x-default": "https://frinjo.me/fr/salaire-brut-en-net",
+    },
   },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Salaire Brut en Net — Convertisseur Gratuit 2026 | Frinjo",
     description:
       "Votre salaire net avant et après impôt, selon votre statut (non-cadre, cadre, fonction publique) — instantané, gratuit, sans inscription.",

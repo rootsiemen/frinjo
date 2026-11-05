@@ -13,9 +13,11 @@ export const metadata = {
       en: "https://frinjo.me/fake-name-generator",
       es: "https://frinjo.me/es/generador-de-identidad-falsa",
       fr: "https://frinjo.me/fr/generateur-de-faux-nom",
+      "x-default": "https://frinjo.me/fake-name-generator",
     },
   },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Fake Name Generator — Full Identities for Testing | Frinjo",
     description:
       "Names plus matching address, phone, email, birthday and job — 5 countries, bulk export, no limits. By WebStore Pro.",
@@ -131,7 +133,7 @@ export default function FakeNamePage() {
           </div>
           <p className="mt-5 text-sm text-stone-500">
             Prefer email? <a href="mailto:neilsonsmarry@gmail.com" className="font-semibold text-orange-700 hover:text-orange-800">neilsonsmarry@gmail.com</a>
-            {" "}· More free tools: <Link href="/tools" className="font-semibold text-orange-700 hover:text-orange-800">all calculators &amp; tools</Link>.
+            {" "}· More free tools: the <Link href="/password-generator" className="font-semibold text-orange-700 hover:text-orange-800">Password Generator</Link> and <Link href="/tools" className="font-semibold text-orange-700 hover:text-orange-800">all calculators &amp; tools</Link>.
           </p>
         </div>
       </section>

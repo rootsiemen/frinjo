@@ -15,6 +15,7 @@ export const metadata = {
   ],
   alternates: { canonical: "https://frinjo.me/loan-payoff-calculator" },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Loan Payoff Calculator — Pay Off Your Loan Early | Frinjo",
     description:
       "Extra payments, lump sums and a payoff-by-date solver on one page — with the interest saved and the new debt-free date, for any installment loan.",

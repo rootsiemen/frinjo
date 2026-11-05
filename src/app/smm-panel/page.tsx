@@ -9,6 +9,7 @@ export const metadata = {
   keywords: ["smm panel", "buy instagram followers", "buy youtube views", "buy tiktok followers", "smm panel pakistan", "cheapest smm panel", "social media panel"],
   alternates: { canonical: "https://frinjo.me/smm-panel" },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "SMM Panel — Social Media Growth Services | WebStore Pro",
     description:
       "Followers, views, likes and subscribers for every major platform — wallet, live order status, transparent rates. By WebStore Pro.",

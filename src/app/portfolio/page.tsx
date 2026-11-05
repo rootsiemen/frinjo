@@ -5,10 +5,18 @@ import { Icon, btnPrimary, btnOutline } from "@/components/ui";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Portfolio — Ecommerce Websites I've Built",
+  title: "Portfolio — Websites I've Built",
   description:
-    "Portfolio of ecommerce websites and online stores built by WebStore Pro: clothing stores, fashion shops, temp-mail tools — real client projects with admin panels and COD checkout.",
+    "Portfolio of websites and online stores built by WebStore Pro: clothing stores, fashion shops and web tools — real projects with admin panels and COD checkout.",
   alternates: { canonical: "https://frinjo.me/portfolio" },
+  openGraph: {
+    title: "Portfolio — Websites I've Built | WebStore Pro",
+    description:
+      "Portfolio of websites and online stores built by WebStore Pro: clothing stores, fashion shops and web tools — real projects with admin panels and COD checkout.",
+    url: "https://frinjo.me/portfolio",
+    type: "website",
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
+  },
 };
 
 /** Category eyebrow + highlight chips per project, derived from title. */

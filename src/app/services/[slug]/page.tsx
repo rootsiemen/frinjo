@@ -18,6 +18,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title,
     description: `WebStore Pro — ${service.desc}`,
     alternates: { canonical: `https://frinjo.me/services/${service.slug}` },
+    openGraph: {
+      title: `${title} | WebStore Pro`,
+      description: `WebStore Pro — ${service.desc}`,
+      url: `https://frinjo.me/services/${service.slug}`,
+      type: "website",
+      images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
+    },
   };
 }
 

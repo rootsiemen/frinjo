@@ -17,6 +17,7 @@ export const metadata = {
   ],
   alternates: { canonical: "https://frinjo.me/pta-tax-calculator" },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "PTA Tax Calculator 2026-27 | WebStore Pro",
     description:
       "DIRBS registration tax on imported phones — passport vs CNIC, filer vs non-filer, every charge line by line. Free.",

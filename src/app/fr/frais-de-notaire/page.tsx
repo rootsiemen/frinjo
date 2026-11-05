@@ -17,9 +17,13 @@ export const metadata = {
   ],
   alternates: {
     canonical: "https://frinjo.me/fr/frais-de-notaire",
-    languages: { fr: "https://frinjo.me/fr/frais-de-notaire", es: "https://frinjo.me/es/calculadora-de-hipoteca", en: "https://frinjo.me/tools" },
+    languages: {
+      fr: "https://frinjo.me/fr/frais-de-notaire",
+      "x-default": "https://frinjo.me/fr/frais-de-notaire",
+    },
   },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Frais de Notaire 2026 — Ancien & Neuf, Détail Poste par Poste | Frinjo",
     description:
       "Estimez vos frais de notaire avec le vrai barème : droits de mutation par département, émoluments dégressifs, débours, CSI. Gratuit, sans inscription.",

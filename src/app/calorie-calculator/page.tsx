@@ -16,6 +16,7 @@ export const metadata = {
   ],
   alternates: { canonical: "https://frinjo.me/calorie-calculator" },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Calorie Calculator — BMR, TDEE & Your Goal Target | WebStore Pro",
     description:
       "Maintenance calories and the daily target for your goal, from the best-validated equation. Free, with macros.",
@@ -135,7 +136,7 @@ export default function CaloriePage() {
           </div>
           <p className="mt-5 text-sm text-stone-500">
             Prefer email? <a href="mailto:neilsonsmarry@gmail.com" className="font-semibold text-orange-700 hover:text-orange-800">neilsonsmarry@gmail.com</a>
-            {" "}· Or browse our <Link href="/services" className="font-semibold text-orange-700 hover:text-orange-800">services</Link> and <Link href="/tools" className="font-semibold text-orange-700 hover:text-orange-800">free tools</Link>.
+            {" "}· Or browse our <Link href="/services" className="font-semibold text-orange-700 hover:text-orange-800">services</Link> , <Link href="/water-intake-calculator" className="font-semibold text-orange-700 hover:text-orange-800">water intake calculator</Link>, <Link href="/ovulation-calculator" className="font-semibold text-orange-700 hover:text-orange-800">ovulation calculator</Link> and <Link href="/tools" className="font-semibold text-orange-700 hover:text-orange-800">free tools</Link>.
           </p>
         </div>
       </section>

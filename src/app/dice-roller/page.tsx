@@ -9,6 +9,7 @@ export const metadata = {
   keywords: ["dice roller", "roll dice online", "d20 roller", "virtual dice", "dice roller 2 dice", "online dice"],
   alternates: { canonical: "https://frinjo.me/dice-roller" },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Dice Roller — Fair Online Dice, d4–d100 | WebStore Pro",
     description: "Roll up to 10 dice with totals, averages and history. Crypto-grade randomness, free.",
     url: "https://frinjo.me/dice-roller",

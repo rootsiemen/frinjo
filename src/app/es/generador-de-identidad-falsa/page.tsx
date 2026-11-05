@@ -12,12 +12,14 @@ export const metadata = {
   alternates: {
     canonical: SELF,
     languages: {
+      es: "https://frinjo.me/es/generador-de-identidad-falsa",
       en: "https://frinjo.me/fake-name-generator",
-      es: SELF,
       fr: "https://frinjo.me/fr/generateur-de-faux-nom",
+      "x-default": "https://frinjo.me/fake-name-generator",
     },
   },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Generador de Identidad Falsa — Identidades de Prueba Completas | Frinjo",
     description:
       "Nombre, dirección, teléfono, correo con bandeja real, fecha de nacimiento y profesión — 7 países hispanos, lotes de hasta 100, sin límites. Por WebStore Pro.",

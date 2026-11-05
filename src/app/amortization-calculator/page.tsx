@@ -15,6 +15,7 @@ export const metadata = {
   ],
   alternates: { canonical: "https://frinjo.me/amortization-calculator" },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Amortization Calculator — Full Schedule, CSV & Crossover | Frinjo",
     description:
       "The complete schedule — monthly and yearly — with extras, the crossover month, CSV export and print. The mortgage cluster's second door.",

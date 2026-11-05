@@ -16,9 +16,14 @@ export const metadata = {
   ],
   alternates: {
     canonical: "https://frinjo.me/es/calculadora-de-prestamos",
-    languages: { es: "https://frinjo.me/es/calculadora-de-prestamos", fr: "https://frinjo.me/fr/calcul-tva", en: "https://frinjo.me/tools" },
+    languages: {
+      es: "https://frinjo.me/es/calculadora-de-prestamos",
+      en: "https://frinjo.me/personal-loan-calculator",
+      "x-default": "https://frinjo.me/personal-loan-calculator",
+    },
   },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Calculadora de Préstamos 2026 — Cuota e Intereses Totales | Frinjo",
     description:
       "Calcula la cuota mensual de cualquier préstamo y cuánto pagas de intereses en total, con tabla de amortización anual. Gratis y sin registro.",

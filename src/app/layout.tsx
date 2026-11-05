@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import Script from "next/script";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -35,14 +36,14 @@ export const metadata: Metadata = {
     url: "https://frinjo.me",
     siteName: "WebStore Pro",
     type: "website",
-    images: [{ url: "/logo-w.png", width: 1200, height: 630, alt: "WebStore Pro — Full Stack Web Developer" }],
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Full Stack Web Developer" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "WebStore Pro | Full Stack Web Developer",
     description:
       "Complete full stack websites and web apps with admin panel, cart, Cash on Delivery, JazzCash & WhatsApp ordering — delivered ready to launch.",
-    images: ["/logo-w.png"],
+    images: ["/og-default.jpg"],
   },
   icons: {
     icon: [
@@ -57,20 +58,22 @@ const SITE_URL = "https://frinjo.me";
 
 const orgJsonLd = {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
+  "@type": ["Organization", "ProfessionalService"],
   "@id": `${SITE_URL}/#organization`,
   name: "WebStore Pro",
   url: SITE_URL,
   logo: `${SITE_URL}/logo-w.png`,
+  email: "neilsonsmarry@gmail.com",
   description:
     "Web development agency building full stack websites and web applications with admin panel, shopping cart, Cash on Delivery, JazzCash/Easypaisa payments and WhatsApp ordering.",
   priceRange: "$$",
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "sales",
+    email: "neilsonsmarry@gmail.com",
     availableLanguage: ["English", "Urdu"],
   },
-  sameAs: [SITE_URL],
+  sameAs: ["https://github.com/rootsiemen", "https://rootsiemen.github.io/Portfolio/"],
 };
 
 const websiteJsonLd = {
@@ -83,9 +86,11 @@ const websiteJsonLd = {
   inLanguage: "en",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const pathname = (await headers()).get("x-pathname") || "";
+  const lang = pathname.startsWith("/es") ? "es" : pathname.startsWith("/fr") ? "fr" : "en";
   return (
-    <html lang="en">
+    <html lang={lang}>
       <head>
         <Script
           async

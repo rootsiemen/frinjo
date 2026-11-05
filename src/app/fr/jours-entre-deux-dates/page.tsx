@@ -16,9 +16,15 @@ export const metadata = {
   ],
   alternates: {
     canonical: "https://frinjo.me/fr/jours-entre-deux-dates",
-    languages: { fr: "https://frinjo.me/fr/jours-entre-deux-dates", es: "https://frinjo.me/es/calculadora-de-dias-entre-fechas", en: "https://frinjo.me/days-between-dates-calculator" },
+    languages: {
+      fr: "https://frinjo.me/fr/jours-entre-deux-dates",
+      es: "https://frinjo.me/es/calculadora-de-dias-entre-fechas",
+      en: "https://frinjo.me/days-between-dates-calculator",
+      "x-default": "https://frinjo.me/days-between-dates-calculator",
+    },
   },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Jours Entre Deux Dates — Avec Jours Fériés Français | Frinjo",
     description:
       "Durée totale, jours ouvrés, jours ouvrables et liste des jours fériés de la période — fêtes mobiles calculées exactement. Gratuit, sans inscription.",

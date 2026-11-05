@@ -18,6 +18,7 @@ export const metadata = {
   ],
   alternates: { canonical: "https://frinjo.me/ip-address-tracker" },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "IP Address Tracker — What Is My IP? | WebStore Pro",
     description:
       "Your IP, location and ISP, an anonymity score from six live leak checks, and a tracker for any other IP address — free, no sign-up.",

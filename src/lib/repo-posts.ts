@@ -209,7 +209,7 @@ export const REPO_POSTS: BlogPost[] = [
     excerpt:
       "One offer and paid ads? Get a landing page. Multiple products and Google traffic? Get a full website. The honest 2026 breakdown for Pakistani businesses — costs, timelines, and the hybrid most stores actually need.",
     metaDescription:
-      "Landing page vs full website in Pakistan (2026): costs, build time, and which one your business needs. Honest comparison for small businesses running ads or selling online.",
+      "Landing page vs full website in Pakistan (2026): costs, build time, and which one your business needs — an honest comparison for small businesses.",
     category: "Websites",
     content: JSON.stringify(LANDING_VS_WEBSITE_BLOCKS),
     status: "published",

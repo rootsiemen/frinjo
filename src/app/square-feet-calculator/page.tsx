@@ -16,6 +16,7 @@ export const metadata = {
   ],
   alternates: { canonical: "https://frinjo.me/square-feet-calculator" },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Square Feet Calculator — Multi-Room, With Waste & Cost | WebStore Pro",
     description:
       "Measure every room, add waste, price the material — total square footage done right, free.",
@@ -172,7 +173,7 @@ export default function SquareFeetPage() {
           </div>
           <p className="mt-5 text-sm text-stone-500">
             Prefer email? <a href="mailto:neilsonsmarry@gmail.com" className="font-semibold text-orange-700 hover:text-orange-800">neilsonsmarry@gmail.com</a>
-            {" "}· Or browse our <Link href="/services" className="font-semibold text-orange-700 hover:text-orange-800">services</Link> and <Link href="/tools" className="font-semibold text-orange-700 hover:text-orange-800">free tools</Link>.
+            {" "}· Or browse our <Link href="/services" className="font-semibold text-orange-700 hover:text-orange-800">services</Link> , <Link href="/board-foot-calculator" className="font-semibold text-orange-700 hover:text-orange-800">board foot calculator</Link>, <Link href="/mulch-calculator" className="font-semibold text-orange-700 hover:text-orange-800">mulch calculator</Link> and <Link href="/tools" className="font-semibold text-orange-700 hover:text-orange-800">free tools</Link>.
           </p>
         </div>
       </section>

@@ -12,6 +12,7 @@ export const metadata = {
   description: "Practical guides on websites, ecommerce, SEO and online selling — from the WebStore Pro team.",
   alternates: { canonical: "https://frinjo.me/blog" },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Blog",
     description: "Practical guides on websites, ecommerce, SEO and online selling — from the WebStore Pro team.",
     url: "https://frinjo.me/blog",
@@ -19,7 +20,8 @@ export const metadata = {
     siteName: BRAND.name,
   },
   twitter: {
-    card: "summary",
+    images: ["/og-default.jpg"],
+    card: "summary_large_image",
     title: "Blog",
     description: "Practical guides on websites, ecommerce, SEO and online selling — from the WebStore Pro team.",
   },
@@ -36,8 +38,22 @@ export default async function BlogPage() {
     b.createdAt.localeCompare(a.createdAt)
   );
 
+  const itemListJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "WebStore Pro Blog — Guides & Insights",
+    url: "https://frinjo.me/blog",
+    itemListElement: posts.map((p, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: p.title,
+      url: `https://frinjo.me/blog/${p.slug}`,
+    })),
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }} />
       <section className="bg-orange-50 dot-grid py-16 sm:py-20">
         <div className="max-w-6xl mx-auto px-4">
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-orange-700 mb-3">Blog</p>

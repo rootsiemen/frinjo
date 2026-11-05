@@ -17,6 +17,7 @@ export const metadata = {
   ],
   alternates: { canonical: "https://frinjo.me/percentage-calculator" },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Percentage Calculator — All Five Modes, One Page | WebStore Pro",
     description:
       "Percent of a number, percentage change, discounts and reverse percentages — every mode, updating as you type. Free.",

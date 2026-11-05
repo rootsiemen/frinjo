@@ -9,6 +9,7 @@ export const metadata = {
   keywords: ["case converter", "title case converter", "upper case converter", "camelcase converter", "snake case converter", "text case converter", "slug generator"],
   alternates: { canonical: "https://frinjo.me/case-converter" },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Case Converter — Every Text Case, Instantly | WebStore Pro",
     description: "Title, UPPER, camel, snake, kebab slugs and more — converted as you type, in your browser. Free.",
     url: "https://frinjo.me/case-converter",
@@ -128,7 +129,7 @@ export default function CaseConverterPage() {
           </div>
           <p className="mt-5 text-sm text-stone-500">
             Prefer email? <a href="mailto:neilsonsmarry@gmail.com" className="font-semibold text-orange-700 hover:text-orange-800">neilsonsmarry@gmail.com</a>
-            {" "}· Or browse our <Link href="/services" className="font-semibold text-orange-700 hover:text-orange-800">services</Link> and <Link href="/tools" className="font-semibold text-orange-700 hover:text-orange-800">free tools</Link>.
+            {" "}· Or browse our <Link href="/services" className="font-semibold text-orange-700 hover:text-orange-800">services</Link> , <Link href="/password-generator" className="font-semibold text-orange-700 hover:text-orange-800">password generator</Link>, <Link href="/word-counter" className="font-semibold text-orange-700 hover:text-orange-800">word counter</Link> and <Link href="/tools" className="font-semibold text-orange-700 hover:text-orange-800">free tools</Link>.
           </p>
         </div>
       </section>

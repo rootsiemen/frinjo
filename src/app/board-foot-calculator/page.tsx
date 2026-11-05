@@ -9,6 +9,7 @@ export const metadata = {
   keywords: ["board foot calculator", "board feet calculator", "lumber calculator", "how to calculate board feet", "bf calculator"],
   alternates: { canonical: "https://frinjo.me/board-foot-calculator" },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Board Foot Calculator — Honest Lumber Maths | WebStore Pro",
     description: "Board feet from actual dimensions, with price — and the nominal vs actual sizes table built in. Free.",
     url: "https://frinjo.me/board-foot-calculator",

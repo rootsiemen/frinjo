@@ -14,8 +14,17 @@ export const metadata = {
     "date calculator",
     "days calculator",
   ],
-  alternates: { canonical: "https://frinjo.me/days-between-dates-calculator" },
+  alternates: {
+    canonical: "https://frinjo.me/days-between-dates-calculator",
+    languages: {
+      en: "https://frinjo.me/days-between-dates-calculator",
+      es: "https://frinjo.me/es/calculadora-de-dias-entre-fechas",
+      fr: "https://frinjo.me/fr/jours-entre-deux-dates",
+      "x-default": "https://frinjo.me/days-between-dates-calculator",
+    },
+  },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Days Between Dates Calculator | WebStore Pro",
     description:
       "Total days, business days and weeks between two dates — plus add/subtract days with a business-day mode. Free and instant.",
@@ -178,7 +187,7 @@ export default function DaysBetweenPage() {
           </div>
           <p className="mt-5 text-sm text-stone-500">
             Prefer email? <a href="mailto:neilsonsmarry@gmail.com" className="font-semibold text-orange-700 hover:text-orange-800">neilsonsmarry@gmail.com</a>
-            {" "}· Or browse our <Link href="/services" className="font-semibold text-orange-700 hover:text-orange-800">services</Link> and <Link href="/tools" className="font-semibold text-orange-700 hover:text-orange-800">free tools</Link>.
+            {" "}· Or browse our <Link href="/services" className="font-semibold text-orange-700 hover:text-orange-800">services</Link> , <Link href="/age-calculator" className="font-semibold text-orange-700 hover:text-orange-800">age calculator</Link>, <Link href="/time-duration-calculator" className="font-semibold text-orange-700 hover:text-orange-800">time duration calculator</Link> and <Link href="/tools" className="font-semibold text-orange-700 hover:text-orange-800">free tools</Link>.
           </p>
         </div>
       </section>

@@ -8,6 +8,13 @@ export const metadata = {
   title: `FAQ — ${BRAND.name}`,
   description: `Frequently asked questions about ${BRAND.name} website packages: delivery time, pricing, payments, admin panel, and what you need to get started.`,
   alternates: { canonical: "https://frinjo.me/faq" },
+  openGraph: {
+    title: `FAQ — ${BRAND.name} | WebStore Pro`,
+    description: `Frequently asked questions about ${BRAND.name} website packages: delivery time, pricing, payments, admin panel, and what you need to get started.`,
+    url: "https://frinjo.me/faq",
+    type: "website",
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
+  },
 };
 
 const faqJsonLd = {

@@ -14,8 +14,16 @@ export const metadata = {
     "how long to reach savings goal",
     "effective apy calculator",
   ],
-  alternates: { canonical: "https://frinjo.me/compound-interest-calculator" },
+  alternates: {
+    canonical: "https://frinjo.me/compound-interest-calculator",
+    languages: {
+      en: "https://frinjo.me/compound-interest-calculator",
+      fr: "https://frinjo.me/fr/interets-composes",
+      "x-default": "https://frinjo.me/compound-interest-calculator",
+    },
+  },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Compound Interest Calculator — With Contributions, Tax & CD Mode | Frinjo",
     description:
       "Contributions, inflation, tax drag, APY and a goal date in one tool — plus the CD mode other calculators charge a separate page for.",
@@ -211,7 +219,7 @@ export default function CompoundInterestPage() {
           </div>
           <p className="mt-5 text-sm text-stone-500">
             Prefer email? <a href="mailto:neilsonsmarry@gmail.com" className="font-semibold text-orange-700 hover:text-orange-800">neilsonsmarry@gmail.com</a>
-            {" "}· Or browse our <Link href="/services" className="font-semibold text-orange-700 hover:text-orange-800">services</Link> and <Link href="/tools" className="font-semibold text-orange-700 hover:text-orange-800">free tools</Link>.
+            {" "}· Or browse our <Link href="/services" className="font-semibold text-orange-700 hover:text-orange-800">services</Link> , <Link href="/percentage-calculator" className="font-semibold text-orange-700 hover:text-orange-800">percentage calculator</Link> and <Link href="/tools" className="font-semibold text-orange-700 hover:text-orange-800">free tools</Link>.
           </p>
         </div>
       </section>

@@ -16,6 +16,7 @@ export const metadata = {
   ],
   alternates: { canonical: "https://frinjo.me/home-affordability-calculator" },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Home Affordability Calculator — How Much House Can I Afford? | Frinjo",
     description:
       "Affordability the way lenders compute it: both DTI ratios, loan-program presets, taxes, insurance, HOA and PMI — plus the reverse income-needed mode.",

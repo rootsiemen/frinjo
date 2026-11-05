@@ -13,8 +13,16 @@ export const metadata = {
     "personal loan apr calculator",
     "how much personal loan can i afford",
   ],
-  alternates: { canonical: "https://frinjo.me/personal-loan-calculator" },
+  alternates: {
+    canonical: "https://frinjo.me/personal-loan-calculator",
+    languages: {
+      en: "https://frinjo.me/personal-loan-calculator",
+      es: "https://frinjo.me/es/calculadora-de-prestamos",
+      "x-default": "https://frinjo.me/personal-loan-calculator",
+    },
+  },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Personal Loan Calculator — True APR With the Fee Counted | Frinjo",
     description:
       "The quoted rate prices the payments. The true APR prices what you received. Fee in, both modes, plus total cost and an affordability check.",

@@ -9,6 +9,7 @@ export const metadata = {
   keywords: ["zodiac sign calculator", "what is my zodiac sign", "zodiac sign by date of birth", "star sign calculator", "zodiac dates", "cusp zodiac"],
   alternates: { canonical: "https://frinjo.me/zodiac-sign-calculator" },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Zodiac Sign Calculator — Instant, With Cusp Check | WebStore Pro",
     description: "Your sign, element, planet, matches and Chinese zodiac — instantly, no submit button. Plus your Big Three.",
     url: "https://frinjo.me/zodiac-sign-calculator",
@@ -121,7 +122,7 @@ export default function ZodiacPage() {
           </div>
           <p className="mt-5 text-sm text-stone-500">
             Prefer email? <a href="mailto:neilsonsmarry@gmail.com" className="font-semibold text-orange-700 hover:text-orange-800">neilsonsmarry@gmail.com</a>
-            {" "}· Explore the <Link href="/sun-moon-rising-calculator" className="font-semibold text-orange-700 hover:text-orange-800">Big Three Calculator</Link> and <Link href="/love-calculator" className="font-semibold text-orange-700 hover:text-orange-800">Love Calculator</Link>.
+            {" "}· Explore the <Link href="/sun-moon-rising-calculator" className="font-semibold text-orange-700 hover:text-orange-800">Big Three Calculator</Link> and <Link href="/love-calculator" className="font-semibold text-orange-700 hover:text-orange-800">Love Calculator</Link> — or get your exact age from your birth date with the <Link href="/age-calculator" className="font-semibold text-orange-700 hover:text-orange-800">Age Calculator</Link>.
           </p>
         </div>
       </section>

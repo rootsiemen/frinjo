@@ -18,6 +18,7 @@ export const metadata = {
   ],
   alternates: { canonical: "https://frinjo.me/seo-agent-kit" },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "SEO Agent Kit — Open-Source SEO Toolkit | WebStore Pro",
     description:
       "8 production SEO skills for AI agents + BotView, the zero-dependency AI-visibility auditor. Free and MIT licensed on GitHub.",
@@ -35,7 +36,6 @@ const appJsonLd = {
   applicationCategory: "DeveloperApplication",
   operatingSystem: "Any (Python 3.8+ for BotView; skills are plain Markdown)",
   url: "https://frinjo.me/seo-agent-kit",
-  codeRepository: GITHUB_URL,
   license: "https://opensource.org/licenses/MIT",
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   author: { "@type": "Organization", name: "WebStore Pro", url: "https://frinjo.me" },
@@ -322,6 +322,9 @@ export default function SeoAgentKitPage() {
               <Link href="/botview" className={btnPrimary}>
                 Run BotView free in your browser <Icon name="arrow" className="w-5 h-5" />
               </Link>
+              <p className="mt-5 text-sm text-stone-500">
+                Pair it with the <Link href="/ip-address-tracker" className="font-semibold text-orange-700 hover:text-orange-800">IP Address Tracker</Link> — and once the traffic lands, grow it with the <Link href="/smm-panel" className="font-semibold text-orange-700 hover:text-orange-800">SMM Panel</Link>.
+              </p>
             </div>
           </div>
         </div>

@@ -67,8 +67,9 @@ export function Icon({ name, className = "w-6 h-6" }: { name: string; className?
 
 /** Section heading block used across public pages. */
 export function SectionHead({
-  eyebrow, title, sub, center = true,
-}: { eyebrow?: string; title: string; sub?: string; center?: boolean }) {
+  eyebrow, title, sub, center = true, asH1 = false,
+}: { eyebrow?: string; title: string; sub?: string; center?: boolean; asH1?: boolean }) {
+  const TitleTag = asH1 ? "h1" : "h2";
   return (
     <div className={`${center ? "text-center mx-auto" : ""} max-w-2xl mb-12`}>
       {eyebrow && (
@@ -76,7 +77,7 @@ export function SectionHead({
           {eyebrow}
         </p>
       )}
-      <h2 className="font-display text-3xl sm:text-4xl font-bold text-stone-900">{title}</h2>
+      <TitleTag className="font-display text-3xl sm:text-4xl font-bold text-stone-900">{title}</TitleTag>
       {sub && <p className="mt-4 text-stone-600">{sub}</p>}
     </div>
   );

@@ -16,6 +16,7 @@ export const metadata = {
   ],
   alternates: { canonical: "https://frinjo.me/h1b-lottery-calculator" },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "H-1B Lottery Calculator (FY2027) | WebStore Pro",
     description:
       "Your H-1B selection odds under the wage-weighted lottery, by prevailing wage level. Based on FY2027 USCIS data. Free.",
@@ -136,7 +137,7 @@ export default function H1bLotteryPage() {
           </div>
           <p className="mt-5 text-sm text-stone-500">
             Prefer email? <a href="mailto:neilsonsmarry@gmail.com" className="font-semibold text-orange-700 hover:text-orange-800">neilsonsmarry@gmail.com</a>
-            {" "}· Or browse our <Link href="/services" className="font-semibold text-orange-700 hover:text-orange-800">services</Link> and <Link href="/tools" className="font-semibold text-orange-700 hover:text-orange-800">free tools</Link>.
+            {" "}· Or browse our <Link href="/services" className="font-semibold text-orange-700 hover:text-orange-800">services</Link> , <Link href="/f1-visa-interview-questions" className="font-semibold text-orange-700 hover:text-orange-800">F1 visa interview questions</Link> and <Link href="/tools" className="font-semibold text-orange-700 hover:text-orange-800">free tools</Link>.
           </p>
         </div>
       </section>

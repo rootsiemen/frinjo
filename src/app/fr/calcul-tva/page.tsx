@@ -18,9 +18,14 @@ export const metadata = {
   ],
   alternates: {
     canonical: "https://frinjo.me/fr/calcul-tva",
-    languages: { fr: "https://frinjo.me/fr/calcul-tva", es: "https://frinjo.me/es/calculadora-de-iva", en: "https://frinjo.me/tools" },
+    languages: {
+      fr: "https://frinjo.me/fr/calcul-tva",
+      es: "https://frinjo.me/es/calculadora-de-iva",
+      "x-default": "https://frinjo.me/es/calculadora-de-iva",
+    },
   },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Calcul TVA 2026 — HT ⇄ TTC, tous les taux français | Frinjo",
     description:
       "Ajoutez ou retirez la TVA (20, 10, 5,5, 2,1 %) sur une ligne ou une facture complète, avec ventilation par taux. Gratuit, sans inscription.",

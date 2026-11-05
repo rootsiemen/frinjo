@@ -9,6 +9,7 @@ export const metadata = {
   keywords: ["weighted grade calculator", "grade calculator weighted", "calculate weighted grade", "category grade calculator", "weighted average grade"],
   alternates: { canonical: "https://frinjo.me/weighted-grade-calculator" },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Weighted Grade Calculator — Points Welcome | WebStore Pro",
     description:
       "Weighted course grade from % or points, with extra credit and a what-you-still-need table. Free.",
@@ -122,7 +123,7 @@ export default function WeightedGradePage() {
           </div>
           <p className="mt-5 text-sm text-stone-500">
             Prefer email? <a href="mailto:neilsonsmarry@gmail.com" className="font-semibold text-orange-700 hover:text-orange-800">neilsonsmarry@gmail.com</a>
-            {" "}· Pairs with the <Link href="/final-grade-calculator" className="font-semibold text-orange-700 hover:text-orange-800">Final Grade Calculator</Link> and <Link href="/gpa-calculator" className="font-semibold text-orange-700 hover:text-orange-800">GPA Calculator</Link>.
+            {" "}· Pairs with the <Link href="/final-grade-calculator" className="font-semibold text-orange-700 hover:text-orange-800">Final Grade Calculator</Link>, <Link href="/gpa-calculator" className="font-semibold text-orange-700 hover:text-orange-800">GPA Calculator</Link> and <Link href="/test-score-calculator" className="font-semibold text-orange-700 hover:text-orange-800">Test Score Calculator</Link>.
           </p>
         </div>
       </section>

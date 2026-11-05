@@ -9,6 +9,7 @@ export const metadata = {
   keywords: ["random number generator", "number generator", "lottery number generator", "quick pick generator", "random number picker", "powerball number generator"],
   alternates: { canonical: "https://frinjo.me/random-number-generator" },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Random Number Generator + Lottery Quick Pick | WebStore Pro",
     description: "1,000 numbers at once, no duplicates, copy/download — and real lottery formats with bonus balls. Free.",
     url: "https://frinjo.me/random-number-generator",

@@ -16,9 +16,13 @@ export const metadata = {
   ],
   alternates: {
     canonical: "https://frinjo.me/es/calculadora-de-aguinaldo",
-    languages: { es: "https://frinjo.me/es/calculadora-de-aguinaldo", en: "https://frinjo.me/tools" },
+    languages: {
+      es: "https://frinjo.me/es/calculadora-de-aguinaldo",
+      "x-default": "https://frinjo.me/es/calculadora-de-aguinaldo",
+    },
   },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Calculadora de Aguinaldo 2026 — México, LFT | Frinjo",
     description:
       "Tu aguinaldo exacto: año completo o proporcional, por días trabajados o por fecha de ingreso. Gratis, con las reglas del artículo 87 de la LFT.",

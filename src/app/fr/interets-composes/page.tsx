@@ -16,9 +16,14 @@ export const metadata = {
   ],
   alternates: {
     canonical: "https://frinjo.me/fr/interets-composes",
-    languages: { fr: "https://frinjo.me/fr/interets-composes", en: "https://frinjo.me/tools" },
+    languages: {
+      fr: "https://frinjo.me/fr/interets-composes",
+      en: "https://frinjo.me/compound-interest-calculator",
+      "x-default": "https://frinjo.me/compound-interest-calculator",
+    },
   },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Intérêts Composés — Simulateur d'Épargne Complet | Frinjo",
     description:
       "Projetez votre épargne : versements mensuels, fréquence de capitalisation, courbe de croissance et pouvoir d'achat réel après inflation. Gratuit.",

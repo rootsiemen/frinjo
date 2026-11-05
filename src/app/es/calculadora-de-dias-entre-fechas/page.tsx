@@ -16,9 +16,15 @@ export const metadata = {
   ],
   alternates: {
     canonical: "https://frinjo.me/es/calculadora-de-dias-entre-fechas",
-    languages: { es: "https://frinjo.me/es/calculadora-de-dias-entre-fechas", fr: "https://frinjo.me/fr/jours-entre-deux-dates", en: "https://frinjo.me/days-between-dates-calculator" },
+    languages: {
+      es: "https://frinjo.me/es/calculadora-de-dias-entre-fechas",
+      fr: "https://frinjo.me/fr/jours-entre-deux-dates",
+      en: "https://frinjo.me/days-between-dates-calculator",
+      "x-default": "https://frinjo.me/days-between-dates-calculator",
+    },
   },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Días Entre Fechas — Hábiles con Festivos Oficiales | Frinjo",
     description:
       "Días naturales, días hábiles y festivos del periodo con el calendario oficial de México o España. Gratis, sin registro.",

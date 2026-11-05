@@ -9,6 +9,7 @@ export const metadata = {
   keywords: ["test score calculator", "ez grader", "grade calculator test", "test grade calculator", "how many wrong for an a", "grading chart"],
   alternates: { canonical: "https://frinjo.me/test-score-calculator" },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Test Score Calculator — EZ Grader + Class Mode | WebStore Pro",
     description:
       "One paper or the whole class: percent, letter, full grading chart, averages and CSV export. Free.",
@@ -122,7 +123,7 @@ export default function TestScorePage() {
           </div>
           <p className="mt-5 text-sm text-stone-500">
             Prefer email? <a href="mailto:neilsonsmarry@gmail.com" className="font-semibold text-orange-700 hover:text-orange-800">neilsonsmarry@gmail.com</a>
-            {" "}· Also: <Link href="/weighted-grade-calculator" className="font-semibold text-orange-700 hover:text-orange-800">Weighted Grade</Link>, <Link href="/gpa-calculator" className="font-semibold text-orange-700 hover:text-orange-800">GPA Calculator</Link>, <Link href="/final-grade-calculator" className="font-semibold text-orange-700 hover:text-orange-800">Final Grade</Link>.
+            {" "}· Also: <Link href="/weighted-grade-calculator" className="font-semibold text-orange-700 hover:text-orange-800">Weighted Grade</Link>, <Link href="/gpa-calculator" className="font-semibold text-orange-700 hover:text-orange-800">GPA Calculator</Link>, <Link href="/final-grade-calculator" className="font-semibold text-orange-700 hover:text-orange-800">Final Grade</Link> and the <Link href="/word-counter" className="font-semibold text-orange-700 hover:text-orange-800">Word Counter</Link> for essays.
           </p>
         </div>
       </section>

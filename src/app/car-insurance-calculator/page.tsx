@@ -17,6 +17,7 @@ export const metadata = {
   ],
   alternates: { canonical: "https://frinjo.me/car-insurance-calculator" },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "How Much Car Insurance Do I Need? — Coverage Calculator | Frinjo",
     description:
       "Limits matched to what you actually have to lose, floored at your state's legal minimum — with the full 50-state minimum table on the same page.",

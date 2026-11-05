@@ -16,6 +16,7 @@ export const metadata = {
   ],
   alternates: { canonical: "https://frinjo.me/mortgage-payoff-calculator" },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Mortgage Payoff Calculator — PMI Drop-Off & Debt-Free Date | Frinjo",
     description:
       "Extra payments, biweekly and lump sums — plus the date PMI falls off and the extra needed to be mortgage-free by your target year.",

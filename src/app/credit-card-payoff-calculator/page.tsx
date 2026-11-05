@@ -15,6 +15,7 @@ export const metadata = {
   ],
   alternates: { canonical: "https://frinjo.me/credit-card-payoff-calculator" },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Credit Card Payoff Calculator — Avalanche vs Snowball | Frinjo",
     description:
       "Both payoff strategies on your real cards and minimum formulas — plus what minimum payments alone actually cost you.",

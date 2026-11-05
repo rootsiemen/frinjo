@@ -19,6 +19,7 @@ export const metadata = {
   ],
   alternates: { canonical: "https://frinjo.me/automations" },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Business Automations That Save You Hours | WebStore Pro",
     description:
       "n8n workflows, AI chatbots, CRM integrations and WhatsApp automation — watch a live automation demo.",
@@ -477,6 +478,9 @@ export default function AutomationsPage() {
             <Link href="/contact" className={btnOutline}>
               Still have questions? Ask me <Icon name="arrow" className="w-5 h-5" />
             </Link>
+            <p className="mt-5 text-sm text-stone-500">
+              Growing a channel or profile alongside your automations? Try the <Link href="/smm-panel" className="font-semibold text-orange-700 hover:text-orange-800">SMM Panel</Link>.
+            </p>
           </div>
         </div>
       </section>

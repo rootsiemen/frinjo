@@ -15,6 +15,7 @@ export const metadata = {
   ],
   alternates: { canonical: "https://frinjo.me/password-generator" },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Password Generator — Cryptographically Random | WebStore Pro",
     description:
       "Strong passwords from a real CSPRNG, generated in your browser. Entropy shown in bits. Nothing stored, ever.",

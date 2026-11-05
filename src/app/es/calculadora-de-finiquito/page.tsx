@@ -16,9 +16,13 @@ export const metadata = {
   ],
   alternates: {
     canonical: "https://frinjo.me/es/calculadora-de-finiquito",
-    languages: { es: "https://frinjo.me/es/calculadora-de-finiquito", en: "https://frinjo.me/tools" },
+    languages: {
+      es: "https://frinjo.me/es/calculadora-de-finiquito",
+      "x-default": "https://frinjo.me/es/calculadora-de-finiquito",
+    },
   },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Calculadora de Finiquito 2026 — México, LFT | Frinjo",
     description:
       "Tu finiquito desglosado: salarios pendientes + aguinaldo proporcional + vacaciones + prima vacacional del 25%. Gratis y con la tabla vigente de vacaciones.",

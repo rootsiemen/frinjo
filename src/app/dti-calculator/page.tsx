@@ -16,6 +16,7 @@ export const metadata = {
   ],
   alternates: { canonical: "https://frinjo.me/dti-calculator" },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "DTI Calculator — Debt-to-Income Ratio for a Mortgage | Frinjo",
     description:
       "Front-end and back-end DTI from your actual payments, checked against Conventional 28/36, FHA 31/43 and VA 41 guidelines — plus your remaining borrowing room.",

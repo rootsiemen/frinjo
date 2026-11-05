@@ -14,6 +14,7 @@ export const metadata = {
   ],
   alternates: { canonical: "https://frinjo.me/f1-visa-interview-questions" },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "F1 Visa Interview Guide — Questions & Tips (2026) | WebStore Pro",
     description:
       "Common F1 interview question groups with sample questions and 10 practical tips on finances, ties to home, and confidence. Free guide.",

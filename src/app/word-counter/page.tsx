@@ -9,6 +9,7 @@ export const metadata = {
   keywords: ["word counter", "character counter", "word count", "reading time calculator", "readability checker", "keyword density checker"],
   alternates: { canonical: "https://frinjo.me/word-counter" },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Word Counter — More Than a Count | WebStore Pro",
     description:
       "Words, characters, selection counts, adjustable reading/speaking time, Flesch scores and density with CSV export. Free, private.",

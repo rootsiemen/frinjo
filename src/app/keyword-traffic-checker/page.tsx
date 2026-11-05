@@ -17,6 +17,7 @@ export const metadata = {
   ],
   alternates: { canonical: "https://frinjo.me/keyword-traffic-checker" },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Keyword Traffic Checker — Free Keyword Difficulty Checker | WebStore Pro",
     description:
       "Check any keyword free: live SERP competition, a difficulty score with every factor shown, demand signals and related keywords — no invented volume numbers.",

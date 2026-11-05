@@ -23,6 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ preset: s
     ],
     alternates: { canonical: `https://frinjo.me/countdown-timer/${p.slug}` },
     openGraph: {
+      images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
       title: `${p.label} | WebStore Pro`,
       description: `A ${p.minutes}-minute timer, already set — press Start. Alarm at zero, free.`,
       url: `https://frinjo.me/countdown-timer/${p.slug}`,

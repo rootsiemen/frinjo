@@ -8,6 +8,13 @@ export const metadata = {
   title: "About",
   description: `About ${BRAND.name}: I build complete full stack websites and business websites for clients worldwide — mobile-friendly, with admin panels and ordering built in.`,
   alternates: { canonical: "https://frinjo.me/about" },
+  openGraph: {
+    title: "About | WebStore Pro",
+    description: `About ${BRAND.name}: I build complete full stack websites and business websites for clients worldwide — mobile-friendly, with admin panels and ordering built in.`,
+    url: "https://frinjo.me/about",
+    type: "website",
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
+  },
 };
 
 const VALUES = [

@@ -9,6 +9,7 @@ export const metadata = {
   keywords: ["mulch calculator", "how much mulch do i need", "mulch bags calculator", "cubic yards mulch", "mulch coverage calculator"],
   alternates: { canonical: "https://frinjo.me/mulch-calculator" },
   openGraph: {
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "Mulch Calculator — Multi-Bed, Any Shape, With Weight | WebStore Pro",
     description: "Yards, bags, weight and the bags-vs-bulk verdict for all your beds at once. Free.",
     url: "https://frinjo.me/mulch-calculator",
