@@ -138,6 +138,11 @@ Just your business name, logo (if you have one), product list with prices and ph
 - https://frinjo.me/weighted-grade-calculator — Weighted Grade Calculator: category weights, % or points-native input, extra credit, secured points, needed-on-remaining table, copy summary; in-browser, free
 - https://frinjo.me/test-score-calculator — Test Score Calculator (EZ Grader): %/letter from wrong count incl. half points, grading chart, class roster mode + stats + CSV; in-browser, free
 - https://frinjo.me/age-calculator — Age Calculator: exact age + live ticker, time-of-birth, next/half birthday, generation, Chinese zodiac via Lunar New Year table 1980–2031, age difference; in-browser, free
+- https://frinjo.me/concrete-calculator — Concrete Calculator: multi-shape combined totals, bag sizes 40–80 lb, pallets, water, cost verdict, shopping list; in-browser, free
+- https://frinjo.me/zodiac-sign-calculator — Zodiac Sign Calculator: instant sign + traits + matches, cusp honesty, Chinese zodiac via LNY, Big Three upsell; in-browser, free
+- https://frinjo.me/random-number-generator — Random Number Generator: bulk crypto draws to 1,000, unique/sort, copy/download, lottery presets with current formats; in-browser, free
+- https://frinjo.me/coin-flip — Coin Flip: multi-coin visual flips, custom labels, best-of races, batch stats, saved history; in-browser, free
+- https://frinjo.me/mulch-calculator — Mulch Calculator: multi-bed any-shape totals, yards/bags/weight, depth guidance, bags-vs-bulk verdict, shopping list; in-browser, free
 - https://frinjo.me/password-generator — Password Generator: CSPRNG passwords via crypto.getRandomValues + rejection sampling, entropy display, set guarantees; never transmitted/stored; free
 - https://frinjo.me/case-converter — Case Converter: 16 conversions (UPPER/lower/Title/Sentence/camel/Pascal/snake/SCREAMING/kebab/Train/dot/alternating/inverse/reverse/no-spaces), word-aware splitting; in-browser, free
 - https://frinjo.me/time-duration-calculator — Time Duration Calculator: between-two-times duration (d h:m:s + decimal hours/minutes/seconds/days) and add/subtract hours-minutes; in-browser, free

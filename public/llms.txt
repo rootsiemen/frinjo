@@ -28,6 +28,11 @@ WebStore Pro (https://frinjo.me, also known as Frinjo) is a web development serv
 - [Weighted Grade Calculator](https://frinjo.me/weighted-grade-calculator) — category weights with % or raw-points input, extra credit, secured points, needed-average table for remaining weight
 - [Test Score Calculator](https://frinjo.me/test-score-calculator) — EZ grader: wrong count → % + letter (half points, 2 scales), full grading chart, class roster mode with average/median/distribution + CSV export
 - [Age Calculator](https://frinjo.me/age-calculator) — exact age with time of birth, live seconds ticker, next/half birthday, generation (Pew ranges), Chinese zodiac by real Lunar New Year, age difference
+- [Concrete Calculator](https://frinjo.me/concrete-calculator) — slabs + round pours + post holes in one total; yards, 40/50/60/80 lb bags (~45 × 80 lb per yd³), pallets, water guide, bagged-vs-ready-mix verdict, shopping list
+- [Zodiac Sign Calculator](https://frinjo.me/zodiac-sign-calculator) — instant sign by birth date with element/planet/traits/matches, cusp flag for boundary days, Chinese zodiac by real Lunar New Year, links to Big Three
+- [Random Number Generator](https://frinjo.me/random-number-generator) — up to 1,000 draws, no-duplicates, copy/download, session history; lottery quick pick: Powerball, Mega Millions (1–24 Mega Ball, current), EuroMillions, UK Lotto, Cash4Life
+- [Coin Flip](https://frinjo.me/coin-flip) — 1–3 visual coins, custom side labels for decisions, best-of race, batch flips 10/100/1000 with %, persistent history, crypto RNG
+- [Mulch Calculator](https://frinjo.me/mulch-calculator) — multi-bed rectangle/circle/triangle, yards + bags (1.5/2/3 cu ft), weight by mulch type, bags-vs-bulk verdict, quick answer 1 yd³ = 108 sq ft @ 3 in
 - [Password Generator](https://frinjo.me/password-generator) — cryptographically random passwords (Web Crypto API, rejection sampling), 8–64 chars, character-set toggles, ambiguous-character exclusion, entropy in bits; client-side only
 - [Case Converter](https://frinjo.me/case-converter) — 16 text-case conversions incl. Title Case, camelCase, snake_case, kebab-case URL slugs; client-side only
 - [Time Duration Calculator](https://frinjo.me/time-duration-calculator) — duration between two date-times with decimal hours, total minutes/seconds, plus add/subtract time

@@ -90,6 +90,36 @@ const TOOLS: Tool[] = [
     desc: "Exact age with optional time of birth, a live ticking seconds counter, next-birthday countdown, half birthday, generation, a Chinese zodiac that uses the real Lunar New Year, and an age-difference tool.",
   },
   {
+    name: "Concrete Calculator",
+    href: "/concrete-calculator",
+    tag: "DIY · Construction",
+    desc: "Slabs, round pours and post holes combined in one total: cubic yards, 40/50/60/80 lb bags, pallets, mixing water, a bagged-vs-ready-mix cost verdict and a copyable shopping list.",
+  },
+  {
+    name: "Zodiac Sign Calculator",
+    href: "/zodiac-sign-calculator",
+    tag: "Astrology · Fun",
+    desc: "Your sign by birth date — instantly, with element, ruling planet, traits, best matches, a correct Chinese zodiac, and an honest cusp warning for boundary birthdays.",
+  },
+  {
+    name: "Random Number Generator",
+    href: "/random-number-generator",
+    tag: "Random · Games",
+    desc: "Up to 1,000 numbers at once, duplicate-free mode, copy-all and download — plus lottery quick picks for Powerball, Mega Millions, EuroMillions, UK Lotto and Cash4Life.",
+  },
+  {
+    name: "Coin Flip",
+    href: "/coin-flip",
+    tag: "Random · Decisions",
+    desc: "Flip 1–3 coins at once, name the sides to decide anything, race best-of formats, flip batches of 10/100/1,000 with percentages, and keep a saved history. Crypto-fair 50/50.",
+  },
+  {
+    name: "Mulch Calculator",
+    href: "/mulch-calculator",
+    tag: "Garden · DIY",
+    desc: "Multiple beds of any shape measured properly: cubic yards, bags in 1.5/2/3 cu ft, total weight by mulch type, bags-vs-bulk verdict and a copyable shopping list.",
+  },
+  {
     name: "Password Generator",
     href: "/password-generator",
     tag: "Security · Privacy",
