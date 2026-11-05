@@ -80,7 +80,7 @@ const PK_STREETS = ["Main Boulevard", "Jinnah Avenue", "Model City Road", "Canal
 const JOBS = ["Software Developer", "Teacher", "Nurse", "Accountant", "Sales Manager", "Electrician", "Graphic Designer", "Marketing Specialist", "Customer Service Representative", "Truck Driver", "Chef", "Pharmacist", "Civil Engineer", "Data Analyst", "Office Administrator", "Mechanic", "Real Estate Agent", "Journalist", "Physiotherapist", "Store Manager", "Web Designer", "Bank Clerk", "Police Officer", "Architect", "HR Officer", "Delivery Driver", "Dental Assistant", "Fitness Trainer"];
 const COMPANY_A = ["North", "Blue", "Prime", "Swift", "Bright", "United", "Global", "Summit", "Harbor", "Silver", "Golden", "Metro"];
 const COMPANY_B = ["Peak", "Bridge", "Stone", "Wave", "Field", "Gate", "Point", "Line", "Works", "Labs", "Nest", "Forge"];
-const EMAIL_DOMAINS = ["example.com", "example.org", "example.net", "mailtest.dev", "testmail.io"];
+const EMAIL_DOMAINS = ["abahi.tech", "abahi.page", "abahi.me"];
 
 export type CountryCode = "US" | "UK" | "CA" | "AU" | "PK";
 export interface Identity {
@@ -256,7 +256,7 @@ export default function FakeName() {
                 </button>
               )}
             </div>
-            <p className="mt-4 text-sm text-stone-400">No daily limit, no sign-up. Everything is generated in your browser with cryptographic randomness — nothing is sent to a server. Emails use example/test domains on purpose: these identities are for testing, design and writing, never for impersonation or real accounts.</p>
+            <p className="mt-4 text-sm text-stone-400">No daily limit, no sign-up. Everything is generated in your browser with cryptographic randomness — nothing is sent to a server. The email on every identity is a live temp address on our own Temp Mail domains (tempmaill.tech) — its inbox is public and auto-deletes in an hour, so use it for test signups and OTP flows, never for anything private. Identities are for testing, design and writing, never for impersonation or real accounts.</p>
           </div>
 
           {mode !== "identity" ? (
@@ -313,8 +313,10 @@ export default function FakeName() {
               format. Phone area codes match the generated city&apos;s region wherever the format includes one.
             </p>
             <p>
-              Two deliberate safety choices: <strong className="text-stone-900">email addresses use example/test domains</strong> (example.com,
-              mailtest.dev) so a generated identity can never accidentally mail a real person, and{" "}
+              Two deliberate design choices: <strong className="text-stone-900">emails use our own Temp Mail domains</strong>{" "}
+              (abahi.tech, abahi.page, abahi.me — the domains of tempmaill.tech), so a test signup or verification code sent to a
+              generated address really arrives and can be read by opening that inbox on tempmaill.tech — but the inbox is public
+              and auto-deletes within an hour, which keeps generated identities useless for anything private; and{" "}
               <strong className="text-stone-900">no national ID, SSN or card numbers are ever produced</strong> — if a test needs a payment
               value, use your payment provider&apos;s published sandbox test numbers. The generator exists for form testing,
               database seeding, design mockups and fiction; using it to impersonate someone or open real accounts is fraud.

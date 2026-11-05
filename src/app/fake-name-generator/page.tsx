@@ -27,7 +27,7 @@ const appJsonLd = {
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   author: { "@type": "Organization", name: "WebStore Pro", url: "https://frinjo.me" },
   description:
-    "Generates fictional identities for the United States, United Kingdom, Canada, Australia and Pakistan. Each full identity contains a culturally matched first and last name (SSA/Census-popular US pools, ONS-popular UK pools, dedicated Pakistani name pools), a street address in a real city with a correctly formatted postal code for that country (US ZIP, UK postcode, Canadian alternating postal code, Australian 4-digit, Pakistani 5-digit city ranges), a phone number in the national format with a region-matched area code, an email on an example/test domain, a username, a 12-character cryptographically random password, a birthday between 1958 and 2005 with the computed current age, an occupation and a generated company name. Batch size 1-100 with no daily limit; randomness from crypto.getRandomValues; export to CSV, JSON or TXT; names-only modes (full, first or last) are also available. Nothing is transmitted or stored — generation happens entirely client-side. By design it never generates national ID numbers, SSNs or payment card numbers, and exports use example email domains so tests cannot reach real inboxes.",
+    "Generates fictional identities for the United States, United Kingdom, Canada, Australia and Pakistan. Each full identity contains a culturally matched first and last name (SSA/Census-popular US pools, ONS-popular UK pools, dedicated Pakistani name pools), a street address in a real city with a correctly formatted postal code for that country (US ZIP, UK postcode, Canadian alternating postal code, Australian 4-digit, Pakistani 5-digit city ranges), a phone number in the national format with a region-matched area code, an email on one of WebStore Pro's own temporary-mail domains (abahi.tech, abahi.page, abahi.me — the domains of tempmaill.tech, whose inboxes can be opened on tempmaill.tech and auto-delete after one hour), a username, a 12-character cryptographically random password, a birthday between 1958 and 2005 with the computed current age, an occupation and a generated company name. Batch size 1-100 with no daily limit; randomness from crypto.getRandomValues; export to CSV, JSON or TXT; names-only modes (full, first or last) are also available. Nothing is transmitted or stored — generation happens entirely client-side. By design it never generates national ID numbers, SSNs or payment card numbers, and exports use example email domains so tests cannot reach real inboxes.",
 };
 
 const breadcrumbJsonLd = {
@@ -43,7 +43,7 @@ const breadcrumbJsonLd = {
 const FAQS: [string, string][] = [
   [
     "Are the generated identities real people?",
-    "No. Every identity is a random combination of common first names, surnames, streets and cities, so it does not correspond to any real person. A common name plus a real city can coincidentally resemble someone, which is exactly why emails deliberately use example/test domains and no identity document numbers are ever generated.",
+    "No. Every identity is a random combination of common first names, surnames, streets and cities, so it does not correspond to any real person. A common name plus a real city can coincidentally resemble someone, which is exactly why the generated emails sit on disposable temp-mail domains whose inboxes are public and auto-delete within an hour, and no identity document numbers are ever generated.",
   ],
   [
     "Which countries are supported?",
@@ -58,8 +58,8 @@ const FAQS: [string, string][] = [
     "Software and form testing, seeding development databases, design mockups and prototypes, documentation screenshots, classroom examples and creating fictional characters for writing. It must not be used to impersonate anyone, open real accounts, or submit false information to official systems — that is fraud.",
   ],
   [
-    "Why do emails use example.com domains?",
-    "Safety by design. A generated address like name.surname42@example.com follows the shape a form validator expects but can never deliver mail to a real person. If your test system needs a working inbox, use our Temporary Email tool instead — real inboxes with test-safe handling.",
+    "Are the generated email addresses real inboxes?",
+    "Yes — deliberately. Every email sits on one of our own Temp Mail domains (abahi.tech, abahi.page, abahi.me), so a verification code or test message sent to it really arrives: open tempmaill.tech, enter the same address, and read the inbox. Two cautions: those inboxes are public (anyone with the address can read them) and auto-delete after one hour, so never use a generated identity for anything private, financial or important.",
   ],
   [
     "Is anything stored or sent to a server?",
