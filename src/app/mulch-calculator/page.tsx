@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import Mulch from "./Mulch";
 
 export const metadata = {
-  title: "Mulch Calculator — Cubic Yards & Bags for Multiple Beds, Any Shape",
+  title: "Mulch Calculator — Cubic Yards & Bags",
   description:
-    "Free mulch calculator for multiple beds of any shape (rectangle, circle, triangle): cubic yards, bags in 1.5/2/3 cu ft sizes, total weight by mulch type, a bags-vs-bulk cost verdict, and a copyable shopping list. Quick answer: 1 yd³ covers 108 sq ft at 3 inches.",
+    "Free mulch calculator: cubic yards and bags for multiple beds of any shape, weight by mulch type — 1 yd³ covers 108 sq ft at 3 inches deep.",
   keywords: ["mulch calculator", "how much mulch do i need", "mulch bags calculator", "cubic yards mulch", "mulch coverage calculator"],
   alternates: { canonical: "https://frinjo.me/mulch-calculator" },
   openGraph: {

@@ -64,6 +64,16 @@ const FAQS: [string, string][] = [
   ],
 ];
 
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://frinjo.me/" },
+    { "@type": "ListItem", position: 2, name: "Free Tools", item: "https://frinjo.me/tools" },
+    { "@type": "ListItem", position: 3, name: "BotView", item: "https://frinjo.me/botview" },
+  ],
+};
+
 const faqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -86,6 +96,7 @@ export default async function BotViewPage({
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(appJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       {/* HERO */}
@@ -202,7 +213,12 @@ export default async function BotViewPage({
             <Link href="/seo-agent-kit" className="font-semibold text-orange-400 hover:text-orange-300">
               SEO Agent Kit
             </Link>{" "}
-            — the same workflows WebStore Pro runs on production sites.
+            — the same workflows WebStore Pro runs on production sites. And before you audit a page,
+            check the keyword is worth winning with the{" "}
+            <Link href="/keyword-traffic-checker" className="font-semibold text-orange-400 hover:text-orange-300">
+              Keyword Traffic Checker
+            </Link>
+            .
           </p>
         </div>
       </section>

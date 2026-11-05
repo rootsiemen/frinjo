@@ -2,9 +2,9 @@ import Link from "next/link";
 import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 
 export const metadata = {
-  title: "Umbrella vs Limited Company — UK Contractor Guide & Comparison (2026/27)",
+  title: "Umbrella vs Limited Company — UK Guide",
   description:
-    "Umbrella company vs limited company for UK contractors, in plain English: how umbrella deductions really work (margin, employer NI, levy), limited company basics, a side-by-side comparison and who should pick which.",
+    "On a £100k contract: roughly £56–59k take-home via umbrella vs £65–68k via a limited company. Fees, employer NI, levy and IR35 in plain English.",
   keywords: [
     "umbrella vs limited company",
     "umbrella company vs limited company",
@@ -55,6 +55,19 @@ const FAQS: [string, string][] = [
   ],
 ];
 
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Umbrella vs Limited Company — UK Contractor Guide & Comparison (2026/27)",
+  url: "https://frinjo.me/umbrella-vs-limited-company",
+  mainEntityOfPage: "https://frinjo.me/umbrella-vs-limited-company",
+  inLanguage: "en",
+  author: { "@type": "Organization", name: "WebStore Pro", url: "https://frinjo.me" },
+  publisher: { "@type": "Organization", name: "WebStore Pro", url: "https://frinjo.me" },
+  description:
+    "Umbrella company vs limited company for UK contractors: how umbrella deductions really work (margin, employer NI, the 0.5% levy), limited company basics, a side-by-side take-home comparison and who should pick which.",
+};
+
 const faqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -69,6 +82,7 @@ export default function UmbrellaVsLimitedPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       {/* HERO */}

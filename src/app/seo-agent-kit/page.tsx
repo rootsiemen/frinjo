@@ -4,7 +4,7 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "SEO Agent Kit — Open-Source SEO Toolkit for AI Agents",
+  title: "SEO Agent Kit — Open-Source AI SEO Toolkit",
   description:
     "Free open-source SEO toolkit for AI agents: 8 production SEO skills + BotView, the AI-visibility auditor. MIT licensed — get it on GitHub.",
   keywords: [
@@ -41,6 +41,16 @@ const appJsonLd = {
   author: { "@type": "Organization", name: "WebStore Pro", url: "https://frinjo.me" },
   description:
     "Open-source SEO toolkit for AI agents: 8 production SEO skill workflows (technical audit, AI visibility, llms.txt, schema gaps, local SEO, content clusters, GSC regex, brand mentions) plus BotView, a zero-dependency AI-visibility auditor.",
+};
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://frinjo.me/" },
+    { "@type": "ListItem", position: 2, name: "Free Tools", item: "https://frinjo.me/tools" },
+    { "@type": "ListItem", position: 3, name: "SEO Agent Kit", item: "https://frinjo.me/seo-agent-kit" },
+  ],
 };
 
 const faqJsonLd = {
@@ -185,6 +195,7 @@ export default function SeoAgentKitPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(appJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       {/* HERO */}

@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import PersonalLoanCalculator from "./PersonalLoanCalculator";
 
 export const metadata = {
-  title: "Personal Loan Calculator — True APR With the Fee Counted | Frinjo",
+  title: "Personal Loan Calculator — True APR",
   description:
-    "Free personal loan calculator that counts the origination fee: true APR, cash you actually receive, total cost, repayment schedule and a DTI affordability check. Compare offers honestly. No sign-up.",
+    "Free personal loan calculator: the origination fee counted, so you see the true APR, cash you actually receive and total cost. No sign-up.",
   keywords: [
     "personal loan calculator",
     "personal loan calculator with origination fee",

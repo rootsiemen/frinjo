@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import DtiCalculator from "./DtiCalculator";
 
 export const metadata = {
-  title: "DTI Calculator — Debt-to-Income Ratio for a Mortgage | Frinjo",
+  title: "DTI Calculator — Debt-to-Income Ratio",
   description:
-    "Free debt-to-income (DTI) calculator: front-end and back-end ratios from your real payments, verdicts by Conventional, FHA and VA guidelines, and how much more debt you can carry at 36% and 43%. No sign-up.",
+    "Free DTI calculator: front-end and back-end debt-to-income ratios judged against Conventional 28/36, FHA 31/43 and VA rules — plus your debt room.",
   keywords: [
     "dti calculator",
     "debt to income ratio calculator",

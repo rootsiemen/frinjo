@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import HipotecaCalculator from "./HipotecaCalculator";
 
 export const metadata = {
-  title: "Calculadora de Hipoteca 2026 — Cuota Mensual en € y $ | Frinjo",
+  title: "Calculadora de Hipoteca 2026 — Cuota €/$",
   description:
-    "Calculadora de hipoteca gratuita para España (€) y EE. UU./Latinoamérica ($): cuota mensual, entrada, intereses totales y tabla de amortización anual. En modo EE. UU. incluye impuesto predial, seguro de hogar y HOA. Sin registro.",
+    "Calculadora de hipoteca gratis: cuota mensual en euros o dólares, intereses totales y tabla de amortización anual. España y EE. UU./Latinoamérica.",
   keywords: [
     "calculadora de hipoteca",
     "simulador de hipoteca",

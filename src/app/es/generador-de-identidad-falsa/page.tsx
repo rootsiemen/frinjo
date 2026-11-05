@@ -5,9 +5,9 @@ import IdentidadFalsa from "./IdentidadFalsa";
 const SELF = "https://frinjo.me/es/generador-de-identidad-falsa";
 
 export const metadata = {
-  title: "Generador de Identidad Falsa — Nombres y Datos de Prueba | Frinjo",
+  title: "Generador de Identidad Falsa Gratis",
   description:
-    "Genera identidades falsas completas y gratis para pruebas: nombre con dos apellidos, dirección, teléfono, correo, usuario, contraseña, fecha de nacimiento, profesión y empresa para España, México, Colombia, Argentina, Chile, Perú y EE. UU. hispano. Hasta 100 por lote, exportación CSV/JSON, sin límite diario.",
+    "Generador de identidad falsa gratis: datos de prueba completos para 7 países — nombre, dirección, teléfono y correo temporal que sí recibe mensajes.",
   keywords: ["generador de identidad falsa", "generador de nombres falsos", "nombres falsos", "datos de prueba", "generador de personas falsas", "identidad falsa para pruebas"],
   alternates: {
     canonical: SELF,

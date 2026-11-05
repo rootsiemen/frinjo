@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import KeywordChecker from "./KeywordChecker";
 
 export const metadata = {
-  title: "Keyword Traffic Checker — Free Keyword Difficulty & Competition Checker",
+  title: "Keyword Traffic Checker — Free, No Sign-Up",
   description:
-    "Free keyword traffic checker by country: pick any country, enter a keyword and get that market's live SERP competition report, a difficulty score out of 100 with its full breakdown, Google demand signals, search intent and related long-tail keywords. No fake search-volume numbers.",
+    "Free keyword traffic checker: live SERP competition for any country, a difficulty score out of 100 with every factor shown, and demand signals.",
   keywords: [
     "keyword traffic checker",
     "keyword difficulty checker",
@@ -38,10 +38,24 @@ const appJsonLd = {
     "Free keyword traffic checker for any country. Fetches a live, country-targeted SERP sample for any keyword, scores its ranking difficulty out of 100 from that sample with a visible per-factor breakdown, classifies search intent, and shows Google Autocomplete demand signals and related long-tail keywords for the selected market. It does not invent monthly search volume.",
 };
 
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://frinjo.me/" },
+    { "@type": "ListItem", position: 2, name: "Free Tools", item: "https://frinjo.me/tools" },
+    { "@type": "ListItem", position: 3, name: "Keyword Traffic Checker", item: "https://frinjo.me/keyword-traffic-checker" },
+  ],
+};
+
 const FAQS: [string, string][] = [
   [
     "Is the Keyword Traffic Checker free?",
     "Yes — completely free, with no sign-up. Enter a keyword and the report is generated live from a real search-results sample and Google's own suggestion data.",
+  ],
+  [
+    "Is there a free keyword traffic checker that shows the full report?",
+    "Yes — this one. There is no paywall and no teaser score: the free keyword traffic checker above gives you the full report — the live SERP competition sample for the country you pick, the difficulty score out of 100 with every factor's points shown, Google Autocomplete demand signals, the search intent and the related long-tail keywords. Tools that show a free score and charge to unlock the breakdown are selling you the second half of this report.",
   ],
   [
     "Can I check keywords for different countries?",
@@ -87,6 +101,7 @@ export default async function KeywordCheckerPage({
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(appJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       {/* HERO */}

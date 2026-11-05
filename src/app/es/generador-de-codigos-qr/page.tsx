@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import QrGenerator from "./QrGenerator";
 
 export const metadata = {
-  title: "Generador de Códigos QR Gratis — URL, WiFi, vCard y WhatsApp | Frinjo",
+  title: "Generador de Códigos QR Gratis",
   description:
-    "Generador de códigos QR gratuito y sin marca de agua: enlaces, texto, WiFi, contactos vCard, WhatsApp, correo y teléfono. Descarga en PNG de alta resolución o SVG vectorial, sin registro y sin subir tus datos.",
+    "Generador de códigos QR gratis y sin marca de agua: URL, texto, WiFi, vCard, WhatsApp, correo y teléfono. Descarga PNG 1024 px o SVG. Sin registro.",
   keywords: [
     "generador de códigos qr",
     "crear código qr gratis",

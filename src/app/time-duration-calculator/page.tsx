@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import TimeDuration from "./TimeDuration";
 
 export const metadata = {
-  title: "Time Duration Calculator — Hours Between Two Times (+ Decimal Hours)",
+  title: "Time Duration Calculator — Hours Between",
   description:
-    "Free time duration calculator: the exact time between two dates and times in hours, minutes and seconds — including decimal hours for timesheets and payroll — plus add or subtract hours and minutes from any time. No sign-up.",
+    "Free time duration calculator: exact hours, minutes and seconds between two times — with decimal hours for timesheets — plus add/subtract time.",
   keywords: [
     "time duration calculator",
     "hours between two times",
@@ -72,6 +72,14 @@ const FAQS: [string, string][] = [
     "Is the Time Duration Calculator free?",
     "Yes, completely free with no sign-up. Times are processed in your browser and never stored.",
   ],
+  [
+    "How do I work out a shift that crosses midnight?",
+    "Give the end its real date — the next day — rather than a time earlier than the start. A shift from 22:15 on Friday to 06:45 on Saturday is 8 hours 30 minutes. If you enter both times on the same date, the end falls before the start and this calculator counts the duration backwards and flags it.",
+  ],
+  [
+    "How are decimal hours rounded on a timesheet?",
+    "This calculator shows decimal hours to two decimal places, so 20 minutes appears as 0.33 hours and 40 minutes as 0.67. Many employers round to the nearest quarter hour instead — 0.25, 0.5, 0.75 — so check which convention your payroll uses before copying a figure across, and apply it consistently to every shift.",
+  ],
 ];
 
 const faqJsonLd = {
@@ -130,6 +138,43 @@ export default function TimeDurationPage() {
             Prefer email? <a href="mailto:neilsonsmarry@gmail.com" className="font-semibold text-orange-700 hover:text-orange-800">neilsonsmarry@gmail.com</a>
             {" "}· Or browse our <Link href="/services" className="font-semibold text-orange-700 hover:text-orange-800">services</Link> and <Link href="/tools" className="font-semibold text-orange-700 hover:text-orange-800">free tools</Link>.
           </p>
+        </div>
+      </section>
+
+      <section className="py-16 sm:py-20 bg-white border-t border-stone-100">
+        <div className="max-w-4xl mx-auto px-4">
+          <SectionHead
+            eyebrow="How it works"
+            title="One subtraction, every unit you need"
+            sub="The whole calculation is a single difference in seconds — everything on the page is that number, re-expressed."
+          />
+          <div className="text-left">
+            <p className="text-stone-600 leading-relaxed">
+              The calculator turns both date-times into timestamps, subtracts them, and works with the
+              difference in whole seconds. That total is split from the top down: full days of 86,400
+              seconds, then hours of 3,600 seconds, minutes of 60, and the leftover seconds. The same
+              total drives every other figure shown — decimal hours are total seconds ÷ 3,600, total
+              minutes are total seconds ÷ 60, and decimal days are total seconds ÷ 86,400. The second
+              tool is simpler still: it converts your hours and minutes into a single minute count and
+              adds or subtracts that many minutes from the starting timestamp.
+            </p>
+            <div className="mt-8 rounded-2xl bg-orange-50 border border-orange-100 p-6 sm:p-8">
+              <h3 className="font-display text-xl font-bold text-stone-900 mb-3">Worked example: the overnight shift, 22:15 to 06:45</h3>
+              <p className="text-stone-600 leading-relaxed">
+                From 22:15 to midnight is 1 hour 45 minutes, and from midnight to 06:45 is 6 hours 45
+                minutes — together, 8 hours 30 minutes. In this calculator&apos;s units that is 510
+                total minutes, 30,600 total seconds and 8.5 decimal hours. Take off a 30-minute unpaid
+                break in decimal — 8.5 − 0.5 — and paid time is exactly 8.0 hours. The add tool agrees
+                from the other direction: 22:15 plus 8 hours 30 minutes lands on 06:45 the next morning.
+              </p>
+            </div>
+            <h3 className="mt-8 font-display text-xl font-bold text-stone-900 mb-3">Three mistakes that corrupt a timesheet</h3>
+            <ul className="space-y-2 text-stone-600 leading-relaxed list-disc pl-5">
+              <li>Writing 8.30 for 8 hours 30 minutes. Decimal 8.30 means 8 hours 18 minutes — thirty minutes is 0.5 of an hour, not 0.30.</li>
+              <li>Leaving the end on the same date for overnight work. The calculator then counts backwards and warns you; set the end date to the following day.</li>
+              <li>Forgetting daylight saving. On the two changeover nights each year, real elapsed time differs from the clock-face gap by an hour — and this calculator measures the real elapsed time.</li>
+            </ul>
+          </div>
         </div>
       </section>
 

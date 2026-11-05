@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import LoveCalculator from "./LoveCalculator";
 
 export const metadata = {
-  title: "Love Calculator — Free Love Compatibility Test by Name & Zodiac",
+  title: "Love Calculator — Compatibility by Name",
   description:
-    "Free love calculator: enter two names for an instant, always-consistent compatibility score, plus an optional zodiac layer that reads your elements together. Runs privately in your browser — no sign-up, nothing stored.",
+    "Free love calculator: two names give an instant compatibility score — the same every time — plus an optional zodiac element reading. No sign-up.",
   keywords: [
     "love calculator",
     "love compatibility calculator",

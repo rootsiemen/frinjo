@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import TvaCalculator from "./TvaCalculator";
 
 export const metadata = {
-  title: "Calcul TVA 2026 — HT vers TTC et TTC vers HT, tous taux | Frinjo",
+  title: "Calcul TVA 2026 — HT vers TTC, Tous Taux",
   description:
-    "Calcul TVA gratuit pour la France : convertissez un prix HT en TTC ou un prix TTC en HT avec les taux 20 %, 10 %, 5,5 % et 2,1 % (et 8,5 % DOM). Facture multi-lignes, ventilation par taux, sans inscription.",
+    "Calcul TVA gratuit : convertissez HT en TTC et TTC en HT aux taux de 20 %, 10 %, 5,5 % et 2,1 % (8,5 % DOM). Facture multi-lignes, sans inscription.",
   keywords: [
     "calcul TVA",
     "calculer la TVA",

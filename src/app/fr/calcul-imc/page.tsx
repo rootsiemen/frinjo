@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import ImcCalculator from "./ImcCalculator";
 
 export const metadata = {
-  title: "Calcul IMC — Calculez Votre Indice de Masse Corporelle | Frinjo",
+  title: "Calcul IMC — Indice de Masse Corporelle",
   description:
-    "Calcul IMC gratuit pour adultes : saisissez votre taille et votre poids en cm/kg (ou ft/in et lb) pour obtenir votre indice de masse corporelle, votre catégorie OMS et la fourchette de poids santé pour votre taille. Instantané, privé, sans inscription.",
+    "Calcul IMC gratuit pour adultes : votre indice de masse corporelle, votre catégorie OMS et la fourchette de poids santé pour votre taille. Sans inscription.",
   keywords: [
     "calcul imc",
     "calculer son imc",

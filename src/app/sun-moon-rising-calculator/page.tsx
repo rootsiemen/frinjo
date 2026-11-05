@@ -4,9 +4,9 @@ import BigThreeCalculator from "./BigThreeCalculator";
 import { SIGNS } from "./astro";
 
 export const metadata = {
-  title: "Sun, Moon & Rising Calculator — Free Big Three Calculator",
+  title: "Sun, Moon & Rising Calculator — Big Three",
   description:
-    "Free Sun, Moon and Rising sign calculator: enter your birth date, time and city to reveal your Big Three with exact degrees, calculated in your browser from real astronomical positions (Meeus ephemeris). No sign-up, nothing stored.",
+    "Free Big Three calculator: your Sun, Moon and Rising signs with exact degrees from birth date, time and city — real astronomy, in your browser.",
   keywords: [
     "sun moon rising calculator",
     "big three calculator",

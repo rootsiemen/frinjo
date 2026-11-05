@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import SalaryTaxCalculator from "./SalaryTaxCalculator";
 
 export const metadata = {
-  title: "Income Tax Calculator Pakistan 2026-27 — Salary Tax & Take-Home Pay",
+  title: "Income Tax Calculator Pakistan 2026-27",
   description:
-    "Free Pakistan salary tax calculator for 2026-27. Enter your monthly salary to get monthly and annual income tax, take-home pay and the full FBR slab breakdown under the Finance Act 2026. Instant, no sign-up.",
+    "Free salary tax calculator for Pakistan 2026-27: monthly and annual income tax, take-home pay and the full FBR slab breakdown. Instant, no sign-up.",
   keywords: [
     "income tax calculator pakistan",
     "salary tax calculator pakistan",
@@ -72,6 +72,14 @@ const FAQS: [string, string][] = [
     "Is the Income Tax Calculator Pakistan free?",
     "Yes, completely free with no sign-up. Everything is calculated in your browser; nothing is stored.",
   ],
+  [
+    "What is my take-home pay on a Rs 200,000 monthly salary?",
+    "Rs 187,000 a month. Rs 200,000 a month is Rs 2,400,000 a year, in the Rs 2,200,001–3,200,000 slab: Rs 116,000 + 20% of the Rs 200,000 above the slab floor = Rs 156,000 of tax a year, withheld as Rs 13,000 a month. Your effective rate is 6.5%.",
+  ],
+  [
+    "How is tax worked out when I get a bonus or join mid-year?",
+    "The slabs apply to your total annual salary income, so a bonus is added to the year's total and taxed at whichever slab the combined figure reaches — only the part of the bonus above a slab floor carries that slab's higher rate. Employers adjust withholding as the year's income becomes clear.",
+  ],
 ];
 
 const faqJsonLd = {
@@ -134,6 +142,35 @@ export default function SalaryTaxPakistanPage() {
             Prefer email? <a href="mailto:neilsonsmarry@gmail.com" className="font-semibold text-orange-700 hover:text-orange-800">neilsonsmarry@gmail.com</a>
             {" "}· Or browse our <Link href="/services" className="font-semibold text-orange-700 hover:text-orange-800">services</Link> and <Link href="/tools" className="font-semibold text-orange-700 hover:text-orange-800">free tools</Link>.
           </p>
+        </div>
+      </section>
+
+      {/* HOW IT WORKS */}
+      <section className="py-16 sm:py-20 bg-white border-t border-stone-100">
+        <div className="max-w-3xl mx-auto px-4">
+          <SectionHead eyebrow="How it works" title="How your salary tax is worked out" />
+          <div className="space-y-5 text-stone-600 leading-relaxed">
+            <p>
+              The calculator works the way FBR withholding works: on the year, not the month. It multiplies
+              your monthly gross salary by 12, finds the slab the annual figure falls into, and applies that
+              slab&apos;s formula — the fixed amount accumulated from the slabs below, plus the slab&apos;s
+              rate on only the income above the slab&apos;s floor. The annual tax is then divided by 12 for
+              the monthly deduction, and take-home pay is your monthly salary minus that monthly tax.
+            </p>
+            <p>
+              <strong className="text-stone-900">Worked example:</strong> a salary of Rs 250,000 a month is
+              Rs 3,000,000 a year, which sits in the Rs 2,200,001–3,200,000 slab. Tax = Rs 116,000 + 20% of
+              the Rs 800,000 above Rs 2,200,000 = Rs 116,000 + Rs 160,000 = Rs 276,000 a year. That is
+              Rs 23,000 withheld a month, take-home pay of Rs 227,000 a month, and an effective rate of
+              9.2% — noticeably less than the slab&apos;s headline 20%.
+            </p>
+            <p>
+              The mistake that causes the most panic is reading the slab rate as a tax on the whole salary.
+              The slabs are marginal: crossing into the 20% slab by one rupee taxes only that rupee at 20% —
+              your effective rate is always lower than your slab rate. Also enter your gross monthly salary,
+              not your take-home: entering take-home understates the tax.
+            </p>
+          </div>
         </div>
       </section>
 

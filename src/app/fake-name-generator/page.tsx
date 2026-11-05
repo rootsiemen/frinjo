@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import FakeName from "./FakeName";
 
 export const metadata = {
-  title: "Fake Name Generator — Full Fake Identities, Addresses & Emails",
+  title: "Fake Name Generator — Full Test Identities",
   description:
-    "Generate realistic fake names and complete test identities free: name, address, phone, email, username, password, birthday, job and company for the US, UK, Canada, Australia and Pakistan. Up to 100 at once, CSV/JSON export, no daily limit, generated privately in your browser.",
+    "Free fake name generator: full test identities — name, address, phone, email, job — for 5 countries. Up to 100 at once, CSV/JSON export, in-browser.",
   keywords: ["fake name generator", "fake identity generator", "random name generator", "fake address generator", "fake person generator", "test data generator"],
   alternates: {
     canonical: "https://frinjo.me/fake-name-generator",

@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import SmmPanel from "./SmmPanel";
 
 export const metadata = {
-  title: "SMM Panel — Buy Instagram, YouTube, TikTok Followers, Views & Likes",
+  title: "SMM Panel — Followers, Views & Likes",
   description:
-    "WebStore Pro SMM Panel: order social media growth services — Instagram followers and likes, YouTube views and subscribers, TikTok followers, Facebook page followers, X and Telegram growth — with wallet balance, transparent per-1,000 rates, order tracking and manual payment via Binance, Payoneer, JazzCash or Easypaisa.",
+    "SMM panel by WebStore Pro: Instagram, YouTube, TikTok and Facebook followers, views and likes at per-1,000 rates, with wallet and order tracking.",
   keywords: ["smm panel", "buy instagram followers", "buy youtube views", "buy tiktok followers", "smm panel pakistan", "cheapest smm panel", "social media panel"],
   alternates: { canonical: "https://frinjo.me/smm-panel" },
   openGraph: {

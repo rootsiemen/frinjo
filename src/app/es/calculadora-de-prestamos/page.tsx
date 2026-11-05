@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import PrestamosCalculator from "./PrestamosCalculator";
 
 export const metadata = {
-  title: "Calculadora de Préstamos 2026 — Cuota Mensual e Intereses | Frinjo",
+  title: "Calculadora de Préstamos 2026 — Cuotas",
   description:
-    "Calculadora de préstamos gratuita: cuota mensual, intereses totales y tabla de amortización para préstamos personales, de auto o de consumo en dólares, pesos mexicanos, euros, pesos colombianos, argentinos y soles. Sin registro.",
+    "Calculadora de préstamos gratis: cuota mensual, intereses totales y amortización en 6 monedas ($, MXN, €, COP, ARS, PEN). Sin registro.",
   keywords: [
     "calculadora de préstamos",
     "calculadora de préstamo personal",

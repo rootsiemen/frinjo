@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import Gpa from "./Gpa";
 
 export const metadata = {
-  title: "GPA Calculator — Semester & Cumulative GPA with Target Planner",
+  title: "GPA Calculator — Semester & Cumulative",
   description:
-    "Free GPA calculator with the features others split up: letter or percentage grades, 4.0 and weighted 5.0 scales with Honors/AP weighting, courses that auto-save in your browser, CSV export, an academic-standing label, and a target-GPA planner. No sign-up.",
+    "Free GPA calculator: letter or % grades, 4.0 and weighted 5.0 scales, courses that auto-save, CSV export and a target-GPA planner. No sign-up.",
   keywords: ["gpa calculator", "college gpa calculator", "semester gpa calculator", "cumulative gpa calculator", "weighted gpa calculator", "target gpa calculator"],
   alternates: { canonical: "https://frinjo.me/gpa-calculator" },
   openGraph: {

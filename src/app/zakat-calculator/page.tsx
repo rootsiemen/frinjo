@@ -3,7 +3,7 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import ZakatCalculator from "./ZakatCalculator";
 
 export const metadata = {
-  title: "Zakat Calculator 2026 — 2.5% Zakat on Cash, Gold & Silver with Nisab",
+  title: "Zakat Calculator 2026 — 2.5% with Nisab",
   description:
     "Free zakat calculator: 2.5% zakat on cash, gold, silver and business assets, with nisab worked out from gold and silver rates you can edit. Instant, no sign-up.",
   keywords: [
@@ -68,6 +68,14 @@ const FAQS: [string, string][] = [
     "Is the Zakat Calculator free?",
     "Yes, completely free with no sign-up. Everything is calculated in your browser; nothing is stored.",
   ],
+  [
+    "Is zakat due on money in my bank account?",
+    "Yes — cash in hand and money in bank accounts are core zakatable assets in this calculation, counted at their balance on your zakat date. What matters is the total you hold when the lunar year completes, not the salary that passed through the account during the year, so a spent salary is not counted twice.",
+  ],
+  [
+    "What if my wealth falls below nisab during the year?",
+    "This calculator takes the position on the day you calculate: net zakatable wealth at or above nisab means zakat is due at 2.5%. Schools of thought differ on how a mid-year dip below nisab affects the year's count, so if your wealth moved in and out of nisab, confirm your specific case with a scholar.",
+  ],
 ];
 
 const faqJsonLd = {
@@ -130,6 +138,45 @@ export default function ZakatPage() {
             Prefer email? <a href="mailto:neilsonsmarry@gmail.com" className="font-semibold text-orange-700 hover:text-orange-800">neilsonsmarry@gmail.com</a>
             {" "}· Or browse our <Link href="/services" className="font-semibold text-orange-700 hover:text-orange-800">services</Link> and <Link href="/tools" className="font-semibold text-orange-700 hover:text-orange-800">free tools</Link>.
           </p>
+        </div>
+      </section>
+
+      {/* HOW IT WORKS */}
+      <section className="py-16 sm:py-20 bg-white border-t border-stone-100">
+        <div className="max-w-4xl mx-auto px-4">
+          <SectionHead
+            eyebrow="How it works"
+            title="Nisab first, then a flat 2.5%"
+            sub="Two checks decide everything: does your net wealth reach nisab, and what is 2.5% of it?"
+          />
+          <div className="text-left">
+            <p className="text-stone-600 leading-relaxed">
+              The calculator works in three steps. First, nisab: it prices 7.5 tola of gold at your
+              gold rate against 52.5 tola of silver at your silver rate and takes the lower figure — at
+              the default October 2026 rates that is Rs 322,770 from silver, far below the gold figure
+              of Rs 3,283,770. Second, it totals your zakatable wealth: cash, plus your gold and silver
+              valued at those same rates, plus investments and business stock, minus the debts you owe.
+              Third, if the net total reaches nisab, zakat is a flat 2.5% of the whole total — not only
+              of the part above nisab.
+            </p>
+            <div className="mt-8 rounded-2xl bg-orange-50 border border-orange-100 p-6 sm:p-8">
+              <h3 className="font-display text-xl font-bold text-stone-900 mb-3">Worked example: cash, gold, stock and a debt</h3>
+              <p className="text-stone-600 leading-relaxed">
+                You hold Rs 500,000 in cash, 2 tola of gold, Rs 200,000 of business stock and a Rs
+                75,000 debt. The gold is worth 2 × Rs 437,836 = Rs 875,672. Net zakatable wealth:
+                500,000 + 875,672 + 200,000 − 75,000 = Rs 1,500,672 — comfortably above the Rs 322,770
+                nisab. Zakat due: 2.5% of Rs 1,500,672 = Rs 37,516.80. Change any one input and both the
+                total and the 2.5% move with it, which is why the debts field matters as much as the
+                assets.
+              </p>
+            </div>
+            <h3 className="mt-8 font-display text-xl font-bold text-stone-900 mb-3">Three errors that change the answer</h3>
+            <ul className="space-y-2 text-stone-600 leading-relaxed list-disc pl-5">
+              <li>Using old bullion rates. Nisab is priced from gold and silver on the day; the defaults here are October 2026 rates, so edit both rate fields before trusting the nisab figure in a later year.</li>
+              <li>Leaving debts out. Money you owe comes off before the 2.5% is applied — skipping a Rs 75,000 debt overstates your zakat by Rs 1,875.</li>
+              <li>Testing against the gold nisab only. The calculator takes the lower threshold, so most people qualify on silver long before their wealth nears the gold figure.</li>
+            </ul>
+          </div>
         </div>
       </section>
 

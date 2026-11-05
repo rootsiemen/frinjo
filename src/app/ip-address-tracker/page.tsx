@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import IpTracker from "./IpTracker";
 
 export const metadata = {
-  title: "IP Address Tracker — What Is My IP? Free IP Location Lookup",
+  title: "IP Address Tracker — What Is My IP?",
   description:
-    "Free IP address tracker: see your own IP address, location, ISP and timezone instantly, run six live anonymity and leak checks (WebRTC, DNS, timezone, language), and track any IPv4 or IPv6 address to its approximate location on a map. No sign-up.",
+    "Free IP address tracker: your IP, location and ISP instantly, 6 live leak checks (WebRTC, DNS, timezone), plus tracking for any IPv4 or IPv6 address.",
   keywords: [
     "ip address tracker",
     "what is my ip",
@@ -39,6 +39,16 @@ const appJsonLd = {
     "Free IP address tracker. Detects the visitor's own IP address with its city, region, country, ISP, ASN, postal code, timezone and live local time, scores the connection's anonymity from six live checks (WebRTC leak, DNS resolver leak, timezone match, language match, Do Not Track, JavaScript), shows what the browser and device reveal, and looks up any other public IPv4 or IPv6 address with a map pin. Checks that cannot run are reported as N/A and excluded from the score.",
 };
 
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://frinjo.me/" },
+    { "@type": "ListItem", position: 2, name: "Free Tools", item: "https://frinjo.me/tools" },
+    { "@type": "ListItem", position: 3, name: "IP Address Tracker", item: "https://frinjo.me/ip-address-tracker" },
+  ],
+};
+
 const FAQS: [string, string][] = [
   [
     "What is my IP address?",
@@ -64,6 +74,14 @@ const FAQS: [string, string][] = [
     "Is the IP Address Tracker free?",
     "Yes — completely free, with no sign-up. Lookups run live from your browser against free geolocation services (ipwho.is, with ipapi.co and freeipapi.com as fallbacks), and nothing you type is stored.",
   ],
+  [
+    "How do I track an IP address for free?",
+    "Type any public IPv4 or IPv6 address into the tracker above and run the lookup — it is free, with no account and no limit. You get the country, city area, provider (ISP), network number (ASN), postal area and timezone, with a pin on the map. Your own address is tracked automatically when the page loads, also free.",
+  ],
+  [
+    "What can a free IP tracker not tell me?",
+    "A person's name, home address or phone number. An IP lookup shows the approximate area a provider routes that address through — usually city level — and the organisation that owns the range. Who actually used the address is data only the provider holds, and it is not public. Any 'free IP tracker' promising an exact home address from an IP alone is bluffing.",
+  ],
 ];
 
 const faqJsonLd = {
@@ -83,6 +101,7 @@ export default function IpTrackerPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(appJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       {/* HERO */}

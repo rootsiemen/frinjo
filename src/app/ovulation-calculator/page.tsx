@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import Ovulation from "./Ovulation";
 
 export const metadata = {
-  title: "Ovulation Calculator — Fertile Window & Next Ovulation Date",
+  title: "Ovulation Calculator — Fertile Window",
   description:
-    "Free ovulation calculator: from the first day of your last period and your cycle length, get your ovulation date, fertile window, next period, earliest test day and estimated due date — with honest limits on calendar methods. No sign-up.",
+    "Free ovulation calculator: your ovulation date, fertile window, next period, earliest test day and estimated due date from your last period.",
   keywords: [
     "ovulation calculator",
     "fertile window calculator",

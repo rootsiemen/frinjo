@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import WeightedGrade from "./WeightedGrade";
 
 export const metadata = {
-  title: "Weighted Grade Calculator — Points or %, Extra Credit & What's Still Needed",
+  title: "Weighted Grade Calculator — Points or %",
   description:
-    "Free weighted grade calculator that takes grades as percentages OR raw points (45/50 — no hand-converting), handles extra credit, and shows the average you need on what's left to finish with 90, 80, 70 or 60%. Copyable result. No sign-up.",
+    "Free weighted grade calculator: grades as % or raw points (45/50), extra credit, and the average you still need for 90, 80, 70 or 60%. No sign-up.",
   keywords: ["weighted grade calculator", "grade calculator weighted", "calculate weighted grade", "category grade calculator", "weighted average grade"],
   alternates: { canonical: "https://frinjo.me/weighted-grade-calculator" },
   openGraph: {

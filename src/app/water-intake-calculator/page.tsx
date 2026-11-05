@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import WaterIntake from "./WaterIntake";
 
 export const metadata = {
-  title: "Water Intake Calculator — How Much Water Should You Drink Daily?",
+  title: "Water Intake Calculator — Daily Target",
   description:
-    "Free water intake calculator: your daily drinking-water target from body weight, exercise, climate, pregnancy and breastfeeding — shown in litres, ounces, cups and glasses, with EFSA total-water reference values for context. No sign-up.",
+    "Free water intake calculator: your daily water target from body weight, exercise, climate, pregnancy and breastfeeding — in litres, oz and cups.",
   keywords: ["water intake calculator", "how much water should i drink", "daily water intake", "hydration calculator", "water calculator by weight"],
   alternates: { canonical: "https://frinjo.me/water-intake-calculator" },
   openGraph: {
@@ -63,6 +63,14 @@ const FAQS: [string, string][] = [
   [
     "Is the Water Intake Calculator free?",
     "Yes, completely free with no sign-up. Your details are calculated in your browser and never stored.",
+  ],
+  [
+    "How much water should a 60 kg person drink on a rest day?",
+    "On the rule this calculator uses, 60 × 35 ml = 2,100 ml — 2.10 litres of drinks, about 8.4 glasses of 250 ml. That is the base before any exercise, heat, pregnancy or breastfeeding additions, and before the water that arrives with food, which supplies more on top.",
+  ],
+  [
+    "Should I drink more water when I am ill or it is very hot?",
+    "Generally yes for heat — this calculator adds 500 ml for a hot climate or heavy sweating, and exercise in heat adds its own share on top. With illness, fever, vomiting or diarrhoea increase fluid losses, so drink steadily and seek medical advice if you cannot keep fluids down.",
   ],
 ];
 
@@ -123,6 +131,34 @@ export default function WaterIntakePage() {
             Prefer email? <a href="mailto:neilsonsmarry@gmail.com" className="font-semibold text-orange-700 hover:text-orange-800">neilsonsmarry@gmail.com</a>
             {" "}· Or browse our <Link href="/services" className="font-semibold text-orange-700 hover:text-orange-800">services</Link> and <Link href="/tools" className="font-semibold text-orange-700 hover:text-orange-800">free tools</Link>.
           </p>
+        </div>
+      </section>
+
+      <section className="py-16 sm:py-20 bg-white border-t border-stone-100">
+        <div className="max-w-3xl mx-auto px-4">
+          <SectionHead eyebrow="How it works" title="How your daily target is built" />
+          <div className="space-y-5 text-stone-600 leading-relaxed">
+            <p>
+              The estimate starts from the standard weight-based rule of thumb: about 35 ml of drinking
+              water per kilogram of body weight (roughly 0.5 oz per pound). It then adds fixed amounts for
+              the losses and demands you select: about 355 ml for every 30 minutes of exercise, 500 ml for
+              a hot climate or heavy sweating, 300 ml in pregnancy and 700 ml while breastfeeding. The
+              total is shown in litres, fluid ounces, 8-ounce cups and 250 ml glasses.
+            </p>
+            <p>
+              <strong className="text-stone-900">Worked example:</strong> an 80 kg adult who exercises for
+              60 minutes on a hot day. Base: 80 × 35 ml = 2,800 ml. Exercise: (60 ÷ 30) × 355 ml = 710 ml.
+              Heat: +500 ml. Total: 2,800 + 710 + 500 = 4,010 ml — 4.01 litres a day, about 136 fluid
+              ounces or roughly 16 glasses of 250 ml.
+            </p>
+            <p>
+              Three things trip people up. Mistaking this target for total water — it is the drinks portion
+              only; food moisture comes on top, which is why the EFSA total-water references shown with the
+              result (2.5 L men, 2.0 L women) can look lower than your number. Entering pounds with the unit
+              left on kilograms, which more than doubles the answer. And trying to drink the whole target at
+              once — spread it across the day.
+            </p>
+          </div>
         </div>
       </section>
 

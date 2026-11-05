@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import AguinaldoCalculator from "./AguinaldoCalculator";
 
 export const metadata = {
-  title: "Calculadora de Aguinaldo 2026 México — 15 Días y Proporcional | Frinjo",
+  title: "Calculadora de Aguinaldo 2026 — México",
   description:
-    "Calculadora de aguinaldo gratuita para México: cuánto te toca según la Ley Federal del Trabajo (mínimo 15 días), aguinaldo proporcional por días trabajados o fecha de ingreso, y fecha límite de pago (20 de diciembre). Sin registro.",
+    "Calculadora de aguinaldo gratis para México: mínimo 15 días según la LFT, proporcional por días trabajados, pago antes del 20 de diciembre.",
   keywords: [
     "calculadora de aguinaldo",
     "aguinaldo 2026",

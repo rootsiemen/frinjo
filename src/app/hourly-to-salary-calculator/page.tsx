@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import HourlySalary from "./HourlySalary";
 
 export const metadata = {
-  title: "Hourly to Salary Calculator — Convert $/Hour to Annual Salary",
+  title: "Hourly to Salary Calculator — $/Hour to Year",
   description:
-    "Free hourly to salary calculator: convert any hourly rate to daily, weekly, biweekly, monthly and annual pay at your real hours and weeks — plus the reverse, salary to hourly. Gross pay, before tax. No sign-up.",
+    "Free hourly to salary calculator: convert any wage to daily, weekly, biweekly, monthly and annual pay at your real hours and weeks. Gross pay.",
   keywords: [
     "hourly to salary calculator",
     "hourly wage to salary",

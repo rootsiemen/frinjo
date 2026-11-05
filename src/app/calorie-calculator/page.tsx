@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import Calorie from "./Calorie";
 
 export const metadata = {
-  title: "Calorie Calculator — Daily Calories for Your Goal (TDEE & BMR)",
+  title: "Calorie Calculator — TDEE, BMR & Macros",
   description:
-    "Free calorie calculator using the Mifflin-St Jeor equation: get your BMR, maintenance calories (TDEE) and the exact daily target for losing, maintaining or gaining weight — with a macro split. Imperial and metric. No sign-up.",
+    "Free calorie calculator (Mifflin-St Jeor): your BMR, maintenance TDEE and the exact daily calories to lose, maintain or gain — with a macro split.",
   keywords: [
     "calorie calculator",
     "tdee calculator",

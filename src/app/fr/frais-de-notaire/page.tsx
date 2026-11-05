@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import NotaireCalculator from "./NotaireCalculator";
 
 export const metadata = {
-  title: "Frais de Notaire 2026 — Calculatrice Ancien et Neuf, Détail Complet | Frinjo",
+  title: "Frais de Notaire 2026 — Ancien et Neuf",
   description:
-    "Calculatrice de frais de notaire gratuite : droits de mutation (5,81 % ou 5,09 % selon le département, 0,715 % dans le neuf), émoluments au barème officiel, débours et contribution de sécurité immobilière, détaillés poste par poste. Estimation sans inscription.",
+    "Frais de notaire gratuits, détaillés : droits de mutation (5,81 % ou 0,715 % dans le neuf), émoluments au barème officiel, débours de 1 200 €.",
   keywords: [
     "frais de notaire",
     "calculatrice frais de notaire",

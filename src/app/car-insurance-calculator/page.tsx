@@ -5,9 +5,9 @@ import { STATE_MINIMUMS } from "./states";
 import { limitsLabel } from "./calc";
 
 export const metadata = {
-  title: "How Much Car Insurance Do I Need? — Coverage Calculator | Frinjo",
+  title: "Car Insurance Calculator — Coverage by State",
   description:
-    "Free car insurance coverage calculator: recommended liability limits from your net worth and income, checked against all 50 state minimums, with UM/UIM, full-coverage verdicts and national cost context. No quotes, no lead form.",
+    "Free car insurance calculator: liability limits sized to your net worth and income, checked against all 50 state minimums. No quotes, no lead form.",
   keywords: [
     "how much car insurance do i need",
     "car insurance coverage calculator",

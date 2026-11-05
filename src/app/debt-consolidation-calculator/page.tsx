@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import ConsolidationCalculator from "./ConsolidationCalculator";
 
 export const metadata = {
-  title: "Debt Consolidation Calculator — Per-Debt, With the Honest Verdict | Frinjo",
+  title: "Debt Consolidation Calculator — Per-Debt",
   description:
-    "Free debt consolidation calculator that models every debt separately — no blended averages — and compares staying put, a consolidation loan with its fee, and a balance transfer, with a straight verdict. No sign-up, no lender ads.",
+    "Free debt consolidation calculator: every debt modeled separately, comparing staying put, a consolidation loan and a balance transfer — honestly.",
   keywords: [
     "debt consolidation calculator",
     "consolidation loan calculator",

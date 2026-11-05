@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import QrGenerator from "./QrGenerator";
 
 export const metadata = {
-  title: "Générateur de QR Code Gratuit — URL, WiFi, vCard, Virement SEPA | Frinjo",
+  title: "Générateur de QR Code Gratuit — SEPA",
   description:
-    "Générateur de QR code gratuit et sans filigrane : liens, texte, WiFi, contacts vCard, WhatsApp, e-mail, téléphone et QR de virement SEPA pour vos factures. Téléchargement PNG haute résolution ou SVG vectoriel, sans inscription.",
+    "Générateur de QR code gratuit et sans filigrane : URL, WiFi, vCard, WhatsApp et virement SEPA pour factures. PNG 1024 px ou SVG, sans inscription.",
   keywords: [
     "générateur de qr code",
     "créer un qr code gratuit",

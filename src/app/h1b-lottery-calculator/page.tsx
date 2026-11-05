@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import H1bLotteryCalculator from "./H1bLotteryCalculator";
 
 export const metadata = {
-  title: "H-1B Lottery Calculator — Selection Odds by Wage Level (FY2027)",
+  title: "H-1B Lottery Calculator — FY2027 Odds",
   description:
-    "Free H-1B lottery calculator: estimate your selection chance under the wage-weighted lottery by DOL prevailing wage level — Level I ~15%, II ~30%, III ~45%, IV ~61% — based on official FY2027 USCIS data (211,600 registrations, ~40% overall).",
+    "Free H-1B lottery calculator: your selection odds by wage level under the FY2027 wage-weighted lottery — Level I ~15% to Level IV ~61% (USCIS data).",
   keywords: [
     "h1b lottery calculator",
     "h-1b lottery odds",
@@ -67,6 +67,14 @@ const FAQS: [string, string][] = [
   [
     "Is the H-1B Lottery Calculator free?",
     "Yes, completely free with no sign-up. Everything runs in your browser; nothing is stored. The odds are estimates from DHS FY2027 projections — general information, not legal advice.",
+  ],
+  [
+    "Can my employer submit multiple registrations to raise my odds?",
+    "No — and it can backfire. The system is beneficiary-centric: each person gets one registration per employer, and duplicate registrations for the same beneficiary are invalidated rather than stacked. The legitimate lever is the wage level on the single registration, which is exactly what this calculator models with its one-to-four entry weighting.",
+  ],
+  [
+    "How do I know which wage level my job is?",
+    "The level comes from the Department of Labor's OEWS prevailing wage for your occupation code and work location — the figure your employer uses on the Labor Condition Application. Level I is entry-level and Level IV is fully competent, expert work. Your job title alone does not set it; the same role prices at different levels in different cities.",
   ],
 ];
 
@@ -130,6 +138,45 @@ export default function H1bLotteryPage() {
             Prefer email? <a href="mailto:neilsonsmarry@gmail.com" className="font-semibold text-orange-700 hover:text-orange-800">neilsonsmarry@gmail.com</a>
             {" "}· Or browse our <Link href="/services" className="font-semibold text-orange-700 hover:text-orange-800">services</Link> and <Link href="/tools" className="font-semibold text-orange-700 hover:text-orange-800">free tools</Link>.
           </p>
+        </div>
+      </section>
+
+      {/* HOW IT WORKS */}
+      <section className="py-16 sm:py-20 bg-white border-t border-stone-100">
+        <div className="max-w-4xl mx-auto px-4">
+          <SectionHead
+            eyebrow="How it works"
+            title="Entries, not luck, set the odds"
+            sub="The percentage is a lookup from the FY2027 weighted pool — your wage level is the whole calculation."
+          />
+          <div className="text-left">
+            <p className="text-stone-600 leading-relaxed">
+              This calculator is a lookup, not a simulation. Under the FY2027 system USCIS runs the
+              lottery as a weighted pool: a registration at wage Level I enters once, Level II twice,
+              Level III three times and Level IV four times. The chances shown — about 15%, 30%, 45%
+              and 61% — are the DHS projections for those entry counts against the FY2027 field of
+              211,600 registrations chasing an 85,000 cap, which is why the overall rate landed near
+              40% (211,600 × 40% ≈ 84,640, effectively the cap). The advanced-degree toggle changes
+              only the guidance note under the result, never the percentage.
+            </p>
+            <div className="mt-8 rounded-2xl bg-orange-50 border border-orange-100 p-6 sm:p-8">
+              <h3 className="font-display text-xl font-bold text-stone-900 mb-3">Worked example: what three attempts are worth</h3>
+              <p className="text-stone-600 leading-relaxed">
+                Treat each year&apos;s lottery as independent and the maths compounds. At Level
+                II&apos;s 30%, the chance of missing all three of three attempts is 0.7 × 0.7 × 0.7 =
+                0.343, so the chance of at least one selection is 1 − 0.343 = 65.7%. At Level I the
+                same sum runs 0.85 × 0.85 × 0.85 = 0.614, giving just a 38.6% chance across three
+                attempts. One wage level, held over three years, beats the extra attempts — assuming, as
+                any projection must, that future odds resemble FY2027&apos;s.
+              </p>
+            </div>
+            <h3 className="mt-8 font-display text-xl font-bold text-stone-900 mb-3">Three misreadings of the odds</h3>
+            <ul className="space-y-2 text-stone-600 leading-relaxed list-disc pl-5">
+              <li>Assuming a master&apos;s degree adds entries. It does not — entries come only from wage level. The degree helps through the separate 20,000 advanced-degree slots inside the cap, a different mechanism.</li>
+              <li>Reading 61% as a promise. The figures are projections from one year&apos;s field; a surge in Level IV filings next year would dilute the same four entries.</li>
+              <li>Comparing wage levels across cities. The level is priced from the prevailing wage where the job sits, so one salary can be Level II in one metro and Level III in another — check the level on the offer itself.</li>
+            </ul>
+          </div>
         </div>
       </section>
 

@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import Ir35Calculator from "./Ir35Calculator";
 
 export const metadata = {
-  title: "IR35 Calculator 2026/27 — Inside vs Outside IR35 Take-Home Pay",
+  title: "IR35 Calculator 2026/27 — Take-Home Pay",
   description:
-    "Free IR35 calculator for 2026/27. Enter your day rate to see inside-IR35 take-home pay after employer NI, the skills levy, PAYE tax and employee NI — and how outside IR35 compares. Every deduction line by line.",
+    "Free IR35 calculator for 2026/27: enter your day rate for inside vs outside IR35 take-home pay after employer NI, the levy, PAYE and employee NI.",
   keywords: [
     "ir35 calculator",
     "inside ir35 calculator",
@@ -67,6 +67,14 @@ const FAQS: [string, string][] = [
   [
     "Is the IR35 Calculator free?",
     "Yes, completely free with no sign-up. Everything is calculated in your browser; nothing is stored. Results are estimates on the deemed-employment model — confirm your position with a qualified accountant.",
+  ],
+  [
+    "Does the calculator deduct student loan repayments or pension contributions?",
+    "No. It models the deemed-employment deductions only — employer NI, the skills levy, PAYE income tax and employee NI. Student loan repayments, pension contributions and umbrella company margins would all reduce take-home further, so treat the result as the figure before those items.",
+  ],
+  [
+    "Why is my first inside-IR35 payslip lower than the calculator suggests?",
+    "Usually timing, not maths. The calculator spreads deductions evenly across the year on a cumulative basis, while a first payslip can carry an emergency or month-one tax code, a part-month rate, or umbrella fees taken in one go. Compare a full month on a standard code before worrying.",
   ],
 ];
 
@@ -130,6 +138,36 @@ export default function Ir35Page() {
             Prefer email? <a href="mailto:neilsonsmarry@gmail.com" className="font-semibold text-orange-700 hover:text-orange-800">neilsonsmarry@gmail.com</a>
             {" "}· Or browse our <Link href="/services" className="font-semibold text-orange-700 hover:text-orange-800">services</Link> and <Link href="/tools" className="font-semibold text-orange-700 hover:text-orange-800">free tools</Link>.
           </p>
+        </div>
+      </section>
+
+      {/* HOW IT WORKS */}
+      <section className="py-16 sm:py-20 bg-white border-t border-stone-100">
+        <div className="max-w-3xl mx-auto px-4">
+          <SectionHead eyebrow="How it works" title="How the IR35 calculation actually runs" />
+          <div className="space-y-5 text-stone-600 leading-relaxed">
+            <p>
+              The calculator follows the deemed-employment order the fee payer must use. First it builds
+              the contract value — day rate × days per week × weeks per year. Employer National Insurance
+              (15% of everything above £5,000) and the 0.5% skills levy are then taken out of that assignment
+              rate, and what remains is your deemed salary. Only then are PAYE income tax — on the 2026/27
+              bands, with the personal allowance tapering away above £100,000 — and employee National
+              Insurance (8% between £12,570 and £50,270, then 2%) deducted from the deemed salary.
+            </p>
+            <p>
+              <strong className="text-stone-900">Worked example:</strong> a £400 day rate, 5 days a week
+              for 46 weeks, is a £92,000 contract. Employer NI is 15% of £87,000 — £13,050 — and the levy
+              is £460, leaving a deemed salary of £78,490. Income tax on that is £18,828 (£7,540 at 20% on
+              the first £37,700 of taxable pay, plus £11,288 at 40% on the next £28,220), and employee NI
+              is £3,580. Take-home: £56,082 — 61.0% of the contract, an effective £244 a day.
+            </p>
+            <p>
+              Two mistakes distort most estimates. Comparing inside and outside rates pound-for-pound — the
+              outside figure is the gross contract value before corporation tax and dividends, not
+              take-home. And assuming a full 52 weeks: holidays and gaps are exactly why the default here
+              is 46.
+            </p>
+          </div>
         </div>
       </section>
 

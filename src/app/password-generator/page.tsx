@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import PasswordGen from "./PasswordGen";
 
 export const metadata = {
-  title: "Password Generator — Strong Random Passwords (CSPRNG, Nothing Stored)",
+  title: "Password Generator — Strong & Random",
   description:
-    "Free password generator using your browser's cryptographic random source — no bias, nothing sent or stored. Choose length and character sets, exclude look-alike characters, and see the real entropy in bits. Unique passwords, generated locally.",
+    "Free password generator: strong random passwords from your browser's crypto engine (CSPRNG), with real entropy in bits. Nothing sent or stored.",
   keywords: [
     "password generator",
     "strong password generator",
@@ -71,6 +71,14 @@ const FAQS: [string, string][] = [
     "Is the Password Generator free?",
     "Yes, completely free with no sign-up. Nothing you generate is stored, sent, or logged.",
   ],
+  [
+    "What does 'bits of entropy' actually mean in practice?",
+    "It counts the combinations an attacker must search. A password with B bits of entropy has 2^B possible values, and each additional bit doubles the work. Around 80 bits is beyond a hobbyist rig, and the 126-bit default here is beyond any realistic brute-force attempt — guessing the password is no longer the weak link.",
+  ],
+  [
+    "Why does the generator guarantee one character from each set?",
+    "Pure chance can leave a set out entirely — a 20-character password drawn from 80 characters could, rarely, contain no digit at all, and some sites would reject it. The generator first fills every position randomly, then overwrites random positions with one character from each selected set, so the password always passes composition rules.",
+  ],
 ];
 
 const faqJsonLd = {
@@ -130,6 +138,36 @@ export default function PasswordGenPage() {
             Prefer email? <a href="mailto:neilsonsmarry@gmail.com" className="font-semibold text-orange-700 hover:text-orange-800">neilsonsmarry@gmail.com</a>
             {" "}· Or browse our <Link href="/services" className="font-semibold text-orange-700 hover:text-orange-800">services</Link> and <Link href="/tools" className="font-semibold text-orange-700 hover:text-orange-800">free tools</Link>.
           </p>
+        </div>
+      </section>
+
+      <section className="py-16 sm:py-20 bg-white border-t border-stone-100">
+        <div className="max-w-3xl mx-auto px-4">
+          <SectionHead eyebrow="How it works" title="How the generator picks every character" />
+          <div className="space-y-5 text-stone-600 leading-relaxed">
+            <p>
+              Each character position is filled from your browser&apos;s cryptographic random source
+              (crypto.getRandomValues). A byte is only used when it falls below the largest multiple of the
+              character-set size that fits in 256 — anything above that limit is rejected and redrawn. That
+              rejection sampling is what removes modulo bias, so every character in the set is exactly
+              equally likely. The generator also guarantees at least one character from every set you have
+              switched on.
+            </p>
+            <p>
+              <strong className="text-stone-900">Worked example:</strong> with the defaults — 20 characters,
+              all four sets on, look-alikes excluded — the character set has 23 lowercase + 23 uppercase +
+              8 digits + 26 symbols = 80 characters. Entropy is length × log₂(charset) = 20 × log₂(80)
+              ≈ 20 × 6.32 ≈ 126 bits, the number printed beside the password. Every extra character adds
+              about 6.3 bits; every extra bit doubles the guesses an attacker needs.
+            </p>
+            <p>
+              Three habits undo a strong generator. Reusing the password — one breach then unlocks every
+              account (generate a fresh one per account and keep them in a password manager). Shortening it
+              to satisfy a site&apos;s minimum — length matters more than tricks, so keep the length and
+              drop symbols if a form rejects them. And typing a long password by hand — that is what the
+              no-look-alikes mode and the copy button are for.
+            </p>
+          </div>
         </div>
       </section>
 

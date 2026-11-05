@@ -4,9 +4,9 @@ import IvaCalculator from "./IvaCalculator";
 import { COUNTRY_PRESETS } from "./calc";
 
 export const metadata = {
-  title: "Calculadora de IVA 2026 — España, México y Latinoamérica | Frinjo",
+  title: "Calculadora de IVA 2026 — España y México",
   description:
-    "Calculadora de IVA gratuita para España, México, Colombia, Argentina, Chile, Perú y más: factura con varias líneas, tipos por país, retenciones de ISR e IVA, modo añadir o quitar el impuesto y total en letra. Sin registro.",
+    "Calculadora de IVA gratis para 11 países: añade o quita el IVA en facturas multilínea, con retenciones y total en letra. España, México y más.",
   keywords: [
     "calculadora de IVA",
     "calcular IVA",

@@ -2,9 +2,9 @@ import Link from "next/link";
 import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 
 export const metadata = {
-  title: "F1 Visa Interview Questions & Guide 2026 — Questions, Tips & Answers",
+  title: "F1 Visa Interview Questions & Guide 2026",
   description:
-    "Prepare for your F1 student visa interview: the five question groups officers actually use — university choice, study plans, finances, home ties, post-graduation plans — with sample questions and 10 practical tips.",
+    "F1 visa interview questions for 2026: the 5 question groups officers use, sample answers, and 10 practical tips on finances and home ties. Free.",
   keywords: [
     "f1 visa interview questions",
     "f1 visa interview",
@@ -54,6 +54,19 @@ const FAQS: [string, string][] = [
     "About 20–30 seconds per question: short, direct and confident. Long stories sound rehearsed or evasive, and guessing at an answer is far worse than honestly saying you don't know.",
   ],
 ];
+
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "F1 Visa Interview Questions & Guide 2026 — Questions, Tips & Answers",
+  url: "https://frinjo.me/f1-visa-interview-questions",
+  mainEntityOfPage: "https://frinjo.me/f1-visa-interview-questions",
+  inLanguage: "en",
+  author: { "@type": "Organization", name: "WebStore Pro", url: "https://frinjo.me" },
+  publisher: { "@type": "Organization", name: "WebStore Pro", url: "https://frinjo.me" },
+  description:
+    "Prepare for your F1 student visa interview: the five question groups consular officers actually use — university choice, study plans, finances, home ties, post-graduation plans — with sample questions and 10 practical tips.",
+};
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -137,6 +150,7 @@ export default function F1VisaInterviewPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       {/* HERO */}

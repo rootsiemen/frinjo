@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import JoursCalculator from "./JoursCalculator";
 
 export const metadata = {
-  title: "Jours Entre Deux Dates — Ouvrés, Ouvrables et Jours Fériés | Frinjo",
+  title: "Jours Entre Deux Dates — Ouvrés, Fériés",
   description:
-    "Calculez le nombre de jours entre deux dates avec les jours ouvrés, les jours ouvrables ET le calendrier complet des jours fériés français (fêtes mobiles incluses : lundi de Pâques, Ascension, Pentecôte). Gratuit, sans inscription.",
+    "Jours entre deux dates, gratuit : jours ouvrés et ouvrables avec le calendrier complet des jours fériés français, fêtes mobiles incluses.",
   keywords: [
     "jours entre deux dates",
     "calculer le nombre de jours entre deux dates",

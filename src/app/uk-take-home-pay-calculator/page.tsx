@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import UkTakeHomeCalculator from "./UkTakeHomeCalculator";
 
 export const metadata = {
-  title: "UK Take-Home Pay Calculator 2026/27 — Income Tax & National Insurance",
+  title: "UK Take-Home Pay Calculator 2026/27",
   description:
-    "Free UK take-home pay calculator for 2026/27. Enter your salary or hourly rate to get income tax, employee National Insurance and net pay — yearly, monthly and weekly. England, Wales, NI and Scotland.",
+    "Free UK take-home pay calculator for 2026/27: income tax and National Insurance on your salary — yearly, monthly and weekly net pay, incl. Scotland.",
   keywords: [
     "uk take home pay calculator",
     "take home pay calculator 2026/27",
@@ -72,6 +72,14 @@ const FAQS: [string, string][] = [
     "Is the UK Take-Home Pay Calculator free?",
     "Yes, completely free with no sign-up. Everything is calculated in your browser; nothing is stored. It assumes a standard 1257L tax code with no pension or student loan deductions.",
   ],
+  [
+    "What is the take-home pay on a £30,000 salary?",
+    "£25,120 a year in England, Wales or Northern Ireland: income tax is 20% of the £17,430 above the £12,570 personal allowance (£3,486), and National Insurance is 8% of the same slice (£1,394) — leaving £2,093 a month. Scotland's bands change the tax line slightly on the same salary.",
+  ],
+  [
+    "Why is my payslip different from this calculator's result?",
+    "Because real payslips carry deductions this calculator leaves out by design: pension contributions, student loan repayments, salary-sacrifice schemes and anything under a non-standard tax code. It assumes the standard 1257L code, so use its figure as the clean baseline — every extra deduction on your payslip should be explainable line by line against it.",
+  ],
 ];
 
 const faqJsonLd = {
@@ -134,6 +142,44 @@ export default function UkTakeHomePayPage() {
             Prefer email? <a href="mailto:neilsonsmarry@gmail.com" className="font-semibold text-orange-700 hover:text-orange-800">neilsonsmarry@gmail.com</a>
             {" "}· Or browse our <Link href="/services" className="font-semibold text-orange-700 hover:text-orange-800">services</Link> and <Link href="/tools" className="font-semibold text-orange-700 hover:text-orange-800">free tools</Link>.
           </p>
+        </div>
+      </section>
+
+      {/* HOW IT WORKS */}
+      <section className="py-16 sm:py-20 bg-white border-t border-stone-100">
+        <div className="max-w-4xl mx-auto px-4">
+          <SectionHead
+            eyebrow="How it works"
+            title="Band by band, never one flat rate"
+            sub="Your salary is taxed in slices — the allowance first, then each band in turn."
+          />
+          <div className="text-left">
+            <p className="text-stone-600 leading-relaxed">
+              The calculator never taxes your whole salary at a single rate. It first removes your
+              personal allowance — £12,570, reduced by £1 for every £2 earned above £100,000 — then
+              taxes what remains slice by slice: in England, Wales and Northern Ireland, 20% on the
+              first £37,700 of taxable income, 40% on the next £74,870 and 45% beyond. National
+              Insurance runs on gross pay alongside: nothing below £12,570, then 8% up to £50,270 and
+              2% above. Scotland keeps the same allowance and NI but swaps in six bands, from 19% to 48%.
+            </p>
+            <div className="mt-8 rounded-2xl bg-orange-50 border border-orange-100 p-6 sm:p-8">
+              <h3 className="font-display text-xl font-bold text-stone-900 mb-3">Worked example: a £35,000 salary, both regions</h3>
+              <p className="text-stone-600 leading-relaxed">
+                Taxable income is £35,000 − £12,570 = £22,430, all inside the basic band, so income tax
+                is 20% × £22,430 = £4,486 and National Insurance is 8% × £22,430 = £1,794. Net pay:
+                £35,000 − £4,486 − £1,794 = £28,720 a year, £2,393 a month. In Scotland the same salary
+                pays £4,501 of tax — the 19% starter band helps before the 21% intermediate band bites
+                — leaving £28,705: fifteen pounds a year apart, from bands alone.
+              </p>
+            </div>
+            <h3 className="mt-8 font-display text-xl font-bold text-stone-900 mb-3">Two traps to know</h3>
+            <p className="text-stone-600 leading-relaxed">
+              The hourly mode annualises as rate × hours × 52, so it assumes pay for all 52 weeks — a
+              contract with unpaid breaks lands lower. And crossing £50,270 flips your marginal rate
+              from 28% (20% tax + 8% NI) to 42% (40% tax + 2% NI), so a small rise over the line is
+              taxed harder than the same rise below it.
+            </p>
+          </div>
         </div>
       </section>
 

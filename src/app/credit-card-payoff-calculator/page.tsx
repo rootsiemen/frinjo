@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import CreditCardPayoffCalculator from "./CreditCardPayoffCalculator";
 
 export const metadata = {
-  title: "Credit Card Payoff Calculator — Avalanche vs Snowball | Frinjo",
+  title: "Credit Card Payoff Calculator — Avalanche",
   description:
-    "Free credit card payoff calculator: multiple cards, real issuer minimum-payment formulas, avalanche vs snowball on one budget, and the minimum-payment trap priced out in months and interest. No sign-up.",
+    "Free credit card payoff calculator: avalanche vs snowball across all your cards, real issuer minimum formulas, and the minimum-payment trap priced.",
   keywords: [
     "credit card payoff calculator",
     "credit card debt payoff calculator",

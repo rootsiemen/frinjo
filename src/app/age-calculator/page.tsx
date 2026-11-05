@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import AgeCalc from "./AgeCalc";
 
 export const metadata = {
-  title: "Age Calculator — Exact Age with Live Seconds, Generation & Chinese Zodiac",
+  title: "Age Calculator — Exact Age, Live Seconds",
   description:
-    "Free age calculator that does everything in one place: exact age in years, months, days — ticking live in hours, minutes and seconds — with time-of-birth support, next birthday countdown, half birthday, generation, correct Chinese zodiac (real Lunar New Year), and an age-difference tool. No sign-up.",
+    "Free age calculator: your exact age in years, months and days — ticking live in seconds — plus next birthday countdown, generation and Chinese zodiac.",
   keywords: ["age calculator", "how old am i", "exact age calculator", "age difference calculator", "birthday countdown", "chinese zodiac calculator"],
   alternates: { canonical: "https://frinjo.me/age-calculator" },
   openGraph: {

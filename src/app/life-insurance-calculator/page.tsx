@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import LifeInsuranceCalculator from "./LifeInsuranceCalculator";
 
 export const metadata = {
-  title: "Life Insurance Needs Calculator — DIME, No Lead Form | Frinjo",
+  title: "Life Insurance Calculator — DIME Needs",
   description:
-    "Free life insurance needs calculator using the DIME method with the offsets others skip — spouse income, Social Security survivor benefits, stay-at-home parent value — compared with HLV and the 10× rule. No sign-up, no agent, no lead form.",
+    "Free life insurance calculator: how much cover you need by the DIME method — with spouse income and survivor benefits counted. No lead form.",
   keywords: [
     "life insurance needs calculator",
     "how much life insurance do i need calculator",

@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import MortgagePayoffCalculator from "./MortgagePayoffCalculator";
 
 export const metadata = {
-  title: "Mortgage Payoff Calculator — PMI Drop-Off & Debt-Free Date | Frinjo",
+  title: "Mortgage Payoff Calculator — Debt-Free Date",
   description:
-    "Free mortgage payoff calculator with the PMI drop-off date, biweekly payments and a debt-free-by-date solver: see when extra principal makes you mortgage-free and what it saves. No sign-up.",
+    "Free mortgage payoff calculator: your debt-free date with extra principal or biweekly payments, the PMI drop-off date, and interest saved.",
   keywords: [
     "mortgage payoff calculator",
     "mortgage payoff calculator with extra payments",

@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import Percentage from "./Percentage";
 
 export const metadata = {
-  title: "Percentage Calculator — % of a Number, Increase, Decrease & Reverse",
+  title: "Percentage Calculator — 5 Modes, Free",
   description:
-    "Free percentage calculator with all five modes on one page: what is X% of Y, X is what % of Y, percentage increase/decrease between two numbers, apply a % increase or discount, and reverse percentages. Instant, no sign-up.",
+    "Free percentage calculator with 5 modes: % of a number, % increase and decrease, discounts and reverse percentages — formula shown under each result.",
   keywords: [
     "percentage calculator",
     "percentage increase calculator",

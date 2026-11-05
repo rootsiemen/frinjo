@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import AffordabilityCalculator from "./AffordabilityCalculator";
 
 export const metadata = {
-  title: "Home Affordability Calculator — How Much House Can I Afford? | Frinjo",
+  title: "Home Affordability Calculator — By Income",
   description:
-    "Free home affordability calculator with Conventional, FHA and VA ratio presets (28/36, 31/43), property tax, insurance, HOA and PMI built in — plus a reverse mode that shows the income a home price needs. No sign-up.",
+    "Free home affordability calculator: how much house your income supports with Conventional, FHA and VA presets — tax, insurance, HOA and PMI in.",
   keywords: [
     "home affordability calculator",
     "how much house can i afford",

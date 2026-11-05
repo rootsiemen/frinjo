@@ -5,9 +5,9 @@ import AutomationDemo from "./AutomationDemo";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Business Automation Services — n8n Workflows, AI Chatbots & CRM Integration",
+  title: "Business Automation Services — n8n & AI",
   description:
-    "Business automation services: n8n workflows, AI chatbots, GoHighLevel CRM integration, WhatsApp automation and reporting dashboards. Save 10+ hours every week — see a live demo.",
+    "Business automation services that save 10+ hours a week: n8n workflows, AI chatbots, GoHighLevel CRM and WhatsApp automation. See a live demo.",
   keywords: [
     "business automation services",
     "n8n workflow automation",
@@ -25,6 +25,15 @@ export const metadata = {
     url: "https://frinjo.me/automations",
     type: "website",
   },
+};
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://frinjo.me/" },
+    { "@type": "ListItem", position: 2, name: "Business Automations", item: "https://frinjo.me/automations" },
+  ],
 };
 
 const faqJsonLd = {
@@ -238,6 +247,7 @@ const FAQS: [string, string][] = [
 export default function AutomationsPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       {/* HERO */}

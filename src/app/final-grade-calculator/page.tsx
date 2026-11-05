@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import FinalGrade from "./FinalGrade";
 
 export const metadata = {
-  title: "Final Grade Calculator — What Do I Need on the Final Exam?",
+  title: "Final Grade Calculator — Score You Need",
   description:
-    "Free final grade calculator: enter your current grade, the grade you want, and how much the final is worth to see exactly what you need to score — plus the reverse: what grade a given final score gives you. Honest verdicts, no sign-up.",
+    "Free final grade calculator: enter your current grade, target grade and final exam weight to see exactly what you need to score. Honest verdicts.",
   keywords: [
     "final grade calculator",
     "what do i need on my final",
@@ -71,6 +71,14 @@ const FAQS: [string, string][] = [
     "Is the Final Grade Calculator free?",
     "Yes, completely free with no sign-up. Your grades are calculated in your browser and never stored.",
   ],
+  [
+    "What score do I need just to keep my current grade?",
+    "Exactly your current average. Setting the desired grade equal to your current grade makes the formula return that same number: with a current grade of 85% and a final worth 30%, you need (85 − 85 × 0.7) ÷ 0.3 = 85%. Score above your average and the grade rises; below it, it falls.",
+  ],
+  [
+    "Does a heavily weighted final help me or hurt me?",
+    "It amplifies whichever way your final score compares with your current average. If you expect to score above your average, a heavier final pulls your grade up more; if you expect to score below it, the same weight drags it down more. The weight itself is neutral — the gap between the two numbers decides.",
+  ],
 ];
 
 const faqJsonLd = {
@@ -133,6 +141,37 @@ export default function FinalGradePage() {
             Prefer email? <a href="mailto:neilsonsmarry@gmail.com" className="font-semibold text-orange-700 hover:text-orange-800">neilsonsmarry@gmail.com</a>
             {" "}· Or browse our <Link href="/services" className="font-semibold text-orange-700 hover:text-orange-800">services</Link> and <Link href="/tools" className="font-semibold text-orange-700 hover:text-orange-800">free tools</Link>.
           </p>
+        </div>
+      </section>
+
+      {/* HOW IT WORKS */}
+      <section className="py-16 sm:py-20 bg-white border-t border-stone-100">
+        <div className="max-w-3xl mx-auto px-4">
+          <SectionHead eyebrow="How it works" title="The maths behind the number you need" />
+          <div className="space-y-5 text-stone-600 leading-relaxed">
+            <p>
+              Your course grade is a weighted average of two parts: the work already done, worth
+              (1 − weight), and the final exam, worth its weight. The calculator solves that average
+              backwards. To find the score you need it uses: needed = (desired − current × (1 − weight))
+              ÷ weight. The second box runs the same average forwards — current × (1 − weight) + your
+              expected final score × weight — and converts the result to a letter grade on the common US
+              scale.
+            </p>
+            <p>
+              <strong className="text-stone-900">Worked example:</strong> you are on 78%, you want 85%, and
+              the final is worth 40%. Needed = (85 − 78 × 0.6) ÷ 0.4 = (85 − 46.8) ÷ 0.4 = 38.2 ÷ 0.4 =
+              95.5% — a near-perfect paper, which is how the calculator labels it. The forwards check shows
+              the cost of falling short: score 80% instead and your course grade is 78 × 0.6 + 80 × 0.4 =
+              78.8%, a C+.
+            </p>
+            <p>
+              Three input mistakes explain most surprising results. Using a current grade that already
+              includes the final — it must be your average before the final. Entering the final&apos;s
+              points instead of its percentage weight (200 of 1,000 points is 20%, not 200). And trusting
+              the percentage while ignoring your school&apos;s letter cut-offs, which vary — the percentage
+              maths is exact either way.
+            </p>
+          </div>
         </div>
       </section>
 

@@ -4,9 +4,9 @@ import CountdownTimer from "./CountdownTimer";
 import { TIMER_PRESETS } from "./presets";
 
 export const metadata = {
-  title: "Countdown Timer — Free Online Timer with Alarm (1–60 Minutes)",
+  title: "Countdown Timer — Free Online Timer + Alarm",
   description:
-    "Free online countdown timer with an alarm: set any duration or pick a preset — 1, 5, 10, 25 (Pomodoro) or 60 minutes. The countdown shows in the tab title, works in the background, and rings when time is up. No sign-up.",
+    "Free countdown timer with alarm: set any duration or pick a preset (1–60 min, incl. 25-min Pomodoro). Shows in the tab title, rings at zero.",
   keywords: [
     "countdown timer",
     "online timer",

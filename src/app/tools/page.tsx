@@ -2,9 +2,9 @@ import Link from "next/link";
 import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 
 export const metadata = {
-  title: "Free Tools — BotView, Keyword Traffic Checker, SEO Agent Kit & More",
+  title: "Free Tools — Online Calculators & Checkers",
   description:
-    "All of WebStore Pro's free tools in one place: BotView (SEO, AEO & GEO checker), Keyword Traffic Checker (keyword difficulty & competition), IP Address Tracker (what is my IP, anonymity & leak checks), Sun, Moon & Rising Calculator (your astrology Big Three), SEO Agent Kit, Temp Mail and PlayZone. Free, no sign-up.",
+    "100+ free online tools: SEO checkers (BotView, Keyword Traffic Checker), calculators, generators and the IP Address Tracker. Free, no sign-up.",
   keywords: [
     "free seo tools",
     "botview",
@@ -399,6 +399,15 @@ const collectionJsonLd = {
   },
 };
 
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://frinjo.me/" },
+    { "@type": "ListItem", position: 2, name: "Free Tools", item: "https://frinjo.me/tools" },
+  ],
+};
+
 const FAQS: [string, string][] = [
   [
     "Are these tools really free?",
@@ -411,6 +420,18 @@ const FAQS: [string, string][] = [
   [
     "Do the tools store my data?",
     "BotView and the Keyword Traffic Checker generate their reports live from public data and do not require an account. Temp Mail inboxes are disposable by design.",
+  ],
+  [
+    "Do I need an account to use these tools?",
+    "No. Every calculator, checker and generator here works without an account, and most of them run entirely in your browser — the numbers, text and files you enter never leave your device. Nothing to install, nothing to sign up for.",
+  ],
+  [
+    "How many free tools are there?",
+    "More than 100 tool pages: 50+ calculators, checkers and generators in English, 8 tools in Spanish and 8 in French, plus a dedicated page for every popular hourly wage ($12–$100 an hour) and preset timer pages from 1 to 60 minutes. All of them are free.",
+  ],
+  [
+    "Can I use these tools in my business or classroom?",
+    "Yes — they are free for personal, classroom and commercial use. Teachers run the grade calculators, test-score grader and dice roller; businesses check keywords and audit their sites with the SEO tools; and anyone can link to a tool from their own site. If you want a custom tool built for your own website, that is what WebStore Pro does for clients.",
   ],
 ];
 
@@ -431,6 +452,7 @@ export default function ToolsPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       {/* HERO */}

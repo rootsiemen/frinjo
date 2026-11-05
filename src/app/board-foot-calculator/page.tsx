@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import BoardFoot from "./BoardFoot";
 
 export const metadata = {
-  title: "Board Foot Calculator — Lumber BF with Nominal vs Actual Sizes",
+  title: "Board Foot Calculator — Lumber BF Math",
   description:
-    "Free board foot calculator: thickness × width × length ÷ 144, with quantity and price per board foot — plus one-tap nominal-to-actual lumber sizes (a 2×4 is really 1.5×3.5) so the count you pay for is honest. No sign-up.",
+    "Free board foot calculator: thickness × width × length ÷ 144, with quantity and price per board foot — and the nominal vs actual sizes (2×4 = 1.5×3.5).",
   keywords: ["board foot calculator", "board feet calculator", "lumber calculator", "how to calculate board feet", "bf calculator"],
   alternates: { canonical: "https://frinjo.me/board-foot-calculator" },
   openGraph: {

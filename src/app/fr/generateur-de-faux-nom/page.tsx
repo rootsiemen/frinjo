@@ -5,9 +5,9 @@ import FauxNom from "./FauxNom";
 const SELF = "https://frinjo.me/fr/generateur-de-faux-nom";
 
 export const metadata = {
-  title: "Générateur de Faux Nom — Fausse Identité de Test | Frinjo",
+  title: "Générateur de Faux Nom — Identité Test",
   description:
-    "Générez de fausses identités complètes et gratuites pour vos tests : nom, adresse, téléphone, e-mail, nom d'utilisateur, mot de passe, date de naissance, profession et entreprise pour la France, la Belgique, la Suisse et le Québec. Jusqu'à 100 par lot, export CSV/JSON, aucune limite quotidienne.",
+    "Générateur de faux nom gratuit : identités de test complètes pour la France, la Belgique, la Suisse et le Québec. Jusqu'à 100 par lot, export CSV/JSON.",
   keywords: ["générateur de faux nom", "fausse identité", "générateur de nom aléatoire", "faux nom", "données de test", "générateur de personne fictive"],
   alternates: {
     canonical: SELF,

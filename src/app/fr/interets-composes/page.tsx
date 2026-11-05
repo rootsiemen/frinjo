@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import InteretsCalculator from "./InteretsCalculator";
 
 export const metadata = {
-  title: "Intérêts Composés — Calculatrice avec Versements Mensuels | Frinjo",
+  title: "Intérêts Composés — Versements Mensuels",
   description:
-    "Calculatrice d'intérêts composés gratuite : capital initial, versements mensuels, capitalisation mensuelle, trimestrielle ou annuelle, graphique année par année et valeur réelle après inflation. Presets Livret A, assurance-vie et PEA. Sans inscription.",
+    "Calculatrice d'intérêts composés gratuite : versements mensuels, capitalisation mensuelle à annuelle, valeur réelle après inflation. Sans inscription.",
   keywords: [
     "intérêts composés",
     "calculatrice intérêts composés",

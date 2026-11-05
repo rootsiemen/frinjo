@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import SalaireCalculator from "./SalaireCalculator";
 
 export const metadata = {
-  title: "Salaire Brut en Net 2026 — Convertisseur Gratuit | Frinjo",
+  title: "Salaire Brut en Net 2026 — Gratuit",
   description:
-    "Convertissez votre salaire brut en net instantanément : salarié non-cadre, cadre ou fonction publique, net avant et après impôt (prélèvement à la source), par mois et par an. Gratuit, sans inscription, calcul dans votre navigateur.",
+    "Salaire brut en net, gratuit et instantané : non-cadre (22 %), cadre (25 %) ou fonction publique (17 %), avant et après impôt, par mois et par an.",
   keywords: [
     "salaire brut en net",
     "brut en net",

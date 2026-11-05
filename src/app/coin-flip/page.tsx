@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import CoinFlip from "./CoinFlip";
 
 export const metadata = {
-  title: "Coin Flip — Flip 1–3 Coins, Best-Of Races, Batch Flips & Custom Labels",
+  title: "Coin Flip — Flip 1–3 Coins Online Free",
   description:
-    "Free online coin flip with what others don't combine: flip up to 3 real coins side by side, name the sides to decide anything, run best-of races, flip 10/100/1,000 at once with percentages, and keep a saved history. Crypto-fair 50/50. No sign-up.",
+    "Free coin flip: flip 1–3 coins, name the sides to decide anything, race best-of formats, or flip 1,000 at once with percentages. Crypto-fair 50/50.",
   keywords: ["coin flip", "flip a coin", "heads or tails", "online coin flip", "coin flipper", "decision maker coin"],
   alternates: { canonical: "https://frinjo.me/coin-flip" },
   openGraph: {
@@ -63,6 +63,14 @@ const FAQS: [string, string][] = [
   [
     "Is the Coin Flip free?",
     "Yes, completely free with no sign-up. Your flip history is saved only in your own browser.",
+  ],
+  [
+    "What are the odds of getting heads five times in a row?",
+    "Each flip is independent at 1 in 2, so five in a row is (1/2)⁵ — 1 in 32, about 3.1%. The same applies to any exact sequence of five, including HTHTH. A specific streak is rare, but some streak or pattern is guaranteed in every long run of flips.",
+  ],
+  [
+    "How can I fairly pick between three options with a coin?",
+    "Flip two coins: they give four equally likely outcomes — HH, HT, TH, TT. Assign one outcome to each of your three options and treat the fourth as 'flip again'. Ignoring and reflipping the spare outcome keeps the three real options exactly equally likely, with no maths fudging.",
   ],
 ];
 
@@ -123,6 +131,33 @@ export default function CoinFlipPage() {
             Prefer email? <a href="mailto:neilsonsmarry@gmail.com" className="font-semibold text-orange-700 hover:text-orange-800">neilsonsmarry@gmail.com</a>
             {" "}· Also: <Link href="/dice-roller" className="font-semibold text-orange-700 hover:text-orange-800">Dice Roller</Link> and <Link href="/random-number-generator" className="font-semibold text-orange-700 hover:text-orange-800">Random Number Generator</Link>.
           </p>
+        </div>
+      </section>
+
+      <section className="py-16 sm:py-20 bg-white border-t border-stone-100">
+        <div className="max-w-3xl mx-auto px-4">
+          <SectionHead eyebrow="How it works" title="How the flip stays fair — and how to count the odds" />
+          <div className="space-y-5 text-stone-600 leading-relaxed">
+            <p>
+              Every flip asks the Web Crypto API for a 32-bit random value and maps it to 0 or 1 with
+              rejection sampling — values in the tiny uneven remainder at the top of the range are discarded
+              and redrawn, so heads and tails are exactly equally likely. Each coin in a multi-coin flip is
+              drawn independently, which is why three coins produce 8 combinations.
+            </p>
+            <p>
+              <strong className="text-stone-900">Worked example:</strong> with three coins there are
+              2 × 2 × 2 = 8 equally likely outcomes. All three heads is one of them — a 1 in 8 chance
+              (12.5%). Exactly two heads can happen three ways (HHT, HTH, THH), so it is three times as
+              likely: 3 in 8, or 37.5%. That counting is also how you can pick fairly between up to 8
+              options: give each option one combination and flip three coins.
+            </p>
+            <p>
+              The common trap is the gambler&apos;s fallacy: five heads in a row feels &apos;due&apos; to
+              break, but each flip is independent — the next flip is still 50/50, and a streak changes
+              nothing. In a best-of race with two coins, a 1–1 flip is a tie and scores no point. Custom
+              labels change what a result means, never its odds.
+            </p>
+          </div>
         </div>
       </section>
 

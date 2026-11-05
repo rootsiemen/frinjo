@@ -2,9 +2,9 @@ import Link from "next/link";
 import { SectionHead, Icon } from "@/components/ui";
 
 export const metadata = {
-  title: "Outils Gratuits en Français — Convertisseurs et Calculateurs | Frinjo",
+  title: "Outils Gratuits en Français",
   description:
-    "Outils et calculateurs gratuits en français de WebStore Pro : convertisseur salaire brut en net, calcul TVA HT/TTC, frais de notaire au barème officiel, jours entre deux dates avec jours fériés, intérêts composés, générateur de QR code (dont virement SEPA), générateur de faux nom et calcul d'IMC. Sans inscription, dans votre navigateur.",
+    "8 outils gratuits en français : salaire brut en net, calcul TVA, frais de notaire, intérêts composés, jours entre dates, QR code, faux nom, IMC.",
   keywords: [
     "outils en ligne en français",
     "salaire brut en net",
@@ -81,6 +81,15 @@ const TOOLS = [
   },
 ];
 
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Accueil", item: "https://frinjo.me/" },
+    { "@type": "ListItem", position: 2, name: "Outils en Français", item: "https://frinjo.me/fr" },
+  ],
+};
+
 const itemListJsonLd = {
   "@context": "https://schema.org",
   "@type": "ItemList",
@@ -99,6 +108,7 @@ const card =
 export default function FrHubPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }} />
       <section id="top" className="bg-orange-50 dot-grid pt-16 sm:pt-24 overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 text-center">

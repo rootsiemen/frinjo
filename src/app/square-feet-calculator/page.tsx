@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import SquareFeet from "./SquareFeet";
 
 export const metadata = {
-  title: "Square Feet Calculator — Sq Ft for Rooms, Flooring & Yards",
+  title: "Square Feet Calculator — Rooms & Flooring",
   description:
-    "Free square feet calculator: add multiple rooms and shapes (rectangle, triangle, circle), get total sq ft with a waste allowance and a material cost estimate, plus sq yd and m² conversions. For flooring, tile, paint and yards. No sign-up.",
+    "Free square feet calculator: multiple rooms and shapes, total sq ft with waste allowance and material cost, plus sq yd and m² conversions.",
   keywords: [
     "square feet calculator",
     "sq ft calculator",

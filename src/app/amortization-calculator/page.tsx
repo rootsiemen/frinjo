@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import AmortizationCalculator from "./AmortizationCalculator";
 
 export const metadata = {
-  title: "Amortization Calculator — Full Schedule, CSV & Crossover | Frinjo",
+  title: "Amortization Calculator — Full Schedule",
   description:
-    "Free amortization calculator with extra monthly, annual and one-time payments built in: full monthly and yearly schedules, the principal/interest crossover point, CSV download and print. No sign-up.",
+    "Free amortization calculator with extra payments built in: full monthly schedule, the principal/interest crossover month, CSV download and print.",
   keywords: [
     "amortization calculator",
     "amortization schedule calculator",

@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import Rng from "./Rng";
 
 export const metadata = {
-  title: "Random Number Generator — Up to 1,000 Numbers + Lottery Quick Pick",
+  title: "Random Number Generator — Up to 1,000",
   description:
-    "Free random number generator: draw up to 1,000 numbers at once with no-duplicate and sort options, copy-all and download — plus built-in lottery quick picks for Powerball, Mega Millions, EuroMillions, UK Lotto and Cash4Life. Crypto-grade randomness, nothing stored.",
+    "Free random number generator: draw up to 1,000 numbers at once, no duplicates, copy or download — plus lottery quick picks. Crypto-grade random.",
   keywords: ["random number generator", "number generator", "lottery number generator", "quick pick generator", "random number picker", "powerball number generator"],
   alternates: { canonical: "https://frinjo.me/random-number-generator" },
   openGraph: {
@@ -63,6 +63,14 @@ const FAQS: [string, string][] = [
   [
     "Is the Random Number Generator free?",
     "Yes, completely free with no sign-up. Draws happen in your browser; nothing is stored on a server.",
+  ],
+  [
+    "Why did I get fewer numbers than the amount I asked for?",
+    "That happens when 'No duplicates' is on and the amount exceeds the size of the range. Between 1 and 100 there are only 100 distinct integers, so a request for 1,000 unique numbers returns all 100 and stops — the generator will not quietly reintroduce duplicates to fill a quota.",
+  ],
+  [
+    "Can the generator produce decimals or negative numbers?",
+    "Negative numbers, yes — set a negative minimum, for example −50 to 50, and the same uniform draw applies across zero. Decimals, no: the tool generates integers only, and decimal inputs are rounded down to whole numbers. For decimal randomness, generate integers and divide the results by 10 or 100 yourself.",
   ],
 ];
 
@@ -123,6 +131,34 @@ export default function RngPage() {
             Prefer email? <a href="mailto:neilsonsmarry@gmail.com" className="font-semibold text-orange-700 hover:text-orange-800">neilsonsmarry@gmail.com</a>
             {" "}· Also try the <Link href="/dice-roller" className="font-semibold text-orange-700 hover:text-orange-800">Dice Roller</Link> and <Link href="/coin-flip" className="font-semibold text-orange-700 hover:text-orange-800">Coin Flip</Link>.
           </p>
+        </div>
+      </section>
+
+      <section className="py-16 sm:py-20 bg-white border-t border-stone-100">
+        <div className="max-w-3xl mx-auto px-4">
+          <SectionHead eyebrow="How it works" title="How the numbers are drawn — and where the limits are" />
+          <div className="space-y-5 text-stone-600 leading-relaxed">
+            <p>
+              Each number comes from a 32-bit value drawn from the Web Crypto API. The generator works out
+              the largest multiple of your range size that fits in 2³², rejects any value at or above that
+              limit and redraws, then maps what is left into your range — that rejection step makes every
+              value exactly equally likely, with no modulo bias. With &apos;No duplicates&apos; on, draws
+              are kept in a set and repeats are discarded until you have the count you asked for.
+            </p>
+            <p>
+              <strong className="text-stone-900">Worked example:</strong> ask for 1,000 unique numbers
+              between 1 and 100 and you will get exactly 100 — the whole range, once each. Sampling without
+              replacement cannot invent values that do not exist, so the count is capped at the size of the
+              range (100 − 1 + 1). The same maths runs the lottery presets: a UK Lotto line is 6 unique
+              numbers from 1–59, one of C(59, 6) = 45,057,474 possible lines.
+            </p>
+            <p>
+              Two practical tips. Turn duplicates off for anything where a repeat would break the draw —
+              raffles, draft orders, sample picks — and leave sorting on so results are easy to check. And
+              if you need more unique values than the range holds, widen the range rather than re-running
+              the draw: merging capped draws just reintroduces the duplicates you asked to avoid.
+            </p>
+          </div>
         </div>
       </section>
 

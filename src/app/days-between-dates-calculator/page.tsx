@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import DaysBetween from "./DaysBetween";
 
 export const metadata = {
-  title: "Days Between Dates Calculator — Business Days, Add & Subtract Days",
+  title: "Days Between Dates Calculator — Workdays",
   description:
-    "Free days between dates calculator: count total days, business days (Mon–Fri) and weeks between any two dates, and add or subtract days (calendar or business) from any date. The counting rule is stated plainly. No sign-up.",
+    "Free days between dates calculator: total days, business days and weeks between two dates — plus add or subtract days from any date. No sign-up.",
   keywords: [
     "days between dates calculator",
     "how many days between two dates",

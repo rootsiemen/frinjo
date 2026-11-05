@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import BmiCalculator from "./BmiCalculator";
 
 export const metadata = {
-  title: "BMI Calculator — Free Body Mass Index Calculator (ft/in & cm)",
+  title: "BMI Calculator — Body Mass Index & Range",
   description:
-    "Free BMI calculator for adults: enter your height and weight in feet/inches or cm/kg to get your Body Mass Index, your WHO category, and the healthy weight range for your height. Instant, private, no sign-up.",
+    "Free BMI calculator: enter height and weight (ft/in or cm/kg) for your Body Mass Index, WHO category and the healthy weight range for your height.",
   keywords: [
     "bmi calculator",
     "body mass index calculator",

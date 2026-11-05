@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import TestScore from "./TestScore";
 
 export const metadata = {
-  title: "Test Score Calculator — EZ Grader with Class Mode & CSV Export",
+  title: "Test Score Calculator — EZ Grader",
   description:
-    "Free test score calculator / EZ grader: enter total questions and number wrong (half-points allowed) for an instant percentage and letter grade on standard or plus/minus scales — plus a class mode that grades a whole roster at once with average, median, distribution and CSV export.",
+    "Free test score calculator (EZ grader): questions wrong → percentage and letter grade instantly, plus a class mode that grades a whole roster.",
   keywords: ["test score calculator", "ez grader", "grade calculator test", "test grade calculator", "how many wrong for an a", "grading chart"],
   alternates: { canonical: "https://frinjo.me/test-score-calculator" },
   openGraph: {

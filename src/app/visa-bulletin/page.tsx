@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import VisaBulletinChecker from "./VisaBulletinChecker";
 
 export const metadata = {
-  title: "Visa Bulletin October 2026 — Priority Date Checker (EB-1, EB-2, EB-3)",
+  title: "Visa Bulletin October 2026 — Date Checker",
   description:
-    "Free visa bulletin priority date checker with the October 2026 final action dates for EB-1, EB-2 and EB-3 (India, China, Rest of World). Enter your priority date to see instantly whether your category is current.",
+    "Free visa bulletin checker: October 2026 final action dates for EB-1, EB-2 and EB-3 (India, China, rest of world). Is your priority date current?",
   keywords: [
     "visa bulletin",
     "visa bulletin october 2026",
@@ -67,6 +67,14 @@ const FAQS: [string, string][] = [
   [
     "Is the Visa Bulletin Checker free?",
     "Yes, completely free with no sign-up. Everything runs in your browser; nothing is stored. General information only — not legal advice.",
+  ],
+  [
+    "What happens if my priority date falls exactly on the cutoff date?",
+    "You are not current yet. The rule is strict: your priority date must be earlier than the final action date, not equal to it. A priority date of November 1, 2013 in EB-2 India — exactly the October 2026 cutoff — returns NOT YET CURRENT. You become current only when a later bulletin moves the cutoff beyond your date.",
+  ],
+  [
+    "Where do I find my priority date?",
+    "On your I-140 approval or receipt notice — it is the date USCIS received the petition (or the PERM filing date where an approved labour certification carries it over). Enter that date exactly as printed. Using your green card filing date or visa interview date instead is the most common reason people get a wrong result here.",
   ],
 ];
 
@@ -139,6 +147,45 @@ export default function VisaBulletinPage() {
             Prefer email? <a href="mailto:neilsonsmarry@gmail.com" className="font-semibold text-orange-700 hover:text-orange-800">neilsonsmarry@gmail.com</a>
             {" "}· Or browse our <Link href="/services" className="font-semibold text-orange-700 hover:text-orange-800">services</Link> and <Link href="/tools" className="font-semibold text-orange-700 hover:text-orange-800">free tools</Link>.
           </p>
+        </div>
+      </section>
+
+      {/* HOW IT WORKS */}
+      <section className="py-16 sm:py-20 bg-white border-t border-stone-100">
+        <div className="max-w-4xl mx-auto px-4">
+          <SectionHead
+            eyebrow="How it works"
+            title="One comparison decides everything"
+            sub="No estimates and no projections — the checker compares two dates and reports which side of the line yours falls on."
+          />
+          <div className="text-left">
+            <p className="text-stone-600 leading-relaxed">
+              The checker holds the October 2026 Final Action Dates table — three categories (EB-1,
+              EB-2, EB-3) across three chargeability areas (Rest of World, China, India) — and makes a
+              single comparison: is your priority date earlier than the cutoff in your cell? Earlier
+              means CURRENT, and USCIS can approve the green card. Equal or later means NOT YET
+              CURRENT. One cell, EB-1 Rest of World, has no cutoff at all in October 2026, so every
+              priority date there is current. Nothing else enters the calculation — not your interview
+              date, not your country of citizenship, and not the separate Dates for Filing chart, which
+              this tool does not use.
+            </p>
+            <div className="mt-8 rounded-2xl bg-orange-50 border border-orange-100 p-6 sm:p-8">
+              <h3 className="font-display text-xl font-bold text-stone-900 mb-3">Worked example: EB-2 India, two dates, two answers</h3>
+              <p className="text-stone-600 leading-relaxed">
+                The October 2026 cutoff for EB-2 India is November 1, 2013. A priority date of August
+                15, 2012 is earlier than the cutoff, so the checker returns CURRENT — the case can move
+                to approval. A priority date of June 1, 2014 — the date this checker loads with — falls
+                seven months after the cutoff, so it returns NOT YET CURRENT. The lesson is in the gap:
+                what matters is not how close your date is to the line, but which side of it you are on.
+              </p>
+            </div>
+            <h3 className="mt-8 font-display text-xl font-bold text-stone-900 mb-3">Three mistakes that produce a wrong answer</h3>
+            <ul className="space-y-2 text-stone-600 leading-relaxed list-disc pl-5">
+              <li>Reading the Dates for Filing chart instead. Filing dates usually run ahead of Final Action Dates, but approval follows the final action date — the one used here.</li>
+              <li>Using citizenship or current residence. Chargeability is normally your country of birth, so an Indian-born applicant living in London still checks the India column.</li>
+              <li>Checking once and assuming it holds. Dates retrogress as well as advance, so re-check against each new monthly bulletin before relying on the result.</li>
+            </ul>
+          </div>
         </div>
       </section>
 

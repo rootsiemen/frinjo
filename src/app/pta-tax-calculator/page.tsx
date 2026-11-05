@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import PtaTaxCalculator from "./PtaTaxCalculator";
 
 export const metadata = {
-  title: "PTA Tax Calculator 2026-27 — Mobile Registration Tax (Passport & CNIC)",
+  title: "PTA Tax Calculator 2026-27 — DIRBS Tax",
   description:
-    "Free PTA mobile tax calculator for 2026-27: work out the DIRBS registration tax on an imported phone on passport or CNIC, with a line-by-line breakup — customs duty, regulatory duty, sales tax, income tax and handset levy.",
+    "Free PTA tax calculator for 2026-27: DIRBS mobile registration tax on passport or CNIC, broken down line by line — duty, sales tax, levy and more.",
   keywords: [
     "pta tax calculator",
     "pta mobile tax calculator",
@@ -69,6 +69,14 @@ const FAQS: [string, string][] = [
     "Is the PTA Tax Calculator free?",
     "Yes, completely free with no sign-up. Everything is calculated in your browser; nothing is stored. The DIRBS amount on your PSID is always final — this tool is an estimate based on SRO 1064(I)/2026.",
   ],
+  [
+    "Why does PTA tax jump so sharply just above $500?",
+    "Because several charges step up at the same band boundary. Moving from the $350–$500 band to the $500–$700 band, regulatory duty rises from Rs 12,000 to Rs 17,600, sales tax from 18% to 25%, the handset levy from Rs 4,000 to Rs 8,000 and income tax from Rs 5,000 to Rs 11,500 — so a $510 phone is taxed far more heavily than a $490 one.",
+  ],
+  [
+    "What exchange rate should I enter for the phone's value?",
+    "Enter a current rate close to the interbank dollar rate, because the tool first converts your phone's USD value at that rate (a $300 phone at Rs 280 is Rs 84,000) and sales tax is charged on the rupee figure. DIRBS assesses its own value when it issues your PSID, so your final amount can differ slightly from any estimate.",
+  ],
 ];
 
 const faqJsonLd = {
@@ -131,6 +139,44 @@ export default function PtaTaxPage() {
             Prefer email? <a href="mailto:neilsonsmarry@gmail.com" className="font-semibold text-orange-700 hover:text-orange-800">neilsonsmarry@gmail.com</a>
             {" "}· Or browse our <Link href="/services" className="font-semibold text-orange-700 hover:text-orange-800">services</Link> and <Link href="/tools" className="font-semibold text-orange-700 hover:text-orange-800">free tools</Link>.
           </p>
+        </div>
+      </section>
+
+      {/* HOW IT WORKS */}
+      <section className="py-16 sm:py-20 bg-white border-t border-stone-100">
+        <div className="max-w-4xl mx-auto px-4">
+          <SectionHead
+            eyebrow="How it works"
+            title="Five charges, in a fixed order"
+            sub="Not one percentage of the price — five separate lines, each with its own rule."
+          />
+          <div className="text-left">
+            <p className="text-stone-600 leading-relaxed">
+              The calculator prices your phone from its USD value band. It first converts the value at
+              the exchange rate you enter, then applies five lines: a flat Rs 250 customs duty; a fixed
+              regulatory duty by band, from Rs 240 (up to $30) to Rs 17,600 (above $500); sales tax —
+              18% up to $500, 25% above — on the value plus both duties; a fixed income tax by band, on
+              CNIC registrations only, doubled for non-filers; and a smartphone-only handset levy, Rs
+              100 to Rs 16,000 by band. The total is simply the five lines added together.
+            </p>
+            <div className="mt-8 rounded-2xl bg-orange-50 border border-orange-100 p-6 sm:p-8">
+              <h3 className="font-display text-xl font-bold text-stone-900 mb-3">Worked example: a $300 phone at Rs 280 to the dollar</h3>
+              <p className="text-stone-600 leading-relaxed">
+                A $300 smartphone sits in the $200–$350 band and converts to Rs 84,000. Its lines:
+                customs duty Rs 250; regulatory duty Rs 8,800; sales tax at 18% on Rs 93,050 (84,000 +
+                250 + 8,800) = Rs 16,749; income tax Rs 970; handset levy Rs 1,800. Total on CNIC as a
+                filer: Rs 28,569. Register the same phone on a passport and the income tax line drops
+                out — Rs 27,599. Register on CNIC as a non-filer and that line doubles to Rs 1,940, for
+                a total of Rs 29,539.
+              </p>
+            </div>
+            <h3 className="mt-8 font-display text-xl font-bold text-stone-900 mb-3">Where estimates go wrong</h3>
+            <ul className="space-y-2 text-stone-600 leading-relaxed list-disc pl-5">
+              <li>Guessing the dollar value. DIRBS taxes the assessed value of the model, not a bargain price paid abroad — enter the phone&apos;s full USD value or the estimate reads low.</li>
+              <li>Missing the $500 step-up. Sales tax, regulatory duty, levy and income tax all rise above $500, so two similar phones can carry very different totals — the first question below breaks the jump down.</li>
+              <li>Overrating filer status. It doubles only the income tax line: worth Rs 100 on the cheapest band, but Rs 11,500 on phones above $700.</li>
+            </ul>
+          </div>
         </div>
       </section>
 

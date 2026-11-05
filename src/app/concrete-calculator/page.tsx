@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import Concrete from "./Concrete";
 
 export const metadata = {
-  title: "Concrete Calculator — Bags for Slabs, Round Pours & Post Holes Combined",
+  title: "Concrete Calculator — Yards & Bags Needed",
   description:
-    "Free concrete calculator that combines slabs, round pours and post holes in one total: cubic yards, bags in 40/50/60/80 lb sizes, pallets, mixing water, and a bagged-vs-ready-mix cost verdict. Copyable shopping list. No sign-up.",
+    "Free concrete calculator: slabs, round pours and post holes in one total — cubic yards, 40–80 lb bags, pallets and a bagged vs ready-mix verdict.",
   keywords: ["concrete calculator", "concrete bags calculator", "how many bags of concrete", "concrete slab calculator", "post hole concrete calculator", "bags of concrete per yard"],
   alternates: { canonical: "https://frinjo.me/concrete-calculator" },
   openGraph: {

@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import FiniquitoCalculator from "./FiniquitoCalculator";
 
 export const metadata = {
-  title: "Calculadora de Finiquito 2026 México — Renuncia, Vacaciones y Prima | Frinjo",
+  title: "Calculadora de Finiquito 2026 — México",
   description:
-    "Calculadora de finiquito gratuita para México: salarios pendientes, aguinaldo proporcional, vacaciones no gozadas y proporcionales con la tabla de Vacaciones Dignas y prima vacacional del 25%, desglosado concepto por concepto. Sin registro.",
+    "Calculadora de finiquito gratis para México: salarios pendientes, aguinaldo proporcional, vacaciones y prima vacacional del 25%, concepto por concepto.",
   keywords: [
     "calculadora de finiquito",
     "finiquito México",

@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import DiceRoller from "./DiceRoller";
 
 export const metadata = {
-  title: "Dice Roller — Roll d4 to d100 Online (Up to 10 Dice, Fair Random)",
+  title: "Dice Roller — Roll d4 to d100 Online",
   description:
-    "Free online dice roller: roll up to 10 dice at once — d4, d6, d8, d10, d12, d20 and d100 — with visual dice, totals, averages and roll history. Randomness from your browser's crypto engine. For board games, RPGs and classrooms.",
+    "Free dice roller: roll up to 10 dice at once — d4, d6, d8, d10, d12, d20, d100 — with totals, averages and history. Crypto-fair randomness.",
   keywords: ["dice roller", "roll dice online", "d20 roller", "virtual dice", "dice roller 2 dice", "online dice"],
   alternates: { canonical: "https://frinjo.me/dice-roller" },
   openGraph: {
@@ -63,6 +63,14 @@ const FAQS: [string, string][] = [
   [
     "Is the Dice Roller free?",
     "Yes, completely free with no sign-up. Rolls happen in your browser; nothing is stored on a server.",
+  ],
+  [
+    "What are the odds of rolling doubles with two dice?",
+    "With two six-sided dice, six of the 36 equally likely combinations are doubles — 1-1 through 6-6 — so the chance is 6 ÷ 36 = 16.7%, or one roll in six. The same logic works for any die size: doubles are always 1 in the number of sides, so 1 in 20 on two d20s.",
+  ],
+  [
+    "What is a d100 or percentile roll used for?",
+    "A d100 rolls a number from 1 to 100, so the result reads directly as a percentage — roll 37 and you have landed the 37% outcome. RPG systems use it for percentile skills ('roll under your 65% chance'), and teachers use it for probability demonstrations. Its expected average is 50.5, exactly halfway.",
   ],
 ];
 
@@ -122,6 +130,43 @@ export default function DiceRollerPage() {
             Prefer email? <a href="mailto:neilsonsmarry@gmail.com" className="font-semibold text-orange-700 hover:text-orange-800">neilsonsmarry@gmail.com</a>
             {" "}· Or browse our <Link href="/services" className="font-semibold text-orange-700 hover:text-orange-800">services</Link> and <Link href="/tools" className="font-semibold text-orange-700 hover:text-orange-800">free tools</Link>.
           </p>
+        </div>
+      </section>
+
+      <section className="py-16 sm:py-20 bg-white border-t border-stone-100">
+        <div className="max-w-4xl mx-auto px-4">
+          <SectionHead
+            eyebrow="How it works"
+            title="Crypto-grade randomness, checked against the maths"
+            sub="Every face exactly as likely as the others — and a way to prove a roll was good, bad or ordinary."
+          />
+          <div className="text-left">
+            <p className="text-stone-600 leading-relaxed">
+              Each die is drawn from your browser&apos;s cryptographic random source,
+              crypto.getRandomValues — not the ordinary Math.random. The roller fills a 32-bit unsigned
+              integer, rejects any value at or above the largest multiple of the die size that fits in
+              32 bits, then takes the remainder modulo the sides and adds one. That rejection step
+              matters: without it, low faces would be very slightly more likely than high ones. With
+              it, every face of a d6 has exactly a 1-in-6 chance, every face of a d20 exactly 1-in-20,
+              and no die influences the next.
+            </p>
+            <div className="mt-8 rounded-2xl bg-orange-50 border border-orange-100 p-6 sm:p-8">
+              <h3 className="font-display text-xl font-bold text-stone-900 mb-3">Worked example: reading a roll, and pricing a target</h3>
+              <p className="text-stone-600 leading-relaxed">
+                Roll 3d6 and land on 4, 2 and 6: the total is 12 and the average is 12 ÷ 3 = 4.0 per die
+                — above the d6 expected average of 3.5, so a good roll, not a suspicious one. Targets
+                price the same way, by counting combinations. Needing 11 or more on 2d6: a total of 11
+                comes from 5-6 and 6-5 (2 combinations) and 12 from 6-6 alone (1) — so 3 of the 36
+                combinations succeed, an 8.3% chance however confident the player feels.
+              </p>
+            </div>
+            <h3 className="mt-8 font-display text-xl font-bold text-stone-900 mb-3">Three ways players misread the dice</h3>
+            <ul className="space-y-2 text-stone-600 leading-relaxed list-disc pl-5">
+              <li>The gambler&apos;s fallacy. Five low rolls in a row do not make a high roll due — each roll is independent, and the history list here is a record, not a pattern.</li>
+              <li>Comparing totals across different dice. A total of 12 is strong on 3d6 but poor on 3d20; judge every roll against its own expected average, printed under the dice.</li>
+              <li>Expecting the average every time. 2d6 averages 7 over many rolls, yet a single roll lands exactly 7 only 16.7% of the time — the average describes the long run, not the next throw.</li>
+            </ul>
+          </div>
         </div>
       </section>
 

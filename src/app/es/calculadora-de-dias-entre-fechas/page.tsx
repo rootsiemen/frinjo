@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import DiasCalculator from "./DiasCalculator";
 
 export const metadata = {
-  title: "Días Entre Fechas — Días Hábiles con Festivos de México y España | Frinjo",
+  title: "Días Entre Fechas — Hábiles y Festivos",
   description:
-    "Calculadora de días entre fechas con días hábiles reales: descuenta fines de semana Y los días festivos oficiales de México (descansos obligatorios LFT, con los lunes de traslado) o de España. Duración total, semanas y lista de festivos. Gratis.",
+    "Calculadora gratuita de días entre fechas: días hábiles reales descontando festivos oficiales de México (LFT) o España. Lista de festivos incluida.",
   keywords: [
     "calculadora de días entre fechas",
     "días entre fechas",

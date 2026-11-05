@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import LoanPayoffCalculator from "./LoanPayoffCalculator";
 
 export const metadata = {
-  title: "Loan Payoff Calculator — Pay Off Your Loan Early | Frinjo",
+  title: "Loan Payoff Calculator — Pay Off Early",
   description:
-    "Free loan payoff calculator: extra monthly payments and lump sums against any loan, the payoff-by-a-target-date solver, interest saved and a year-by-year schedule. Works for car, personal, student and other installment loans. No sign-up.",
+    "Free loan payoff calculator: extra payments and lump sums, a payoff-by-date solver, interest saved and a year-by-year schedule. No sign-up.",
   keywords: [
     "loan payoff calculator",
     "pay off loan early calculator",

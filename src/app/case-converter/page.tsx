@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import CaseConverter from "./CaseConverter";
 
 export const metadata = {
-  title: "Case Converter — Title, UPPER, camelCase, snake_case, Slugs & More",
+  title: "Case Converter — Title, UPPER, camelCase",
   description:
-    "Free case converter: instantly convert text to Title Case, UPPER CASE, lower case, Sentence case, camelCase, PascalCase, snake_case, kebab-case URL slugs, alternating case and more — with character and word counts. Runs in your browser, nothing uploaded.",
+    "Free case converter with 16 conversions: Title Case, UPPER, camelCase, snake_case and URL slugs — plus word and character counts. Nothing is uploaded.",
   keywords: ["case converter", "title case converter", "upper case converter", "camelcase converter", "snake case converter", "text case converter", "slug generator"],
   alternates: { canonical: "https://frinjo.me/case-converter" },
   openGraph: {
@@ -63,6 +63,14 @@ const FAQS: [string, string][] = [
   [
     "Is the Case Converter free?",
     "Yes, completely free with no sign-up and no text length limits beyond your browser's memory.",
+  ],
+  [
+    "Why did my acronym change — API became Api in PascalCase?",
+    "Because the code conversions build every word with the same rule: first letter uppercase, the rest lowercase. That is deliberate — it makes camelCase, PascalCase and the others perfectly consistent and predictable — but it does flatten acronyms, so restore API, ID or URL by hand after converting if the acronym must stay shouted.",
+  ],
+  [
+    "Does converting text keep my line breaks and spacing?",
+    "It depends on the conversion. UPPER, lower, Title and Sentence case work in place and keep your spacing, punctuation and line breaks exactly. The code conversions — camelCase, snake_case, kebab-case and the rest — rebuild the text word by word, so all original spacing and line breaks collapse into the new joiner by design.",
   ],
 ];
 
@@ -122,6 +130,45 @@ export default function CaseConverterPage() {
             Prefer email? <a href="mailto:neilsonsmarry@gmail.com" className="font-semibold text-orange-700 hover:text-orange-800">neilsonsmarry@gmail.com</a>
             {" "}· Or browse our <Link href="/services" className="font-semibold text-orange-700 hover:text-orange-800">services</Link> and <Link href="/tools" className="font-semibold text-orange-700 hover:text-orange-800">free tools</Link>.
           </p>
+        </div>
+      </section>
+
+      <section className="py-16 sm:py-20 bg-white border-t border-stone-100">
+        <div className="max-w-4xl mx-auto px-4">
+          <SectionHead
+            eyebrow="How it works"
+            title="Words first, then the joiner"
+            sub="Every code case is built the same way — split the text into clean words, then join them differently."
+          />
+          <div className="text-left">
+            <p className="text-stone-600 leading-relaxed">
+              The code conversions start by splitting your text into words, and the split is smarter
+              than spaces alone: a boundary is inserted wherever a lowercase letter or digit meets a
+              capital (myVariableName becomes my + Variable + Name), and inside a run of capitals just
+              before the last one turns lowercase (HTTPResponse becomes HTTP + Response). Each word is
+              then normalised — first letter up, the rest down — and the modes differ only in the
+              joiner: nothing for camelCase and PascalCase, underscores for snake_case, hyphens for
+              kebab-case, dots for dot.case. UPPER, lower, Title and Sentence case skip the split and
+              edit your text in place.
+            </p>
+            <div className="mt-8 rounded-2xl bg-orange-50 border border-orange-100 p-6 sm:p-8">
+              <h3 className="font-display text-xl font-bold text-stone-900 mb-3">Worked example: one input, six outputs</h3>
+              <p className="text-stone-600 leading-relaxed">
+                Take the text &apos;user_profile ID&apos;. The splitter reads three words — user,
+                profile and ID — and normalises the acronym to Id. Joined each way, you get camelCase
+                userProfileId, PascalCase UserProfileId, snake_case user_profile_id, SCREAMING_SNAKE
+                USER_PROFILE_ID, kebab-case user-profile-id and dot.case user.profile.id. Same three
+                words, six conventions — and the kebab version is already a clean URL slug: lowercase,
+                hyphenated, with the underscore and space gone.
+              </p>
+            </div>
+            <h3 className="mt-8 font-display text-xl font-bold text-stone-900 mb-3">Check these before you paste the result</h3>
+            <ul className="space-y-2 text-stone-600 leading-relaxed list-disc pl-5">
+              <li>Flattened acronyms. API, ID and URL come out as Api, Id and Url in the capitalised modes, because every word gets the same first-letter-up treatment — restore the acronyms your style guide wants shouted.</li>
+              <li>The wrong joiner in a URL. Spaces and underscores do not belong in an address bar; run the kebab-case conversion for anything that will be published as a link.</li>
+              <li>Trusting Sentence case with names. It lowercases everything first, then capitalises sentence starts, so Paris, May and Dr. Lee all need a second look after converting.</li>
+            </ul>
+          </div>
         </div>
       </section>
 

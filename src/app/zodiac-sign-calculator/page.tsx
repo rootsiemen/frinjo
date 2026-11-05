@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import Zodiac from "./Zodiac";
 
 export const metadata = {
-  title: "Zodiac Sign Calculator — Your Sign by Birth Date, Cusp Check & Matches",
+  title: "Zodiac Sign Calculator — Sign by Birth Date",
   description:
-    "Free zodiac sign calculator: enter your birth date for your sign, symbol, element, ruling planet, traits and best matches — instantly, with an honest cusp warning for boundary birthdays and your correct Chinese zodiac. Then get your full Big Three. No sign-up.",
+    "Free zodiac sign calculator: your sign, element, ruling planet, traits and best matches from your birth date — plus an honest cusp warning.",
   keywords: ["zodiac sign calculator", "what is my zodiac sign", "zodiac sign by date of birth", "star sign calculator", "zodiac dates", "cusp zodiac"],
   alternates: { canonical: "https://frinjo.me/zodiac-sign-calculator" },
   openGraph: {

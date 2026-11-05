@@ -3,9 +3,9 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 import CompoundCalculator from "./CompoundCalculator";
 
 export const metadata = {
-  title: "Compound Interest Calculator — With Contributions, Tax & CD Mode | Frinjo",
+  title: "Compound Interest Calculator — Growth + CD",
   description:
-    "Free compound interest calculator: monthly contributions, daily-to-annual compounding, effective APY, inflation-adjusted real value, an annual tax drag on interest, a goal solver and a CD mode with early-withdrawal penalties. No sign-up.",
+    "Free compound interest calculator: monthly contributions, effective APY, inflation-adjusted real value, tax drag, goal solver and a CD mode.",
   keywords: [
     "compound interest calculator",
     "compound interest calculator with contributions",
