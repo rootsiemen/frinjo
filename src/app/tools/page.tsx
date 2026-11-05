@@ -60,6 +60,18 @@ const TOOLS: Tool[] = [
     desc: "The open-source SEO toolkit behind this site: 8 workflow modules for technical audits, AI visibility, schema, content clusters and more.",
   },
   {
+    name: "Love Calculator",
+    href: "/love-calculator",
+    tag: "Astrology · Compatibility",
+    desc: "A love compatibility test that doesn't roll dice: a deterministic score from two names — the same every time — plus a zodiac element reading when you add your signs.",
+  },
+  {
+    name: "BMI Calculator",
+    href: "/bmi-calculator",
+    tag: "Health · Body",
+    desc: "Your Body Mass Index on the WHO scale in imperial or metric, with the healthy weight range for your exact height. Instant and private.",
+  },
+  {
     name: "Sun, Moon & Rising Calculator",
     href: "/sun-moon-rising-calculator",
     tag: "Astrology · Big Three",
