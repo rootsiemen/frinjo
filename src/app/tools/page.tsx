@@ -4,7 +4,7 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 export const metadata = {
   title: "Free Tools — BotView, Keyword Traffic Checker, SEO Agent Kit & More",
   description:
-    "All of WebStore Pro's free tools in one place: BotView (SEO, AEO & GEO checker), Keyword Traffic Checker (keyword difficulty & competition), IP Address Tracker (what is my IP, anonymity & leak checks), SEO Agent Kit, Temp Mail and PlayZone. Free, no sign-up.",
+    "All of WebStore Pro's free tools in one place: BotView (SEO, AEO & GEO checker), Keyword Traffic Checker (keyword difficulty & competition), IP Address Tracker (what is my IP, anonymity & leak checks), Sun, Moon & Rising Calculator (your astrology Big Three), SEO Agent Kit, Temp Mail and PlayZone. Free, no sign-up.",
   keywords: [
     "free seo tools",
     "botview",
@@ -58,6 +58,12 @@ const TOOLS: Tool[] = [
     href: "/seo-agent-kit",
     tag: "Open source",
     desc: "The open-source SEO toolkit behind this site: 8 workflow modules for technical audits, AI visibility, schema, content clusters and more.",
+  },
+  {
+    name: "Sun, Moon & Rising Calculator",
+    href: "/sun-moon-rising-calculator",
+    tag: "Astrology · Big Three",
+    desc: "Your Big Three from your birth date, time and city: Sun, Moon and Rising signs with exact degrees, calculated in your browser from real astronomical positions. Free, no sign-up.",
   },
   {
     name: "Temp Mail",
