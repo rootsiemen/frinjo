@@ -120,6 +120,12 @@ const TOOLS: Tool[] = [
     desc: "Multiple beds of any shape measured properly: cubic yards, bags in 1.5/2/3 cu ft, total weight by mulch type, bags-vs-bulk verdict and a copyable shopping list.",
   },
   {
+    name: "Fake Name Generator",
+    href: "/fake-name-generator",
+    tag: "Generator · Testing",
+    desc: "Generate full fake identities for the US, UK, Canada, Australia and Pakistan — name, address, phone, email, username, password, birthday, job and company — up to 100 at once with CSV/JSON export, or names only. No daily limit, all in your browser.",
+  },
+  {
     name: "SMM Panel",
     href: "/smm-panel",
     tag: "SMM · Growth Service",
