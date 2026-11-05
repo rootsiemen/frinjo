@@ -116,6 +116,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <WhatsAppFloat />
         {/* 100% privacy-first analytics */}
         <script async src="https://scripts.simpleanalyticscdn.com/latest.js" />
+        {/* Zanderio AI chat widget — installed 2026-11-06 on the user's explicit order after a full code scan (clean) and risk briefing. The remote loader is monitored by the hourly `zanderio-security-watch` cron: any change to the file is reported to the user. Remove this one tag to uninstall completely. */}
+        <script src="https://cdn.zanderio.ai/widget/loader.js" data-id="wdg_4gBdsUoDFfI8ehnw8ChVqwxL" defer />
       </body>
     </html>
   );
