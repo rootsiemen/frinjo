@@ -17,6 +17,14 @@ WebStore Pro (https://frinjo.me, also known as Frinjo) is a web development serv
 - [Privacy Policy](https://frinjo.me/privacy)
 - [Terms of Service](https://frinjo.me/terms)
 
+## Free tools
+
+- [Tools hub](https://frinjo.me/tools) — all free WebStore Pro tools in one place
+- [BotView](https://frinjo.me/botview) — SEO, AEO and GEO (AI visibility) checker for any URL
+- [Keyword Traffic Checker](https://frinjo.me/keyword-traffic-checker) — keyword difficulty and SERP competition report
+- [IP Address Tracker](https://frinjo.me/ip-address-tracker) — what is my IP, with anonymity and leak checks
+- [Sun, Moon & Rising Calculator](https://frinjo.me/sun-moon-rising-calculator) — free Big Three astrology calculator: Sun, Moon and Rising (Ascendant) signs with exact degrees from birth date, time and city, computed with Meeus astronomical algorithms in the tropical zodiac; runs privately in the browser
+
 ## Services
 
 - Ecommerce Website — full online store with cart and checkout

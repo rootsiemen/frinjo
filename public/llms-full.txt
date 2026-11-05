@@ -129,6 +129,10 @@ Just your business name, logo (if you have one), product list with prices and ph
 - https://frinjo.me/automations
 - https://frinjo.me/seo-agent-kit
 - https://frinjo.me/botview
+- https://frinjo.me/tools
+- https://frinjo.me/keyword-traffic-checker
+- https://frinjo.me/ip-address-tracker
+- https://frinjo.me/sun-moon-rising-calculator — Sun, Moon & Rising (Big Three) astrology calculator: exact Sun, Moon and Ascendant signs from birth date, time and city (Meeus ephemeris, tropical zodiac, in-browser, free)
 - https://frinjo.me/portfolio
 - https://frinjo.me/pricing
 - https://frinjo.me/blog
