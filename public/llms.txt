@@ -23,6 +23,9 @@ WebStore Pro (https://frinjo.me, also known as Frinjo) is a web development serv
 - [BotView](https://frinjo.me/botview) — SEO, AEO and GEO (AI visibility) checker for any URL
 - [Keyword Traffic Checker](https://frinjo.me/keyword-traffic-checker) — keyword difficulty and SERP competition report
 - [IP Address Tracker](https://frinjo.me/ip-address-tracker) — what is my IP, with anonymity and leak checks
+- [Countdown Timer](https://frinjo.me/countdown-timer) — free online countdown timer with alarm, accurate in background tabs, tab-title countdown, and preset pages (1, 2, 3, 5, 10, 15, 20, 25 Pomodoro, 30, 45, 60 minutes) at /countdown-timer/<n>-minute-timer
+- [Days Between Dates Calculator](https://frinjo.me/days-between-dates-calculator) — total days, business days (Mon–Fri) and weeks between two dates, plus add/subtract calendar or business days from a date
+- [Square Feet Calculator](https://frinjo.me/square-feet-calculator) — multi-area square footage (rectangle, triangle, circle) with waste allowance, sq yd/m² conversion and material cost estimate
 - [Love Calculator](https://frinjo.me/love-calculator) — deterministic love compatibility score from two names (same pair, same score), with an optional zodiac element compatibility reading
 - [BMI Calculator](https://frinjo.me/bmi-calculator) — Body Mass Index on the WHO adult scale in imperial or metric, with the healthy weight range for the entered height
 - [Sun, Moon & Rising Calculator](https://frinjo.me/sun-moon-rising-calculator) — free Big Three astrology calculator: Sun, Moon and Rising (Ascendant) signs with exact degrees from birth date, time and city, computed with Meeus astronomical algorithms in the tropical zodiac; runs privately in the browser

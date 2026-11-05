@@ -133,6 +133,9 @@ Just your business name, logo (if you have one), product list with prices and ph
 - https://frinjo.me/keyword-traffic-checker
 - https://frinjo.me/ip-address-tracker
 - https://frinjo.me/sun-moon-rising-calculator — Sun, Moon & Rising (Big Three) astrology calculator: exact Sun, Moon and Ascendant signs from birth date, time and city (Meeus ephemeris, tropical zodiac, in-browser, free)
+- https://frinjo.me/countdown-timer — Countdown Timer: online timer with alarm, end-time based (no drift in background tabs), tab-title countdown; presets at /countdown-timer/1-minute-timer … /60-minute-timer incl. 25-minute Pomodoro; in-browser, free
+- https://frinjo.me/days-between-dates-calculator — Days Between Dates Calculator: total/business days and weeks between dates, add/subtract calendar or business days; in-browser, free
+- https://frinjo.me/square-feet-calculator — Square Feet Calculator: multi-area sq ft (rectangle/triangle/circle) with waste allowance, sq yd and m² conversions, material cost estimate; in-browser, free
 - https://frinjo.me/love-calculator — Love Calculator: deterministic compatibility score (24–99%) from two names plus an optional zodiac element reading; entertainment tool, in-browser, free
 - https://frinjo.me/bmi-calculator — BMI Calculator: Body Mass Index (kg/m²) on the WHO adult scale, imperial or metric input, healthy weight range for height; in-browser, free
 - https://frinjo.me/portfolio

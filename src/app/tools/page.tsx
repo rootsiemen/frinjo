@@ -60,6 +60,24 @@ const TOOLS: Tool[] = [
     desc: "The open-source SEO toolkit behind this site: 8 workflow modules for technical audits, AI visibility, schema, content clusters and more.",
   },
   {
+    name: "Countdown Timer",
+    href: "/countdown-timer",
+    tag: "Time · Focus",
+    desc: "An online countdown timer with an alarm that stays accurate in background tabs and shows the time left in the tab title — plus preset pages from 1 to 60 minutes, including a 25-minute Pomodoro.",
+  },
+  {
+    name: "Days Between Dates Calculator",
+    href: "/days-between-dates-calculator",
+    tag: "Dates · Deadlines",
+    desc: "Total days, business days and weeks between two dates — plus add or subtract calendar or business days from any date, with the counting rule stated plainly.",
+  },
+  {
+    name: "Square Feet Calculator",
+    href: "/square-feet-calculator",
+    tag: "Home · DIY",
+    desc: "Square footage for multiple rooms and shapes at once, with a waste allowance, sq yd / m² conversions and a material cost estimate for flooring, tile and paint jobs.",
+  },
+  {
     name: "Love Calculator",
     href: "/love-calculator",
     tag: "Astrology · Compatibility",
