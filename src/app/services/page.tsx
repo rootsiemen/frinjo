@@ -15,7 +15,14 @@ export const metadata = {
       "Web development services: full stack and business websites, admin panels, payments (COD, JazzCash, Stripe) and WhatsApp ordering — delivered in days.",
     url: "https://frinjo.me/services",
     type: "website",
-    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro web development services — full stack websites" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Web Development Services — Full Stack | WebStore Pro",
+    description:
+      "Web development services: full stack and business websites, admin panels, payments (COD, JazzCash, Stripe) and WhatsApp ordering — delivered in days.",
+    images: ["/og-default.jpg"],
   },
 };
 

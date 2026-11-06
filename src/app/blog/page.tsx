@@ -7,14 +7,16 @@ import { REPO_POSTS, mergeRepoPosts } from "@/lib/repo-posts";
 
 export const dynamic = "force-dynamic";
 
+const BLOG_DESC = "Practical guides on website costs, building online stores, SEO and online selling — written by Raza, the developer behind WebStore Pro.";
+
 export const metadata = {
-  title: "Blog",
-  description: "Practical guides on websites, ecommerce, SEO and online selling — from the WebStore Pro team.",
+  title: "Blog — Website, SEO & Online Selling Guides",
+  description: BLOG_DESC,
   alternates: { canonical: "https://frinjo.me/blog" },
   openGraph: {
-    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
-    title: "Blog",
-    description: "Practical guides on websites, ecommerce, SEO and online selling — from the WebStore Pro team.",
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro blog — website, SEO and online selling guides" }],
+    title: "Blog — Website, SEO & Online Selling Guides | WebStore Pro",
+    description: BLOG_DESC,
     url: "https://frinjo.me/blog",
     type: "website",
     siteName: BRAND.name,
@@ -22,8 +24,8 @@ export const metadata = {
   twitter: {
     images: ["/og-default.jpg"],
     card: "summary_large_image",
-    title: "Blog",
-    description: "Practical guides on websites, ecommerce, SEO and online selling — from the WebStore Pro team.",
+    title: "Blog — Website, SEO & Online Selling Guides | WebStore Pro",
+    description: BLOG_DESC,
   },
 };
 

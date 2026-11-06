@@ -7,7 +7,7 @@ export default function PricingCards() {
     <div className="grid gap-6 md:grid-cols-3 items-stretch">
       {PACKAGES.map((p) => {
         const waHref = `https://wa.me/${BRAND.whatsapp}?text=${encodeURIComponent(
-          `Hi, I'm interested in the ${p.name} package for my website. Please share pricing details.`
+          `Hi, I'm interested in the ${p.name} package ($${p.price}) for my website.`
         )}`;
         return (
           <div
@@ -24,6 +24,10 @@ export default function PricingCards() {
               </span>
             )}
             <h3 className="font-display text-xl font-bold text-stone-900">{p.name}</h3>
+            <p className="mt-3 flex items-baseline gap-2">
+              <span className="font-display text-4xl font-bold text-stone-900">${p.price}</span>
+              <span className="text-sm text-stone-500">one-time payment</span>
+            </p>
             <p className="mt-1 text-sm text-stone-500">
               {p.pages} · {p.delivery}
             </p>
@@ -41,7 +45,7 @@ export default function PricingCards() {
               rel="noopener noreferrer"
               className="mt-8 text-center rounded-full font-bold py-3.5 transition w-full bg-green-600 text-white hover:bg-green-700"
             >
-              Contact for Pricing
+              Get Started — ${p.price}
             </a>
           </div>
         );

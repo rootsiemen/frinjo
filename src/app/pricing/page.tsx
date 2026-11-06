@@ -15,16 +15,34 @@ export const metadata = {
       "Transparent website pricing: Starter $80 (5 days), Business $150 (7 days), Pro $300 (10 days). Full stack websites with admin panel, COD & WhatsApp ordering.",
     url: "https://frinjo.me/pricing",
     type: "website",
-    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro pricing — website packages from $80" }],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pricing — Website Packages from $80 | WebStore Pro",
+    description:
+      "Transparent website pricing: Starter $80 (5 days), Business $150 (7 days), Pro $300 (10 days). Full stack websites with admin panel, COD & WhatsApp ordering.",
+    images: ["/og-default.jpg"],
+  },
+};
+
+const pricingFaqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQS.slice(0, 4).map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
 };
 
 export default function PricingPage() {
   const waHref = `https://wa.me/${BRAND.whatsapp}?text=${encodeURIComponent(
-    "Hi, I'm interested in a website package. Please share pricing details."
+    "Hi, I'm interested in a website package (from $80). Please share the details."
   )}`;
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingFaqJsonLd) }} />
       <section className="bg-orange-50 dot-grid py-16 sm:py-20">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-orange-700 mb-3">Packages</p>
@@ -72,7 +90,7 @@ export default function PricingPage() {
           </div>
           <p className="text-center mt-10">
             <a href={waHref} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-green-600 text-white font-bold px-8 py-4 hover:bg-green-700 transition">
-              Contact for Pricing <Icon name="arrow" className="w-5 h-5" />
+              Chat on WhatsApp — Packages from $80 <Icon name="arrow" className="w-5 h-5" />
             </a>
           </p>
         </div>

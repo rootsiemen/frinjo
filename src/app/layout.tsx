@@ -16,17 +16,6 @@ export const metadata: Metadata = {
   },
   description:
     "WebStore Pro builds full stack websites & web apps with admin panel, dashboards, Cash on Delivery, JazzCash & WhatsApp ordering — delivered in days.",
-  keywords: [
-    "ecommerce website developer",
-    "online store developer",
-    "build ecommerce website",
-    "business website developer",
-    "COD ecommerce website",
-    "WhatsApp ordering website",
-    "JazzCash payment integration",
-    "affordable website development",
-    "freelance web developer",
-  ],
   alternates: { canonical: "/" },
   robots: { index: true, follow: true },
   openGraph: {
@@ -73,7 +62,16 @@ const orgJsonLd = {
     email: "neilsonsmarry@gmail.com",
     availableLanguage: ["English", "Urdu"],
   },
-  sameAs: ["https://github.com/rootsiemen", "https://rootsiemen.github.io/Portfolio/"],
+  founder: { "@id": `${SITE_URL}/about#raza` },
+  areaServed: "Worldwide",
+  sameAs: [
+    "https://github.com/rootsiemen",
+    "https://rootsiemen.github.io/Portfolio/",
+    "https://www.linkedin.com/in/mrazahaider1215/",
+    "https://www.fiverr.com/s/r3Ev2K0",
+    "https://www.instagram.com/yours.raza/",
+    "https://x.com/irazamirza",
+  ],
 };
 
 const websiteJsonLd = {

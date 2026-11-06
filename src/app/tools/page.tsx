@@ -5,17 +5,6 @@ export const metadata = {
   title: "Free Tools — Calculators & Checkers",
   description:
     "100+ free online tools: SEO checkers (BotView, Keyword Traffic Checker), calculators, generators and the IP Address Tracker. Free, no sign-up.",
-  keywords: [
-    "free seo tools",
-    "botview",
-    "keyword traffic checker",
-    "ip address tracker",
-    "what is my ip",
-    "seo agent kit",
-    "free tools webstore pro",
-    "temp mail",
-    "playzone",
-  ],
   alternates: {
     canonical: "https://frinjo.me/tools",
     languages: {
@@ -32,6 +21,13 @@ export const metadata = {
       "BotView, Keyword Traffic Checker, IP Address Tracker, SEO Agent Kit, Temp Mail and PlayZone — every free WebStore Pro tool, in one hub.",
     url: "https://frinjo.me/tools",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Free Tools — Calculators & Checkers | WebStore Pro",
+    description:
+      "100+ free online tools: SEO checkers (BotView, Keyword Traffic Checker), calculators, generators and the IP Address Tracker. Free, no sign-up.",
+    images: ["/og-default.jpg"],
   },
 };
 

@@ -19,7 +19,7 @@ const WEBSITE_TYPES = [
   { img: "04-blog", title: "Blog / Magazine", text: "Publish articles that bring you free Google traffic every day — write and post new content yourself in minutes from your admin panel, no developer needed." },
   { img: "05-landing", title: "Landing Page", text: "One focused page that turns ad clicks into calls, orders and sign-ups — fast, sharp and built for a single goal, like the Kinoki product page." },
   { img: "06-webapp", title: "Web Application", text: "Your whole business process in one custom tool — dashboards, customer accounts and data, all run from a powerful admin panel. Like Hakio Leads and Temp Mail." },
-  { img: "07-directory", title: "Directory / Listing Website", text: "A searchable marketplace of listings your visitors can browse and filter — and you control every listing from the admin panel. Like USA Attorneys, with 763 listings." },
+  { img: "07-directory", title: "Directory / Listing Website", text: "A searchable marketplace of listings your visitors can browse and filter — and you control every listing from the admin panel. Like USA Attorneys, with 833 listings." },
   { img: "08-educational", title: "Educational Website", text: "Teach online and grow your academy — courses, lessons and students organised in one place, so learning never stops at the classroom door." },
   { img: "09-news", title: "News / Media Website", text: "Publish stories the moment they break and grow a loyal audience that comes back every day — a fast, modern home for your media brand." },
   { img: "10-social", title: "Social / Community Website", text: "Bring your people together under your own brand — member profiles, posts and discussions that keep your community active and growing." },
@@ -167,10 +167,10 @@ export default async function HomePage() {
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mx-auto max-w-2xl mb-10">
             <h2 className="font-display text-3xl sm:text-4xl font-bold text-stone-900">
-              We Build <span className="text-gold-gradient">Every Kind</span> of Website
+              I Build <span className="text-gold-gradient">Every Kind</span> of Website
             </h2>
             <p className="mt-4 text-stone-600">
-              Whatever your business needs — a store, a directory, a booking platform or a full web app — one team designs, builds and launches it, complete.
+              Whatever your business needs — a store, a directory, a booking platform or a full web app — I design, build and launch it, complete.
             </p>
           </div>
           <div className="max-w-3xl mx-auto mb-12 rounded-2xl bg-orange-100 border border-orange-200 px-6 py-4 text-center text-sm sm:text-base text-stone-700">
@@ -231,7 +231,7 @@ export default async function HomePage() {
       {/* ---------- PRICING PREVIEW ---------- */}
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4">
-          <SectionHead eyebrow="Our packages" title="Pick a package, launch your store" sub="Message us on WhatsApp for pricing — no advance needed to talk." />
+          <SectionHead eyebrow="Packages & pricing" title="Pick a package, launch your store" sub="Transparent one-time pricing — Starter $80, Business $150, Pro $300. No monthly fees, no advance needed to talk." />
           <PricingCards />
           <p className="text-center mt-8 text-sm text-stone-500">
             Need something custom? <Link href="/contact" className="text-orange-700 font-semibold underline">Tell me about your project</Link> — I'll quote it personally.
@@ -289,7 +289,7 @@ export default async function HomePage() {
             <Link href="/contact" className={btnPrimary}>Get a Free Quote <Icon name="arrow" className="w-5 h-5" /></Link>
             <a href={waHref} target="_blank" rel="noopener noreferrer" className={btnOutline}>WhatsApp Me</a>
           </div>
-          <p className="mt-6 text-xs text-stone-500">No advance needed to talk — message us on WhatsApp anytime</p>
+          <p className="mt-6 text-xs text-stone-500">No advance needed to talk — message me on WhatsApp anytime</p>
         </div>
       </section>
     </>

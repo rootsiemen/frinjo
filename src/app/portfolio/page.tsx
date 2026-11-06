@@ -15,7 +15,14 @@ export const metadata = {
       "Portfolio of websites and online stores built by WebStore Pro: clothing stores, fashion shops and web tools — real projects with admin panels and COD checkout.",
     url: "https://frinjo.me/portfolio",
     type: "website",
-    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro portfolio — websites and online stores I have built" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Portfolio — Websites I've Built | WebStore Pro",
+    description:
+      "Portfolio of websites and online stores built by WebStore Pro: clothing stores, fashion shops and web tools — real projects with admin panels and COD checkout.",
+    images: ["/og-default.jpg"],
   },
 };
 

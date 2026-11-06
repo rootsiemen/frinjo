@@ -4,16 +4,24 @@ import { SectionHead, Icon, btnPrimary, btnOutline } from "@/components/ui";
 
 export const dynamic = "force-dynamic";
 
+const FAQ_DESC = `Frequently asked questions about ${BRAND.name} website packages: delivery time, pricing (from $80), payments, admin panel, and what you need to get started.`;
+
 export const metadata = {
-  title: `FAQ — ${BRAND.name}`,
-  description: `Frequently asked questions about ${BRAND.name} website packages: delivery time, pricing, payments, admin panel, and what you need to get started.`,
+  title: "FAQ — Website Packages, Pricing & Delivery",
+  description: FAQ_DESC,
   alternates: { canonical: "https://frinjo.me/faq" },
   openGraph: {
-    title: `FAQ — ${BRAND.name} | WebStore Pro`,
-    description: `Frequently asked questions about ${BRAND.name} website packages: delivery time, pricing, payments, admin panel, and what you need to get started.`,
+    title: "FAQ — Website Packages, Pricing & Delivery | WebStore Pro",
+    description: FAQ_DESC,
     url: "https://frinjo.me/faq",
     type: "website",
-    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro FAQ — website packages, pricing and delivery" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "FAQ — Website Packages, Pricing & Delivery | WebStore Pro",
+    description: FAQ_DESC,
+    images: ["/og-default.jpg"],
   },
 };
 
