@@ -167,6 +167,24 @@ const TOOLS: Tool[] = [
     desc: "The exact duration between two dates and times in hours, minutes and seconds — plus decimal hours for timesheets, and add/subtract hours and minutes.",
   },
   {
+    name: "Epoch Converter",
+    href: "/epoch-converter",
+    tag: "Developers · Time",
+    desc: "Unix timestamps to human dates and back — seconds, milliseconds, microseconds and nanoseconds with auto unit detection, a live current-epoch clock, UTC + local time and relative time ('3 days ago').",
+  },
+  {
+    name: "UUID Generator",
+    href: "/uuid-generator",
+    tag: "Developers · Databases",
+    desc: "Bulk UUIDs up to 500 at once — v4 random and v7 time-ordered (RFC 9562), uppercase and no-hyphen formats, copy-all and .txt download, plus a validator that reports version and variant.",
+  },
+  {
+    name: "Base64 Encoder / Decoder",
+    href: "/base64-encoder-decoder",
+    tag: "Developers · Data",
+    desc: "Text and files to Base64 and back, fully UTF-8 safe so emoji and accents survive, with a URL-safe alphabet option, decoded-size preview and honest error messages. 100% in-browser.",
+  },
+  {
     name: "Dice Roller",
     href: "/dice-roller",
     tag: "Games · RPG",
@@ -197,10 +215,40 @@ const TOOLS: Tool[] = [
     desc: "Ovulation date and fertile window from your last period, plus next period, earliest test day and an estimated due date — with the real limits of calendar methods stated upfront.",
   },
   {
+    name: "Period Calculator",
+    href: "/period-calculator",
+    tag: "Health · Planning",
+    desc: "Next period date from your last period and cycle length — with a ±2-day window, today's cycle day and phase, fertile window and ovulation estimate, and a forecast table for the next 3 cycles. Nothing stored.",
+  },
+  {
+    name: "Body Fat Calculator",
+    href: "/body-fat-calculator",
+    tag: "Health · Fitness",
+    desc: "Body fat % by the US Navy circumference method (neck, waist, hip) in inches or cm — plus ACE category, fat mass, lean mass and the scale weight that matches a target body fat %.",
+  },
+  {
+    name: "Running Pace Calculator",
+    href: "/running-pace-calculator",
+    tag: "Running · Racing",
+    desc: "Pace per km or mile, finish-time prediction and distance modes with 5K, 10K, half-marathon, marathon and 50K presets — and a full even-split table for race day.",
+  },
+  {
     name: "Percentage Calculator",
     href: "/percentage-calculator",
     tag: "Math · Money",
     desc: "All five percentage modes on one page — % of a number, percentage increase/decrease, discounts, and reverse percentages, each with its formula printed under the result.",
+  },
+  {
+    name: "Tip Calculator",
+    href: "/tip-calculator",
+    tag: "Food · Money",
+    desc: "Tip, tax and bill split in one: preset or custom tip %, tip on pre- or post-tax amount, split between up to 50 people with each person's share and tip broken out, plus a round-up option for cash.",
+  },
+  {
+    name: "Discount Calculator",
+    href: "/discount-calculator",
+    tag: "Shopping · Money",
+    desc: "Sale price and savings from any % off, stacked discounts done correctly (they multiply, not add), sales tax after discount, and reverse modes for the true % off or the original price.",
   },
   {
     name: "Final Grade Calculator",
