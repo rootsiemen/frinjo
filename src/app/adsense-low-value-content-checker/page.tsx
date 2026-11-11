@@ -5,7 +5,7 @@ import LowValueChecker from "./LowValueChecker";
 export const metadata = {
   title: "AdSense Low Value Content Checker — Free, No Sign-Up",
   description:
-    "Free AdSense low value content checker: paste any article and get a Low Value Risk Score out of 100 with the exact gaps to fix — plus a guided 1,600-word article creator. In-browser.",
+    "Free AdSense low value content checker: enter any article URL and get a Low Value Risk Score out of 100 from the live page, with the exact gaps to fix — plus a guided 1,600-word article creator. Paste-text mode included.",
   keywords: [
     "adsense low value content",
     "low value content checker",
@@ -21,7 +21,7 @@ export const metadata = {
     images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "WebStore Pro — Frinjo" }],
     title: "AdSense Low Value Content Checker — Fix Low Value Rejections | WebStore Pro",
     description:
-      "Paste an article, get a Low Value Risk Score with every gap named — word count, sections, FAQ, images, internal links, duplicate similarity — then rebuild it with the guided article creator.",
+      "Enter an article URL, get a Low Value Risk Score with every gap named — word count, sections, FAQ, images, internal links, duplicate similarity — then rebuild it with the guided article creator.",
     url: "https://frinjo.me/adsense-low-value-content-checker",
     type: "website",
   },
@@ -37,7 +37,7 @@ const appJsonLd = {
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   author: { "@type": "Organization", name: "WebStore Pro", url: "https://frinjo.me" },
   description:
-    "Free in-browser checker for Google AdSense 'low value content' rejections. Paste an article as text, Markdown or HTML and it measures word count against the 1,500-word thin-content line, section/heading count against 6, FAQ presence, image count against 3, internal vs external link counts with 3 internal links as the target, list and table presence, and target keyword density. An optional second pasted article enables a duplicate-similarity check using 3-word shingle Jaccard overlap, the classic near-duplicate template trigger. Results are a Low Value Risk Score out of 100 (0-25 low risk, 26-55 medium, 56+ high) with a fix checklist naming the exact gap for every failing item, plus an unscored site-level checklist. The built-in article creator turns a keyword into a scaffold: 3 title options, an introduction prompt, 6 guided H2 sections with writing prompts and per-section word counts, a comparison-table template exported as a real HTML table, 5 FAQ question templates with answer prompts, and a conclusion prompt, with a live total word counter and progress bar to 1,600 words and one-click export as HTML or Markdown. All analysis runs client-side; pasted text is never uploaded or stored.",
+    "Free checker for Google AdSense 'low value content' rejections. Enter the URL of any published article and the checker fetches the live page server-side and measures its real numbers: word count against the 1,500-word thin-content line, H2/H3 section count against 6, FAQ presence, image count against 3, internal vs external link counts relative to the page's own host with 3 internal links as the target, list and table presence, and target keyword density. Drafts can still be pasted as text, Markdown or HTML instead. An optional second pasted article enables a duplicate-similarity check using 3-word shingle Jaccard overlap, the classic near-duplicate template trigger. Results are a Low Value Risk Score out of 100 (0-25 low risk, 26-55 medium, 56+ high) with a fix checklist naming the exact gap for every failing item, plus an unscored site-level checklist. The built-in article creator turns a keyword into a scaffold: 3 title options, an introduction prompt, 6 guided H2 sections with writing prompts and per-section word counts, a comparison-table template exported as a real HTML table, 5 FAQ question templates with answer prompts, and a conclusion prompt, with a live total word counter and progress bar to 1,600 words and one-click export as HTML or Markdown. Fetched pages are measured once and never stored; pasted text is analysed in the browser and never uploaded.",
 };
 
 const breadcrumbJsonLd = {
@@ -65,7 +65,7 @@ const FAQS: [string, string][] = [
   ],
   [
     "Does duplicate content trigger a low value content rejection?",
-    "Yes — it is one of the most common triggers. The classic pattern is one template published dozens of times with only the keyword, product or city changed. Google reads that as many pages but one piece of content. Paste your article and a second article from your site into the checker: the similarity score uses 3-word-phrase overlap, and anything above roughly 30% means the two share enough wording and structure to be risky.",
+    "Yes — it is one of the most common triggers. The classic pattern is one template published dozens of times with only the keyword, product or city changed. Google reads that as many pages but one piece of content. Check your article by URL (or paste it), then paste a second article from your site into the checker: the similarity score uses 3-word-phrase overlap, and anything above roughly 30% means the two share enough wording and structure to be risky.",
   ],
   [
     "What else does Google check besides my articles?",
@@ -73,7 +73,7 @@ const FAQS: [string, string][] = [
   ],
   [
     "Is my article text uploaded or stored?",
-    "No. The auditor, the similarity check and the article creator all run in your browser with JavaScript — the text you paste never leaves your device, and nothing is saved when you close the page. That also means the creator cannot keep a draft for you, so export your article with the copy buttons before you leave.",
+    "No. When you check by URL, our server fetches the page once to measure it and stores nothing about it. When you paste text instead, the auditor, the similarity check and the article creator all run in your browser with JavaScript — the text never leaves your device, and nothing is saved when you close the page. That also means the creator cannot keep a draft for you, so export your article with the copy buttons before you leave.",
   ],
 ];
 
@@ -101,7 +101,7 @@ export default function LowValueCheckerPage() {
       <section id="top" className="bg-orange-50 dot-grid pt-16 sm:pt-24 overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <span className="inline-block text-[11px] font-bold uppercase tracking-[0.15em] bg-orange-600 text-white rounded-full px-3 py-1 mb-5">
-            Free · No sign-up · Runs in your browser
+            Free · No sign-up · Live URL check
           </span>
           <h1 className="font-display text-5xl sm:text-7xl font-bold text-stone-900 leading-tight">
             AdSense <span className="text-gold-gradient">Low Value Content</span> Checker
@@ -110,10 +110,12 @@ export default function LowValueCheckerPage() {
             Find the exact gaps behind a “low value content” rejection
           </p>
           <p className="mt-5 text-lg text-stone-600 max-w-2xl mx-auto leading-relaxed">
-            Google&apos;s rejection email never says which page failed or why. Paste your article here and get a{" "}
-            <strong>Low Value Risk Score out of 100</strong> with every measured gap named — word count, sections,
-            FAQ, images, internal links and duplicate similarity — then rebuild the article with the guided{" "}
-            <strong>1,600-word creator</strong> until the checklist is green.
+            Google&apos;s rejection email never says which page failed or why. Enter the URL of any published
+            article and get a{" "}
+            <strong>Low Value Risk Score out of 100</strong> scored from the live page, with every measured gap
+            named — word count, sections, FAQ, images, internal links and duplicate similarity — then rebuild
+            the article with the guided <strong>1,600-word creator</strong> until the checklist is green.
+            Checking a draft instead? Paste its text — that still works too.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-2.5 text-sm font-semibold text-stone-600">
             {["Risk score /100", "Fix checklist with exact numbers", "Duplicate similarity check", "Guided article creator"].map((chip) => (
@@ -132,7 +134,7 @@ export default function LowValueCheckerPage() {
           <SectionHead
             eyebrow="The audit"
             title="What does the Low Value Content Checker measure?"
-            sub="Three groups of signals decide whether a page looks like real, original content or like filler built to carry ads. The auditor measures all three from the text you paste."
+            sub="Three groups of signals decide whether a page looks like real, original content or like filler built to carry ads. The auditor measures all three from the live page at the URL you enter — or from text you paste."
           />
           <div className="grid gap-5 md:grid-cols-3 text-left">
             <div className={card}>

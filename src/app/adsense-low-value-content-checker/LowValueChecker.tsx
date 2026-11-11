@@ -352,6 +352,12 @@ const areaCls =
   "w-full rounded-3xl border border-stone-300 bg-white px-5 py-4 text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200 leading-relaxed";
 const labelCls = "block text-[11px] font-bold uppercase tracking-[0.15em] text-stone-500 mb-2";
 
+interface FetchedPage {
+  finalUrl: string;
+  title: string;
+  html: string;
+}
+
 export default function LowValueChecker() {
   const [mode, setMode] = useState<"auditor" | "creator">("auditor");
 
@@ -359,7 +365,47 @@ export default function LowValueChecker() {
   const [article, setArticle] = useState("");
   const [compare, setCompare] = useState("");
   const [keyword, setKeyword] = useState("");
-  const result = useMemo(() => (article.trim() ? analyze(article, compare, keyword) : null), [article, compare, keyword]);
+  const [url, setUrl] = useState("");
+  const [checking, setChecking] = useState(false);
+  const [checkError, setCheckError] = useState("");
+  const [fetched, setFetched] = useState<FetchedPage | null>(null);
+
+  // A fetched page (by URL) is scored through the exact same analyze()
+  // pipeline as pasted text — the API returns the page HTML normalised so
+  // the numbers are the page's real published numbers.
+  const result = useMemo(() => {
+    if (fetched) return analyze(fetched.html, compare, keyword);
+    return article.trim() ? analyze(article, compare, keyword) : null;
+  }, [fetched, article, compare, keyword]);
+
+  async function checkUrl() {
+    const u = url.trim();
+    if (!u || checking) return;
+    setChecking(true);
+    setCheckError("");
+    try {
+      const res = await fetch("/api/low-value-audit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url: u }),
+      });
+      const data = (await res.json()) as {
+        error?: string;
+        finalUrl?: string;
+        title?: string;
+        html?: string;
+      };
+      if (!res.ok || data.error || !data.html) {
+        setCheckError(data.error ?? "The check failed. Please try again.");
+        return;
+      }
+      setFetched({ finalUrl: data.finalUrl ?? u, title: data.title ?? "", html: data.html });
+    } catch {
+      setCheckError("The check failed — the page could not be fetched. Please try again.");
+    } finally {
+      setChecking(false);
+    }
+  }
 
   /* creator state */
   const [cKeyword, setCKeyword] = useState("");
@@ -481,7 +527,62 @@ export default function LowValueChecker() {
 
           {mode === "auditor" && (
             <div className="max-w-3xl mx-auto">
-              <label className={labelCls} htmlFor="lvc-keyword">
+              <label className={labelCls} htmlFor="lvc-url">
+                Article URL — audit the live page
+              </label>
+              <form
+                className="flex flex-col sm:flex-row gap-3"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  void checkUrl();
+                }}
+              >
+                <input
+                  id="lvc-url"
+                  type="text"
+                  value={url}
+                  onChange={(e) => setUrl(e.target.value)}
+                  placeholder="https://yoursite.com/your-article"
+                  autoComplete="off"
+                  className={`${inputCls} flex-1`}
+                />
+                <button type="submit" disabled={checking} className={`${btnPrimary} justify-center disabled:opacity-60`}>
+                  {checking ? "Fetching page…" : "Check URL →"}
+                </button>
+              </form>
+              <p className="mt-3 text-sm text-stone-500 leading-relaxed">
+                We fetch the published page and score its real numbers — visible word count, H2/H3
+                sections, images, internal vs external links, FAQ, lists and tables. The page is
+                fetched once and never stored.
+              </p>
+              {checkError && (
+                <p className="mt-3 rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-700">
+                  {checkError}
+                </p>
+              )}
+              {fetched && (
+                <div className="mt-4 rounded-2xl border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-900">
+                  <span className="font-semibold">Now auditing:</span>{" "}
+                  {fetched.title ? <span className="font-medium">{fetched.title}</span> : null}{" "}
+                  <a
+                    href={fetched.finalUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-orange-700 hover:text-orange-800 break-all"
+                  >
+                    {fetched.finalUrl}
+                  </a>{" "}
+                  <button
+                    type="button"
+                    className="ml-2 font-semibold text-stone-500 hover:text-stone-700"
+                    onClick={() => setFetched(null)}
+                  >
+                    Clear
+                  </button>
+                </div>
+              )}
+
+              <label className={`${labelCls} mt-6`} htmlFor="lvc-keyword">
                 Target keyword (optional — enables the density check)
               </label>
               <input
@@ -493,17 +594,56 @@ export default function LowValueChecker() {
                 autoComplete="off"
                 className={inputCls}
               />
-              <label className={`${labelCls} mt-6`} htmlFor="lvc-article">
-                Your article — paste text, Markdown or HTML
-              </label>
-              <textarea
-                id="lvc-article"
-                value={article}
-                onChange={(e) => setArticle(e.target.value)}
-                placeholder="Paste the full article here. Headings are counted from HTML (&lt;h2&gt;) or Markdown (##) markup — everything is analysed live, in your browser."
-                rows={12}
-                className={areaCls}
-              />
+
+              <details className="mt-6 rounded-3xl border border-stone-200 bg-white/70 px-5 py-4">
+                <summary className="cursor-pointer font-semibold text-stone-800">
+                  Or paste the article text instead (drafts &amp; offline checks)
+                </summary>
+                <p className="mt-2 text-sm text-stone-500 leading-relaxed">
+                  Checking an unpublished draft? Paste its text, Markdown or HTML here — headings are
+                  counted from HTML (&lt;h2&gt;) or Markdown (##) markup, and pasted text is analysed
+                  in your browser and never leaves your device. Pasting switches the audit away from
+                  the fetched URL above.
+                </p>
+                <textarea
+                  id="lvc-article"
+                  value={article}
+                  onChange={(e) => {
+                    setArticle(e.target.value);
+                    if (fetched) setFetched(null);
+                  }}
+                  placeholder="Paste the full article here"
+                  rows={12}
+                  className={`${areaCls} mt-3`}
+                />
+                <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
+                  <button
+                    type="button"
+                    className="font-semibold text-orange-700"
+                    onClick={() => {
+                      setArticle(THIN_SAMPLE);
+                      if (fetched) setFetched(null);
+                    }}
+                  >
+                    Load a thin sample article →
+                  </button>
+                  <button
+                    type="button"
+                    className="font-semibold text-stone-500"
+                    onClick={() => {
+                      setArticle("");
+                      setCompare("");
+                      setKeyword("");
+                    }}
+                  >
+                    Clear
+                  </button>
+                  <span className="text-stone-500">
+                    Relative links (like /another-page) count as internal.
+                  </span>
+                </div>
+              </details>
+
               <details className="mt-4 rounded-3xl border border-stone-200 bg-white/70 px-5 py-4">
                 <summary className="cursor-pointer font-semibold text-stone-800">
                   Compare against a second article (duplicate / near-duplicate check)
@@ -521,29 +661,6 @@ export default function LowValueChecker() {
                   className={`${areaCls} mt-3`}
                 />
               </details>
-              <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
-                <button
-                  type="button"
-                  className="font-semibold text-orange-700"
-                  onClick={() => setArticle(THIN_SAMPLE)}
-                >
-                  Load a thin sample article →
-                </button>
-                <button
-                  type="button"
-                  className="font-semibold text-stone-500"
-                  onClick={() => {
-                    setArticle("");
-                    setCompare("");
-                    setKeyword("");
-                  }}
-                >
-                  Clear
-                </button>
-                <span className="text-stone-500">
-                  Relative links (like /another-page) count as internal. Nothing you paste leaves your device.
-                </span>
-              </div>
             </div>
           )}
 
@@ -594,8 +711,21 @@ export default function LowValueChecker() {
                 {result.a.band} — {result.a.risk}/100 risk
               </p>
               <p className="mt-3 text-sm text-stone-500">
-                Scored live from the text you pasted — word depth, structure, originality signals and
-                engagement elements only. Site-level checks are listed under the checklist.
+                {fetched ? (
+                  <>
+                    Scored from the live page just fetched —{" "}
+                    <a href={fetched.finalUrl} target="_blank" rel="noopener noreferrer" className="font-semibold text-orange-700 hover:text-orange-800 break-all">
+                      {fetched.title || fetched.finalUrl}
+                    </a>{" "}
+                    — its real published word depth, structure, originality signals and engagement
+                    elements. Site-level checks are listed under the checklist.
+                  </>
+                ) : (
+                  <>
+                    Scored live from the text you pasted — word depth, structure, originality signals and
+                    engagement elements only. Site-level checks are listed under the checklist.
+                  </>
+                )}
               </p>
             </div>
 
@@ -647,7 +777,7 @@ export default function LowValueChecker() {
 
             <h3 className="font-display text-2xl font-bold text-stone-900 mt-10">Fix checklist — exact gaps</h3>
             <p className="mt-2 text-stone-600">
-              Every item is measured from your pasted article. Fix the red items first — they are the
+              Every item is measured from {fetched ? "the fetched page" : "your pasted article"}. Fix the red items first — they are the
               measurable signals behind a “low value content” rejection.
             </p>
             <div className="mt-4 rounded-3xl border border-stone-200 bg-white px-6 py-2">
@@ -839,7 +969,7 @@ export default function LowValueChecker() {
               </button>
             </div>
             <p className="mt-4 text-center text-sm text-stone-500">
-              Before publishing: paste the exported article into the <strong>Audit</strong> tab above and
+              Before publishing: enter the exported article&apos;s URL in the <strong>Audit</strong> tab above (or paste its text) and
               clear every red checklist item.
             </p>
           </div>
