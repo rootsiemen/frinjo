@@ -59,6 +59,12 @@ const TOOLS: Tool[] = [
     desc: "Paste any article and get a Low Value Risk Score out of 100 with the exact gaps to fix — word count, sections, FAQ, images, internal links and duplicate similarity — plus a guided creator that scaffolds a 1,600-word article and exports it as HTML or Markdown. Runs in your browser.",
   },
   {
+    name: "AdSense Tools",
+    href: "/adsense",
+    tag: "AdSense",
+    desc: "All-in-one AdSense suite: site checker with a health score, approval and eligibility verdicts, ban-risk signals, ads.txt checker and generator, publisher ID finder, low value checker by URL and an earnings calculator — nine tools on one page.",
+  },
+  {
     name: "IP Address Tracker",
     href: "/ip-address-tracker",
     tag: "Privacy · Network",
