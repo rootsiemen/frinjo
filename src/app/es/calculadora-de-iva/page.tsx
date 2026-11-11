@@ -22,7 +22,8 @@ export const metadata = {
     languages: {
       es: "https://frinjo.me/es/calculadora-de-iva",
       fr: "https://frinjo.me/fr/calcul-tva",
-      "x-default": "https://frinjo.me/es/calculadora-de-iva",
+      en: "https://frinjo.me/vat-calculator",
+      "x-default": "https://frinjo.me/vat-calculator",
     },
   },
   openGraph: {

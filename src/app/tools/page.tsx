@@ -425,6 +425,18 @@ const TOOLS: Tool[] = [
     desc: "Your Body Mass Index on the WHO scale in imperial or metric, with the healthy weight range for your exact height. Instant and private.",
   },
   {
+    name: "VAT Calculator",
+    href: "/vat-calculator",
+    tag: "Finance · Tax",
+    desc: "Add or remove VAT for 11 countries — Spain, Mexico and Latin America — with multi-line invoices, optional withholdings and the total in words. Free, no sign-up.",
+  },
+  {
+    name: "QR Code Generator",
+    href: "/qr-code-generator",
+    tag: "Generator · Business",
+    desc: "Free QR codes with no watermark and no expiry: URL, text, WiFi, vCard, WhatsApp, email and phone. Download as a 1024px PNG or a vector SVG, generated entirely in your browser.",
+  },
+  {
     name: "Sun, Moon & Rising Calculator",
     href: "/sun-moon-rising-calculator",
     tag: "Astrology · Big Three",

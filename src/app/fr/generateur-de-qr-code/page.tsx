@@ -20,7 +20,8 @@ export const metadata = {
     languages: {
       fr: "https://frinjo.me/fr/generateur-de-qr-code",
       es: "https://frinjo.me/es/generador-de-codigos-qr",
-      "x-default": "https://frinjo.me/es/generador-de-codigos-qr",
+      en: "https://frinjo.me/qr-code-generator",
+      "x-default": "https://frinjo.me/qr-code-generator",
     },
   },
   openGraph: {
