@@ -44,9 +44,13 @@ export interface AdsenseAudit {
     hasGoogleLine: boolean;
     googlePubIds: string[];
   };
-  policy: { about: boolean; contact: boolean; privacy: boolean; terms: boolean };
+  policy: { about: boolean; contact: boolean; privacy: boolean; terms: boolean; disclaimer: boolean };
+  /** URL where each policy page was found (probe target or homepage link), when found. */
+  policyUrls: Partial<Record<PolicyKey, string>>;
   error?: string;
 }
+
+export type PolicyKey = "about" | "contact" | "privacy" | "terms" | "disclaimer";
 
 const UA =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 FrinjoAdsenseChecker/1.0 (+https://frinjo.me/adsense)";
@@ -157,12 +161,58 @@ async function fetchFollowing(start: string, cap: number, timeout = TIMEOUT_MS):
   return null;
 }
 
-async function probeExists(origin: string, paths: string[]): Promise<boolean> {
+/** Probe candidate paths in order; return the final URL of the first 2xx hit. */
+async function probeFirst(origin: string, paths: string[]): Promise<string | null> {
   for (const p of paths) {
-    const r = await fetchFollowing(`${origin}${p}`, 2_000, 6_000);
-    if (r && r.status >= 200 && r.status < 300) return true;
+    const url = `${origin}${p}`;
+    const r = await fetchFollowing(url, 2_000, 6_000);
+    if (r && r.status >= 200 && r.status < 300) return r.finalUrl || url;
   }
-  return false;
+  return null;
+}
+
+/**
+ * Candidate paths per policy page type. The /p/<slug>.html entries are
+ * Blogger's page URL scheme (e.g. /p/about-us.html) — WordPress-style
+ * /about probes alone miss every Blogger policy page.
+ */
+const POLICY_PROBE_PATHS: Record<PolicyKey, string[]> = {
+  about: ["/about", "/about-us", "/p/about.html", "/p/about-us.html"],
+  contact: ["/contact", "/contact-us", "/p/contact.html", "/p/contact-us.html"],
+  privacy: ["/privacy-policy", "/privacy", "/p/privacy-policy.html", "/p/privacy.html"],
+  terms: ["/terms", "/terms-of-service", "/terms-and-conditions", "/p/terms.html", "/p/terms-and-conditions.html"],
+  disclaimer: ["/disclaimer", "/p/disclaimer.html"],
+};
+
+const POLICY_KEYS: PolicyKey[] = ["about", "contact", "privacy", "terms", "disclaimer"];
+
+/**
+ * Second detection method: scan the homepage's own anchor hrefs (single or
+ * double quotes) for same-host URLs whose path names a policy page. Most
+ * sites link their trust pages from the nav/footer, whatever the URL scheme.
+ */
+function discoverPolicyLinks(html: string, base: URL, pageHost: string): Partial<Record<PolicyKey, string>> {
+  const found: Partial<Record<PolicyKey, string>> = {};
+  for (const m of html.matchAll(/<a\s[^>]*href\s*=\s*["']([^"']+)["']/gi)) {
+    const href = m[1].trim();
+    if (!href || href.startsWith("#") || /^(mailto|tel|javascript|data):/i.test(href)) continue;
+    let u: URL;
+    try {
+      u = new URL(href, base);
+    } catch {
+      continue;
+    }
+    if ((u.protocol !== "http:" && u.protocol !== "https:") || bareHost(u.hostname) !== pageHost) continue;
+    const path = u.pathname.toLowerCase();
+    for (const key of POLICY_KEYS) {
+      if (!found[key] && path.includes(key)) {
+        found[key] = u.toString();
+        break;
+      }
+    }
+    if (POLICY_KEYS.every((k) => found[k])) break;
+  }
+  return found;
 }
 
 /* ------------------------------ text helpers ------------------------------ */
@@ -195,6 +245,25 @@ function stripToText(html: string): string {
 
 function bareHost(hostname: string): string {
   return hostname.toLowerCase().replace(/^www\./, "");
+}
+
+/**
+ * Meta description detection that survives real-world tag shapes: any
+ * attribute order and single or double quotes (Blogger emits
+ * <meta content='...' name='description'/> — content BEFORE name).
+ * Parses each <meta> tag as a string, then looks for name=description or
+ * property=og:description with a non-trivial content value inside it.
+ */
+function hasMetaDescription(html: string): boolean {
+  for (const m of html.matchAll(/<meta\b[^>]*>/gi)) {
+    const tag = m[0];
+    const isDescription =
+      /name\s*=\s*["']description["']/i.test(tag) || /property\s*=\s*["']og:description["']/i.test(tag);
+    if (!isDescription) continue;
+    const content = tag.match(/content\s*=\s*["']([^"']*)["']/i);
+    if (content && content[1].trim().length >= 10) return true;
+  }
+  return false;
 }
 
 /** Parse robots.txt groups; an agent is blocked when its group (or *) has Disallow: /. */
@@ -257,7 +326,7 @@ export async function runAdsenseAudit(rawUrl: string): Promise<AdsenseAudit | { 
 
   const titleMatch = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
   const title = titleMatch ? decodeEntities(titleMatch[1]).replace(/\s+/g, " ").trim() : "";
-  const metaDescription = /<meta[^>]+name\s*=\s*["']description["'][^>]*content\s*=\s*["'][^"']{10,}["']/i.test(html);
+  const metaDescription = hasMetaDescription(html);
   const noindex =
     /<meta[^>]+name\s*=\s*["']robots["'][^>]*content\s*=\s*["'][^"']*noindex/i.test(html) ||
     /<meta[^>]+content\s*=\s*["'][^"']*noindex["'][^>]*name\s*=\s*["']robots["']/i.test(html);
@@ -285,15 +354,30 @@ export async function runAdsenseAudit(rawUrl: string): Promise<AdsenseAudit | { 
   const autoAdsLoader = /pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js/i.test(html);
   const manualUnits = (html.match(/data-ad-slot\s*=/gi) ?? []).length;
 
-  const [robotsRes, sitemapRes, adsTxtRes, about, contact, privacy, terms] = await Promise.all([
+  /* Policy pages: homepage-link discovery first (free, scheme-agnostic),
+     then path probes — including Blogger /p/<slug>.html variants — only
+     for the types the homepage does not link. Either method counts. */
+  const discoveredPolicy = discoverPolicyLinks(html, finalUrl, pageHost);
+  const [robotsRes, sitemapRes, adsTxtRes] = await Promise.all([
     fetchFollowing(`${origin}/robots.txt`, SMALL_CAP, 8_000),
     fetchFollowing(`${origin}/sitemap.xml`, SMALL_CAP, 8_000),
     fetchFollowing(`${origin}/ads.txt`, SMALL_CAP, 8_000),
-    probeExists(origin, ["/about", "/about-us"]),
-    probeExists(origin, ["/contact", "/contact-us"]),
-    probeExists(origin, ["/privacy-policy", "/privacy"]),
-    probeExists(origin, ["/terms", "/terms-of-service", "/terms-and-conditions"]),
   ]);
+  const probedPolicy = await Promise.all(
+    POLICY_KEYS.map((k) => (discoveredPolicy[k] ? Promise.resolve(discoveredPolicy[k]) : probeFirst(origin, POLICY_PROBE_PATHS[k]))),
+  );
+  const policyUrls: Partial<Record<PolicyKey, string>> = {};
+  POLICY_KEYS.forEach((k, i) => {
+    const u = probedPolicy[i];
+    if (u) policyUrls[k] = u;
+  });
+  const policy = {
+    about: !!policyUrls.about,
+    contact: !!policyUrls.contact,
+    privacy: !!policyUrls.privacy,
+    terms: !!policyUrls.terms,
+    disclaimer: !!policyUrls.disclaimer,
+  };
 
   const robotsExists = !!robotsRes && robotsRes.status === 200 && !/^\s*</.test(robotsRes.body);
   const blocks = robotsExists
@@ -348,6 +432,7 @@ export async function runAdsenseAudit(rawUrl: string): Promise<AdsenseAudit | { 
       hasGoogleLine: googleLines.length > 0,
       googlePubIds,
     },
-    policy: { about, contact, privacy, terms },
+    policy,
+    policyUrls,
   };
 }

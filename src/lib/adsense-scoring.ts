@@ -111,20 +111,49 @@ export function buildSiteReport(a: AdsenseAudit): SiteReport {
     weight: 10,
   });
 
-  /* Policy pages — 20 (5 each) */
-  const policyItems: [keyof AdsenseAudit["policy"], string, string][] = [
-    ["about", "About page", "/about"],
-    ["contact", "Contact page", "/contact"],
-    ["privacy", "Privacy Policy page", "/privacy-policy"],
-    ["terms", "Terms page", "/terms"],
+  /* Policy pages — 20 (5 each). Each check carries its OWN fix text. */
+  const policyItems: { key: "about" | "contact" | "privacy" | "terms"; label: string; path: string; fix: string }[] = [
+    {
+      key: "about",
+      label: "About page",
+      path: "/about",
+      fix: "Publish a real About page that says who runs the site, what it publishes and why readers can trust it, and link it from the footer or main menu — reviewers look for an identifiable publisher behind the content, and anonymous sites read as low-trust.",
+    },
+    {
+      key: "contact",
+      label: "Contact page",
+      path: "/contact",
+      fix: "Publish a Contact page with a working way to reach the publisher — an email address or a contact form — and link it from the footer. A site nobody can contact looks abandoned to reviewers and gives dissatisfied visitors nowhere to go but a policy report.",
+    },
+    {
+      key: "privacy",
+      label: "Privacy Policy page",
+      path: "/privacy-policy",
+      fix: "Publish a Privacy Policy that discloses third-party advertising cookies (state plainly that Google AdSense uses cookies to serve ads based on prior visits), any analytics you run, and how visitors can opt out — then link it from the footer. This disclosure is effectively required before AdSense will approve a site.",
+    },
+    {
+      key: "terms",
+      label: "Terms page",
+      path: "/terms",
+      fix: "Publish a Terms page covering acceptable use of the site, who owns the content and your liability limits, and link it from the footer — it completes the trust-page set reviewers check alongside About, Contact and Privacy.",
+    },
   ];
-  for (const [key, label, path] of policyItems) {
+  for (const { key, label, path, fix } of policyItems) {
     const ok = a.policy[key];
+    const foundUrl = a.policyUrls?.[key];
+    let detail: string;
+    if (ok) {
+      detail = foundUrl ? `${label} found: ${foundUrl}` : `${label} found (${path} or a close variant responds).`;
+    } else if (key === "terms" && a.policyUrls?.disclaimer) {
+      detail = `No terms page found at ${path} or its common variants. A Disclaimer page was found (${a.policyUrls.disclaimer}) — useful, but it does not replace a Terms page.`;
+    } else {
+      detail = `No ${label.toLowerCase()} found at ${path} or its common variants.`;
+    }
     checks.push({
       name: label,
       status: ok ? "pass" : "fail",
-      detail: ok ? `${label} found (${path} or a close variant responds).` : `No ${label.toLowerCase()} found at ${path} or its common variants.`,
-      fix: `Publish a real ${label.toLowerCase()} and link it from the footer — reviewers check trust pages, and a Privacy Policy that mentions advertising cookies is effectively required for AdSense.`,
+      detail,
+      fix,
       earned: ok ? 1 : 0,
       weight: 5,
     });

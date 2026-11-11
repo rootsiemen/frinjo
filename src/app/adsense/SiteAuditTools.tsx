@@ -184,7 +184,7 @@ export default function SiteAuditTools() {
                   <li>Title: <strong>{audit.title || "—"}</strong></li>
                   <li>Homepage: <strong>{audit.words.toLocaleString()}</strong> words · <strong>{audit.internalLinks}</strong> internal links · HTTPS: <strong>{audit.https ? "Yes" : "No"}</strong></li>
                   <li>Sitemap: <strong>{audit.sitemap.exists ? `${audit.sitemap.urlCount} URLs` : "Missing"}</strong> · ads.txt: <strong>{audit.adsTxt.exists ? (audit.adsTxt.hasGoogleLine ? "Live with Google line" : "Live, no Google line") : "Missing/broken"}</strong></li>
-                  <li>Policy pages: <strong>{[audit.policy.about && "About", audit.policy.contact && "Contact", audit.policy.privacy && "Privacy", audit.policy.terms && "Terms"].filter(Boolean).join(", ") || "None found"}</strong></li>
+                  <li>Policy pages: <strong>{[audit.policy.about && "About", audit.policy.contact && "Contact", audit.policy.privacy && "Privacy", audit.policy.terms && "Terms", audit.policy.disclaimer && "Disclaimer"].filter(Boolean).join(", ") || "None found"}</strong></li>
                 </ul>
               </div>
             </div>
