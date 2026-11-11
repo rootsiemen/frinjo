@@ -53,6 +53,12 @@ const TOOLS: Tool[] = [
     desc: "Enter a keyword and get a live SERP competition report, a difficulty score with its full breakdown, demand signals and related long-tail keywords.",
   },
   {
+    name: "AdSense Low Value Content Checker",
+    href: "/adsense-low-value-content-checker",
+    tag: "AdSense · Content",
+    desc: "Paste any article and get a Low Value Risk Score out of 100 with the exact gaps to fix — word count, sections, FAQ, images, internal links and duplicate similarity — plus a guided creator that scaffolds a 1,600-word article and exports it as HTML or Markdown. Runs in your browser.",
+  },
+  {
     name: "IP Address Tracker",
     href: "/ip-address-tracker",
     tag: "Privacy · Network",
